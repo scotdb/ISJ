@@ -129,11 +129,11 @@
 		<fo:block space-before.optimum="1em" space-before.minimum="0.8em" space-before.maximum="1.2em"/>
 		<fo:block xmlns:rx="http://www.renderx.com/XSL/Extensions" space-before.minimum="0.5em" space-before.optimum="1em" space-before.maximum="2em" space-after.minimum="0.5em" space-after.optimum="1em" space-after.maximum="2em" id="N200F4"><fo:table border-before-width.conditionality="retain" border-collapse="collapse" border-start-style="solid" border-end-style="solid" border-top-style="solid" border-bottom-style="solid" border-start-width="0.5pt" border-end-width="0.5pt" border-top-width="0.5pt" border-bottom-width="0.5pt" border-start-color="black" border-end-color="black" border-top-color="black" border-bottom-color="black" width="auto"><fo:table-column column-number="1"/><fo:table-column column-number="2"/><fo:table-body end-indent="0pt" start-indent="0pt"><fo:table-row><fo:table-cell padding-start="2pt" padding-end="2pt" padding-top="2pt" padding-bottom="2pt" border-end-width="0.5pt" border-end-style="solid" border-end-color="black"><fo:block>
 							<fo:block space-before.optimum="1em" space-before.minimum="0.8em" space-before.maximum="1.2em">
-								<fo:external-graphic src="url(/home/philip/workspace-3.6/ISJ2010-08/src/graphics3.png)" width="5.372cm" height="5.478cm" content-width="scale-to-fit" content-height="scale-to-fit"/>	
+								<fo:external-graphic src="url(/home/philip/workspace-3.6/ISJ/src/isj2010-08-purexml-OOo-graphics3.png)" width="5.372cm" height="5.478cm" content-width="scale-to-fit" content-height="scale-to-fit"/>	
 							</fo:block>
 						</fo:block></fo:table-cell><fo:table-cell padding-start="2pt" padding-end="2pt" padding-top="2pt" padding-bottom="2pt"><fo:block>
 							<fo:block space-before.optimum="1em" space-before.minimum="0.8em" space-before.maximum="1.2em">
-								<fo:external-graphic src="url(/home/philip/workspace-3.6/ISJ2010-08/src/graphics4.png)" width="11.17cm" height="7.536cm" content-width="scale-to-fit" content-height="scale-to-fit"/>
+								<fo:external-graphic src="url(/home/philip/workspace-3.6/ISJ/src/isj2010-08-purexml-OOo-graphics4.png)" width="11.17cm" height="7.536cm" content-width="scale-to-fit" content-height="scale-to-fit"/>
 							</fo:block>
 						</fo:block></fo:table-cell></fo:table-row></fo:table-body></fo:table></fo:block>
 		<fo:block space-before.optimum="1em" space-before.minimum="0.8em" space-before.maximum="1.2em">Table 2: Row in a ODF spreadsheet and as saved in

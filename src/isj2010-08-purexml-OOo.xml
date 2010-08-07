@@ -70,9 +70,11 @@
 			after  running the unzip command on an .ods file from command line to
 			list the files. The XML files are highlighted below.</docbook:para>
 		<docbook:para>
-		
-		<!-- Missing Figure 1 here -->
-		
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics1.png" width="11.17cm"	depth="7.536cm"/>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
 		</docbook:para>
 		<docbook:para>Here is a short description of XML files as seen
 			above.</docbook:para>
@@ -170,7 +172,7 @@
 							<docbook:para>
 								<docbook:inlinemediaobject>
 									<docbook:imageobject>
-										<docbook:imagedata fileref="graphics3.png"
+										<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics2.png"
 	width="5.372cm" depth="5.478cm" />
 									</docbook:imageobject>
 								</docbook:inlinemediaobject>	
@@ -180,7 +182,7 @@
 							<docbook:para>
 								<docbook:inlinemediaobject>
 									<docbook:imageobject>
-										<docbook:imagedata fileref="graphics4.png" width="11.17cm"	depth="7.536cm"/>
+										<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics3.png" width="11.17cm"	depth="7.536cm"/>
 									</docbook:imageobject>
 								</docbook:inlinemediaobject>
 							</docbook:para>
@@ -220,6 +222,11 @@
 			</docbook:listitem>
 		</docbook:orderedlist>
 		<docbook:para>
+					<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics1.png" width="11.17cm"	depth="7.536cm"/>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
 		
 		<!--  Missing Figure 2 here -->
 		
