@@ -1,17 +1,17 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><meta content="DocBook XSL Stylesheets V1.75.2" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#N2001B">Abstract</a></span></dt><dt><span class="sect1"><a href="#N20026">Introduction</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N2002E">The ODF specification</a></span></dt><dt><span class="sect2"><a href="#N2003F">DB2 pureXML</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20051">The ODF document</a></span></dt><dt><span class="sect1"><a href="#N20128">A bit of hacking</a></span></dt><dt><span class="sect1"><a href="#N2016A">Scheme of this article</a></span></dt><dt><span class="sect1"><a href="#N20194">Inserting XML document into DB2 table
-		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201A7">IMPORT statements</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N201C6">Converting the content.xml into row-column
-			format</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201CB">Getting the cell values from the XML file
-			</a></span></dt><dt><span class="sect2"><a href="#N201D4">The XPath expression</a></span></dt><dt><span class="sect2"><a href="#N2020E">The required query </a></span></dt></dl></dd><dt><span class="sect1"><a href="#N2028A">Shopping prices</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N20292">Building the list of shopping prices
-			</a></span></dt><dt><span class="sect2"><a href="#N202C0">View with list and cost of items</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N202D5">XQuery Update to build content.xml document
-		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N202E4">A quick side note on XQuery Update</a></span></dt><dt><span class="sect2"><a href="#N202EF">Generating the content.xml for the shopping
-				prices</a></span></dt><dt><span class="sect2"><a href="#N20309">Building the &lt;table:table-row&gt; elements</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N2034C">Next steps</a></span></dt><dt><span class="sect1"><a href="#N2036B">Resources</a></span></dt><dt><span class="sect1"><a href="#N203DD">Biography</a></span></dt></dl></div>
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><meta content="DocBook XSL Stylesheets V1.75.2" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#N2001C">Abstract</a></span></dt><dt><span class="sect1"><a href="#N20027">Introduction</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N2002F">The ODF specification</a></span></dt><dt><span class="sect2"><a href="#N20040">DB2 pureXML</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20052">The ODF document</a></span></dt><dt><span class="sect1"><a href="#N20132">A bit of hacking</a></span></dt><dt><span class="sect1"><a href="#N2017F">Scheme of this article</a></span></dt><dt><span class="sect1"><a href="#N201A9">Inserting XML document into DB2 table
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201BC">IMPORT statements</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N201DB">Converting the content.xml into row-column
+			format</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201E0">Getting the cell values from the XML file
+			</a></span></dt><dt><span class="sect2"><a href="#N201E9">The XPath expression</a></span></dt><dt><span class="sect2"><a href="#N20223">The required query </a></span></dt></dl></dd><dt><span class="sect1"><a href="#N2029F">Shopping prices</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N202A7">Building the list of shopping prices
+			</a></span></dt><dt><span class="sect2"><a href="#N202D5">View with list and cost of items</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N202EA">XQuery Update to build content.xml document
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N202F9">A quick side note on XQuery Update</a></span></dt><dt><span class="sect2"><a href="#N20304">Generating the content.xml for the shopping
+				prices</a></span></dt><dt><span class="sect2"><a href="#N2031E">Building the &lt;table:table-row&gt; elements</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20361">Next steps</a></span></dt><dt><span class="sect1"><a href="#N20380">Resources</a></span></dt><dt><span class="sect1"><a href="#N203F2">Biography</a></span></dt></dl></div>
 	<p>IDUG Using DB2 pureXML and ODF Spreadsheets
 	</p>
 	<p></p>
 	<p>Using DB2 pureXML and ODF Spreadsheets
 	</p>
 	<p></p>
-	<div class="sect1" title="Abstract"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2001B"></a>Abstract</h2></div></div></div>
+	<div class="sect1" title="Abstract"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2001C"></a>Abstract</h2></div></div></div>
 		
 		<p>ODF (Open Document Format) is a file format for
 			office documents. &nbsp;At a high level, the ODF specification requires
@@ -27,11 +27,11 @@
 			.ods as file format and DB2 pureXML as the database.</p>
 		<p></p>
 	</div>
-	<div class="sect1" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20026"></a>Introduction</h2></div></div></div>
+	<div class="sect1" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20027"></a>Introduction</h2></div></div></div>
 		
 		<p>The ODF specification and DB2 pureXML are introduced
 			below.</p>
-		<div class="sect2" title="The ODF specification"><div class="titlepage"><div><div><h3 class="title"><a name="N2002E"></a>The ODF specification</h3></div></div></div>
+		<div class="sect2" title="The ODF specification"><div class="titlepage"><div><div><h3 class="title"><a name="N2002F"></a>The ODF specification</h3></div></div></div>
 			
 			<p>
 				The Open Document Format specification was originally developed by
@@ -47,7 +47,7 @@
 				.
 			</p>
 		</div>
-		<div class="sect2" title="DB2 pureXML"><div class="titlepage"><div><div><h3 class="title"><a name="N2003F"></a>DB2 pureXML</h3></div></div></div>
+		<div class="sect2" title="DB2 pureXML"><div class="titlepage"><div><div><h3 class="title"><a name="N20040"></a>DB2 pureXML</h3></div></div></div>
 			
 			<p>
 
@@ -62,7 +62,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="sect1" title="The ODF document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20051"></a>The ODF document</h2></div></div></div>
+	<div class="sect1" title="The ODF document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20052"></a>The ODF document</h2></div></div></div>
 		
 		<p>An ODF document is a zipped file of five mandatory XML
 			files and other optional components. This can be seen by running your
@@ -70,9 +70,7 @@
 			after &nbsp;running the unzip command on an .ods file from command line to
 			list the files. The XML files are highlighted below.</p>
 		<p>
-		
-		
-		
+			<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics1.png" width="396"></span>
 		</p>
 		<p>Here is a short description of XML files as seen
 			above.</p>
@@ -132,18 +130,18 @@
 		<div class="informaltable">
 			<table border="1"><colgroup><col><col></colgroup><tbody><tr><td>
 							<p>
-								<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics3.png" width="190"></span>	
+								<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics2.png" width="190"></span>	
 							</p>
 						</td><td>
 							<p>
-								<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics4.png" width="396"></span>
+								<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics3.png" width="396"></span>
 							</p>
 						</td></tr></tbody></table>
 		</div>
 		<p>Table 2: Row in a ODF spreadsheet and as saved in
 			content.xml file</p>
 	</div>
-	<div class="sect1" title="A bit of hacking"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20128"></a>A bit of hacking</h2></div></div></div>
+	<div class="sect1" title="A bit of hacking"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20132"></a>A bit of hacking</h2></div></div></div>
 		
 		<p>Now that we know a bit about an ODF document, let us
 			try to create one without actually running a standard software
@@ -167,6 +165,7 @@
 				</p>
 			</li></ol></div>
 		<p>
+					<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics1.png" width="396"></span>
 		
 		
 		
@@ -201,7 +200,7 @@
 			article, we will concentrate only on the creation of content.xml XML
 			document.</p>
 	</div>
-	<div class="sect1" title="Scheme of this article"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2016A"></a>Scheme of this article</h2></div></div></div>
+	<div class="sect1" title="Scheme of this article"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2017F"></a>Scheme of this article</h2></div></div></div>
 		
 		<p>With this knowledge of XML documents in an ODF
 			document archive, we will now proceed to demonstrate the usage of DB2
@@ -229,7 +228,7 @@
 					prices.</p>
 			</li></ol></div>
 	</div>
-	<div class="sect1" title="Inserting XML document into DB2 table"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20194"></a>Inserting XML document into DB2 table
+	<div class="sect1" title="Inserting XML document into DB2 table"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201A9"></a>Inserting XML document into DB2 table
 		</h2></div></div></div>
 		
 		<p>We will consider a &nbsp;table to demonstrate DB2 pureXML
@@ -238,7 +237,7 @@
 			hold the content.xml file of the ODF spreadsheet document in a &nbsp;XML
 			column. The DDL for this table is reproduced here :</p>
 		<p></p>
-		<div class="example"><a name="N2019E"></a><p class="title"><b>Example&nbsp;1.&nbsp;DB2 table to hold content.xml file of the ODF spreadsheet</b></p><div class="example-contents">
+		<div class="example"><a name="N201B3"></a><p class="title"><b>Example&nbsp;1.&nbsp;DB2 table to hold content.xml file of the ODF spreadsheet</b></p><div class="example-contents">
 			
 			<pre class="programlisting">
 -- DOCCONTENTXML table to hold the content.xml file of a ODF document.
@@ -249,7 +248,7 @@ CREATE TABLE ODF.DOCCONTENTXML (
 ) ;
 			</pre>
 		</div></div><br class="example-break">
-		<div class="sect2" title="IMPORT statements"><div class="titlepage"><div><div><h3 class="title"><a name="N201A7"></a>IMPORT statements</h3></div></div></div>
+		<div class="sect2" title="IMPORT statements"><div class="titlepage"><div><div><h3 class="title"><a name="N201BC"></a>IMPORT statements</h3></div></div></div>
 			
 			<p>Inserting the XML document into the table can
 				be done using a simple INSERT SQL statement or using IMPORT
@@ -259,11 +258,11 @@ CREATE TABLE ODF.DOCCONTENTXML (
 				and create a flat file with a single record. Save the flat file as
 				load.txt. This record will have two values separated by a comma as
 				shown below. </p>
-				<div class="example"><a name="N201AF"></a><p class="title"><b>Example&nbsp;2.&nbsp;Contents of flat file to be used for loading DOCCONTENTXML table</b></p><div class="example-contents">
+				<div class="example"><a name="N201C4"></a><p class="title"><b>Example&nbsp;2.&nbsp;Contents of flat file to be used for loading DOCCONTENTXML table</b></p><div class="example-contents">
 					
 					<pre class="programlisting">1,&lt;XDS FIL='content.xml'/&gt;</pre>
 				</div></div><br class="example-break">
-				<div class="example"><a name="N201B8"></a><p class="title"><b>Example&nbsp;3.&nbsp;IMPORT statement to load content.xml into DOCCONTENTXML table</b></p><div class="example-contents">
+				<div class="example"><a name="N201CD"></a><p class="title"><b>Example&nbsp;3.&nbsp;IMPORT statement to load content.xml into DOCCONTENTXML table</b></p><div class="example-contents">
 					
 					<pre class="programlisting">IMPORT FROM load.txt OF DEL XML FROM ODSFolder INSERT INTO ODF.DOCCONTENTXML;</pre>
 				</div></div><br class="example-break">
@@ -272,10 +271,10 @@ CREATE TABLE ODF.DOCCONTENTXML (
 			</p>
 		</div>
 	</div>
-	<div class="sect1" title="Converting the content.xml into row-column format"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201C6"></a>Converting the content.xml into row-column
+	<div class="sect1" title="Converting the content.xml into row-column format"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201DB"></a>Converting the content.xml into row-column
 			format</h2></div></div></div>
 		
-		<div class="sect2" title="Getting the cell values from the XML file"><div class="titlepage"><div><div><h3 class="title"><a name="N201CB"></a>Getting the cell values from the XML file
+		<div class="sect2" title="Getting the cell values from the XML file"><div class="titlepage"><div><div><h3 class="title"><a name="N201E0"></a>Getting the cell values from the XML file
 			</h3></div></div></div>
 			
 			<p>To get to the cell values of the spreadsheet, we will
@@ -283,7 +282,7 @@ CREATE TABLE ODF.DOCCONTENTXML (
 				working query around the XPath expression to get the results.
 			</p>
 		</div>
-		<div class="sect2" title="The XPath expression"><div class="titlepage"><div><div><h3 class="title"><a name="N201D4"></a>The XPath expression</h3></div></div></div>
+		<div class="sect2" title="The XPath expression"><div class="titlepage"><div><div><h3 class="title"><a name="N201E9"></a>The XPath expression</h3></div></div></div>
 			
 			<p>Going back to Table 2, the left column shows the
 				first row of the spreadsheet highlighted. The right column is a part
@@ -298,7 +297,7 @@ CREATE TABLE ODF.DOCCONTENTXML (
 				B of the first row, the path to be navigated (or, the XPath
 				expression) from the root of XML document would be as below.
 			</p>
-			<div class="example"><a name="N201DC"></a><p class="title"><b>Example&nbsp;4.&nbsp;XPath expression to get first row, second column value</b></p><div class="example-contents">
+			<div class="example"><a name="N201F1"></a><p class="title"><b>Example&nbsp;4.&nbsp;XPath expression to get first row, second column value</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 /office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
@@ -336,7 +335,7 @@ CREATE TABLE ODF.DOCCONTENTXML (
 			
 			</p>
 		</div>
-		<div class="sect2" title="The required query"><div class="titlepage"><div><div><h3 class="title"><a name="N2020E"></a>The required query </h3></div></div></div>
+		<div class="sect2" title="The required query"><div class="titlepage"><div><div><h3 class="title"><a name="N20223"></a>The required query </h3></div></div></div>
 			
 			<p>To wrap the XPath expression into a query, we first
 				note the XML namespaces used. The content.xml file has the
@@ -372,7 +371,7 @@ CREATE TABLE ODF.DOCCONTENTXML (
 				&nbsp;the cell values from the loaded content.xml file. The text in
 				bold-blue shows the XPath expression used to extract cell values.
 			</p>
-			<div class="example"><a name="N20265"></a><p class="title"><b>Example&nbsp;5.&nbsp;Query to extract cell values from content.xml into tabular format</b></p><div class="example-contents">
+			<div class="example"><a name="N2027A"></a><p class="title"><b>Example&nbsp;5.&nbsp;Query to extract cell values from content.xml into tabular format</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 SELECT 
@@ -399,7 +398,7 @@ XMLTABLE(
 				and columns format, we create a view using the query above.
 			</p>
 			<p></p>
-			<div class="example"><a name="N20273"></a><p class="title"><b>Example&nbsp;6.&nbsp;View on the content.xml document</b></p><div class="example-contents">
+			<div class="example"><a name="N20288"></a><p class="title"><b>Example&nbsp;6.&nbsp;View on the content.xml document</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 CREATE VIEW ODF.V_CONTENT AS 
@@ -429,7 +428,7 @@ CREATE VIEW ODF.V_CONTENT AS
 			<p>A simple SELECT query on this view shows that we have
 				successfully 'converted' the content.xml document in the ODF archive
 				for spreadsheet into a row-column format.</p>
-			<div class="example"><a name="N2027F"></a><p class="title"><b>Example&nbsp;7.&nbsp;Result of SELECT on the view V_CONTENT.</b></p><div class="example-contents">
+			<div class="example"><a name="N20294"></a><p class="title"><b>Example&nbsp;7.&nbsp;Result of SELECT on the view V_CONTENT.</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 SELECT * FROM ODF.V_CONTENT ;
@@ -453,19 +452,19 @@ Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00 L &nbsp; &nbsp;
 			</div></div><br class="example-break">
 		</div>
 	</div>
-	<div class="sect1" title="Shopping prices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2028A"></a>Shopping prices</h2></div></div></div>
+	<div class="sect1" title="Shopping prices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2029F"></a>Shopping prices</h2></div></div></div>
 		
 		<p>We will now build the content.xml for an ODF
 			spreadsheet that will hold the shopping list &ndash; discussed above &ndash; with
 			an additional column for cost of items in the shopping list. We will
 			also provide an additional row for the grand total of the items in
 			shopping list.</p>
-		<div class="sect2" title="Building the list of shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N20292"></a>Building the list of shopping prices
+		<div class="sect2" title="Building the list of shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N202A7"></a>Building the list of shopping prices
 			</h3></div></div></div>
 			
 			<p>We create a simple table that holds the unit price of
 				shopping items with the DDL shown below.</p>
-			<div class="example"><a name="N2029A"></a><p class="title"><b>Example&nbsp;8.&nbsp;DDL for table to hold the shopping prices</b></p><div class="example-contents">
+			<div class="example"><a name="N202AF"></a><p class="title"><b>Example&nbsp;8.&nbsp;DDL for table to hold the shopping prices</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 --Table to hold the unit price of shopping items
@@ -481,7 +480,7 @@ CREATE TABLE ODF.SHOPPER
 				used the base table directly. Usage of the view makes the query
 				'compact' and easier to follow.</p>
 			<p></p>
-			<div class="example"><a name="N202A8"></a><p class="title"><b>Example&nbsp;9.&nbsp;Query to obtain list and cost of items with grand total</b></p><div class="example-contents">
+			<div class="example"><a name="N202BD"></a><p class="title"><b>Example&nbsp;9.&nbsp;Query to obtain list and cost of items with grand total</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 SELECT 
@@ -518,7 +517,7 @@ ORDER BY COALESCE(P.ITEMNAME,' ') DESC
 			<p>The result of the above query is shown below.
 			</p>
 			<p></p>
-			<div class="example"><a name="N202B6"></a><p class="title"><b>Example&nbsp;10.&nbsp;Result of query for obtaining list and cost of items</b></p><div class="example-contents">
+			<div class="example"><a name="N202CB"></a><p class="title"><b>Example&nbsp;10.&nbsp;Result of query for obtaining list and cost of items</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 ITEMNAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; QTY &nbsp; &nbsp;UNIT_PRICE COST &nbsp; &nbsp;
@@ -538,13 +537,13 @@ TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;14.50 &nbsp; &nbsp;
 				</pre>
 			</div></div><br class="example-break">
 		</div>
-		<div class="sect2" title="View with list and cost of items"><div class="titlepage"><div><div><h3 class="title"><a name="N202C0"></a>View with list and cost of items</h3></div></div></div>
+		<div class="sect2" title="View with list and cost of items"><div class="titlepage"><div><div><h3 class="title"><a name="N202D5"></a>View with list and cost of items</h3></div></div></div>
 			
 			<p>Now that we have the result of computation of cost
 				of items, we will take this into a view. This is purely for
 				convenience. We can proceed without using this view.</p>
 			<p></p>
-			<div class="example"><a name="N202CA"></a><p class="title"><b>Example&nbsp;11.&nbsp;View with list and cost of items in	shopping list</b></p><div class="example-contents">
+			<div class="example"><a name="N202DF"></a><p class="title"><b>Example&nbsp;11.&nbsp;View with list and cost of items in	shopping list</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 CREATE VIEW ODF.V_SHOP_COST AS 
@@ -580,7 +579,7 @@ CREATE VIEW ODF.V_SHOP_COST AS
 			</div></div><br class="example-break">
 		</div>
 	</div>
-	<div class="sect1" title="XQuery Update to build content.xml document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N202D5"></a>XQuery Update to build content.xml document
+	<div class="sect1" title="XQuery Update to build content.xml document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N202EA"></a>XQuery Update to build content.xml document
 		</h2></div></div></div>
 		
 		<p>At this point, we have 'shredded' the shopping list
@@ -599,7 +598,7 @@ CREATE VIEW ODF.V_SHOP_COST AS
 			us to make use of XQuery Update facility in DB2 pureXML.
 		</p>
 		<p></p>
-		<div class="sect2" title="A quick side note on XQuery Update"><div class="titlepage"><div><div><h3 class="title"><a name="N202E4"></a>A quick side note on XQuery Update</h3></div></div></div>
+		<div class="sect2" title="A quick side note on XQuery Update"><div class="titlepage"><div><div><h3 class="title"><a name="N202F9"></a>A quick side note on XQuery Update</h3></div></div></div>
 			
 			<p>XQuery is a query and functional programming
 				language designed to query XML documents. It became a W3C Candidate
@@ -609,7 +608,7 @@ CREATE VIEW ODF.V_SHOP_COST AS
 				14th March, 2008.</p>
 			<p></p>
 		</div>
-		<div class="sect2" title="Generating the content.xml for the shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N202EF"></a>Generating the content.xml for the shopping
+		<div class="sect2" title="Generating the content.xml for the shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N20304"></a>Generating the content.xml for the shopping
 				prices</h3></div></div></div>
 			
 			<p>To start with, we will create a dummy content.xml
@@ -638,7 +637,7 @@ CREATE VIEW ODF.V_SHOP_COST AS
 			</p>
 			<p></p>
 		</div>
-		<div class="sect2" title="Building the <table:table-row> elements"><div class="titlepage"><div><div><h3 class="title"><a name="N20309"></a>Building the &lt;table:table-row&gt; elements</h3></div></div></div>
+		<div class="sect2" title="Building the <table:table-row> elements"><div class="titlepage"><div><div><h3 class="title"><a name="N2031E"></a>Building the &lt;table:table-row&gt; elements</h3></div></div></div>
 			
 			<p>In our example, each row of spreadsheet would be
 				having four columns. Therefore, each row element &ndash; as required in
@@ -647,7 +646,7 @@ CREATE VIEW ODF.V_SHOP_COST AS
 				declarations have been omitted for the sake of brevity.
 			</p>
 			<p></p>
-			<div class="example"><a name="N20313"></a><p class="title"><b>Example&nbsp;12.&nbsp;A sample &lt;table:table-row&gt; element</b></p><div class="example-contents">
+			<div class="example"><a name="N20328"></a><p class="title"><b>Example&nbsp;12.&nbsp;A sample &lt;table:table-row&gt; element</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 &lt;table:table-row	table:style-name="ro1"&gt; 
@@ -666,13 +665,13 @@ CREATE VIEW ODF.V_SHOP_COST AS
 				that it is easier to use while doing the update of XML document. The
 				table to hold the generated elements is defined as shown below.
 			</p>
-			<div class="example"><a name="N2031F"></a><p class="title"><b>Example&nbsp;13.&nbsp;Table to hold generated &lt;table:table-row&gt; elements</b></p><div class="example-contents">
+			<div class="example"><a name="N20334"></a><p class="title"><b>Example&nbsp;13.&nbsp;Table to hold generated &lt;table:table-row&gt; elements</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 CREATE TABLE ODF.SHOP_COST_XML (SHOP_COST XML);
 				</pre>
 			</div></div><br class="example-break">
-			<div class="example"><a name="N20328"></a><p class="title"><b>Example&nbsp;14.&nbsp;Insert generated &lt;table:table-row&gt; elements with &lt;dummy&gt; parent</b></p><div class="example-contents">
+			<div class="example"><a name="N2033D"></a><p class="title"><b>Example&nbsp;14.&nbsp;Insert generated &lt;table:table-row&gt; elements with &lt;dummy&gt; parent</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 INSERT INTO ODF.SHOP_COST_XML (SHOP_COST) 
@@ -717,7 +716,7 @@ ODF.V_SHOP_COST O
 				this query is not inserting the resulting into any table. It is left
 				to the reader to route the output to a table column, file, message
 				queue, etc.</p>
-			<div class="example"><a name="N20334"></a><p class="title"><b>Example&nbsp;15.&nbsp;Updated content.xml document</b></p><div class="example-contents">
+			<div class="example"><a name="N20349"></a><p class="title"><b>Example&nbsp;15.&nbsp;Updated content.xml document</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 VALUES XMLQUERY(
@@ -747,7 +746,7 @@ VALUES XMLQUERY(
 			<p></p>
 		</div>
 	</div>
-	<div class="sect1" title="Next steps"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2034C"></a>Next steps</h2></div></div></div>
+	<div class="sect1" title="Next steps"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20361"></a>Next steps</h2></div></div></div>
 		
 		<p>Further enhancements may involve manipulating
 			other XML documents in a ODF compliant archive. For example, the
@@ -775,7 +774,7 @@ VALUES XMLQUERY(
 		<p></p>
 		<p></p>
 	</div>
-	<div class="sect1" title="Resources"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2036B"></a>Resources</h2></div></div></div>
+	<div class="sect1" title="Resources"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20380"></a>Resources</h2></div></div></div>
 		
 		<p>Important resources :</p>
 		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
@@ -838,7 +837,7 @@ VALUES XMLQUERY(
 			</li></ol></div>
 		<p></p>
 	</div>
-	<div class="sect1" title="Biography"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N203DD"></a>Biography</h2></div></div></div>
+	<div class="sect1" title="Biography"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N203F2"></a>Biography</h2></div></div></div>
 		
 		<p>Nagesh Subrahmanyam is a Software Developer in IBM
 			Global Services, India......</p>
