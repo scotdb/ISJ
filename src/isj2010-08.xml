@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<docbook:book xmlns:docbook="http://docbook.org/ns/docbook"
+	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://docbook.org/ns/docbook docbook.xsd ">
+	<docbook:info>
+		<docbook:title>IDUG Solutions Journal</docbook:title>
+		<docbook:copyright>
+			<docbook:year>2010</docbook:year>
+			<docbook:holder>International DB2 Users Group</docbook:holder>
+		</docbook:copyright>
+	</docbook:info>
+	
+	<!-- Here we put the first article : always the Editor's Letter -->
+	
+	<docbook:article>
+		<docbook:info>
+			<docbook:title>From The Editor's Desk</docbook:title>
+			<docbook:author>
+				<docbook:personname>Philip Nelson</docbook:personname>
+			</docbook:author>
+		</docbook:info>
+		<docbook:para></docbook:para>
+	</docbook:article>
+	
+	<!-- Feature article goes here -->
+	
+	<docbook:article>
+	</docbook:article>
+	
+	<!-- Column 1 --> 
+	
+	<docbook:article>
+	</docbook:article>
+	
+	<!-- Column 2 --> 
+	
+	<docbook:article>
+	</docbook:article> 
+	
+	<!-- Column 3 --> 
+	
+	<docbook:article>
+	</docbook:article> 
+	
+</docbook:book>
