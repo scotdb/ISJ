@@ -13,15 +13,16 @@
 
 	<!-- Here we put the first article : always the Editor's Letter -->
 
-	<docbook:article>
-		<docbook:info>
-			<docbook:title>From The Editor's Desk</docbook:title>
-			<docbook:author>
-				<docbook:personname>Philip Nelson</docbook:personname>
-			</docbook:author>
-		</docbook:info>
-		<docbook:para></docbook:para>
-	</docbook:article>
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-editors-letter.xml'>
+	<docbook:info>
+		<docbook:title>From The Editor's Desk</docbook:title>
+		<docbook:author>
+			<docbook:personname>Philip Nelson</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
+	</docbook:para>
+</docbook:article>
 
 	<!-- Feature article goes here -->
 
@@ -29,27 +30,21 @@
 	<docbook:title>Using DB2 pureXML and ODF Spreadsheets</docbook:title>
 	<docbook:sect1>
 		<docbook:title>Abstract</docbook:title>
-		<docbook:para>ODF (Open Document Format) is a file format for
-			office
-			documents.  At a high level, the ODF specification requires
-			five
-			mandatory XML documents and other optional items.  This article
-			will
-			describe how DB2 pureXML could be used to handle ODF spreadsheet
-			documents. Other ODF documents such as word documents, presentations,
-			formulas, etc. could also be handled by DB2 because the ODF
-			specification refers mainly to an archive of XML documents. However,
-			for the sake of this article, we are considering only spreadsheets
-			because it is easier to co-relate the rows and columns of the
-			spreadsheet document and that of a DB2 table. This article can even
-			be further extended into an on-line document editing software with
-			.ods as file format and DB2 pureXML as the database.</docbook:para>
-		<docbook:para></docbook:para>
+		<docbook:para>
+			ODF (Open Document Format) is a file format for office documents.  At a high level, 
+			the ODF specification requires five mandatory XML documents and other optional items.  
+			This article will describe how DB2 pureXML could be used to handle ODF spreadsheet
+			documents. Other ODF documents such as word documents, presentations, formulas, etc. 
+			could also be handled by DB2 because the ODF specification refers mainly to an archive of 
+			XML documents. However, for the sake of this article, we are considering only spreadsheets
+			because it is easier to co-relate the rows and columns of the spreadsheet document and that 
+			of a DB2 table. This article can even be further extended into an on-line document editing 
+			software with .ods as file format and DB2 pureXML as the database.
+		</docbook:para>
 	</docbook:sect1>
 	<docbook:sect1>
 		<docbook:title>Introduction</docbook:title>
-		<docbook:para>The ODF specification and DB2 pureXML are introduced
-			below.</docbook:para>
+		<docbook:para>The ODF specification and DB2 pureXML are introduced below.</docbook:para>
 		<docbook:sect2>
 			<docbook:title>The ODF specification</docbook:title>
 			<docbook:para>
@@ -57,7 +52,7 @@
 				<docbook:link xlink:href='http://www.sun.com/'>Sun</docbook:link>
 				and the standard was developed by OASIS Open Document Format for
 				Office Applications (Open Document) TC – OASIS ODF TC. This standard
-				is based on XML format originally created and implemented by
+				is based on XML format originally created and implemented by the
 				OpenOffice.org office suite. In addition to being a free and open
 				OASIS standard, it is published (in one of its version 1.0
 				manifestations) as an ISO/IEC international standard,
@@ -69,7 +64,6 @@
 		<docbook:sect2>
 			<docbook:title>DB2 pureXML</docbook:title>
 			<docbook:para>
-
 				<docbook:link xlink:href='http://www-01.ibm.com/software/data/db2/xml/'>DB2 pureXML</docbook:link>
 				is IBM software for management of XML data. It eliminates much of
 				the work typically involved in the management of XML data. From
@@ -95,8 +89,7 @@
 				</docbook:imageobject>
 			</docbook:inlinemediaobject>
 		</docbook:para>
-		<docbook:para>Here is a short description of XML files as seen
-			above.
+		<docbook:para>Here is a short description of XML files as seen above.
 		</docbook:para>
 		<docbook:informaltable frame='all'>
 			<docbook:tgroup cols='3'>
@@ -182,18 +175,12 @@
 		</docbook:informaltable>
 		<docbook:para>Table 1: XML files of an ODF document</docbook:para>
 		<docbook:para></docbook:para>
-		<docbook:para>For this article, we are interested in content.xml
-			file
-			which will hold the contents of the document. The document used
-			for
-			this article is a simple shopping list named as Shop.ods. The
-			below
-			table shows the way the first row was entered in the
-			spreadsheet
-			document using OpenOffice and as seen by viewing the
-			corresponding
-			content.xml file in Firefox browser.</docbook:para>
-		<docbook:para></docbook:para>
+		<docbook:para>
+			For this article, we are interested in content.xml file which will hold the contents of 
+			the document. The document used for this article is a simple shopping list named Shop.ods. 
+			The below table shows the way the first row was entered in the spreadsheet document using 
+			OpenOffice and as seen by viewing the corresponding content.xml file in Firefox browser.
+		</docbook:para>
 		<docbook:informaltable frame='all'>
 			<docbook:tgroup cols='2'>
 				<docbook:tbody>
@@ -220,24 +207,16 @@
 				</docbook:tbody>
 			</docbook:tgroup>
 		</docbook:informaltable>
-		<docbook:para>Table 2: Row in a ODF spreadsheet and as saved in
-			content.xml file</docbook:para>
+		<docbook:para>Table 2: Row in a ODF spreadsheet and as saved in content.xml file</docbook:para>
 	</docbook:sect1>
 	<docbook:sect1>
 		<docbook:title>A bit of hacking</docbook:title>
-		<docbook:para>Now that we know a bit about an ODF document, let us
-			try
-			to create one without actually running a standard software
-			dealing
-			with ODF documents. As noted above, the content.xml file
-			holds the
-			data entered while creating the spreadsheet. So, if this
-			file is
-			changed and zipped along with the rest of the files in the
-			original
-			archive (that is, the .ods file), we will be having a
-			“legal” ODF
-			spreadsheet. To test this, follow the steps below.
+		<docbook:para>
+			Now that we know a bit about an ODF document, let us try to create one without actually 
+			running a standard software	dealing with ODF documents. As noted above, the content.xml 
+			file holds the data entered while creating the spreadsheet. So, if this file is changed 
+			and zipped along with the rest of the files in the original archive (that is, the .ods 
+			file), we will be having a “legal” ODF spreadsheet. To test this, follow the steps below.
 		</docbook:para>
 		<docbook:orderedlist>
 			<docbook:listitem>
@@ -260,7 +239,7 @@
 		<docbook:para>
 			<docbook:inlinemediaobject>
 				<docbook:imageobject>
-					<docbook:imagedata fileref='isj2010-08-purexml-OOo-graphics1.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics1.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
 				</docbook:imageobject>
 			</docbook:inlinemediaobject>
 

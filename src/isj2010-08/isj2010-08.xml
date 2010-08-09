@@ -21,15 +21,7 @@
 
 	<!-- Here we put the first article : always the Editor's Letter -->
 
-	<docbook:article>
-		<docbook:info>
-			<docbook:title>From The Editor's Desk</docbook:title>
-			<docbook:author>
-				<docbook:personname>Philip Nelson</docbook:personname>
-			</docbook:author>
-		</docbook:info>
-		<docbook:para></docbook:para>
-	</docbook:article>
+	<xi:include href="articles/isj2010-08-editors-letter.xml" />
 
 	<!-- Feature article goes here -->
 

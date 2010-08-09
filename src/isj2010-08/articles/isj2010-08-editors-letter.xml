@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<docbook:article xmlns:docbook="http://docbook.org/ns/docbook"
+	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://docbook.org/ns/docbook docbook.xsd">
+	<docbook:info>
+		<docbook:title>From The Editor's Desk</docbook:title>
+		<docbook:author>
+			<docbook:personname>Philip Nelson</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
+		Welcome to the new look IDUG Solutions Journal, developed in response to your feedback received
+		over the last few months.      
+	</docbook:para>
+	<docbook:para>
+		Our main feature article this month is a case study in producing and consuming documents in ODF 
+		(Open Document Format) using DB2 pureXML.   
+	</docbook:para>
+	<docbook:para>
+		We are also pleased to have a full complement of columns from our regular contributors.
+	</docbook:para>
+</docbook:article>
