@@ -33,7 +33,7 @@
 
 	<!-- Feature article goes here -->
 
-	<!-- xi:include href="isj2010-08-purexml-OOo.xml" / -->
+	<xi:include href="articles/isj2010-08-purexml-OOo.xml" />
 
 	<!-- Column 1 -->
 

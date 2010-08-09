@@ -1,14 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<docbook:article xmlns:docbook="http://docbook.org/ns/docbook"
-	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://docbook.org/ns/docbook docbook.xsd">
-	<docbook:para>IDUG Using DB2 pureXML and ODF Spreadsheets
-	</docbook:para>
-	<docbook:para />
-	<docbook:para>Using DB2 pureXML and ODF Spreadsheets
-	</docbook:para>
-	<docbook:para />
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 
+   - Standard template for ISJ magazines
+  --><docbook:book xmlns:docbook='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:xml='http://www.w3.org/XML/1998/namespace' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xi='http://www.w3.org/2001/XInclude' xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd '>
+
+	<docbook:info>
+		<docbook:title>IDUG Solutions Journal</docbook:title>
+		<docbook:copyright>
+			<docbook:year>2010</docbook:year>
+			<docbook:holder>International DB2 Users Group</docbook:holder>
+		</docbook:copyright>
+	</docbook:info>
+
+	<!-- Here we put the first article : always the Editor's Letter -->
+
+	<docbook:article>
+		<docbook:info>
+			<docbook:title>From The Editor's Desk</docbook:title>
+			<docbook:author>
+				<docbook:personname>Philip Nelson</docbook:personname>
+			</docbook:author>
+		</docbook:info>
+		<docbook:para></docbook:para>
+	</docbook:article>
+
+	<!-- Feature article goes here -->
+
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-purexml-OOo.xml'>
+	<docbook:title>Using DB2 pureXML and ODF Spreadsheets</docbook:title>
 	<docbook:sect1>
 		<docbook:title>Abstract</docbook:title>
 		<docbook:para>ODF (Open Document Format) is a file format for
@@ -26,7 +44,7 @@
 			spreadsheet document and that of a DB2 table. This article can even
 			be further extended into an on-line document editing software with
 			.ods as file format and DB2 pureXML as the database.</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 	</docbook:sect1>
 	<docbook:sect1>
 		<docbook:title>Introduction</docbook:title>
@@ -36,15 +54,14 @@
 			<docbook:title>The ODF specification</docbook:title>
 			<docbook:para>
 				The Open Document Format specification was originally developed by
-				<docbook:link xlink:href="http://www.sun.com/">Sun</docbook:link>
+				<docbook:link xlink:href='http://www.sun.com/'>Sun</docbook:link>
 				and the standard was developed by OASIS Open Document Format for
 				Office Applications (Open Document) TC – OASIS ODF TC. This standard
 				is based on XML format originally created and implemented by
 				OpenOffice.org office suite. In addition to being a free and open
 				OASIS standard, it is published (in one of its version 1.0
 				manifestations) as an ISO/IEC international standard,
-				<docbook:link
-					xlink:href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485">ISO/IEC 26300:2006 Open Document Format for Office
+				<docbook:link xlink:href='http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485'>ISO/IEC 26300:2006 Open Document Format for Office
 					Applications (OpenDocument) v1.0</docbook:link>
 				.
 			</docbook:para>
@@ -53,12 +70,12 @@
 			<docbook:title>DB2 pureXML</docbook:title>
 			<docbook:para>
 
-				<docbook:link xlink:href="http://www-01.ibm.com/software/data/db2/xml/">DB2 pureXML</docbook:link>
+				<docbook:link xlink:href='http://www-01.ibm.com/software/data/db2/xml/'>DB2 pureXML</docbook:link>
 				is IBM software for management of XML data. It eliminates much of
 				the work typically involved in the management of XML data. From
 				validation of XML documents, to generation of documents and support
 				for querying XML data in the form of
-				<docbook:link xlink:href="http://www.w3.org/TR/xquery/">XQuery</docbook:link>
+				<docbook:link xlink:href='http://www.w3.org/TR/xquery/'>XQuery</docbook:link>
 				and traditional SQL, DB2 pureXML is a complete solution to manage
 				XML data in enterprise-scale databases.
 			</docbook:para>
@@ -74,16 +91,15 @@
 		<docbook:para>
 			<docbook:inlinemediaobject>
 				<docbook:imageobject>
-					<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics1.png"
-						width="11.17cm" depth="7.536cm" />
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics1.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
 				</docbook:imageobject>
 			</docbook:inlinemediaobject>
 		</docbook:para>
 		<docbook:para>Here is a short description of XML files as seen
 			above.
 		</docbook:para>
-		<docbook:informaltable frame="all">
-			<docbook:tgroup cols="3">
+		<docbook:informaltable frame='all'>
+			<docbook:tgroup cols='3'>
 				<docbook:tbody>
 					<docbook:row>
 						<docbook:entry>
@@ -165,7 +181,7 @@
 			</docbook:tgroup>
 		</docbook:informaltable>
 		<docbook:para>Table 1: XML files of an ODF document</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 		<docbook:para>For this article, we are interested in content.xml
 			file
 			which will hold the contents of the document. The document used
@@ -177,17 +193,16 @@
 			document using OpenOffice and as seen by viewing the
 			corresponding
 			content.xml file in Firefox browser.</docbook:para>
-		<docbook:para />
-		<docbook:informaltable frame="all">
-			<docbook:tgroup cols="2">
+		<docbook:para></docbook:para>
+		<docbook:informaltable frame='all'>
+			<docbook:tgroup cols='2'>
 				<docbook:tbody>
 					<docbook:row>
 						<docbook:entry>
 							<docbook:para>
 								<docbook:inlinemediaobject>
 									<docbook:imageobject>
-										<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics2.png"
-											width="5.372cm" depth="5.478cm" />
+										<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics2.png' width='5.372cm' depth='5.478cm'></docbook:imagedata>
 									</docbook:imageobject>
 								</docbook:inlinemediaobject>
 							</docbook:para>
@@ -196,8 +211,7 @@
 							<docbook:para>
 								<docbook:inlinemediaobject>
 									<docbook:imageobject>
-										<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics3.png"
-											width="11.17cm" depth="7.536cm" />
+										<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics3.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
 									</docbook:imageobject>
 								</docbook:inlinemediaobject>
 							</docbook:para>
@@ -246,12 +260,11 @@
 		<docbook:para>
 			<docbook:inlinemediaobject>
 				<docbook:imageobject>
-					<docbook:imagedata fileref="isj2010-08-purexml-OOo-graphics1.png"
-						width="11.17cm" depth="7.536cm" />
+					<docbook:imagedata fileref='isj2010-08-purexml-OOo-graphics1.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
 				</docbook:imageobject>
 			</docbook:inlinemediaobject>
 
-			<!-- Missing Figure 2 here -->
+			
 
 		</docbook:para>
 		<docbook:orderedlist>
@@ -279,10 +292,10 @@
 		</docbook:orderedlist>
 		<docbook:para>
 
-			<!-- Missing Figure 3 here -->
+			
 
 		</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 		<docbook:para>It is now clear that, to “read” an existing ODF
 			spreadsheet in its simplest form, we have to navigate the path of the
 			content.xml XML document. Similarly, to “modify” an existing ODF
@@ -339,7 +352,7 @@
 			differentiate multiple documents. The second column of the table will
 			hold the content.xml file of the ODF spreadsheet document in a  XML
 			column. The DDL for this table is reproduced here :</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 		<docbook:example>
 			<docbook:title>DB2 table to hold content.xml file of the ODF
 				spreadsheet</docbook:title>
@@ -435,18 +448,18 @@
 					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:para>In other words, we start from the office:document
 				element to office:body and then to office:spreadsheet to look for
 				the first table:table element. The first element represents the
 				first sheet of the spreadsheet document. Then, to get to the second
 				column of first row we navigate to table:row[1]/table:cell[2] and
 				finally to text:p to get the actual text of the cell.</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:para>With Firefox Mozilla browser, the above XPath
 				expression can be easily tested using the add-on Xpather (see
 				Resources below).  We follow the steps below :</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:orderedlist>
 				<docbook:listitem>
 					<docbook:para>Open the content.xml in Firefox Mozilla browser.
@@ -456,7 +469,7 @@
 			</docbook:orderedlist>
 			<docbook:para>
 
-				<!-- Missing Figure 4 here -->
+				
 
 			</docbook:para>
 			<docbook:orderedlist>
@@ -467,7 +480,7 @@
 			</docbook:orderedlist>
 			<docbook:para>
 
-				<!-- Missing figure 5 here -->
+				
 
 			</docbook:para>
 		</docbook:sect2>
@@ -476,8 +489,8 @@
 			<docbook:para>To wrap the XPath expression into a query, we first
 				note the XML namespaces used. The content.xml file has the
 				namespaces defined as shown below :</docbook:para>
-			<docbook:informaltable frame="all">
-				<docbook:tgroup cols="2">
+			<docbook:informaltable frame='all'>
+				<docbook:tgroup cols='2'>
 					<docbook:tbody>
 						<docbook:row>
 							<docbook:entry>
@@ -521,7 +534,7 @@
 			<docbook:para>Table 7: Prefix and namespace URI used in
 				content.xml
 				document</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:para>The query shown below will use the XML namespaces
 				and
 				XPath expression (that we obtained in Section 6.2)  to extract
@@ -563,7 +576,7 @@
 				and
 				columns format, we create a view using the query above.
 			</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:example>
 				<docbook:title>View on the content.xml document</docbook:title>
 				<docbook:programlisting>
@@ -667,7 +680,7 @@
 				table directly. Usage of the view makes the query
 				'compact' and
 				easier to follow.</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:example>
 				<docbook:title>Query to obtain list and cost of items with grand
 					total</docbook:title>
@@ -706,7 +719,7 @@
 			</docbook:example>
 			<docbook:para>The result of the above query is shown below.
 			</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:example>
 				<docbook:title>Result of query for obtaining list and cost of items
 				</docbook:title>
@@ -743,7 +756,7 @@
 				of
 				items, we will take this into a view. This is purely for
 				convenience. We can proceed without using this view.</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:example>
 				<docbook:title>View with list and cost of items in shopping list
 				</docbook:title>
@@ -794,7 +807,7 @@
 			Our aim is now to convert this relational output into the format of
 			content.xml so that the result is a complete ODF spreadsheet.
 		</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 		<docbook:para>One way of building the content.xml is to start from
 			the
 			scratch and we build the whole of the document. This approach
@@ -807,7 +820,7 @@
 			us to make use of
 			XQuery Update facility in DB2 pureXML.
 		</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 		<docbook:sect2>
 			<docbook:title>A quick side note on XQuery Update</docbook:title>
 			<docbook:para>XQuery is a query and functional programming
@@ -817,7 +830,7 @@
 				extension to XQuery that allows update (insert, modify and delete)
 				of the XML documents. It became a W3C Candidate Recommendation on
 				14th March, 2008.</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 		</docbook:sect2>
 		<docbook:sect2>
 			<docbook:title>Generating the content.xml for the shopping
@@ -830,7 +843,7 @@
 				that is correct for a row and it's columns of a spreadsheet. Then,
 				we will collect all of these XML sequences and insert into the dummy
 				content.xml document.</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:para>To create the dummy document, we simply open the
 				spreadsheet for shopping list, delete all rows and columns and save
 				it with another name. Then, we unzip this document and refer the
@@ -838,10 +851,10 @@
 				would look like.</docbook:para>
 			<docbook:para>
 
-				<!-- Missing figure 6 here -->
+				
 
 			</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:para>Insert this dummy document into the
 				ODF.DOCCONTENTXML
 				table with DOCID as zero using the IMPORT method
@@ -850,7 +863,7 @@
 				&lt;table:table-row&gt; elements are added as children of
 				&lt;table:table&gt; and as siblings of &lt;table:table-column&gt;.
 			</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 		</docbook:sect2>
 		<docbook:sect2>
 			<docbook:title>Building the &lt;table:table-row&gt; elements
@@ -862,7 +875,7 @@
 				sample of &lt;table:table-row&gt; is shown below. The XML namespace
 				declarations have been omitted for the sake of brevity.
 			</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 			<docbook:example>
 				<docbook:title>A sample &lt;table:table-row&gt; element
 				</docbook:title>
@@ -984,11 +997,11 @@
 				OpenOffice. Here is the screenshot.</docbook:para>
 			<docbook:para>
 
-				<!-- Missing Figure 7 here -->
+				
 
 			</docbook:para>
 			<docbook:para>And, we are done !</docbook:para>
-			<docbook:para />
+			<docbook:para></docbook:para>
 		</docbook:sect2>
 	</docbook:sect1>
 	<docbook:sect1>
@@ -1004,16 +1017,16 @@
 		</docbook:para>
 		<docbook:para>
 
-			<!-- Missing Figure 8 here -->
+			
 
 		</docbook:para>
-		<docbook:para />
+		<docbook:para></docbook:para>
 		<docbook:para>The corresponding meta.xml document (partial
 			snapshot) is
 			shown below.</docbook:para>
 		<docbook:para>
 
-			<!-- Missing figure 9 here -->
+			
 
 		</docbook:para>
 		<docbook:para>Thus, while generating the spreadsheet, one can
@@ -1021,8 +1034,8 @@
 			queries to generate the meta.xml document with correct values
 			for
 			creator, creation time-stamp, etc.</docbook:para>
-		<docbook:para />
-		<docbook:para />
+		<docbook:para></docbook:para>
+		<docbook:para></docbook:para>
 	</docbook:sect1>
 	<docbook:sect1>
 		<docbook:title>Resources</docbook:title>
@@ -1030,27 +1043,25 @@
 		<docbook:orderedlist>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link
-						xlink:href="http://www-01.ibm.com/software/data/db2/express/download.html">DB2 Express-C</docbook:link>
+					<docbook:link xlink:href='http://www-01.ibm.com/software/data/db2/express/download.html'>DB2 Express-C</docbook:link>
 					– Free for download, develop, deploy and distribute.
 				</docbook:para>
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link xlink:href="http://www.ibm.com/db2/9">DB2 v9 pureXML</docbook:link>
+					<docbook:link xlink:href='http://www.ibm.com/db2/9'>DB2 v9 pureXML</docbook:link>
 					– All information about DB2 V9 pureXML
 				</docbook:para>
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link
-						xlink:href="http://www.ibm.com/support/docview.wss?rs=71&amp;uid=swg27009552">DB2 v9 Product Manuals</docbook:link>
+					<docbook:link xlink:href='http://www.ibm.com/support/docview.wss?rs=71&amp;uid=swg27009552'>DB2 v9 Product Manuals</docbook:link>
 					– Especially, refer the ones for XQuery and XML.
 				</docbook:para>
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link xlink:href="http://www-01.ibm.com/software/data/studio/">IBM Data Studio
+					<docbook:link xlink:href='http://www-01.ibm.com/software/data/studio/'>IBM Data Studio
 					</docbook:link>
 					– Govern, design, develop and deploy databases and data driven
 					applications.
@@ -1058,14 +1069,14 @@
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link xlink:href="http://www.oasis-open.org/committees/office/">ODF Specification
+					<docbook:link xlink:href='http://www.oasis-open.org/committees/office/'>ODF Specification
 					</docbook:link>
 					– Link to the complete specification
 				</docbook:para>
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link xlink:href="http://books.evc-cit.info/book.php">OpenOffice.org XML
+					<docbook:link xlink:href='http://books.evc-cit.info/book.php'>OpenOffice.org XML
 						essentials
 					</docbook:link>
 					– Nice explanation of XML data formats.
@@ -1073,8 +1084,7 @@
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link
-						xlink:href="http://www.ibm.com/developerworks/xml/library/x-think15/">Thinking XML : The open office file format
+					<docbook:link xlink:href='http://www.ibm.com/developerworks/xml/library/x-think15/'>Thinking XML : The open office file format
 					</docbook:link>
 					– An earlier developerWorks article discussing the file formats of
 					OpenOffice.
@@ -1082,8 +1092,7 @@
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link
-						xlink:href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0705gruber/">Manage ODF and Microsoft Office 2007 documents with DB2
+					<docbook:link xlink:href='http://www.ibm.com/developerworks/db2/library/techarticle/dm-0705gruber/'>Manage ODF and Microsoft Office 2007 documents with DB2
 						9 pureXML</docbook:link>
 					– An earlier developerWorks article on using ODF and Microsoft
 					Office documents with DB2 9 pureXML.
@@ -1091,21 +1100,20 @@
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link xlink:href="https://addons.mozilla.org/addon/1192">XPather add-on</docbook:link>
+					<docbook:link xlink:href='https://addons.mozilla.org/addon/1192'>XPather add-on</docbook:link>
 					– Nifty tool for Firefox Mozilla users to quickly check an XPath
 					expression.
 				</docbook:para>
 			</docbook:listitem>
 			<docbook:listitem>
 				<docbook:para>
-					<docbook:link
-						xlink:href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C">Update XML in DB2 9.5</docbook:link>
+					<docbook:link xlink:href='http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C'>Update XML in DB2 9.5</docbook:link>
 					– Nice article on developerWorks explaining update of XML
 					documents.
 				</docbook:para>
 			</docbook:listitem>
 		</docbook:orderedlist>
-		<docbook:para />
+		<docbook:para></docbook:para>
 	</docbook:sect1>
 	<docbook:sect1>
 		<docbook:title>Biography</docbook:title>
@@ -1113,3 +1121,20 @@
 			Global Services, India......</docbook:para>
 	</docbook:sect1>
 </docbook:article>
+
+	<!-- Column 1 -->
+
+	<docbook:article>
+	</docbook:article>
+
+	<!-- Column 2 -->
+
+	<docbook:article>
+	</docbook:article>
+
+	<!-- Column 3 -->
+
+	<docbook:article>
+	</docbook:article>
+
+</docbook:book>

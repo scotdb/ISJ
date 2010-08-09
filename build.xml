@@ -17,7 +17,8 @@
 	<property name="html.stylesheet" value="${docbook.xsl.dir}/html/docbook.xsl" />
     <property name="fo.stylesheet" value="${docbook.xsl.dir}/fo/docbook.xsl" />
 	<property name="xalan.lib.dir" value="lib/xalan-j_2_7_1" />
-    <property name="fop.home" value="fop-1.0" />
+	<property name="xinclude.lib.dir" value="lib" />
+	<property name="fop.home" value="fop-1.0" />
 
     <!--
       - Sets up the classpath for the Xalan and Xerces implementations
@@ -31,7 +32,36 @@
         </fileset>
     </path>
 
-    <!--
+	<!--
+	   - Task for calling FOPncludes
+	   -->
+
+    <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
+        <classpath>
+            <fileset dir="${fop.home}/lib">
+                <include name="*.jar" />
+            </fileset>
+            <fileset dir="${fop.home}/build">
+                <include name="fop.jar" />
+                <include name="fop-hyph.jar" />
+            </fileset>
+        </classpath>
+    </taskdef>
+	
+	<!--
+	   - Task for processing XIncludes
+	   -->
+	
+    <taskdef name="xinclude" classname="org.znerd.xincludetask.XIncludeTask">
+        <classpath>
+            <fileset dir="${xinclude.lib.dir}">
+            	<include name="xincluder.jar" />
+                <include name="xinclude-task-0.2.jar" />
+            </fileset>
+        </classpath>
+    </taskdef>
+	
+	<!--
       - target:  usage
       -->
     <target name="usage" description="Prints the Ant build.xml usage">
@@ -52,18 +82,27 @@
         <mkdir dir="${doc.dir}" />
     </target>
 
+	<!--
+	   - target: xinclude
+	   -->
+	
+	<target name="xinclude" depends="depends"
+		description="Includes child XML members">
+		<xinclude in="${src.dir}/isj2010-08/isj2010-08.xml" out="${src.dir}/isj2010-08/isj2010-08-inc.xml" />
+	</target>
+	
     <!--
       - target:  build-html
       - description:  Iterates through a directory and transforms
       -     .xml files into .html files using the DocBook XSL.
       -->
-    <target name="build-html" depends="depends" 
+    <target name="build-html" depends="xinclude" 
         description="Generates HTML files from DocBook XML">
         <xslt style="${html.stylesheet}" extension=".html" 
-            basedir="${src.dir}" destdir="${doc.dir}">
+            basedir="${src.dir}/isj2010-08" destdir="${doc.dir}">
             <classpath refid="xalan.classpath" />
-            <include name="**/*.xml" />
-            <exclude name="chapter1.xml" />
+            <include name="**/*-inc.xml" />
+            <!-- exclude name="chapter1.xml" / -->
 
 
         </xslt>
@@ -76,27 +115,14 @@
 	   -     files.
 	   -->
 	
-	<target name="build-pdf" depends="depends" 
+	<target name="build-pdf" depends="xinclude" 
 	    description="Generates PDF files from DocBook XML">
 	    <xslt style="${fo.stylesheet}" extension=".fo" 
-	        basedir="${src.dir}" destdir="${doc.dir}">
+	        basedir="${src.dir}/isj2010-08" destdir="${doc.dir}">
 	        <classpath refid="xalan.classpath" />
-            <include name="**/*.xml" />
-            <exclude name="chapter1.xml" />
+            <include name="**/*-inc.xml" />
+            <!-- exclude name="chapter1.xml" / -->
 	    </xslt>
-
-
-	    <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
-	        <classpath>
-	            <fileset dir="${fop.home}/lib">
-	                <include name="*.jar" />
-	            </fileset>
-	            <fileset dir="${fop.home}/build">
-	                <include name="fop.jar" />
-	                <include name="fop-hyph.jar" />
-	            </fileset>
-	        </classpath>
-	    </taskdef>
 
 	   <fop format="application/pdf" 
 	        outdir="${doc.dir}" messagelevel="debug">

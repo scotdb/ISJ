@@ -1,0 +1,1053 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>IDUG Solutions Journal</title><meta content="DocBook XSL Stylesheets V1.75.2" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" title="IDUG Solutions Journal"><div class="titlepage"><div><div><h1 class="title"><a name="N2000C"></a>IDUG Solutions Journal</h1></div><div><p class="copyright">Copyright &copy; 2010 International DB2 Users Group</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="article"><a href="#N20023">From The Editor's Desk</a></span></dt><dt><span class="article"><a href="#N20036">Using DB2 pureXML and ODF Spreadsheets</a></span></dt><dd><dl><dt><span class="sect1"><a href="#N2003D">Abstract</a></span></dt><dt><span class="sect1"><a href="#N20048">Introduction</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N20050">The ODF specification</a></span></dt><dt><span class="sect2"><a href="#N20061">DB2 pureXML</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20073">The ODF document</a></span></dt><dt><span class="sect1"><a href="#N20153">A bit of hacking</a></span></dt><dt><span class="sect1"><a href="#N2019C">Scheme of this article</a></span></dt><dt><span class="sect1"><a href="#N201C6">Inserting XML document into DB2 table
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201D9">IMPORT statements</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N201F8">Converting the content.xml into row-column
+			format
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201FD">Getting the cell values from the XML file
+			</a></span></dt><dt><span class="sect2"><a href="#N20206">The XPath expression</a></span></dt><dt><span class="sect2"><a href="#N2023C">The required query </a></span></dt></dl></dd><dt><span class="sect1"><a href="#N202B8">Shopping prices</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N202C0">Building the list of shopping prices
+			</a></span></dt><dt><span class="sect2"><a href="#N202EE">View with list and cost of items</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20303">XQuery Update to build content.xml document
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N20312">A quick side note on XQuery Update</a></span></dt><dt><span class="sect2"><a href="#N2031D">Generating the content.xml for the shopping
+				prices
+			</a></span></dt><dt><span class="sect2"><a href="#N20335">Building the &lt;table:table-row&gt; elements
+			</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20376">Next steps</a></span></dt><dt><span class="sect1"><a href="#N20391">Resources</a></span></dt><dt><span class="sect1"><a href="#N20403">Biography</a></span></dt></dl></dd><dt><span class="article"><a href="#N2040F"></a></span></dt><dt><span class="article"><a href="#N20414"></a></span></dt><dt><span class="article"><a href="#N20419"></a></span></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N201D0">DB2 table to hold content.xml file of the ODF
+				spreadsheet</a></dt><dt>2. <a href="#N201E1">Contents of flat file to be used for loading
+					DOCCONTENTXML table</a></dt><dt>3. <a href="#N201EA">IMPORT statement to load content.xml into
+					DOCCONTENTXML table</a></dt><dt>4. <a href="#N2020E">XPath expression to get first row, second column
+					value</a></dt><dt>5. <a href="#N20293">Query to extract cell values from content.xml into
+					tabular format</a></dt><dt>6. <a href="#N202A1">View on the content.xml document</a></dt><dt>7. <a href="#N202AD">Result of SELECT on the view V_CONTENT.
+				</a></dt><dt>8. <a href="#N202C8">DDL for table to hold the shopping prices
+				</a></dt><dt>9. <a href="#N202D6">Query to obtain list and cost of items with grand
+					total</a></dt><dt>10. <a href="#N202E4">Result of query for obtaining list and cost of items
+				</a></dt><dt>11. <a href="#N202F8">View with list and cost of items in shopping list
+				</a></dt><dt>12. <a href="#N2033F">A sample &lt;table:table-row&gt; element
+				</a></dt><dt>13. <a href="#N2034B">Table to hold generated &lt;table:table-row&gt;
+					elements</a></dt><dt>14. <a href="#N20354">Insert generated &lt;table:table-row&gt; elements
+					with &lt;dummy&gt; parent</a></dt><dt>15. <a href="#N20360">Updated content.xml document</a></dt></dl></div>
+
+	
+
+	
+
+	<div class="article" title="From The Editor's Desk"><div class="titlepage"><div><div><h2 class="title"><a name="N20023"></a>From The Editor's Desk</h2></div><div><div class="author"><h3 class="author">Philip Nelson</h3></div></div></div><hr></div>
+		
+		<p></p>
+	</div>
+
+	
+
+	<div class="article" title="Using DB2 pureXML and ODF Spreadsheets"><div class="titlepage"><div><div><h2 class="title"><a name="N20036"></a>Using DB2 pureXML and ODF Spreadsheets</h2></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#N2003D">Abstract</a></span></dt><dt><span class="sect1"><a href="#N20048">Introduction</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N20050">The ODF specification</a></span></dt><dt><span class="sect2"><a href="#N20061">DB2 pureXML</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20073">The ODF document</a></span></dt><dt><span class="sect1"><a href="#N20153">A bit of hacking</a></span></dt><dt><span class="sect1"><a href="#N2019C">Scheme of this article</a></span></dt><dt><span class="sect1"><a href="#N201C6">Inserting XML document into DB2 table
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201D9">IMPORT statements</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N201F8">Converting the content.xml into row-column
+			format
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N201FD">Getting the cell values from the XML file
+			</a></span></dt><dt><span class="sect2"><a href="#N20206">The XPath expression</a></span></dt><dt><span class="sect2"><a href="#N2023C">The required query </a></span></dt></dl></dd><dt><span class="sect1"><a href="#N202B8">Shopping prices</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N202C0">Building the list of shopping prices
+			</a></span></dt><dt><span class="sect2"><a href="#N202EE">View with list and cost of items</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20303">XQuery Update to build content.xml document
+		</a></span></dt><dd><dl><dt><span class="sect2"><a href="#N20312">A quick side note on XQuery Update</a></span></dt><dt><span class="sect2"><a href="#N2031D">Generating the content.xml for the shopping
+				prices
+			</a></span></dt><dt><span class="sect2"><a href="#N20335">Building the &lt;table:table-row&gt; elements
+			</a></span></dt></dl></dd><dt><span class="sect1"><a href="#N20376">Next steps</a></span></dt><dt><span class="sect1"><a href="#N20391">Resources</a></span></dt><dt><span class="sect1"><a href="#N20403">Biography</a></span></dt></dl></div>
+	
+	<div class="sect1" title="Abstract"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2003D"></a>Abstract</h2></div></div></div>
+		
+		<p>ODF (Open Document Format) is a file format for
+			office
+			documents. &nbsp;At a high level, the ODF specification requires
+			five
+			mandatory XML documents and other optional items. &nbsp;This article
+			will
+			describe how DB2 pureXML could be used to handle ODF spreadsheet
+			documents. Other ODF documents such as word documents, presentations,
+			formulas, etc. could also be handled by DB2 because the ODF
+			specification refers mainly to an archive of XML documents. However,
+			for the sake of this article, we are considering only spreadsheets
+			because it is easier to co-relate the rows and columns of the
+			spreadsheet document and that of a DB2 table. This article can even
+			be further extended into an on-line document editing software with
+			.ods as file format and DB2 pureXML as the database.</p>
+		<p></p>
+	</div>
+	<div class="sect1" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20048"></a>Introduction</h2></div></div></div>
+		
+		<p>The ODF specification and DB2 pureXML are introduced
+			below.</p>
+		<div class="sect2" title="The ODF specification"><div class="titlepage"><div><div><h3 class="title"><a name="N20050"></a>The ODF specification</h3></div></div></div>
+			
+			<p>
+				The Open Document Format specification was originally developed by
+				<a class="ulink" href="http://www.sun.com/" target="_top">Sun</a>
+				and the standard was developed by OASIS Open Document Format for
+				Office Applications (Open Document) TC &ndash; OASIS ODF TC. This standard
+				is based on XML format originally created and implemented by
+				OpenOffice.org office suite. In addition to being a free and open
+				OASIS standard, it is published (in one of its version 1.0
+				manifestations) as an ISO/IEC international standard,
+				<a class="ulink" href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485" target="_top">ISO/IEC 26300:2006 Open Document Format for Office
+					Applications (OpenDocument) v1.0</a>
+				.
+			</p>
+		</div>
+		<div class="sect2" title="DB2 pureXML"><div class="titlepage"><div><div><h3 class="title"><a name="N20061"></a>DB2 pureXML</h3></div></div></div>
+			
+			<p>
+
+				<a class="ulink" href="http://www-01.ibm.com/software/data/db2/xml/" target="_top">DB2 pureXML</a>
+				is IBM software for management of XML data. It eliminates much of
+				the work typically involved in the management of XML data. From
+				validation of XML documents, to generation of documents and support
+				for querying XML data in the form of
+				<a class="ulink" href="http://www.w3.org/TR/xquery/" target="_top">XQuery</a>
+				and traditional SQL, DB2 pureXML is a complete solution to manage
+				XML data in enterprise-scale databases.
+			</p>
+		</div>
+	</div>
+	<div class="sect1" title="The ODF document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20073"></a>The ODF document</h2></div></div></div>
+		
+		<p>An ODF document is a zipped file of five mandatory XML
+			files and other optional components. This can be seen by running your
+			favorite un-zip utility to list the components. Here is the result
+			after &nbsp;running the unzip command on an .ods file from command line to
+			list the files. The XML files are highlighted below.</p>
+		<p>
+			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics1.png" width="396"></span>
+		</p>
+		<p>Here is a short description of XML files as seen
+			above.
+		</p>
+		<div class="informaltable">
+			<table border="1"><colgroup><col><col><col></colgroup><tbody><tr><td>
+							<p>File name</p>
+						</td><td>
+							<p>Usage</p>
+						</td><td>
+							<p>Location in zipped file</p>
+						</td></tr><tr><td>
+							<p>manifest.xml</p>
+						</td><td>
+							<p>Information about the files contained in
+								the
+								package.</p>
+						</td><td>
+							<p>/META-INF</p>
+						</td></tr><tr><td>
+							<p>styles.xml</p>
+						</td><td>
+							<p>Styles used in the document content and
+								automatic
+								styles used in the styles themselves.</p>
+						</td><td>
+							<p>/ &nbsp;(root)</p>
+						</td></tr><tr><td>
+							<p>settings.xml</p>
+						</td><td>
+							<p>Application-specific settings,
+								such as the window
+								size or printer information.</p>
+						</td><td>
+							<p>/ &nbsp;(root)</p>
+						</td></tr><tr><td>
+							<p>content.xml</p>
+						</td><td>
+							<p>Document content and automatic styles used
+								in the
+								content.</p>
+						</td><td>
+							<p>/ &nbsp;(root)</p>
+						</td></tr><tr><td>
+							<p>meta.xml</p>
+						</td><td>
+							<p>Document meta information, such as the
+								author or the
+								time of the last save action.</p>
+						</td><td>
+							<p>/ &nbsp;(root)</p>
+						</td></tr></tbody></table>
+		</div>
+		<p>Table 1: XML files of an ODF document</p>
+		<p></p>
+		<p>For this article, we are interested in content.xml
+			file
+			which will hold the contents of the document. The document used
+			for
+			this article is a simple shopping list named as Shop.ods. The
+			below
+			table shows the way the first row was entered in the
+			spreadsheet
+			document using OpenOffice and as seen by viewing the
+			corresponding
+			content.xml file in Firefox browser.</p>
+		<p></p>
+		<div class="informaltable">
+			<table border="1"><colgroup><col><col></colgroup><tbody><tr><td>
+							<p>
+								<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics2.png" width="190"></span>
+							</p>
+						</td><td>
+							<p>
+								<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics3.png" width="396"></span>
+							</p>
+						</td></tr></tbody></table>
+		</div>
+		<p>Table 2: Row in a ODF spreadsheet and as saved in
+			content.xml file</p>
+	</div>
+	<div class="sect1" title="A bit of hacking"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20153"></a>A bit of hacking</h2></div></div></div>
+		
+		<p>Now that we know a bit about an ODF document, let us
+			try
+			to create one without actually running a standard software
+			dealing
+			with ODF documents. As noted above, the content.xml file
+			holds the
+			data entered while creating the spreadsheet. So, if this
+			file is
+			changed and zipped along with the rest of the files in the
+			original
+			archive (that is, the .ods file), we will be having a
+			&ldquo;legal&rdquo; ODF
+			spreadsheet. To test this, follow the steps below.
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Open the content.xml file in a regular text
+					editor.
+				</p>
+			</li><li class="listitem">
+				<p>In Table 2, the element &lt;table:table-row&gt; has
+					been highlighted. Type in the contents of the highlighted section
+					immediately as a sibling of another &lt;table:table-row&gt;
+					element.</p>
+			</li><li class="listitem">
+				<p>In the pasted element, make a change in any of the
+					table:table-cell/text:p element say, something like this.
+				</p>
+			</li></ol></div>
+		<p>
+			<span class="inlinemediaobject"><img src="isj2010-08-purexml-OOo-graphics1.png" width="396"></span>
+
+			
+
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Save the edited content.xml file in the same
+					folder
+					where the Shop.ods file was unzipped into replacing the
+					older one.
+				</p>
+			</li><li class="listitem">
+				<p>Select all the contents (that is, the ones
+					mentioned in
+					the manifest.xml file) of the unzipped folder and zip
+					them. Name the
+					zipped file as NewShop.ods. </p>
+			</li><li class="listitem">
+				<p>Now, open NewShop.ods in OpenOffice or IBM Lotus
+					Symphony and confirm that the hacking is successful. Note that,
+					OpenOffice successfully opens a file with a .zip extension, so long
+					it is a valid ODF document whereas, Symphony requires the extension
+					to be .ods.</p>
+			</li></ol></div>
+		<p>
+
+			
+
+		</p>
+		<p></p>
+		<p>It is now clear that, to &ldquo;read&rdquo; an existing ODF
+			spreadsheet in its simplest form, we have to navigate the path of the
+			content.xml XML document. Similarly, to &ldquo;modify&rdquo; an existing ODF
+			spreadsheet, we should generate the content.xml XML document
+			correctly. One can, of course, extend this to create and/or modify
+			other XML documents in the .ods archive. But, for the sake of this
+			article, we will concentrate only on the creation of content.xml XML
+			document.</p>
+	</div>
+	<div class="sect1" title="Scheme of this article"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2019C"></a>Scheme of this article</h2></div></div></div>
+		
+		<p>With this knowledge of XML documents in an ODF
+			document
+			archive, we will now proceed to demonstrate the usage of DB2
+			pureXML
+			with ODF documents. We consider the scheme below.
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>We consider an ODF spreadsheet of a simple shopping
+					list where the item name, unit of measure (UOM) and the units
+					required are provided.</p>
+			</li><li class="listitem">
+				<p>The content.xml document of this ODF spreadsheet is
+					imported into a DB2 table with an XML column. </p>
+			</li><li class="listitem">
+				<p>For the sake of this article we will use the LOAD
+					statement in DB2 to load the content.xml document and ignore any
+					other methods of inserting XML documents into the DB2 table.
+				</p>
+			</li><li class="listitem">
+				<p>We will refer to another traditional table which
+					stores the price list.</p>
+			</li><li class="listitem">
+				<p>Using the table for price list and the table with
+					XML
+					column for content.xml, we will generate another content.xml
+					XML
+					document that will hold the items with their corresponding
+					prices.
+				</p>
+			</li></ol></div>
+	</div>
+	<div class="sect1" title="Inserting XML document into DB2 table"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201C6"></a>Inserting XML document into DB2 table
+		</h2></div></div></div>
+		
+		<p>We will consider a &nbsp;table to demonstrate DB2 pureXML
+			capabilities. The first table will be keyed via an ID column to
+			differentiate multiple documents. The second column of the table will
+			hold the content.xml file of the ODF spreadsheet document in a &nbsp;XML
+			column. The DDL for this table is reproduced here :</p>
+		<p></p>
+		<div class="example"><a name="N201D0"></a><p class="title"><b>Example&nbsp;1.&nbsp;DB2 table to hold content.xml file of the ODF
+				spreadsheet</b></p><div class="example-contents">
+			
+			<pre class="programlisting">
+				-- DOCCONTENTXML table to hold the
+				content.xml file of a ODF document.
+				-- The table is keyed on DOCID a
+				running sequence number.
+				CREATE TABLE ODF.DOCCONTENTXML (
+				&nbsp; &nbsp; &nbsp; DOCID
+				INTEGER NOT NULL,
+				&nbsp; &nbsp; &nbsp; DOCCONTENT XML NOT NULL
+				) ;
+			</pre>
+		</div></div><br class="example-break">
+		<div class="sect2" title="IMPORT statements"><div class="titlepage"><div><div><h3 class="title"><a name="N201D9"></a>IMPORT statements</h3></div></div></div>
+			
+			<p>Inserting the XML document into the table can
+				be done
+				using a simple INSERT SQL statement or using IMPORT
+				statement.
+				However, since we have a considerably sized XML document,
+				we will use
+				IMPORT statement from the command line. To use IMPORT
+				statement,
+				first, save the content.xml in a folder as say, ODSFolder
+				and create
+				a flat file with a single record. Save the flat file as
+				load.txt.
+				This record will have two values separated by a comma as
+				shown below.
+			</p>
+			<div class="example"><a name="N201E1"></a><p class="title"><b>Example&nbsp;2.&nbsp;Contents of flat file to be used for loading
+					DOCCONTENTXML table</b></p><div class="example-contents">
+				
+				<pre class="programlisting">1,&lt;XDS FIL='content.xml'/&gt;
+				</pre>
+			</div></div><br class="example-break">
+			<div class="example"><a name="N201EA"></a><p class="title"><b>Example&nbsp;3.&nbsp;IMPORT statement to load content.xml into
+					DOCCONTENTXML table</b></p><div class="example-contents">
+				
+				<pre class="programlisting">IMPORT FROM load.txt OF DEL XML FROM
+					ODSFolder INSERT INTO ODF.DOCCONTENTXML;</pre>
+			</div></div><br class="example-break">
+			<p>Alternatively, IBM Data Studio Developer
+				can be used to
+				load into XML column as it offers a convenient GUI.
+			</p>
+		</div>
+	</div>
+	<div class="sect1" title="Converting the content.xml into row-column format"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201F8"></a>Converting the content.xml into row-column
+			format
+		</h2></div></div></div>
+		
+		<div class="sect2" title="Getting the cell values from the XML file"><div class="titlepage"><div><div><h3 class="title"><a name="N201FD"></a>Getting the cell values from the XML file
+			</h3></div></div></div>
+			
+			<p>To get to the cell values of the spreadsheet, we will
+				start with the required XPath expression. Then, we will develop a
+				working query around the XPath expression to get the results.
+			</p>
+		</div>
+		<div class="sect2" title="The XPath expression"><div class="titlepage"><div><div><h3 class="title"><a name="N20206"></a>The XPath expression</h3></div></div></div>
+			
+			<p>Going back to Table 2, the left column shows the
+				first
+				row of the spreadsheet highlighted. The right column is a part
+				of the
+				generated content.xml file and some of the elements
+				collapsed. The
+				relevant part are put in red boxes. The first box
+				shows the
+				table:table element with an attribute table:name whose
+				value is
+				&ldquo;Sheet1&rdquo;. It is the name of the sheet in the complete
+				spreadsheet.
+				This element is repeated as many times as there are
+				sheets in the
+				spreadsheet with the table:name attribute set to the
+				names as set by
+				the user. The second box is the representation of
+				the highlighted row
+				in the left column. Thus, to get to, say, column
+				B of the first row,
+				the path to be navigated (or, the XPath
+				expression) from the root of
+				XML document would be as below.
+			</p>
+			<div class="example"><a name="N2020E"></a><p class="title"><b>Example&nbsp;4.&nbsp;XPath expression to get first row, second column
+					value</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
+				</pre>
+			</div></div><br class="example-break">
+			<p></p>
+			<p>In other words, we start from the office:document
+				element to office:body and then to office:spreadsheet to look for
+				the first table:table element. The first element represents the
+				first sheet of the spreadsheet document. Then, to get to the second
+				column of first row we navigate to table:row[1]/table:cell[2] and
+				finally to text:p to get the actual text of the cell.</p>
+			<p></p>
+			<p>With Firefox Mozilla browser, the above XPath
+				expression can be easily tested using the add-on Xpather (see
+				Resources below). &nbsp;We follow the steps below :</p>
+			<p></p>
+			<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+					<p>Open the content.xml in Firefox Mozilla browser.
+						Right-click on the page and select 'Show in XPather'.
+					</p>
+				</li></ol></div>
+			<p>
+
+				
+
+			</p>
+			<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+					<p>The XPather dialog box opens up. Enter the XPath
+						expression in the dialog box and click 'Eval'.</p>
+				</li></ol></div>
+			<p>
+
+				
+
+			</p>
+		</div>
+		<div class="sect2" title="The required query"><div class="titlepage"><div><div><h3 class="title"><a name="N2023C"></a>The required query </h3></div></div></div>
+			
+			<p>To wrap the XPath expression into a query, we first
+				note the XML namespaces used. The content.xml file has the
+				namespaces defined as shown below :</p>
+			<div class="informaltable">
+				<table border="1"><colgroup><col><col></colgroup><tbody><tr><td>
+								<p>Prefix</p>
+							</td><td>
+								<p>Namespace</p>
+							</td></tr><tr><td>
+								<code class="code">office</code>
+							</td><td>
+								<code class="code">
+									&ldquo;urn:oasis:names:tc:opendocument:xmlns:office:1.0&rdquo;
+								</code>
+							</td></tr><tr><td>
+								<code class="code">table</code>
+							</td><td>
+								<code class="code">&ldquo;urn:oasis:names:tc:opendocument:xmlns:table:1.0&rdquo;
+								</code>
+							</td></tr><tr><td>
+								<code class="code">text</code>
+							</td><td>
+								<code class="code">&ldquo;urn:oasis:names:tc:opendocument:xmlns:text:1.0&rdquo;
+								</code>
+							</td></tr></tbody></table>
+			</div>
+			<p>Table 7: Prefix and namespace URI used in
+				content.xml
+				document</p>
+			<p></p>
+			<p>The query shown below will use the XML namespaces
+				and
+				XPath expression (that we obtained in Section 6.2) &nbsp;to extract
+				&nbsp;the
+				cell values from the loaded content.xml file. The text in
+				bold-blue
+				shows the XPath expression used to extract cell values.
+			</p>
+			<div class="example"><a name="N20293"></a><p class="title"><b>Example&nbsp;5.&nbsp;Query to extract cell values from content.xml into
+					tabular format</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					SELECT
+					X.*
+					FROM
+					XMLTABLE(
+					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
+					"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
+					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
+					'db2-fn:sqlquery("SELECT
+					DOCCONTENT
+					FROM
+					ODF.DOCCONTENTXML
+					WHERE DOCID
+					= 1")
+					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
+					COLUMNS&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					"ITEMNAME" CHARACTER (20) &nbsp;PATH
+					'table:table-cell[1]/text:p', &nbsp;
+					"QUANTITY" DECIMAL &nbsp; (4,2) PATH
+					'table:table-cell[2]/text:p',
+					"UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH
+					'table:table-cell[3]/text:p' &nbsp;
+					) AS X; 
+				</pre>
+			</div></div><br class="example-break">
+			<p>To see the content.xml document in traditional rows
+				and
+				columns format, we create a view using the query above.
+			</p>
+			<p></p>
+			<div class="example"><a name="N202A1"></a><p class="title"><b>Example&nbsp;6.&nbsp;View on the content.xml document</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					CREATE VIEW ODF.V_CONTENT AS
+					(
+					SELECT
+					X.*
+					FROM
+					XMLTABLE(
+					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
+					"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
+					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
+					'db2-fn:sqlquery("SELECT
+					DOCCONTENT
+					FROM
+					ODF.DOCCONTENTXML
+					WHERE
+					DOCID =
+					1"
+					)/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
+					COLUMNS
+					"ITEMNAME" CHARACTER (20) &nbsp;PATH
+					'table:table-cell[1]/text:p',
+					"QUANTITY" DECIMAL &nbsp; (4,2) PATH
+					'table:table-cell[2]/text:p',
+					"UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH
+					'table:table-cell[3]/text:p'
+					) AS X
+					);
+				</pre>
+			</div></div><br class="example-break">
+			<p>A simple SELECT query on this view shows that we have
+				successfully 'converted' the content.xml document in the ODF archive
+				for spreadsheet into a row-column format.</p>
+			<div class="example"><a name="N202AD"></a><p class="title"><b>Example&nbsp;7.&nbsp;Result of SELECT on the view V_CONTENT.
+				</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					SELECT * FROM ODF.V_CONTENT ;
+
+					ITEMNAME &nbsp; &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; QUANTITY UOM &nbsp;
+					-------------------- -------- ----
+					Potato &nbsp; &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 kg &nbsp;
+					Onion &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.00 kg &nbsp;
+					Cucumber &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
+					Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
+					Carrot &nbsp; &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
+					Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
+					Tomato &nbsp; &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
+					Curd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 L &nbsp; &nbsp;
+					Banana &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 doz &nbsp;
+					Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 L &nbsp; &nbsp;
+					Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00 L &nbsp; &nbsp;
+
+					11 record(s) selected.
+				</pre>
+			</div></div><br class="example-break">
+		</div>
+	</div>
+	<div class="sect1" title="Shopping prices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N202B8"></a>Shopping prices</h2></div></div></div>
+		
+		<p>We will now build the content.xml for an ODF
+			spreadsheet
+			that will hold the shopping list &ndash; discussed above &ndash; with
+			an
+			additional column for cost of items in the shopping list. We will
+			also provide an additional row for the grand total of the items in
+			shopping list.</p>
+		<div class="sect2" title="Building the list of shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N202C0"></a>Building the list of shopping prices
+			</h3></div></div></div>
+			
+			<p>We create a simple table that holds the unit price of
+				shopping items with the DDL shown below.</p>
+			<div class="example"><a name="N202C8"></a><p class="title"><b>Example&nbsp;8.&nbsp;DDL for table to hold the shopping prices
+				</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					--Table to hold the unit price of shopping
+					items
+					CREATE TABLE ODF.SHOPPER
+					(ITEMNAME CHARACTER(50),
+					UNIT_PRICE
+					DECIMAL (4,2));
+ 				</pre>
+			</div></div><br class="example-break">
+			<p>This table is inserted with values such that all
+				the
+				item names are available in the SHOPPER table. &nbsp;To obtain the
+				list of
+				item names and the cost of items, we use the following
+				query. Note
+				that, this query uses the view V_CONTENT. We could have
+				used the base
+				table directly. Usage of the view makes the query
+				'compact' and
+				easier to follow.</p>
+			<p></p>
+			<div class="example"><a name="N202D6"></a><p class="title"><b>Example&nbsp;9.&nbsp;Query to obtain list and cost of items with grand
+					total</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					SELECT
+					COALESCE(P.ITEMNAME,' TOTAL')
+					ITEMNAME,
+					SUM(P.QUANTITY) QTY,
+					COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
+					SUM(P.COST) COST
+					FROM
+					(SELECT
+					A.ITEMNAME,
+					A.QUANTITY,
+					B.UNIT_PRICE,
+					A.QUANTITY*B.UNIT_PRICE COST
+					FROM
+					ODF.V_CONTENT A,
+					ODF.SHOPPER B
+					WHERE
+					UPPER(A.ITEMNAME) = B.ITEMNAME
+					) P
+					GROUP BY
+					ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
+					HAVING (P.ITEMNAME IS
+					NULL OR
+					(P.ITEMNAME IS NOT NULL AND
+					P.QUANTITY IS NOT NULL AND
+					P.UNIT_PRICE IS NOT NULL AND
+					SUM(P.COST) IS NOT NULL&nbsp;AND
+					SUM(P.QUANTITY) IS NOT NULL
+					)
+					)
+					ORDER BY COALESCE(P.ITEMNAME,' ') DESC
+				</pre>
+			</div></div><br class="example-break">
+			<p>The result of the above query is shown below.
+			</p>
+			<p></p>
+			<div class="example"><a name="N202E4"></a><p class="title"><b>Example&nbsp;10.&nbsp;Result of query for obtaining list and cost of items
+				</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					ITEMNAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; QTY &nbsp; &nbsp;UNIT_PRICE COST
+					&nbsp; &nbsp;
+					-------------------- ------ ---------- --------
+					Tomato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; 0.25 &nbsp; &nbsp; &nbsp; 6.00 1.50
+					Potato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 &nbsp; &nbsp; &nbsp; 5.50 &nbsp;
+					&nbsp;11.00
+					Onion &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.00 &nbsp; &nbsp; &nbsp; 4.00 &nbsp; &nbsp; 4.00
+					Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; 2.00 &nbsp; &nbsp; &nbsp;40.00 &nbsp; &nbsp;80.00
+					Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00 &nbsp; &nbsp;
+					&nbsp;30.00 &nbsp; 150.00
+					Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 &nbsp; &nbsp; &nbsp; 8.00 &nbsp; 2.00
+					Curd &nbsp;
+					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
+					Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50
+					&nbsp; &nbsp; &nbsp;10.00 &nbsp; 5.00
+					Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;15.00 &nbsp; &nbsp; 7.50
+					Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
+					Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					&nbsp; 2.00 &nbsp; &nbsp; &nbsp; 6.00 &nbsp; &nbsp;12.00
+					TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;14.50 &nbsp; &nbsp; &nbsp; 0.00 &nbsp;
+					293.00 
+				</pre>
+			</div></div><br class="example-break">
+		</div>
+		<div class="sect2" title="View with list and cost of items"><div class="titlepage"><div><div><h3 class="title"><a name="N202EE"></a>View with list and cost of items</h3></div></div></div>
+			
+			<p>Now that we have the result of computation of cost
+				of
+				items, we will take this into a view. This is purely for
+				convenience. We can proceed without using this view.</p>
+			<p></p>
+			<div class="example"><a name="N202F8"></a><p class="title"><b>Example&nbsp;11.&nbsp;View with list and cost of items in shopping list
+				</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					CREATE VIEW ODF.V_SHOP_COST AS
+					(SELECT
+					COALESCE(P.ITEMNAME,' TOTAL') ITEMNAME,
+					SUM(P.QUANTITY) QTY,
+					COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
+					SUM(P.COST) COST
+					FROM
+					(SELECT
+					A.ITEMNAME,
+					A.QUANTITY,
+					B.UNIT_PRICE,
+					A.QUANTITY*B.UNIT_PRICE COST
+					FROM
+					ODF.V_CONTENT A,
+					&nbsp;ODF.SHOPPER B
+					&nbsp;WHERE
+					UPPER(A.ITEMNAME) =
+					B.ITEMNAME
+					) P
+					GROUP BY
+					ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
+					HAVING (P.ITEMNAME IS NULL OR
+					(P.ITEMNAME IS NOT NULL AND
+					P.QUANTITY
+					IS NOT NULL AND
+					P.UNIT_PRICE IS NOT NULL AND
+					SUM(P.COST) IS NOT NULL
+					AND
+					SUM(P.QUANTITY) IS NOT NULL
+					)
+					)
+					);
+				</pre>
+			</div></div><br class="example-break">
+		</div>
+	</div>
+	<div class="sect1" title="XQuery Update to build content.xml document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20303"></a>XQuery Update to build content.xml document
+		</h2></div></div></div>
+		
+		<p>At this point, we have 'shredded' the shopping list
+			(from the content.xml of ODF spreadsheet), joined with the relational
+			table having the unit prices of items and generated a relational
+			output of the cost of items in shopping list with the grand total.
+			Our aim is now to convert this relational output into the format of
+			content.xml so that the result is a complete ODF spreadsheet.
+		</p>
+		<p></p>
+		<p>One way of building the content.xml is to start from
+			the
+			scratch and we build the whole of the document. This approach
+			would be
+			quite tedious. A better way would be to generate the
+			relevant part in
+			the content.xml part and then insert into an
+			otherwise empty
+			content.xml document. This approach will also allow
+			us to make use of
+			XQuery Update facility in DB2 pureXML.
+		</p>
+		<p></p>
+		<div class="sect2" title="A quick side note on XQuery Update"><div class="titlepage"><div><div><h3 class="title"><a name="N20312"></a>A quick side note on XQuery Update</h3></div></div></div>
+			
+			<p>XQuery is a query and functional programming
+				language
+				designed to query XML documents. It became a W3C Candidate
+				Recommendation on 23rd January, 2007. XQuery Update facility is an
+				extension to XQuery that allows update (insert, modify and delete)
+				of the XML documents. It became a W3C Candidate Recommendation on
+				14th March, 2008.</p>
+			<p></p>
+		</div>
+		<div class="sect2" title="Generating the content.xml for the shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N2031D"></a>Generating the content.xml for the shopping
+				prices
+			</h3></div></div></div>
+			
+			<p>To start with, we will create a dummy content.xml
+				that
+				is complete and ODF compliant in all respects except it would
+				resemble an empty spreadsheet. Next, we will generate XML sequences
+				that is correct for a row and it's columns of a spreadsheet. Then,
+				we will collect all of these XML sequences and insert into the dummy
+				content.xml document.</p>
+			<p></p>
+			<p>To create the dummy document, we simply open the
+				spreadsheet for shopping list, delete all rows and columns and save
+				it with another name. Then, we unzip this document and refer the
+				content.xml document. Here is a screenshot of how this document
+				would look like.</p>
+			<p>
+
+				
+
+			</p>
+			<p></p>
+			<p>Insert this dummy document into the
+				ODF.DOCCONTENTXML
+				table with DOCID as zero using the IMPORT method
+				described before.
+				Our aim now is to update this document such that,
+				&lt;table:table-row&gt; elements are added as children of
+				&lt;table:table&gt; and as siblings of &lt;table:table-column&gt;.
+			</p>
+			<p></p>
+		</div>
+		<div class="sect2" title="Building the <table:table-row> elements"><div class="titlepage"><div><div><h3 class="title"><a name="N20335"></a>Building the &lt;table:table-row&gt; elements
+			</h3></div></div></div>
+			
+			<p>In our example, each row of spreadsheet would be
+				having
+				four columns. Therefore, each row element &ndash; as required in
+				content.xml &ndash; would have four children for the number of columns. A
+				sample of &lt;table:table-row&gt; is shown below. The XML namespace
+				declarations have been omitted for the sake of brevity.
+			</p>
+			<p></p>
+			<div class="example"><a name="N2033F"></a><p class="title"><b>Example&nbsp;12.&nbsp;A sample &lt;table:table-row&gt; element
+				</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					&lt;table:table-row
+					table:style-name="ro1"&gt;
+					&lt;table:table-cell
+					office:value-type="string"&gt;&lt;text:p&gt;Tomato&lt;/text:p&gt;&lt;/table:table-cell&gt;
+					&lt;table:table-cell
+					office:value-type="string"&gt;&lt;text:p&gt;.25&lt;/text:p&gt;&lt;/table:table-cell&gt;
+					&lt;table:table-cell
+					office:value-type="string"&gt;&lt;text:p&gt;6.00&lt;/text:p&gt;&lt;/table:table-cell&gt;
+					&lt;table:table-cell
+					office:value-type="string"&gt;&lt;text:p&gt;1.5000&lt;/text:p&gt;&lt;/table:table-cell&gt;
+					&lt;/table:table-row&gt; </pre>
+			</div></div><br class="example-break">
+			<p>To build the &lt;table:table-row&gt; elements, then,
+				we
+				need to generate &lt;table:table-cell&gt; for each column of the
+				row
+				in the relational table and then aggregate them to a single
+				&lt;table:table-row&gt; element. We will use the XMLAGG function to
+				build the elements and store in a table the generated elements so
+				that it is easier to use while doing the update of XML document. The
+				table to hold the generated elements is defined as shown below.
+			</p>
+			<div class="example"><a name="N2034B"></a><p class="title"><b>Example&nbsp;13.&nbsp;Table to hold generated &lt;table:table-row&gt;
+					elements</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					CREATE TABLE ODF.SHOP_COST_XML (SHOP_COST
+					XML);
+				</pre>
+			</div></div><br class="example-break">
+			<div class="example"><a name="N20354"></a><p class="title"><b>Example&nbsp;14.&nbsp;Insert generated &lt;table:table-row&gt; elements
+					with &lt;dummy&gt; parent</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					INSERT INTO ODF.SHOP_COST_XML (SHOP_COST)
+					(SELECT
+					XMLDOCUMENT(
+					XMLELEMENT(NAME "dummy",
+					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
+					"office",
+					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS
+					"table",
+					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"
+					),
+					XMLAGG(
+					XMLELEMENT(NAME "table:table-row",
+					XMLATTRIBUTES('ro1' AS
+					"table:style-name"),
+					XMLELEMENT(NAME "table:table-cell",
+					XMLATTRIBUTES('string' AS "office:value-type"), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					XMLELEMENT(NAME "text:p", STRIP(O.ITEMNAME)
+					)
+					),
+					XMLELEMENT(NAME
+					"table:table-cell",
+					XMLATTRIBUTES('string' AS "office:value-type"),
+					XMLELEMENT(NAME "text:p", O.QTY )
+					),
+					XMLELEMENT(NAME
+					"table:table-cell",
+					XMLATTRIBUTES('string' AS "office:value-type"),
+					XMLELEMENT(NAME "text:p", O.UNIT_PRICE )
+					),
+					XMLELEMENT(NAME
+					"table:table-cell",
+					XMLATTRIBUTES('string' AS "office:value-type"),
+					XMLELEMENT(NAME "text:p", O.COST)
+					)
+					)
+					ORDER BY O.ITEMNAME DESC
+					)
+					)
+					)
+					FROM
+					ODF.V_SHOP_COST O
+					);
+				</pre>
+			</div></div><br class="example-break">
+			<p>Finally, we are now ready to update our dummy
+				XML
+				document. The query to do the update is shown below. Note that,
+				this
+				query is not inserting the resulting into any table. It is left
+				to
+				the reader to route the output to a table column, file, message
+				queue, etc.</p>
+			<div class="example"><a name="N20360"></a><p class="title"><b>Example&nbsp;15.&nbsp;Updated content.xml document</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+					VALUES XMLQUERY(
+					'declare namespace
+					office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" ;
+					declare
+					namespace table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+					;
+					transform
+					copy $dummy := db2-fn:sqlquery("SELECT DOCCONTENT FROM
+					ODF.DOCCONTENTXML WHERE DOCID = 0") ,
+					$rows :=
+					db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
+					modify do
+					insert
+					$rows/dummy/* as last into
+					$dummy/office:document-content/office:body/office:spreadsheet/table:table
+					return $dummy '
+					); 
+				</pre>
+			</div></div><br class="example-break">
+			<p>To test that our update has worked successfully run,
+				we
+				route the output of query above to a file called content.xml.
+				Replace the content.xml file in the unzipped archive of our original
+				shopping list spreadsheet with the one created now. Zip the files
+				back and save it with name as ShopPrices.ods and open with
+				OpenOffice. Here is the screenshot.</p>
+			<p>
+
+				
+
+			</p>
+			<p>And, we are done !</p>
+			<p></p>
+		</div>
+	</div>
+	<div class="sect1" title="Next steps"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20376"></a>Next steps</h2></div></div></div>
+		
+		<p>Further enhancements may involve manipulating
+			other XML
+			documents in a ODF compliant archive. For example, the
+			meta.xml
+			document holds information about the document itself. &nbsp;This
+			information can be accessed and set by going to File -&gt;
+			Properties... dialog box. For example, for the document in this
+			article (Shop.ods), this is how the dialog box looks like.
+		</p>
+		<p>
+
+			
+
+		</p>
+		<p></p>
+		<p>The corresponding meta.xml document (partial
+			snapshot) is
+			shown below.</p>
+		<p>
+
+			
+
+		</p>
+		<p>Thus, while generating the spreadsheet, one can
+			write
+			queries to generate the meta.xml document with correct values
+			for
+			creator, creation time-stamp, etc.</p>
+		<p></p>
+		<p></p>
+	</div>
+	<div class="sect1" title="Resources"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20391"></a>Resources</h2></div></div></div>
+		
+		<p>Important resources :</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www-01.ibm.com/software/data/db2/express/download.html" target="_top">DB2 Express-C</a>
+					&ndash; Free for download, develop, deploy and distribute.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www.ibm.com/db2/9" target="_top">DB2 v9 pureXML</a>
+					&ndash; All information about DB2 V9 pureXML
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www.ibm.com/support/docview.wss?rs=71&amp;uid=swg27009552" target="_top">DB2 v9 Product Manuals</a>
+					&ndash; Especially, refer the ones for XQuery and XML.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www-01.ibm.com/software/data/studio/" target="_top">IBM Data Studio
+					</a>
+					&ndash; Govern, design, develop and deploy databases and data driven
+					applications.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www.oasis-open.org/committees/office/" target="_top">ODF Specification
+					</a>
+					&ndash; Link to the complete specification
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://books.evc-cit.info/book.php" target="_top">OpenOffice.org XML
+						essentials
+					</a>
+					&ndash; Nice explanation of XML data formats.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www.ibm.com/developerworks/xml/library/x-think15/" target="_top">Thinking XML : The open office file format
+					</a>
+					&ndash; An earlier developerWorks article discussing the file formats of
+					OpenOffice.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0705gruber/" target="_top">Manage ODF and Microsoft Office 2007 documents with DB2
+						9 pureXML</a>
+					&ndash; An earlier developerWorks article on using ODF and Microsoft
+					Office documents with DB2 9 pureXML.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="https://addons.mozilla.org/addon/1192" target="_top">XPather add-on</a>
+					&ndash; Nifty tool for Firefox Mozilla users to quickly check an XPath
+					expression.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<a class="ulink" href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C" target="_top">Update XML in DB2 9.5</a>
+					&ndash; Nice article on developerWorks explaining update of XML
+					documents.
+				</p>
+			</li></ol></div>
+		<p></p>
+	</div>
+	<div class="sect1" title="Biography"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20403"></a>Biography</h2></div></div></div>
+		
+		<p>Nagesh Subrahmanyam is a Software Developer in IBM
+			Global Services, India......</p>
+	</div>
+</div>
+
+	
+
+	<div class="article"><div class="titlepage"><hr></div>
+	</div>
+
+	
+
+	<div class="article"><div class="titlepage"><hr></div>
+	</div>
+
+	
+
+	<div class="article"><div class="titlepage"><hr></div>
+	</div>
+
+</div></body></html>
