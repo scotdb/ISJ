@@ -4,7 +4,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://docbook.org/ns/docbook docbook.xsd">
 	<docbook:info>
-		<docbook:title>Giving You a Reason : Compelling Reasons to Upgrade DB2</docbook:title>
+		<docbook:title>Giving You A Reason</docbook:title>
+		<docbook:subtitle>Compelling Reasons to Upgrade DB2</docbook:subtitle>
 		<docbook:author>
 			<docbook:personname>Roger Miller</docbook:personname>
 		</docbook:author>
@@ -22,38 +23,43 @@
 		Catalog and directory?  Utilities?  Are you currently running DB2 9? V8? V7?  Upgrading to a bigger 
 		bowl may be just what you need.
 	</docbook:para>
-	<docbook:para>
-		Should you upgrade to DB2 10?
-	</docbook:para>
-	<docbook:para>
-		To 10, or not to 10, when and how are the questions. 
-		Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous limits, 
-		Or to take arms against a sea of troubles, And by upgrading, end them?  
-		To die: to sleep; No more; and by a sleep to say we end the heart-aches and the thousand 
-		natural shocks that old versions are heir to. ‘tis a consummation devoutly to be wished. 
-		To die, to sleep. To sleep: perchance to dream: ay, there’s the rub; 
-		For in that sleep of death what dreams may come when versions have shuffled off this mortal coil, 
-		must give us pause: 
-		There’s the respect that makes calamity of too long life for old versions.  
-		[ With abject apologies to the Bard and to Hamlet act 3 scene 1]
-	</docbook:para>
-	<docbook:para>
-		The answer to upgrading to 10 is a definite Yes.  The question is not so much whether to upgrade 
-		as when and how to upgrade.  If you are running DB2 9 today, then DB2 10 is in your near future, 
-		giving you more room to grow, with higher limits, lower costs, and more for less.  If you are 
-		running DB2 V8 today, then you have a choice of jumping to DB2 9 or directly to DB2 10.  
-		So the key question is …
-	</docbook:para>
-	<docbook:para>
-		When and how should I upgrade to DB2 10?
-	</docbook:para>
-	<docbook:para>		
+	<docbook:section>
+		<docbook:title>
+			Should you upgrade to DB2 10?
+		</docbook:title>
+		<docbook:para>
+			To 10, or not to 10, when and how are the questions. 
+			Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous limits, 
+			Or to take arms against a sea of troubles, And by upgrading, end them?  
+			To die: to sleep; No more; and by a sleep to say we end the heart-aches and the thousand 
+			natural shocks that old versions are heir to. ‘tis a consummation devoutly to be wished. 
+			To die, to sleep. To sleep: perchance to dream: ay, there’s the rub; 
+			For in that sleep of death what dreams may come when versions have shuffled off this mortal coil, 
+			must give us pause: 
+			There’s the respect that makes calamity of too long life for old versions.  
+			[ With abject apologies to the Bard and to Hamlet act 3 scene 1]
+		</docbook:para>
+	
+		<docbook:para>
+			The answer to upgrading to 10 is a definite Yes.  The question is not so much whether to upgrade 
+			as when and how to upgrade.  If you are running DB2 9 today, then DB2 10 is in your near future, 
+			giving you more room to grow, with higher limits, lower costs, and more for less.  If you are 
+			running DB2 V8 today, then you have a choice of jumping to DB2 9 or directly to DB2 10.  
+			So the key question is …
+		</docbook:para>
+	</docbook:section>
+	
+	<docbook:section>
+		<docbook:title>
+			When and how should I upgrade to DB2 10?
+		</docbook:title>
+		<docbook:para>		
 		As of early August 2010, DB2 10 is in beta.  Some of the key information for making this 
 		decision is known, but some is not yet.  DB2 for z/OS V8 end of service is set for April 2012, 
 		21 months from now. The unknown information includes the date for DB2 10 general availability, 
 		V8 extended service, and pricing, which will come in later announcements.
-	</docbook:para>
-	<docbook:para>	  
+		</docbook:para>
+		<docbook:para>	  
 		While DB2 10 is expected to be better than prior versions, it will have maturity, stability, 
 		and service delivery similar to other software and versions, with more defects at first, 
 		then fewer as the software matures.  Determining when the software is ready for a specific 
@@ -65,19 +71,22 @@
 		http://www.ibm.com/support/docview.wss?uid=swg21006951 
 		Content of the two versions is available, although the details of DB2 10 are still not public.  
 		Here is a summary of the two versions -
-	</docbook:para>
-	<docbook:para>
+		</docbook:para>
+	</docbook:section>
+	
+	<docbook:section>
+		<docbook:title>
 		DB2 9: Robust, Scalable, Available and Easily Manageable
-	</docbook:para>
-	<docbook:para>
+		</docbook:title>
+		<docbook:para>
 		DB2 9 delivers CPU reductions for utilities that are generally in the range of 20% to 30%.  
 		Customers report saving terabytes of disk space using index compression.  More CPU time 
 		is shifted to zIIP processors, reducing costs.  Security is improved with more flexible 
 		trusted contexts and roles. Resilience is improved as more changes can be made while 
 		applications keep running.  One table can be replaced quickly with a clone.  Indexes 
 		and columns can be renamed.  Many more utilities can be online.
-	</docbook:para>
-	<docbook:para>
+		</docbook:para>
+		<docbook:para>
 		DB2 9 delivers seamless integration of XML and relational data with pureXML and makes big 
 		strides in SQL for productivity and portability of applications.  A new storage structure 
 		is introduced for large tables.  Today’s complex applications include both transactions 
@@ -87,115 +96,141 @@
 		optimizer, with improved algorithms. Improved CPU and elapsed times can be achieved with the 
 		FETCH FIRST clause specified on a subquery. The INTERSECT and EXCEPT clauses make SQL easier 
 		to write.  
-	</docbook:para>
-	<docbook:para>
+		</docbook:para>
+	</docbook:section>
+	
+	<docbook:section>
+		<docbook:title>
 		DB2 10: Cut costs and improve performance
-	</docbook:para>
-	<docbook:para>
+		</docbook:title>
+		<docbook:para>
 		DB2 10 for z/OS provides the best reduction in CPU for transactions and batch in over 20 years. 
 		We expect most customers to reduce CPU times between 5% and 10% initially, with the opportunity 
 		for much more. Applications which can take advantage of additional benefits, such as hash access, 
 		can have larger CPU and memory reductions. 
-	</docbook:para>
-	<docbook:para>
+		</docbook:para>
+		<docbook:para>
 		Scalability is the second major benefit, with the ability to run five to ten times as many 
 		threads in a single subsystem by moving 80% to 90% of the virtual storage above the bar. 
 		Schema evolution or data definition on demand enhancements improves availability. SQL and 
 		pureXML improvements extend usability and application portability for this platform. 
 		Productivity improvements for application developers and for database administrators are 
 		very important as data grows in scale and complexity. 
-	</docbook:para>
-	<docbook:para>
-		Questions for you
-	</docbook:para>
-	<docbook:para>
+		</docbook:para>
+	</docbook:section>
+	
+	<docbook:section>
+		<docbook:title>
+			Questions for you
+		</docbook:title>
+		<docbook:para>
 		The right answer is not “One size fits all.”  If we know the key factors for you, we can help you 
 		make a better choice.  Here are some of the key objectives.  Which ones are most important for you?
-	</docbook:para>	
-	<docbook:unorderedlist>
-		<docbook:listitem>	  
+		</docbook:para>	
+		<docbook:itemizedlist>
+			<docbook:listitem>	  
 			Performance improves in both DB2 9 and 10, with larger CPU reductions in DB2 10.
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Scalability is improved a little in DB2 9 and a lot in DB2 10.
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Availability is enhanced in both, with more online changes in both.
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Security is made stronger and more flexible with roles in DB2 9 and with more options in DB2 10.
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Productivity is helped in both releases, with more improvements in DB2 10.  Upgrading to DB2 9 
 			is easier than to DB2 10 from DB2 V8.  
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Stability is better in more mature versions. 
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Skills: What skill set is available within your organization?  Do you have people with the 
 			right skills and time to plan and run a project?  DB2 planning workshops can help with 
 			education.  Transition classes provide more education for one or both versions.  Services 
 			could be used if the skills are not presently available.  
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Technology adoption model: Are you using the latest technology that is being shipped, or are the 
 			operating system and hardware back-level?  Is the technology one level back, two or more? This 
 			question tells both how much work will be required and the comfort level of your organization 
-		for running the latest version.
-		</docbook:listitem>
-		<docbook:listitem>	  
+			for running the latest version.
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Platform management practices: What are your platform management practices? What type of change 
 			management practices are in place?  How robust is your testing for new software? What is the 
 			inventory of software and tools?  How many vendors are involved?  Which ones?  Almost every 
 			vendor has software ready for DB2 9, but DB2 10 may take some time after general availability.
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Numbers of servers: How many LPARs and subsystems does the organization have? An organization that 
 			has 100 subsystems has a different set of challenges than does one that has 5 subsystems.  
-		</docbook:listitem>
-		<docbook:listitem>	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Organizational considerations: What additional organizational factors, such as politics and 
 			policies, must be considered?
-		</docbook:listitem>
-	</docbook:unorderedlist>
+			</docbook:listitem>
+		</docbook:itemizedlist>
+	</docbook:section>
 	
-	<docbook:para>
-		What version are you running?
-	</docbook:para>
-	<docbook:para>
+	<docbook:section>
+		<docbook:title>
+			What version are you running?
+		</docbook:title>
+		<docbook:para>
 		Here are the primary recommendations for customers who are running various DB2 versions.
-	</docbook:para>
-	<docbook:para>	
-		DB2 9:  If you are on DB2 9 today, then you are a good candidate for an early upgrade to DB2 10, 
+		</docbook:para>
+		<docbook:variablelist>
+			<docbook:varlistentry>
+				<docbook:term>DB2 9</docbook:term>
+				<docbook:listitem>
+					<docbook:para>	
+		If you are on DB2 9 today, then you are a good candidate for an early upgrade to DB2 10, 
 		especially if your custom is to move in the first year after general availability.  Listen to 
 		reports from early customers and upgrade for the value.
-	</docbook:para>
-	<docbook:para>	
-		V8: 	If you are on DB2 V8 today, then the next questions are on timing for you and readiness 
+					</docbook:para>
+				</docbook:listitem>
+			</docbook:varlistentry>	
+			<docbook:varlistentry>
+				<docbook:term>V8</docbook:term>
+				<docbook:listitem>
+					<docbook:para>	
+		If you are on DB2 V8 today, then the next questions are on timing for you and readiness 
 		for the new version.  How soon after general availability do you normally upgrade?  Are you still 
 		in the process of moving to NFM or have you recently finished V8 upgrade?   If you just finished, 
 		then you probably will wait a few years and use the skip.  If you have resources for an upgrade, 
 		but DB2 10 is too new, then DB2 9 is probably your next move.  If you have the resources and can 
 		work with a new version, then skipping to DB2 10 may work for you.
-	</docbook:para>
-	<docbook:para>	
-		V7:    If you are currently on DB2 V7, then upgrade to DB2 V8.  Then you can use the skip version 
+					</docbook:para>
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>V7</docbook:term>
+				<docbook:listitem>
+					<docbook:para>	
+		If you are currently on DB2 V7, then upgrade to DB2 V8.  Then you can use the skip version 
 		upgrade to DB2 10 in a few years.
-	</docbook:para>	
-	<docbook:para>
+					</docbook:para>	
+				</docbook:listitem>
+			</docbook:varlistentry>
+		</docbook:variablelist>
+		<docbook:para>
 		DB2 has several new versions and upgrade paths for you to consider.  This story will be changing, 
 		but you can hear the latest at IDUG conferences and on the web.  DB2 9 is ready for you now.  
 		DB2 10 is still in beta, but is delivering higher limits, lower costs, and more for less.
-	</docbook:para>	  
+		</docbook:para>	  
 
-	<docbook:unorderedlist>
-		<docbook:listitem>
+		<docbook:itemizedlist>
+			<docbook:listitem>
 			http://www.ibm.com/software/data/db2/zos/db2-10/
-		</docbook:listitem> 
-		<docbook:listitem>
+			</docbook:listitem> 
+			<docbook:listitem>
 			http://www.ibm.com/data/db2/zos
-		</docbook:listitem> 
-	</docbook:unorderedlist>
+			</docbook:listitem> 
+		</docbook:itemizedlist>
+	</docbook:section>
 
 </docbook:article>
