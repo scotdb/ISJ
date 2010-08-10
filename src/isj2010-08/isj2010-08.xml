@@ -29,8 +29,7 @@
 
 	<!-- Column 1 -->
 
-	<docbook:article>
-	</docbook:article>
+	<xi:include href="articles/isj2010-08-rmiller.xml" />
 
 	<!-- Column 2 -->
 
