@@ -1121,12 +1121,12 @@
 		</docbook:author>
 	</docbook:info>
 	<docbook:para>
-		<docbook:inlinemediaobject>
+		<docbook:mediaobject>
 			<docbook:imageobject>
 				<docbook:imagedata fileref='../graphics/isj2010-08-rmiller-graphics1.png'></docbook:imagedata>
 
 			</docbook:imageobject>
-		</docbook:inlinemediaobject>
+		</docbook:mediaobject>
 	</docbook:para>
 	<docbook:para>
 		Is your current bowl getting tight?  What is limiting you?  Is it CPU? Virtual storage?  Latching?  
@@ -1347,12 +1347,122 @@
 
 	<!-- Column 2 -->
 
-	<docbook:article>
-	</docbook:article>
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-cmullins.xml'>
+	<docbook:info>
+		<docbook:title>DB2 and Storage Management</docbook:title>
+		<docbook:author>
+			<docbook:personname>Craig S. Mullins</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
+		As an IT professional who uses DB2, you know that all database management systems rely on some form persistent storage to 
+		maintain data. That means that the DBMS interoperates with operating system files, or data sets. As such, some form of 
+		storage management should be a key part of the database operations required of a DBA. Typically database storage means 
+		disk devices or subsystems, but it can also mean solid state disk, removable storage, or even trusty “old” tape devices.
+	</docbook:para>
+	<docbook:section>
+		<docbook:title>DB2 Storage Basics</docbook:title>
+		<docbook:para>
+			At the most basic level it is important to know that DB2 stores its data in VSAM Linear Data Sets (LDS). Each table space 
+			and index space you create requires at least one, possibly more, underlying VSAM data sets. DB2 uses VSAM Media Manager 
+			for its I/O operations. For every I/O, VSAM Media Manager builds a channel program and sends a request to the I/O supervisor.
+		</docbook:para>	
+		<docbook:para>
+			But let’s back up a moment. The following items are the core of the storage-related objects and items you will need to know 
+			about for DB2 for z/OS:-
+			<docbook:variablelist>
+				<docbook:varlistentry>
+					<docbook:term>DB2 Storage Groups</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							List of disk volumes. DB2 can also work with SMS so you will need to differentiate between DB2 storage groups 
+							and SMS storage groups (see Figure 1).
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Table Spaces</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk as at least one VSAM LDS data set
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Indexes</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk (in an index space) as at least one VSAM LDS data set
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>			
+				<docbook:varlistentry>
+					<docbook:term>System data sets</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Active Log</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Archive Logs</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk or tape
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>BSDS</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Image Copy Backups</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk or tape
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Image Copy Backups</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Stored on disk or tape
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>DB2 library data sets</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Temporary data sets</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+							Used by utilities
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+			</docbook:variablelist>	
+		</docbook:para>
 
-	<!-- Column 3 -->
+Figure 1. DB2 Storage Groups vs. SMS Storage Groups
 
-	<docbook:article>
-	</docbook:article>
-
-</docbook:book>
+		<docbook:para>
+			So you can see that there are multiple areas within DB2 that require storage and need to be managed. This article will touch 
+			upon most of these areas. But back to data set basics

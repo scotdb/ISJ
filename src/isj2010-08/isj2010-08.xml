@@ -33,8 +33,7 @@
 
 	<!-- Column 2 -->
 
-	<docbook:article>
-	</docbook:article>
+	<xi:include href="articles/isj2010-08-cmullins.xml" />
 
 	<!-- Column 3 -->
 

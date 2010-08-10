@@ -11,12 +11,12 @@
 		</docbook:author>
 	</docbook:info>
 	<docbook:para>
-		<docbook:inlinemediaobject>
+		<docbook:mediaobject>
 			<docbook:imageobject>
 				<docbook:imagedata fileref="../graphics/isj2010-08-rmiller-graphics1.png" />
 <!-- 						width="11.17cm" depth="7.536cm"  -->
 			</docbook:imageobject>
-		</docbook:inlinemediaobject>
+		</docbook:mediaobject>
 	</docbook:para>
 	<docbook:para>
 		Is your current bowl getting tight?  What is limiting you?  Is it CPU? Virtual storage?  Latching?  
