@@ -125,7 +125,7 @@
 	    </xslt>
 
 	   <fop format="application/pdf" 
-	        outdir="${doc.dir}" messagelevel="debug">
+	        outdir="${doc.dir}">
 	        <fileset dir="${doc.dir}">
 	           <include name="*.fo"/>
 	        </fileset>

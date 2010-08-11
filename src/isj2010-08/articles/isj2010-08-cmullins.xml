@@ -125,7 +125,7 @@ Figure 1. DB2 Storage Groups vs. SMS Storage Groups
 		<docbook:para>
 			You may have noticed that I said that multiple data sets may be required so when does DB2 utilize multiple VSAM data sets 
 			for a table space or index? There are three situations where this will arise:-
-			<docbook:orderlist>
+			<docbook:orderedlist>
 				<docbook:listitem>
 					When the object is partitioned, each partition will reside in a separate data set.
 				</docbook:listitem>
@@ -136,7 +136,7 @@ Figure 1. DB2 Storage Groups vs. SMS Storage Groups
 				<docbook:listitem>
 					When the table space is cloned; each clone has its own underlying data set(s).
 				</docbook:listitem>
-			</docbook:orderlist>
+			</docbook:orderedlist>
 		</docbook:para>
 		<docbook:para>
 			To understand how DB2 accommodates these situations we will need to take a look at how DB2 data sets are named. Figure 2 
@@ -256,9 +256,9 @@ Figure 3. DBA versus Storage Administration
 			or RAID. RAID stands for Redundant Array of Independent Disk; an array is the combination of two or more physical disk 
 			storage devices in a single logical device or multiple logical devices. The array is perceived by the system to be a 
 			single disk device. RAID can offer big benefits in terms of availability because the disks are typically hot-swappable, 
-			meaning that a drive can be replaced while the array is up & running. There are many levels of RAID technology, each 
+			meaning that a drive can be replaced while the array is up and running. There are many levels of RAID technology, each 
 			delivering different levels of fault-tolerance and performance. A nice educational overview of the various levels of 
-			RAID is offered by Advanced Computer & Network Corporation at http://www.acnc.com/04_00.html. But what about mainframe 
+			RAID is offered by Advanced Computer &amp; Network Corporation at http://www.acnc.com/04_00.html. But what about mainframe 
 			disk arrays?
 		</docbook:para>
 		<docbook:para>
@@ -409,7 +409,7 @@ Figure 3. DBA versus Storage Administration
 	<docbook:section>
 		<docbook:title>What About Extents?</docbook:title>
 		<docbook:para>
-			Some folks think “With RAID/modern storage devices and new DB2 & z/OS features, extents are no longer anything to worry 
+			Some folks think “With RAID/modern storage devices and new DB2 and z/OS features, extents are no longer anything to worry 
 			about.” But this is not exactly true. For one thing, the latest extent management features only work with SMS-managed 
 			data sets, so if you are still using user-managed data sets then all of the old rules apply! 
 		</docbook:para>
@@ -449,8 +449,9 @@ Figure 3. DBA versus Storage Administration
 				<docbook:listitem>
 					You do not specify a value for the SECQTY option of a CREATE TABLESPACE or CREATE INDEX statement
 				</docbook:listitem>
+				<docbook:listitem>
 					You specify a value of -1 for the SECQTY option of an ALTER TABLESPACE or ALTER INDEX statement.
-				<docbook:listitem></docbook:listitem>
+				</docbook:listitem>
 			</docbook:itemizedlist> 
 		</docbook:para>
 		<docbook:para>
@@ -494,7 +495,7 @@ Figure 3. DBA versus Storage Administration
 		</docbook:para>		
 		<docbook:para>
 			It is a good idea to perform regular and proactive monitoring. Examples of things you should be tracking include:
-			<docbook:orderlist>
+			<docbook:orderedlist>
 				<docbook:listitem>
 					Space display and monitoring for your entire DB2 system.
 				</docbook:listitem>
@@ -524,7 +525,7 @@ Figure 3. DBA versus Storage Administration
 					Managing the deletion of Image copy backup datasets that are no longer needed because of DROP, DROP/CREATE or 
 					MODIFY TABLESPACE (‘orphaned‘, not listed in SYSIBM.SYSCOPY).
 				</docbook:listitem>
-			</docbook:orderlist>
+			</docbook:orderedlist>
 		</docbook:para>
 		<docbook:para>
 			If possible, build alerts to inform you of problems, shortages, and potential errors. When possible, automate remediation 

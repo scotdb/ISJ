@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://docbook.org/ns/docbook docbook.xsd">
 	<docbook:title>Using DB2 pureXML and ODF Spreadsheets</docbook:title>
-	<docbook:sect1>
+	<docbook:section>
 		<docbook:title>Abstract</docbook:title>
 		<docbook:para>
 			ODF (Open Document Format) is a file format for office documents.  At a high level, 
@@ -17,11 +17,11 @@
 			of a DB2 table. This article can even be further extended into an on-line document editing 
 			software with .ods as file format and DB2 pureXML as the database.
 		</docbook:para>
-	</docbook:sect1>
-	<docbook:sect1>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Introduction</docbook:title>
 		<docbook:para>The ODF specification and DB2 pureXML are introduced below.</docbook:para>
-		<docbook:sect2>
+		<docbook:section>
 			<docbook:title>The ODF specification</docbook:title>
 			<docbook:para>
 				The Open Document Format specification was originally developed by
@@ -37,8 +37,8 @@
 					Applications (OpenDocument) v1.0</docbook:link>
 				.
 			</docbook:para>
-		</docbook:sect2>
-		<docbook:sect2>
+		</docbook:section>
+		<docbook:section>
 			<docbook:title>DB2 pureXML</docbook:title>
 			<docbook:para>
 				<docbook:link xlink:href="http://www-01.ibm.com/software/data/db2/xml/">DB2 pureXML</docbook:link>
@@ -50,9 +50,9 @@
 				and traditional SQL, DB2 pureXML is a complete solution to manage
 				XML data in enterprise-scale databases.
 			</docbook:para>
-		</docbook:sect2>
-	</docbook:sect1>
-	<docbook:sect1>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>The ODF document</docbook:title>
 		<docbook:para>An ODF document is a zipped file of five mandatory XML
 			files and other optional components. This can be seen by running your
@@ -188,8 +188,8 @@
 			</docbook:tgroup>
 		</docbook:informaltable>
 		<docbook:para>Table 2: Row in a ODF spreadsheet and as saved in content.xml file</docbook:para>
-	</docbook:sect1>
-	<docbook:sect1>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>A bit of hacking</docbook:title>
 		<docbook:para>
 			Now that we know a bit about an ODF document, let us try to create one without actually 
@@ -216,17 +216,16 @@
 				</docbook:para>
 			</docbook:listitem>
 		</docbook:orderedlist>
+
 		<docbook:para>
 			<docbook:inlinemediaobject>
 				<docbook:imageobject>
-					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics1.png"
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics4.png"
 						width="11.17cm" depth="7.536cm" />
 				</docbook:imageobject>
 			</docbook:inlinemediaobject>
-
-			<!-- Missing Figure 2 here -->
-
 		</docbook:para>
+
 		<docbook:orderedlist>
 			<docbook:listitem>
 				<docbook:para>Save the edited content.xml file in the same
@@ -250,12 +249,16 @@
 					to be .ods.</docbook:para>
 			</docbook:listitem>
 		</docbook:orderedlist>
+
 		<docbook:para>
-
-			<!-- Missing Figure 3 here -->
-
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics5.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
 		</docbook:para>
-		<docbook:para />
+
 		<docbook:para>It is now clear that, to “read” an existing ODF
 			spreadsheet in its simplest form, we have to navigate the path of the
 			content.xml XML document. Similarly, to “modify” an existing ODF
@@ -264,8 +267,8 @@
 			other XML documents in the .ods archive. But, for the sake of this
 			article, we will concentrate only on the creation of content.xml XML
 			document.</docbook:para>
-	</docbook:sect1>
-	<docbook:sect1>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Scheme of this article</docbook:title>
 		<docbook:para>With this knowledge of XML documents in an ODF
 			document
@@ -303,8 +306,8 @@
 				</docbook:para>
 			</docbook:listitem>
 		</docbook:orderedlist>
-	</docbook:sect1>
-	<docbook:sect1>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Inserting XML document into DB2 table
 		</docbook:title>
 		<docbook:para>We will consider a  table to demonstrate DB2 pureXML
@@ -317,18 +320,16 @@
 			<docbook:title>DB2 table to hold content.xml file of the ODF
 				spreadsheet</docbook:title>
 			<docbook:programlisting>
-				-- DOCCONTENTXML table to hold the
-				content.xml file of a ODF document.
-				-- The table is keyed on DOCID a
-				running sequence number.
-				CREATE TABLE ODF.DOCCONTENTXML (
-				      DOCID
-				INTEGER NOT NULL,
-				      DOCCONTENT XML NOT NULL
+				-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
+				-- The table is keyed on DOCID a running sequence number.
+				CREATE TABLE ODF.DOCCONTENTXML 
+				(
+				      DOCID      INTEGER NOT NULL,
+				      DOCCONTENT XML     NOT NULL
 				) ;
 			</docbook:programlisting>
 		</docbook:example>
-		<docbook:sect2>
+		<docbook:section>
 			<docbook:title>IMPORT statements</docbook:title>
 			<docbook:para>Inserting the XML document into the table can
 				be done
@@ -361,21 +362,21 @@
 				can be used to
 				load into XML column as it offers a convenient GUI.
 			</docbook:para>
-		</docbook:sect2>
-	</docbook:sect1>
-	<docbook:sect1>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Converting the content.xml into row-column
 			format
 		</docbook:title>
-		<docbook:sect2>
+		<docbook:section>
 			<docbook:title>Getting the cell values from the XML file
 			</docbook:title>
 			<docbook:para>To get to the cell values of the spreadsheet, we will
 				start with the required XPath expression. Then, we will develop a
 				working query around the XPath expression to get the results.
 			</docbook:para>
-		</docbook:sect2>
-		<docbook:sect2>
+		</docbook:section>
+		<docbook:section>
 			<docbook:title>The XPath expression</docbook:title>
 			<docbook:para>Going back to Table 2, the left column shows the
 				first
@@ -427,24 +428,34 @@
 					</docbook:para>
 				</docbook:listitem>
 			</docbook:orderedlist>
-			<docbook:para>
 
-				<!-- Missing Figure 4 here -->
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics6.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-			</docbook:para>
 			<docbook:orderedlist>
 				<docbook:listitem>
 					<docbook:para>The XPather dialog box opens up. Enter the XPath
 						expression in the dialog box and click 'Eval'.</docbook:para>
 				</docbook:listitem>
 			</docbook:orderedlist>
-			<docbook:para>
+			
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics7.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-				<!-- Missing figure 5 here -->
-
-			</docbook:para>
-		</docbook:sect2>
-		<docbook:sect2>
+		</docbook:section>
+		<docbook:section>
 			<docbook:title>The required query </docbook:title>
 			<docbook:para>To wrap the XPath expression into a query, we first
 				note the XML namespaces used. The content.xml file has the
@@ -578,32 +589,26 @@
 				<docbook:programlisting>
 					SELECT * FROM ODF.V_CONTENT ;
 
-					ITEMNAME      
-					      QUANTITY UOM  
+					ITEMNAME             QUANTITY UOM  
 					-------------------- -------- ----
-					Potato      
-					            2.00 kg  
-					Onion                    1.00 kg  
-					Cucumber    
-					            0.50 kg  
+					Potato                   2.00 kg  
+					Onion                    1.00 kg  
+					Cucumber                 0.50 kg  
 					Capsicum                 0.50 kg  
-					Carrot      
-					            0.50 kg  
+					Carrot                   0.50 kg  
 					Green chilli             0.25 kg  
-					Tomato      
-					            0.25 kg  
+					Tomato                   0.25 kg  
 					Curd                     0.50 L    
-					Banana    
-					              2.00 doz  
+					Banana                   2.00 doz  
 					Milk                     2.00 L    
 					Groundnut Oil            5.00 L    
 
 					11 record(s) selected.
 				</docbook:programlisting>
 			</docbook:example>
-		</docbook:sect2>
-	</docbook:sect1>
-	<docbook:sect1>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Shopping prices</docbook:title>
 		<docbook:para>We will now build the content.xml for an ODF
 			spreadsheet
@@ -612,7 +617,7 @@
 			additional column for cost of items in the shopping list. We will
 			also provide an additional row for the grand total of the items in
 			shopping list.</docbook:para>
-		<docbook:sect2>
+		<docbook:section>
 			<docbook:title>Building the list of shopping prices
 			</docbook:title>
 			<docbook:para>We create a simple table that holds the unit price of
@@ -687,30 +692,22 @@
 					ITEMNAME             QTY    UNIT_PRICE COST
 					   
 					-------------------- ------ ---------- --------
-					Tomato          
-					      0.25       6.00 1.50
-					Potato                 2.00       5.50  
-					 11.00
+					Tomato                 0.25       6.00     1.50
+					Potato                 2.00       5.50    11.00
 					Onion                  1.00       4.00     4.00
-					Milk          
-					        2.00      40.00    80.00
-					Groundnut Oil          5.00    
-					 30.00   150.00
-					Green chilli           0.25       8.00   2.00
-					Curd  
-					                0.50      20.00    10.00
-					Cucumber               0.50
-					     10.00   5.00
+					Milk                   2.00      40.00    80.00
+					Groundnut Oil          5.00		 30.00   150.00
+					Green chilli           0.25       8.00     2.00
+					Curd                   0.50      20.00    10.00
+					Cucumber               0.50	     10.00     5.00
 					Carrot                 0.50      15.00     7.50
 					Capsicum               0.50      20.00    10.00
-					Banana              
-					  2.00       6.00    12.00
-					TOTAL                14.50       0.00  
-					293.00 
+					Banana                 2.00       6.00    12.00
+					TOTAL                 14.50       0.00   293.00 
 				</docbook:programlisting>
 			</docbook:example>
-		</docbook:sect2>
-		<docbook:sect2>
+		</docbook:section>
+		<docbook:section>
 			<docbook:title>View with list and cost of items</docbook:title>
 			<docbook:para>Now that we have the result of computation of cost
 				of
@@ -755,9 +752,9 @@
 					);
 				</docbook:programlisting>
 			</docbook:example>
-		</docbook:sect2>
-	</docbook:sect1>
-	<docbook:sect1>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>XQuery Update to build content.xml document
 		</docbook:title>
 		<docbook:para>At this point, we have 'shredded' the shopping list
@@ -781,7 +778,7 @@
 			XQuery Update facility in DB2 pureXML.
 		</docbook:para>
 		<docbook:para />
-		<docbook:sect2>
+		<docbook:section>
 			<docbook:title>A quick side note on XQuery Update</docbook:title>
 			<docbook:para>XQuery is a query and functional programming
 				language
@@ -791,8 +788,8 @@
 				of the XML documents. It became a W3C Candidate Recommendation on
 				14th March, 2008.</docbook:para>
 			<docbook:para />
-		</docbook:sect2>
-		<docbook:sect2>
+		</docbook:section>
+		<docbook:section>
 			<docbook:title>Generating the content.xml for the shopping
 				prices
 			</docbook:title>
@@ -809,11 +806,16 @@
 				it with another name. Then, we unzip this document and refer the
 				content.xml document. Here is a screenshot of how this document
 				would look like.</docbook:para>
-			<docbook:para>
 
-				<!-- Missing figure 6 here -->
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics8.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-			</docbook:para>
 			<docbook:para />
 			<docbook:para>Insert this dummy document into the
 				ODF.DOCCONTENTXML
@@ -824,8 +826,8 @@
 				&lt;table:table&gt; and as siblings of &lt;table:table-column&gt;.
 			</docbook:para>
 			<docbook:para />
-		</docbook:sect2>
-		<docbook:sect2>
+		</docbook:section>
+		<docbook:section>
 			<docbook:title>Building the &lt;table:table-row&gt; elements
 			</docbook:title>
 			<docbook:para>In our example, each row of spreadsheet would be
@@ -955,16 +957,21 @@
 				shopping list spreadsheet with the one created now. Zip the files
 				back and save it with name as ShopPrices.ods and open with
 				OpenOffice. Here is the screenshot.</docbook:para>
-			<docbook:para>
 
-				<!-- Missing Figure 7 here -->
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics9.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-			</docbook:para>
 			<docbook:para>And, we are done !</docbook:para>
 			<docbook:para />
-		</docbook:sect2>
-	</docbook:sect1>
-	<docbook:sect1>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Next steps</docbook:title>
 		<docbook:para>Further enhancements may involve manipulating
 			other XML
@@ -975,20 +982,29 @@
 			Properties... dialog box. For example, for the document in this
 			article (Shop.ods), this is how the dialog box looks like.
 		</docbook:para>
+
 		<docbook:para>
-
-			<!-- Missing Figure 8 here -->
-
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics10.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
 		</docbook:para>
-		<docbook:para />
+
 		<docbook:para>The corresponding meta.xml document (partial
 			snapshot) is
 			shown below.</docbook:para>
+
 		<docbook:para>
-
-			<!-- Missing figure 9 here -->
-
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics11.png"
+						width="11.17cm" depth="7.536cm" />
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
 		</docbook:para>
+
 		<docbook:para>Thus, while generating the spreadsheet, one can
 			write
 			queries to generate the meta.xml document with correct values
@@ -996,8 +1012,8 @@
 			creator, creation time-stamp, etc.</docbook:para>
 		<docbook:para />
 		<docbook:para />
-	</docbook:sect1>
-	<docbook:sect1>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Resources</docbook:title>
 		<docbook:para>Important resources :</docbook:para>
 		<docbook:orderedlist>
@@ -1079,10 +1095,10 @@
 			</docbook:listitem>
 		</docbook:orderedlist>
 		<docbook:para />
-	</docbook:sect1>
-	<docbook:sect1>
+	</docbook:section>
+	<docbook:section>
 		<docbook:title>Biography</docbook:title>
 		<docbook:para>Nagesh Subrahmanyam is a Software Developer in IBM
 			Global Services, India......</docbook:para>
-	</docbook:sect1>
+	</docbook:section>
 </docbook:article>
