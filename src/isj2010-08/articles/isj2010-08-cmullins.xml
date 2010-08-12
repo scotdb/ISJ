@@ -258,7 +258,8 @@ Figure 3. DBA versus Storage Administration
 			single disk device. RAID can offer big benefits in terms of availability because the disks are typically hot-swappable, 
 			meaning that a drive can be replaced while the array is up and running. There are many levels of RAID technology, each 
 			delivering different levels of fault-tolerance and performance. A nice educational overview of the various levels of 
-			RAID is offered by Advanced Computer &amp; Network Corporation at http://www.acnc.com/04_00.html. But what about mainframe 
+			RAID is offered by Advanced Computer &amp; Network Corporation at 
+			<docbook:link xlink:href="http://www.acnc.com/04_00.html"/>. But what about mainframe 
 			disk arrays?
 		</docbook:para>
 		<docbook:para>

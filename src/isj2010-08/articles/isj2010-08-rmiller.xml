@@ -68,7 +68,7 @@
 		Many customers depend upon tools or other software, and having that software that works with 
 		DB2 is a prerequisite.  When this information is known, we can help answer the question.  
 		This web page can help.   
-		http://www.ibm.com/support/docview.wss?uid=swg21006951 
+		<docbook:link xlink:href="http://www.ibm.com/support/docview.wss?uid=swg21006951"/> 
 		Content of the two versions is available, although the details of DB2 10 are still not public.  
 		Here is a summary of the two versions -
 		</docbook:para>
@@ -225,10 +225,10 @@
 
 		<docbook:itemizedlist>
 			<docbook:listitem>
-			http://www.ibm.com/software/data/db2/zos/db2-10/
+			<docbook:link xlink:href="http://www.ibm.com/software/data/db2/zos/db2-10/"/>
 			</docbook:listitem> 
 			<docbook:listitem>
-			http://www.ibm.com/data/db2/zos
+			<docbook:link xlink:href="http://www.ibm.com/data/db2/zos"/>
 			</docbook:listitem> 
 		</docbook:itemizedlist>
 	</docbook:section>
