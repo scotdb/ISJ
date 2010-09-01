@@ -18,26 +18,9 @@
 			Cache Versus Buffer
 		</a></span></dt><dt><span class="section"><a href="#N2062E">
 			A Little Bit About DFSMS
-<<<<<<< HEAD
-		</a></span></dt><dt><span class="section"><a href="#N206B4">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206EA">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206FF">Best Practices</a></span></dt><dt><span class="section"><a href="#N20729">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N20738">Don&rsquo;t Flip Out!</a></span></dt><dd><dl><dt><span class="section"><a href="#N20757">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20771">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2077A">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207CD">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207D6">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207F7">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N2082B">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2084A">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N2085C">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2086B">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N20886">Statistical Views</a></span></dt><dt><span class="section"><a href="#N208B1">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N208BA">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208E2">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N2090D">Conclusion</a></span></dt></dl></dd></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N201DE">DB2 table to hold content.xml file of the ODF
-				spreadsheet</a></dt><dt>2. <a href="#N201EF">Contents of flat file to be used for loading
-					DOCCONTENTXML table</a></dt><dt>3. <a href="#N201F8">IMPORT statement to load content.xml into
-					DOCCONTENTXML table</a></dt><dt>4. <a href="#N2021C">XPath expression to get first row, second column
-					value</a></dt><dt>5. <a href="#N202B7">Query to extract cell values from content.xml into
-					tabular format</a></dt><dt>6. <a href="#N202C5">View on the content.xml document</a></dt><dt>7. <a href="#N202D1">Result of SELECT on the view V_CONTENT.
-				</a></dt><dt>8. <a href="#N202EC">DDL for table to hold the shopping prices
-				</a></dt><dt>9. <a href="#N202FA">Query to obtain list and cost of items with grand
-					total</a></dt><dt>10. <a href="#N20308">Result of query for obtaining list and cost of items
-				</a></dt><dt>11. <a href="#N2031C">View with list and cost of items in shopping list
-				</a></dt><dt>12. <a href="#N2036E">A sample &lt;table:table-row&gt; element
-				</a></dt><dt>13. <a href="#N2037A">Table to hold generated &lt;table:table-row&gt;
-					elements</a></dt><dt>14. <a href="#N20383">Insert generated &lt;table:table-row&gt; elements
-					with &lt;dummy&gt; parent</a></dt><dt>15. <a href="#N2038F">Updated content.xml document</a></dt><dt>1. <a href="#N208F0">An example of an optimization profile</a></dt></dl></div>
-=======
-		</a></span></dt><dt><span class="section"><a href="#N2068B">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206C1">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206D6">Best Practices</a></span></dt><dt><span class="section"><a href="#N20700">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N2070F"></a></span></dt></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1. <a href="#N20093">XML files of an ODF document</a></dt><dt>2. <a href="#N2020B">Prefix and namespace URI used in	content.xml	document</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N2016F">DB2 table to hold content.xml file of the ODF spreadsheet</a></dt><dt>2. <a href="#N20180">Contents of flat file to be used for loading DOCCONTENTXML table</a></dt><dt>3. <a href="#N20189">IMPORT statement to load content.xml into DOCCONTENTXML table</a></dt><dt>4. <a href="#N201AD">XPath expression to get first row, second column value</a></dt><dt>5. <a href="#N2024F">Query to extract cell values from content.xml into tabular format</a></dt><dt>6. <a href="#N20267">View on the content.xml document</a></dt><dt>7. <a href="#N20273">Result of SELECT on the view V_CONTENT</a></dt><dt>8. <a href="#N2028E">DDL for table to hold the shopping prices</a></dt><dt>9. <a href="#N2029A">Query to obtain list and cost of items with grand total</a></dt><dt>10. <a href="#N202A6">Result of query for obtaining list and cost of items</a></dt><dt>11. <a href="#N202B8">View with list and cost of items in shopping list</a></dt><dt>12. <a href="#N2030B">A sample <code class="code">&lt;table:table-row&gt;</code> element</a></dt><dt>13. <a href="#N20323">Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</a></dt><dt>14. <a href="#N2032F">
+		</a></span></dt><dt><span class="section"><a href="#N2068B">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206C1">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206D6">Best Practices</a></span></dt><dt><span class="section"><a href="#N20700">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N2070F">Don&rsquo;t Flip Out!</a></span></dt><dd><dl><dt><span class="section"><a href="#N2072E">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20748">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N20751">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A4">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AD">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CE">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N20802">Optimization Class</a></span></dt><dt><span class="section"><a href="#N20821">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20833">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N20842">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085D">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20888">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N20891">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B9">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E4">Conclusion</a></span></dt><dt><span class="section"><a href="#N208ED"></a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1. <a href="#N20093">XML files of an ODF document</a></dt><dt>2. <a href="#N2020B">Prefix and namespace URI used in	content.xml	document</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N2016F">DB2 table to hold content.xml file of the ODF spreadsheet</a></dt><dt>2. <a href="#N20180">Contents of flat file to be used for loading DOCCONTENTXML table</a></dt><dt>3. <a href="#N20189">IMPORT statement to load content.xml into DOCCONTENTXML table</a></dt><dt>4. <a href="#N201AD">XPath expression to get first row, second column value</a></dt><dt>5. <a href="#N2024F">Query to extract cell values from content.xml into tabular format</a></dt><dt>6. <a href="#N20267">View on the content.xml document</a></dt><dt>7. <a href="#N20273">Result of SELECT on the view V_CONTENT</a></dt><dt>8. <a href="#N2028E">DDL for table to hold the shopping prices</a></dt><dt>9. <a href="#N2029A">Query to obtain list and cost of items with grand total</a></dt><dt>10. <a href="#N202A6">Result of query for obtaining list and cost of items</a></dt><dt>11. <a href="#N202B8">View with list and cost of items in shopping list</a></dt><dt>12. <a href="#N2030B">A sample <code class="code">&lt;table:table-row&gt;</code> element</a></dt><dt>13. <a href="#N20323">Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</a></dt><dt>14. <a href="#N2032F">
 					Insert generated <code class="code">&lt;table:table-row&gt;</code> elements with <code class="code">&lt;dummy&gt;</code> parent
-				</a></dt><dt>15. <a href="#N20341">Updated content.xml document</a></dt></dl></div>
->>>>>>> cdb121593be4ec80ededa0855468d7c3b9c28f9d
+				</a></dt><dt>15. <a href="#N20341">Updated content.xml document</a></dt><dt>1. <a href="#N208C7">An example of an optimization profile</a></dt></dl></div>
 
 	
 
@@ -1396,7 +1379,7 @@ Figure 5. Tracking the Growth of DB2 Storage Space
 
 	
 	
-	<div class="article" title="Don&rsquo;t Flip Out!"><div class="titlepage"><div><div><h2 class="title"><a name="N20738"></a>Don&rsquo;t Flip Out!</h2></div><div><h3 class="subtitle"><i>How to Stop Your Query Access Plans from Flopping</i></h3></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N20757">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20771">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2077A">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207CD">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207D6">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207F7">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N2082B">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2084A">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N2085C">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2086B">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N20886">Statistical Views</a></span></dt><dt><span class="section"><a href="#N208B1">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N208BA">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208E2">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N2090D">Conclusion</a></span></dt><dt><span class="appendix"><a href="#N20916">A. </a></span></dt></dl></div>
+	<div class="article" title="Don&rsquo;t Flip Out!"><div class="titlepage"><div><div><h2 class="title"><a name="N2070F"></a>Don&rsquo;t Flip Out!</h2></div><div><h3 class="subtitle"><i>How to Stop Your Query Access Plans from Flopping</i></h3></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2072E">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20748">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N20751">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A4">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AD">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CE">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N20802">Optimization Class</a></span></dt><dt><span class="section"><a href="#N20821">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20833">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N20842">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085D">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20888">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N20891">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B9">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E4">Conclusion</a></span></dt><dt><span class="section"><a href="#N208ED"></a></span></dt></dl></div>
 	
 	<p>
 Has this ever happened to you? You have an important report query that has been running on an IBM&reg; DB2&reg; for Linux&reg;, UNIX&reg;, and Windows&reg; data 
@@ -1410,7 +1393,7 @@ determination procedures, you discover that the access plan has changed in both 
 This edition of the Intelligent Optimizer will discuss some of the reasons why access plans occasionally change for the worse and what you can 
 do to prevent access plan flip-flop from happening.
 	</p>
-	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20757"></a>A Reactive Approach</h2></div></div></div>
+	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2072E"></a>A Reactive Approach</h2></div></div></div>
 		
 		<p>
 Once you&rsquo;ve determined that a query&rsquo;s performance degradation is due to an access plan change, you can compare the differences to try to 
@@ -1447,7 +1430,7 @@ above. So a more proactive approach is preferable.
 		</p>
 	</div>
 
-	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20771"></a>A Proactive Approach</h2></div></div></div>
+	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20748"></a>A Proactive Approach</h2></div></div></div>
 		
 		<p>
 Rather than scrambling to fix query access plan problems in panic situations, there are a number of modifications that you can make to your 
@@ -1461,7 +1444,7 @@ you can improve the optimizer&rsquo;s &ldquo;vision&rdquo; so it has a clear vie
 		</p>
 	</div>
 
-	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2077A"></a>Writing SQL Statements</h2></div></div></div>
+	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20751"></a>Writing SQL Statements</h2></div></div></div>
 		
 		<p>
 SQL is a powerful language that enables you to specify relational expressions in syntactically different but semantically equivalent ways. 
@@ -1544,7 +1527,7 @@ contains more details on how to use the REOPT bind option, for different types o
 		</p>
 	</div>
 
-	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207CD"></a>Data Server Configuration</h2></div></div></div>
+	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207A4"></a>Data Server Configuration</h2></div></div></div>
 		
 		<p>
 There are a number of configuration options that affect the DB2 data server&rsquo;s performance, such as database and database manager configuration 
@@ -1555,7 +1538,7 @@ cost model are set accurately.
 		</p>
 	</div>
 	
-	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207D6"></a>Configuration Parameters</h2></div></div></div>
+	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207AD"></a>Configuration Parameters</h2></div></div></div>
 		
 		<p>
 The following two database manager configuration parameters are used by the optimizer&rsquo;s cost model. While both are set automatically by the DB2 
@@ -1585,7 +1568,7 @@ plans that favor using more CPU or sortheap, due to incorrectly estimating that 
 memory. It is recommended that this parameter not be set higher than 3 or 5, if it is even necessary to set it at all. 
 		</p>
 	</div>
-	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207F7"></a>Table Space Attributes</h2></div></div></div>
+	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207CE"></a>Table Space Attributes</h2></div></div></div>
 		
 		<p>
 The optimizer also considers storage subsystem characteristics in the cost model. The storage subsystem characteristics are represented as 
@@ -1605,7 +1588,7 @@ contains information on how to set these parameters accurately.
 		</p>
 	</div>
 
-	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2082B"></a>Optimization Class</h2></div></div></div>
+	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20802"></a>Optimization Class</h2></div></div></div>
 		
 		<p>
 The DB2 data server allows you to control the level of optimization performed by the query optimizer. Different levels of optimization are 
@@ -1632,7 +1615,7 @@ optimization class for your workload.
 		</p>
 	</div>	
 
-	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2084A"></a>Catalog Statistics</h2></div></div></div>
+	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20821"></a>Catalog Statistics</h2></div></div></div>
 		
 		<p>
 The single most important action that you can take to stabilize your access plans is to ensure that accurate catalog statistics are available. 
@@ -1642,7 +1625,8 @@ you. You can also request for statistics to be collected when using the LOAD, CR
 		<p>
 If collecting statistics manually using the RUNSTATS command, you should use the following options at a minimum:
 			</p><pre class="programlisting">
-RUNSTATS ON TABLE DB2USER.DAILY_SALES WITH DISTRIBUTION AND SAMPLED DETAILED INDEXES ALL
+RUNSTATS ON TABLE DB2USER.DAILY_SALES WITH DISTRIBUTION 
+AND SAMPLED DETAILED INDEXES ALL;
 			</pre><p>
 Distribution statistics make the optimizer aware of data skew. Detailed index statistics provide more details about the I/O required to fetch 
 data pages when the table is accessed using a particular index. Collecting detailed index statistics consumes considerable CPU and memory 
@@ -1655,7 +1639,7 @@ cardinalities, LIKE statistics or creating statistical views.
 		</p>
 	</div>
 	
-	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2085C"></a>Column Group Statistics</h2></div></div></div>
+	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20833"></a>Column Group Statistics</h2></div></div></div>
 		
 		<p>
 Column group cardinality statistics represent the number of distinct values in a group of columns. This statistic helps the optimizer 
@@ -1675,7 +1659,7 @@ WITH DISTRIBUTION AND SAMPLED DETAILED INDEXES ALL;
 		</p>
 	</div>
 	
-	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2086B"></a>LIKE Predicate Statistics</h2></div></div></div>
+	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20842"></a>LIKE Predicate Statistics</h2></div></div></div>
 		
 		<p>
 If you specify LIKE predicates using the % wildcard character in any position other than at the end of the pattern, you should collect basic 
@@ -1708,7 +1692,7 @@ To collect sub-element statistics, execute RUNSTATS with the LIKE STATISTICS cla
 		</p>
 	</div>	
 
-	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20886"></a>Statistical Views</h2></div></div></div>
+	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2085D"></a>Statistical Views</h2></div></div></div>
 		
 		<p>
 The statistics described above are all important for computing an accurate cardinality estimate; however there are some situations where more 
@@ -1772,7 +1756,7 @@ this DB2 Information Center page.
 		</p>
 	</div>
 
-	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B1"></a>Handling Exceptions</h2></div></div></div>
+	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20888"></a>Handling Exceptions</h2></div></div></div>
 		
 		<p>
 Unfortunately, occasionally access plans continue to unexpectedly change for the worse, even though you&rsquo;ve taken the tuning actions described 
@@ -1783,7 +1767,7 @@ the optimizer, so that you can react quickly in emergency situations, or so that
 		</p>
 	</div>
 	
-	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208BA"></a>Access Plan Reuse</h2></div></div></div>	
+	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20891"></a>Access Plan Reuse</h2></div></div></div>	
 		
 		<p>
 Access plan reuse is a new feature available in DB2 9.7 that allows you to request that the access plans for static SQL statements be preserved 
@@ -1835,7 +1819,7 @@ You can read more about access plan reuse in this <a class="ulink" href="http://
 		</p>
 	</div>
 	
-	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208E2"></a>Optimization Profiles</h2></div></div></div>
+	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B9"></a>Optimization Profiles</h2></div></div></div>
 		
 		<p>
 The DB2 data server supports an even more direct way to influence access plans using optimization profiles. Optimization profiles allow you to 
@@ -1856,7 +1840,7 @@ When an optimization profile is in effect for your application, each SQL stateme
 statements specified in the optimization profile. When a matching SQL statement is found in the optimization profile, the SQL compiler will use 
 the optimization guidelines for that SQL statement while optimizing it.
 		</p>
-		<div class="example"><a name="N208F0"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
+		<div class="example"><a name="N208C7"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
 			
 			<pre class="programlisting">
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -1923,7 +1907,7 @@ DB2 Information Center page</a> provides more details on how to use optimization
 		</p>
 	</div>
 	
-	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2090D"></a>Conclusion</h2></div></div></div>
+	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208E4"></a>Conclusion</h2></div></div></div>
 			
 		<p>
 The DB2 data server query optimizer is more likely to choose optimal access plans consistently if you provide it accurate information about 
@@ -1935,9 +1919,29 @@ reuse or optimization profiles. The overall combination of system tuning actions
 your DB2 data server query performance objectives.
 		</p>
 	</div>	
-	<div class="appendix" title="A.&nbsp;"><h2 class="title" style="clear: both"><a name="N20916"></a>A.&nbsp;</h2>
+	
+	<div class="section"><div class="titlepage"></div>
 		
-	</div>
+			
+				<p>
+IBM and DB2 are registered trademarks of International Business Machines Corporation in the United States, other countries, or both.
+				</p>
+				<p>
+Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both.
+				</p>
+				<p>
+UNIX is a registered trademark of The Open Group in the United States and other countries.
+				</p>
+				<p>
+Windows is a trademark of Microsoft Corporation in the United States, other countries, or both.
+				</p>
+				<p>
+Other company, product, or service names may be trademarks or service marks of others.
+				</p>
+			</div>	
+			
+		
+	
 </div>
 
 </div></body></html>

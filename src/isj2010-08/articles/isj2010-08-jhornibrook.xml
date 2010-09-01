@@ -585,9 +585,10 @@ reuse or optimization profiles. The overall combination of system tuning actions
 your DB2 data server query performance objectives.
 		</docbook:para>
 	</docbook:section>	
-	<docbook:appendix>
-		<docbook:appendixinfo>
-			<docbook:legalnotice>
+	<!-- docbook:appendix -->
+	<docbook:section>
+		<!--  docbook:appendixinfo -->
+			<!-- docbook:legalnotice -->
 				<docbook:para>
 IBM and DB2 are registered trademarks of International Business Machines Corporation in the United States, other countries, or both.
 				</docbook:para>
@@ -603,7 +604,8 @@ Windows is a trademark of Microsoft Corporation in the United States, other coun
 				<docbook:para>
 Other company, product, or service names may be trademarks or service marks of others.
 				</docbook:para>
-			</docbook:legalnotice>
-		</docbook:appendixinfo>
-	</docbook:appendix>
+			</docbook:section>	
+			<!-- /docbook:legalnotice -->
+		<!-- /docbook:appendixinfo -->
+	<!-- /docbook:appendix -->
 </docbook:article>	

@@ -33,7 +33,7 @@
     </path>
 
 	<!--
-	   - Task for calling FOPncludes
+	   - Task for calling FOP
 	   -->
 
     <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
