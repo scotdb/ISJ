@@ -33,22 +33,18 @@
 				OASIS standard, it is published (in one of its version 1.0
 				manifestations) as an ISO/IEC international standard,
 				<docbook:link
-					xlink:href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485">ISO/IEC 26300:2006 Open Document Format for Office
-					Applications (OpenDocument) v1.0</docbook:link>
-				.
+					xlink:href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485">
+					ISO/IEC 26300:2006 Open Document Format for Office Applications (OpenDocument) v1.0</docbook:link>.
 			</docbook:para>
 		</docbook:section>
 		<docbook:section>
 			<docbook:title>DB2 pureXML</docbook:title>
 			<docbook:para>
 				<docbook:link xlink:href="http://www-01.ibm.com/software/data/db2/xml/">DB2 pureXML</docbook:link>
-				is IBM software for management of XML data. It eliminates much of
-				the work typically involved in the management of XML data. From
-				validation of XML documents, to generation of documents and support
-				for querying XML data in the form of
-				<docbook:link xlink:href="http://www.w3.org/TR/xquery/">XQuery</docbook:link>
-				and traditional SQL, DB2 pureXML is a complete solution to manage
-				XML data in enterprise-scale databases.
+				is IBM software for management of XML data. It eliminates much of the work typically involved in the management of XML 
+				data. From validation of XML documents, to generation of documents and support for querying XML data in the form of
+				<docbook:link xlink:href="http://www.w3.org/TR/xquery/">XQuery</docbook:link> and traditional SQL, DB2 pureXML is a 
+				complete solution to manage XML data in enterprise-scale databases.
 			</docbook:para>
 		</docbook:section>
 	</docbook:section>
@@ -69,125 +65,67 @@
 		</docbook:para>
 		<docbook:para>Here is a short description of XML files as seen above.
 		</docbook:para>
-		<docbook:informaltable frame="all">
+		<docbook:table frame="all">
+			<docbook:title>XML files of an ODF document</docbook:title>
 			<docbook:tgroup cols="3">
-				<docbook:tbody>
+				<docbook:thead>
 					<docbook:row>
-						<docbook:entry>
-							<docbook:para>File name</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Usage</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Location in zipped file</docbook:para>
-						</docbook:entry>
+						<docbook:entry>File name</docbook:entry>
+						<docbook:entry>Usage</docbook:entry>
+						<docbook:entry>Location in zipped file</docbook:entry>
+					</docbook:row>
+				</docbook:thead>
+				<docbook:tbody>	
+					<docbook:row>
+						<docbook:entry>manifest.xml</docbook:entry>
+						<docbook:entry>Information about the files contained in	the	package</docbook:entry>
+						<docbook:entry>/META-INF</docbook:entry>
 					</docbook:row>
 					<docbook:row>
-						<docbook:entry>
-							<docbook:para>manifest.xml</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Information about the files contained in
-								the
-								package.</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>/META-INF</docbook:para>
-						</docbook:entry>
+						<docbook:entry>styles.xml</docbook:entry>
+						<docbook:entry>Styles used in the document content and automatic styles used in the styles themselves</docbook:entry>
+						<docbook:entry>/ (root)</docbook:entry>
 					</docbook:row>
 					<docbook:row>
-						<docbook:entry>
-							<docbook:para>styles.xml</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Styles used in the document content and
-								automatic
-								styles used in the styles themselves.</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>/  (root)</docbook:para>
-						</docbook:entry>
+						<docbook:entry>settings.xml</docbook:entry>
+						<docbook:entry>Application-specific settings, such as the window size or printer information</docbook:entry>
+						<docbook:entry>/ (root)</docbook:entry>
 					</docbook:row>
 					<docbook:row>
-						<docbook:entry>
-							<docbook:para>settings.xml</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Application-specific settings,
-								such as the window
-								size or printer information.</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>/  (root)</docbook:para>
-						</docbook:entry>
+						<docbook:entry>content.xml</docbook:entry>
+						<docbook:entry>Document content and automatic styles used in the content</docbook:entry>
+						<docbook:entry>/ (root)</docbook:entry>
 					</docbook:row>
 					<docbook:row>
-						<docbook:entry>
-							<docbook:para>content.xml</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Document content and automatic styles used
-								in the
-								content.</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>/  (root)</docbook:para>
-						</docbook:entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry>
-							<docbook:para>meta.xml</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>Document meta information, such as the
-								author or the
-								time of the last save action.</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>/  (root)</docbook:para>
-						</docbook:entry>
+						<docbook:entry>meta.xml</docbook:entry>
+						<docbook:entry>Document meta information, such as the author or the time of the last save action</docbook:entry>
+						<docbook:entry>/ (root)</docbook:entry>
 					</docbook:row>
 				</docbook:tbody>
 			</docbook:tgroup>
-		</docbook:informaltable>
-		<docbook:para>Table 1: XML files of an ODF document</docbook:para>
-		<docbook:para />
+		</docbook:table>
 		<docbook:para>
-			For this article, we are interested in content.xml file which will hold the contents of 
-			the document. The document used for this article is a simple shopping list named Shop.ods. 
-			The below table shows the way the first row was entered in the spreadsheet document using 
-			OpenOffice and as seen by viewing the corresponding content.xml file in Firefox browser.
+			For this article, we are interested in the content.xml file which will hold the contents of the document. The document 
+			used for this article is a simple shopping list named Shop.ods.  Below is the spreadsheet as it appears in OpenOffice,
+			with the first row highlighted. 
 		</docbook:para>
-		<docbook:informaltable frame="all">
-			<docbook:tgroup cols="2">
-				<docbook:tbody>
-					<docbook:row>
-						<docbook:entry>
-							<docbook:para>
-								<docbook:inlinemediaobject>
-									<docbook:imageobject>
-										<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics2.png"
-											width="5.372cm" depth="5.478cm" />
-									</docbook:imageobject>
-								</docbook:inlinemediaobject>
-							</docbook:para>
-						</docbook:entry>
-						<docbook:entry>
-							<docbook:para>
-								<docbook:inlinemediaobject>
-									<docbook:imageobject>
-										<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics3.png"
-											width="11.17cm" depth="7.536cm" />
-									</docbook:imageobject>
-								</docbook:inlinemediaobject>
-							</docbook:para>
-						</docbook:entry>
-					</docbook:row>
-				</docbook:tbody>
-			</docbook:tgroup>
-		</docbook:informaltable>
-		<docbook:para>Table 2: Row in a ODF spreadsheet and as saved in content.xml file</docbook:para>
+		<docbook:mediaobject>
+			<docbook:imageobject>
+				<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics2.png"
+					width="5.372cm" depth="5.478cm" />
+			</docbook:imageobject>
+			<docbook:caption>Example ODF spreadsheet (row highlighted)</docbook:caption>
+		</docbook:mediaobject>
+		<docbook:para>
+			And below we have part of the equivalent content.xml file, with the XML markup for the row highlighted.
+		</docbook:para>
+		<docbook:mediaobject>
+			<docbook:imageobject>
+				<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics3.png"
+								width="11.17cm" depth="7.536cm" />
+			</docbook:imageobject>
+			<docbook:caption>XML representation of ODF spreadsheet (row highlighted)</docbook:caption>
+		</docbook:mediaobject>
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>A bit of hacking</docbook:title>
@@ -199,126 +137,86 @@
 			file), we will be having a “legal” ODF spreadsheet. To test this, follow the steps below.
 		</docbook:para>
 		<docbook:orderedlist>
+			<docbook:listitem>Open the content.xml file in a regular text editor</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>Open the content.xml file in a regular text
-					editor.
-				</docbook:para>
+				In ???some figure???, the element &lt;table:table-row&gt; has been highlighted. Type in the contents of the highlighted section
+					immediately as a sibling of another &lt;table:table-row&gt; element.</docbook:listitem>
+			<docbook:listitem>
+				In the pasted element, make a change in any of the table:table-cell/text:p element say, something like this -
+
+				<docbook:mediaobject>
+					<docbook:imageobject>
+						<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics4.png"
+							width="11.17cm" depth="7.536cm" />
+					</docbook:imageobject>
+					<docbook:caption>Edited content.xml showing added row </docbook:caption>
+				</docbook:mediaobject>
 			</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>In Table 2, the element &lt;table:table-row&gt; has
-					been highlighted. Type in the contents of the highlighted section
-					immediately as a sibling of another &lt;table:table-row&gt;
-					element.</docbook:para>
+				Save the edited content.xml file in the same folder	where the Shop.ods file was unzipped into, replacing the
+				older one.
 			</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>In the pasted element, make a change in any of the
-					table:table-cell/text:p element say, something like this.
-				</docbook:para>
+				Select all the contents (that is, the ones mentioned in the manifest.xml file) of the unzipped folder and zip
+				them. Name the zipped file as NewShop.ods.
+			</docbook:listitem>
+			<docbook:listitem>
+				Now, open NewShop.ods in OpenOffice or IBM Lotus Symphony and confirm that the hacking is successful. Note that
+				OpenOffice successfully opens a file with a .zip extension, so long it is a valid ODF document whereas Symphony 
+				requires the extension to be .ods.
 			</docbook:listitem>
 		</docbook:orderedlist>
 
-		<docbook:para>
-			<docbook:inlinemediaobject>
-				<docbook:imageobject>
-					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics4.png"
+		<docbook:mediaobject>
+			<docbook:imageobject>
+				<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics5.png"
 						width="11.17cm" depth="7.536cm" />
-				</docbook:imageobject>
-			</docbook:inlinemediaobject>
-		</docbook:para>
-
-		<docbook:orderedlist>
-			<docbook:listitem>
-				<docbook:para>Save the edited content.xml file in the same
-					folder
-					where the Shop.ods file was unzipped into replacing the
-					older one.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>Select all the contents (that is, the ones
-					mentioned in
-					the manifest.xml file) of the unzipped folder and zip
-					them. Name the
-					zipped file as NewShop.ods. </docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>Now, open NewShop.ods in OpenOffice or IBM Lotus
-					Symphony and confirm that the hacking is successful. Note that,
-					OpenOffice successfully opens a file with a .zip extension, so long
-					it is a valid ODF document whereas, Symphony requires the extension
-					to be .ods.</docbook:para>
-			</docbook:listitem>
-		</docbook:orderedlist>
+			</docbook:imageobject>
+			<docbook:caption>??? insert suitable caption here ???</docbook:caption>
+		</docbook:mediaobject>
 
 		<docbook:para>
-			<docbook:inlinemediaobject>
-				<docbook:imageobject>
-					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics5.png"
-						width="11.17cm" depth="7.536cm" />
-				</docbook:imageobject>
-			</docbook:inlinemediaobject>
+			It is now clear that, to “read” an existing ODF spreadsheet in its simplest form, we have to navigate the path of the
+			content.xml XML document. Similarly, to “modify” an existing ODF spreadsheet, we should generate the content.xml XML 
+			document correctly. One can, of course, extend this to create and/or modify other XML documents in the .ods archive. 
+			But, for the sake of this article, we will concentrate only on the creation of content.xml XML document.
 		</docbook:para>
-
-		<docbook:para>It is now clear that, to “read” an existing ODF
-			spreadsheet in its simplest form, we have to navigate the path of the
-			content.xml XML document. Similarly, to “modify” an existing ODF
-			spreadsheet, we should generate the content.xml XML document
-			correctly. One can, of course, extend this to create and/or modify
-			other XML documents in the .ods archive. But, for the sake of this
-			article, we will concentrate only on the creation of content.xml XML
-			document.</docbook:para>
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>Scheme of this article</docbook:title>
-		<docbook:para>With this knowledge of XML documents in an ODF
-			document
-			archive, we will now proceed to demonstrate the usage of DB2
-			pureXML
-			with ODF documents. We consider the scheme below.
+		<docbook:para>
+			With this knowledge of XML documents in an ODF document archive, we will now proceed to demonstrate the usage of DB2
+			pureXML with ODF documents. We consider the scheme below.
 		</docbook:para>
 		<docbook:orderedlist>
 			<docbook:listitem>
-				<docbook:para>We consider an ODF spreadsheet of a simple shopping
-					list where the item name, unit of measure (UOM) and the units
-					required are provided.</docbook:para>
+				We consider an ODF spreadsheet of a simple shopping list where the item name, unit of measure (UOM) and the units
+				required are provided.
 			</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>The content.xml document of this ODF spreadsheet is
-					imported into a DB2 table with an XML column. </docbook:para>
-			</docbook:listitem>
+				The content.xml document of this ODF spreadsheet is imported into a DB2 table with an XML column.</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>For the sake of this article we will use the LOAD
-					statement in DB2 to load the content.xml document and ignore any
+				For the sake of this article we will use the LOAD statement in DB2 to load the content.xml document and ignore any
 					other methods of inserting XML documents into the DB2 table.
-				</docbook:para>
 			</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>We will refer to another traditional table which
-					stores the price list.</docbook:para>
+				We will refer to another traditional table which stores the price list.
 			</docbook:listitem>
 			<docbook:listitem>
-				<docbook:para>Using the table for price list and the table with
-					XML
-					column for content.xml, we will generate another content.xml
-					XML
-					document that will hold the items with their corresponding
-					prices.
-				</docbook:para>
+				Using the table for price list and the table with the XML column for content.xml, we will generate another content.xml
+				XML document that will hold the items with their corresponding prices.
 			</docbook:listitem>
 		</docbook:orderedlist>
 	</docbook:section>
 	<docbook:section>
-		<docbook:title>Inserting XML document into DB2 table
-		</docbook:title>
-		<docbook:para>We will consider a  table to demonstrate DB2 pureXML
-			capabilities. The first table will be keyed via an ID column to
-			differentiate multiple documents. The second column of the table will
-			hold the content.xml file of the ODF spreadsheet document in a  XML
-			column. The DDL for this table is reproduced here :</docbook:para>
-		<docbook:para />
+		<docbook:title>Inserting XML document into DB2 table</docbook:title>
+		<docbook:para>
+			We will consider a  table to demonstrate DB2 pureXML capabilities. The first table will be keyed via an ID column to
+			differentiate multiple documents. The second column of the table will hold the content.xml file of the ODF spreadsheet 
+			document in a  XML column. The DDL for this table is reproduced here:
+		</docbook:para>
 		<docbook:example>
-			<docbook:title>DB2 table to hold content.xml file of the ODF
-				spreadsheet</docbook:title>
+			<docbook:title>DB2 table to hold content.xml file of the ODF spreadsheet</docbook:title>
 			<docbook:programlisting>
 				-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
 				-- The table is keyed on DOCID a running sequence number.
@@ -331,192 +229,134 @@
 		</docbook:example>
 		<docbook:section>
 			<docbook:title>IMPORT statements</docbook:title>
-			<docbook:para>Inserting the XML document into the table can
-				be done
-				using a simple INSERT SQL statement or using IMPORT
-				statement.
-				However, since we have a considerably sized XML document,
-				we will use
-				IMPORT statement from the command line. To use IMPORT
-				statement,
-				first, save the content.xml in a folder as say, ODSFolder
-				and create
-				a flat file with a single record. Save the flat file as
-				load.txt.
-				This record will have two values separated by a comma as
-				shown below.
+			<docbook:para>
+				Inserting the XML document into the table can be done using a simple INSERT SQL statement or using IMPORT
+				statement. However, since we have a considerably sized XML document, we will use the IMPORT statement from 
+				the command line. To use the IMPORT statement, first, save the content.xml in a folder as say, ODSFolder
+				and create a flat file with a single record. Save the flat file as load.txt. This record will have two values 
+				separated by a comma as shown below.
 			</docbook:para>
 			<docbook:example>
-				<docbook:title>Contents of flat file to be used for loading
-					DOCCONTENTXML table</docbook:title>
-				<docbook:programlisting>1,&lt;XDS FIL='content.xml'/&gt;
-				</docbook:programlisting>
+				<docbook:title>Contents of flat file to be used for loading DOCCONTENTXML table</docbook:title>
+				<docbook:programlisting>1,&lt;XDS FIL='content.xml'/&gt;</docbook:programlisting>
 			</docbook:example>
 			<docbook:example>
-				<docbook:title>IMPORT statement to load content.xml into
-					DOCCONTENTXML table</docbook:title>
-				<docbook:programlisting>IMPORT FROM load.txt OF DEL XML FROM
-					ODSFolder INSERT INTO ODF.DOCCONTENTXML;</docbook:programlisting>
+				<docbook:title>IMPORT statement to load content.xml into DOCCONTENTXML table</docbook:title>
+				<docbook:programlisting>
+					IMPORT FROM load.txt OF DEL 
+					XML FROM ODSFolder 
+					INSERT INTO ODF.DOCCONTENTXML;
+				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>Alternatively, IBM Data Studio Developer
-				can be used to
-				load into XML column as it offers a convenient GUI.
+			<docbook:para>
+				Alternatively, IBM Data Studio Developer can be used to load into XML column as it offers a convenient GUI.
 			</docbook:para>
 		</docbook:section>
 	</docbook:section>
 	<docbook:section>
-		<docbook:title>Converting the content.xml into row-column
-			format
-		</docbook:title>
+		<docbook:title>Converting the content.xml into row-column format</docbook:title>
 		<docbook:section>
-			<docbook:title>Getting the cell values from the XML file
-			</docbook:title>
-			<docbook:para>To get to the cell values of the spreadsheet, we will
-				start with the required XPath expression. Then, we will develop a
+			<docbook:title>Getting the cell values from the XML file</docbook:title>
+			<docbook:para>
+				To get to the cell values of the spreadsheet, we will start with the required XPath expression. Then, we will develop a
 				working query around the XPath expression to get the results.
 			</docbook:para>
 		</docbook:section>
 		<docbook:section>
 			<docbook:title>The XPath expression</docbook:title>
-			<docbook:para>Going back to Table 2, the left column shows the
-				first
-				row of the spreadsheet highlighted. The right column is a part
-				of the
-				generated content.xml file and some of the elements
-				collapsed. The
-				relevant part are put in red boxes. The first box
-				shows the
-				table:table element with an attribute table:name whose
-				value is
-				“Sheet1”. It is the name of the sheet in the complete
-				spreadsheet.
-				This element is repeated as many times as there are
-				sheets in the
-				spreadsheet with the table:name attribute set to the
-				names as set by
-				the user. The second box is the representation of
-				the highlighted row
-				in the left column. Thus, to get to, say, column
-				B of the first row,
-				the path to be navigated (or, the XPath
-				expression) from the root of
-				XML document would be as below.
+			<docbook:para>
+				Going back to Table 2, the left column shows the first row of the spreadsheet highlighted. The right column is a part
+				of the generated content.xml file and some of the elements collapsed. The relevant part are put in red boxes. The first 
+				box shows the table:table element with an attribute table:name whose value is “Sheet1”. It is the name of the sheet in 
+				the complete spreadsheet. This element is repeated as many times as there are sheets in the spreadsheet with the 
+				table:name attribute set to the names as set by the user. The second box is the representation of the highlighted row
+				in the left column. Thus, to get to, say, column B of the first row, the path to be navigated (or, the XPath expression) 
+				from the root of XML document would be as below.
 			</docbook:para>
 			<docbook:example>
-				<docbook:title>XPath expression to get first row, second column
-					value</docbook:title>
+				<docbook:title>XPath expression to get first row, second column value</docbook:title>
 				<docbook:programlisting>
 					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para />
-			<docbook:para>In other words, we start from the office:document
-				element to office:body and then to office:spreadsheet to look for
-				the first table:table element. The first element represents the
-				first sheet of the spreadsheet document. Then, to get to the second
-				column of first row we navigate to table:row[1]/table:cell[2] and
-				finally to text:p to get the actual text of the cell.</docbook:para>
-			<docbook:para />
-			<docbook:para>With Firefox Mozilla browser, the above XPath
-				expression can be easily tested using the add-on Xpather (see
-				Resources below).  We follow the steps below :</docbook:para>
-			<docbook:para />
+			<docbook:para>
+				In other words, we start from the <code>office:document</code> element to <code>office:body</code> and then to 
+				<code>office:spreadsheet</code> to look for	the first <code>table:table</code> element. The first element represents 
+				the	first sheet of the spreadsheet document. Then, to get to the second column of first row we navigate to 
+				<code>table:row[1]/table:cell[2]</code> and	finally to <code>text:p</code> to get the actual text of the cell.
+			</docbook:para>
+			<docbook:para>
+				With Firefox Mozilla browser, the above XPath expression can be easily tested using the add-on Xpather (see
+				Resources below).  We follow the steps below :-
+			</docbook:para>
 			<docbook:orderedlist>
-				<docbook:listitem>
-					<docbook:para>Open the content.xml in Firefox Mozilla browser.
-						Right-click on the page and select 'Show in XPather'.
-					</docbook:para>
+				<docbook:listitem>Open the content.xml in Firefox Mozilla browser</docbook:listitem>
+				<docbook:listitem>Right-click on the page and select 'Show in XPather'
+					<docbook:mediaobject>
+						<docbook:imageobject>
+						<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics6.png"
+							width="11.17cm" depth="7.536cm" />
+						</docbook:imageobject>
+					</docbook:mediaobject>
 				</docbook:listitem>
-			</docbook:orderedlist>
-
-		<docbook:para>
-			<docbook:inlinemediaobject>
-				<docbook:imageobject>
-					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics6.png"
-						width="11.17cm" depth="7.536cm" />
-				</docbook:imageobject>
-			</docbook:inlinemediaobject>
-		</docbook:para>
-
-			<docbook:orderedlist>
 				<docbook:listitem>
-					<docbook:para>The XPather dialog box opens up. Enter the XPath
-						expression in the dialog box and click 'Eval'.</docbook:para>
+					The XPather dialog box opens up. Enter the XPath expression in the dialog box and click 'Eval'
 				</docbook:listitem>
 			</docbook:orderedlist>
 			
-		<docbook:para>
-			<docbook:inlinemediaobject>
+			<docbook:mediaobject>
 				<docbook:imageobject>
 					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics7.png"
 						width="11.17cm" depth="7.536cm" />
 				</docbook:imageobject>
-			</docbook:inlinemediaobject>
-		</docbook:para>
-
+			</docbook:mediaobject>
 		</docbook:section>
+
 		<docbook:section>
 			<docbook:title>The required query </docbook:title>
-			<docbook:para>To wrap the XPath expression into a query, we first
-				note the XML namespaces used. The content.xml file has the
-				namespaces defined as shown below :</docbook:para>
-			<docbook:informaltable frame="all">
+			<docbook:para>
+				To wrap the XPath expression into a query, we first note the XML namespaces used. The content.xml file has the
+				namespaces defined as shown below :
+			</docbook:para>
+			<docbook:table frame="all">
+			<docbook:title>Prefix and namespace URI used in	content.xml	document</docbook:title>
 				<docbook:tgroup cols="2">
-					<docbook:tbody>
+					<docbook:thead>
 						<docbook:row>
+							<docbook:entry>Prefix</docbook:entry>
+							<docbook:entry>Namespace</docbook:entry>
+						</docbook:row>
+					</docbook:thead>
+					<docbook:tbody>	
+						<docbook:row>
+							<docbook:entry><docbook:code>office</docbook:code></docbook:entry>
 							<docbook:entry>
-								<docbook:para>Prefix</docbook:para>
-							</docbook:entry>
-							<docbook:entry>
-								<docbook:para>Namespace</docbook:para>
+								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:office:1.0”</docbook:code>
 							</docbook:entry>
 						</docbook:row>
 						<docbook:row>
+							<docbook:entry><docbook:code>table</docbook:code></docbook:entry>
 							<docbook:entry>
-								<docbook:code>office</docbook:code>
-							</docbook:entry>
-							<docbook:entry>
-								<docbook:code>
-									“urn:oasis:names:tc:opendocument:xmlns:office:1.0”
-								</docbook:code>
+								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:table:1.0”</docbook:code>
 							</docbook:entry>
 						</docbook:row>
 						<docbook:row>
+							<docbook:entry><docbook:code>text</docbook:code></docbook:entry>
 							<docbook:entry>
-								<docbook:code>table</docbook:code>
-							</docbook:entry>
-							<docbook:entry>
-								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:table:1.0”
-								</docbook:code>
-							</docbook:entry>
-						</docbook:row>
-						<docbook:row>
-							<docbook:entry>
-								<docbook:code>text</docbook:code>
-							</docbook:entry>
-							<docbook:entry>
-								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:text:1.0”
-								</docbook:code>
+								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:text:1.0”</docbook:code>
 							</docbook:entry>
 						</docbook:row>
 					</docbook:tbody>
 				</docbook:tgroup>
-			</docbook:informaltable>
-			<docbook:para>Table 7: Prefix and namespace URI used in
-				content.xml
-				document</docbook:para>
-			<docbook:para />
-			<docbook:para>The query shown below will use the XML namespaces
-				and
-				XPath expression (that we obtained in Section 6.2)  to extract
-				 the
-				cell values from the loaded content.xml file. The text in
-				bold-blue
-				shows the XPath expression used to extract cell values.
+			</docbook:table>
+
+			<docbook:para>
+				The query shown below will use the XML namespaces and XPath expression that we produced in the previous sections to 
+				extract the	cell values from the loaded content.xml file. The highlighted text shows the XPath expression used to 
+				extract cell values.
 			</docbook:para>
 			<docbook:example>
-				<docbook:title>Query to extract cell values from content.xml into
-					tabular format</docbook:title>
+				<docbook:title>Query to extract cell values from content.xml into tabular format</docbook:title>
 				<docbook:programlisting>
 					SELECT
 					X.*
@@ -532,22 +372,22 @@
 					ODF.DOCCONTENTXML
 					WHERE DOCID
 					= 1")
-					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
+					<docbook:emphasis>
+						/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
+					</docbook:emphasis>
 					COLUMNS             
 					"ITEMNAME" CHARACTER (20)  PATH
-					'table:table-cell[1]/text:p',  
+					<docbook:emphasis>'table:table-cell[1]/text:p'</docbook:emphasis>,  
 					"QUANTITY" DECIMAL   (4,2) PATH
-					'table:table-cell[2]/text:p',
+					<docbook:emphasis>'table:table-cell[2]/text:p'</docbook:emphasis>,
 					"UOM"      CHARACTER (5)   PATH
-					'table:table-cell[3]/text:p'  
+					<docbook:emphasis>'table:table-cell[3]/text:p'</docbook:emphasis>  
 					) AS X; 
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>To see the content.xml document in traditional rows
-				and
-				columns format, we create a view using the query above.
+			<docbook:para>
+				To see the content.xml document in traditional rows	and columns format, we create a view using the query above.
 			</docbook:para>
-			<docbook:para />
 			<docbook:example>
 				<docbook:title>View on the content.xml document</docbook:title>
 				<docbook:programlisting>
@@ -557,35 +397,32 @@
 					X.*
 					FROM
 					XMLTABLE(
-					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
-					"office",                      
-					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
-					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
+					XMLNAMESPACES(
+						'urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS	"office",                      
+						'urn:oasis:names:tc:opendocument:xmlns:table:1.0'  AS "table",
+						'urn:oasis:names:tc:opendocument:xmlns:text:1.0'  AS "text"
+					),
 					'db2-fn:sqlquery("SELECT
-					DOCCONTENT
-					FROM
-					ODF.DOCCONTENTXML
-					WHERE
-					DOCID =
-					1"
+					 DOCCONTENT
+					 FROM
+					 ODF.DOCCONTENTXML
+					 WHERE
+					 DOCID = 1"
 					)/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
 					COLUMNS
-					"ITEMNAME" CHARACTER (20)  PATH
-					'table:table-cell[1]/text:p',
-					"QUANTITY" DECIMAL   (4,2) PATH
-					'table:table-cell[2]/text:p',
-					"UOM"      CHARACTER (5)   PATH
-					'table:table-cell[3]/text:p'
+					"ITEMNAME" CHARACTER (20)  PATH 'table:table-cell[1]/text:p',
+					"QUANTITY" DECIMAL   (4,2) PATH	'table:table-cell[2]/text:p',
+					"UOM"      CHARACTER (5)   PATH	'table:table-cell[3]/text:p'
 					) AS X
 					);
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>A simple SELECT query on this view shows that we have
-				successfully 'converted' the content.xml document in the ODF archive
-				for spreadsheet into a row-column format.</docbook:para>
+			<docbook:para>
+				A simple SELECT query on this view shows that we have successfully 'converted' the content.xml document in the ODF 
+				archive for spreadsheet into a row-column format.
+			</docbook:para>
 			<docbook:example>
-				<docbook:title>Result of SELECT on the view V_CONTENT.
-				</docbook:title>
+				<docbook:title>Result of SELECT on the view V_CONTENT</docbook:title>
 				<docbook:programlisting>
 					SELECT * FROM ODF.V_CONTENT ;
 
@@ -610,45 +447,32 @@
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>Shopping prices</docbook:title>
-		<docbook:para>We will now build the content.xml for an ODF
-			spreadsheet
-			that will hold the shopping list – discussed above – with
-			an
-			additional column for cost of items in the shopping list. We will
-			also provide an additional row for the grand total of the items in
-			shopping list.</docbook:para>
+		<docbook:para>
+			We will now build the content.xml for an ODF spreadsheet that will hold the shopping list – discussed above – with
+			an additional column for cost of items in the shopping list. We will also provide an additional row for the grand 
+			total of the items in shopping list.
+		</docbook:para>
 		<docbook:section>
-			<docbook:title>Building the list of shopping prices
-			</docbook:title>
-			<docbook:para>We create a simple table that holds the unit price of
-				shopping items with the DDL shown below.</docbook:para>
+			<docbook:title>Building the list of shopping prices</docbook:title>
+			<docbook:para>
+				We create a simple table that holds the unit price of shopping items with the DDL shown below.
+			</docbook:para>
 			<docbook:example>
-				<docbook:title>DDL for table to hold the shopping prices
-				</docbook:title>
+				<docbook:title>DDL for table to hold the shopping prices</docbook:title>
 				<docbook:programlisting>
-					--Table to hold the unit price of shopping
-					items
+					--Table to hold the unit price of shopping items
 					CREATE TABLE ODF.SHOPPER
-					(ITEMNAME CHARACTER(50),
-					UNIT_PRICE
-					DECIMAL (4,2));
+					(ITEMNAME  CHARACTER(50),
+					UNIT_PRICE DECIMAL (4,2));
  				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>This table is inserted with values such that all
-				the
-				item names are available in the SHOPPER table.  To obtain the
-				list of
-				item names and the cost of items, we use the following
-				query. Note
-				that, this query uses the view V_CONTENT. We could have
-				used the base
-				table directly. Usage of the view makes the query
-				'compact' and
-				easier to follow.</docbook:para>
-			<docbook:para />
+			<docbook:para>
+				This table is inserted with values such that all the item names are available in the SHOPPER table.  To obtain the
+				list of item names and the cost of items, we use the following query. Note that, this query uses the view V_CONTENT. 
+				We could have used the base table directly. Usage of the view makes the query 'compact' and easier to follow.
+			</docbook:para>
 			<docbook:example>
-				<docbook:title>Query to obtain list and cost of items with grand
-					total</docbook:title>
+				<docbook:title>Query to obtain list and cost of items with grand total</docbook:title>
 				<docbook:programlisting>
 					SELECT
 					COALESCE(P.ITEMNAME,' TOTAL')
@@ -658,36 +482,35 @@
 					SUM(P.COST) COST
 					FROM
 					(SELECT
-					A.ITEMNAME,
-					A.QUANTITY,
-					B.UNIT_PRICE,
-					A.QUANTITY*B.UNIT_PRICE COST
-					FROM
-					ODF.V_CONTENT A,
-					ODF.SHOPPER B
-					WHERE
-					UPPER(A.ITEMNAME) = B.ITEMNAME
+					 A.ITEMNAME,
+					 A.QUANTITY,
+					 B.UNIT_PRICE,
+					 A.QUANTITY*B.UNIT_PRICE COST
+					 FROM
+					 ODF.V_CONTENT A,
+					 ODF.SHOPPER B
+					 WHERE
+					 UPPER(A.ITEMNAME) = B.ITEMNAME
 					) P
 					GROUP BY
 					ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
-					HAVING (P.ITEMNAME IS
-					NULL OR
-					(P.ITEMNAME IS NOT NULL AND
-					P.QUANTITY IS NOT NULL AND
-					P.UNIT_PRICE IS NOT NULL AND
-					SUM(P.COST) IS NOT NULL AND
-					SUM(P.QUANTITY) IS NOT NULL
+					HAVING 
+					(P.ITEMNAME IS NULL OR
+					 (P.ITEMNAME      IS NOT NULL AND
+					  P.QUANTITY      IS NOT NULL AND
+					  P.UNIT_PRICE    IS NOT NULL AND
+					  SUM(P.COST)     IS NOT NULL AND
+					  SUM(P.QUANTITY) IS NOT NULL
+					 )
 					)
-					)
-					ORDER BY COALESCE(P.ITEMNAME,' ') DESC
+					ORDER BY COALESCE(P.ITEMNAME,' ') DESC;
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>The result of the above query is shown below.
+			<docbook:para>
+				The result of the above query is shown below.
 			</docbook:para>
-			<docbook:para />
 			<docbook:example>
-				<docbook:title>Result of query for obtaining list and cost of items
-				</docbook:title>
+				<docbook:title>Result of query for obtaining list and cost of items</docbook:title>
 				<docbook:programlisting>
 					ITEMNAME             QTY    UNIT_PRICE COST
 					   
@@ -709,138 +532,104 @@
 		</docbook:section>
 		<docbook:section>
 			<docbook:title>View with list and cost of items</docbook:title>
-			<docbook:para>Now that we have the result of computation of cost
-				of
-				items, we will take this into a view. This is purely for
-				convenience. We can proceed without using this view.</docbook:para>
-			<docbook:para />
+			<docbook:para>
+				Now that we have the result of computation of cost of items, we will take this into a view. This is purely for
+				convenience. We can proceed without using this view.
+			</docbook:para>
 			<docbook:example>
-				<docbook:title>View with list and cost of items in shopping list
-				</docbook:title>
+				<docbook:title>View with list and cost of items in shopping list</docbook:title>
 				<docbook:programlisting>
 					CREATE VIEW ODF.V_SHOP_COST AS
 					(SELECT
-					COALESCE(P.ITEMNAME,' TOTAL') ITEMNAME,
-					SUM(P.QUANTITY) QTY,
-					COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
-					SUM(P.COST) COST
-					FROM
-					(SELECT
-					A.ITEMNAME,
-					A.QUANTITY,
-					B.UNIT_PRICE,
-					A.QUANTITY*B.UNIT_PRICE COST
-					FROM
-					ODF.V_CONTENT A,
-					 ODF.SHOPPER B
-					 WHERE
-					UPPER(A.ITEMNAME) =
-					B.ITEMNAME
-					) P
-					GROUP BY
-					ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
-					HAVING (P.ITEMNAME IS NULL OR
-					(P.ITEMNAME IS NOT NULL AND
-					P.QUANTITY
-					IS NOT NULL AND
-					P.UNIT_PRICE IS NOT NULL AND
-					SUM(P.COST) IS NOT NULL
-					AND
-					SUM(P.QUANTITY) IS NOT NULL
-					)
-					)
+					 COALESCE(P.ITEMNAME,' TOTAL') ITEMNAME,
+					 SUM(P.QUANTITY) QTY,
+					 COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
+					 SUM(P.COST) COST
+					 FROM
+					 (SELECT
+					  A.ITEMNAME,
+					  A.QUANTITY,
+					  B.UNIT_PRICE,
+					  A.QUANTITY*B.UNIT_PRICE COST
+					  FROM
+					  ODF.V_CONTENT A,
+					  ODF.SHOPPER B
+					  WHERE
+					  UPPER(A.ITEMNAME) = B.ITEMNAME
+					 ) P
+					 GROUP BY
+					 ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
+					 HAVING 
+					 (P.ITEMNAME IS NULL OR
+					  (P.ITEMNAME      IS NOT NULL AND
+					   P.QUANTITY      IS NOT NULL AND
+					   P.UNIT_PRICE    IS NOT NULL AND
+					   SUM(P.COST)     IS NOT NULL AND
+					   SUM(P.QUANTITY) IS NOT NULL
+					  )
+					 )
 					);
 				</docbook:programlisting>
 			</docbook:example>
 		</docbook:section>
 	</docbook:section>
 	<docbook:section>
-		<docbook:title>XQuery Update to build content.xml document
-		</docbook:title>
-		<docbook:para>At this point, we have 'shredded' the shopping list
-			(from the content.xml of ODF spreadsheet), joined with the relational
-			table having the unit prices of items and generated a relational
-			output of the cost of items in shopping list with the grand total.
-			Our aim is now to convert this relational output into the format of
-			content.xml so that the result is a complete ODF spreadsheet.
+		<docbook:title>XQuery Update to build content.xml document</docbook:title>
+		<docbook:para>
+			At this point, we have 'shredded' the shopping list (from the content.xml of ODF spreadsheet), joined with the relational
+			table having the unit prices of items and generated a relational output of the cost of items in shopping list with the 
+			grand total. Our aim is now to convert this relational output into the format of content.xml so that the result is a 
+			complete ODF spreadsheet.
 		</docbook:para>
-		<docbook:para />
-		<docbook:para>One way of building the content.xml is to start from
-			the
-			scratch and we build the whole of the document. This approach
-			would be
-			quite tedious. A better way would be to generate the
-			relevant part in
-			the content.xml part and then insert into an
-			otherwise empty
-			content.xml document. This approach will also allow
-			us to make use of
-			XQuery Update facility in DB2 pureXML.
+		<docbook:para>
+			One way of building the content.xml is to start from scratch and building the whole of the document. This approach
+			would be quite tedious. A better way would be to generate the relevant part in the content.xml part and then insert into an
+			otherwise empty content.xml document. This approach will also allow	us to make use of the XQuery Update facility in DB2 
+			pureXML.
 		</docbook:para>
-		<docbook:para />
 		<docbook:section>
 			<docbook:title>A quick side note on XQuery Update</docbook:title>
-			<docbook:para>XQuery is a query and functional programming
-				language
-				designed to query XML documents. It became a W3C Candidate
-				Recommendation on 23rd January, 2007. XQuery Update facility is an
-				extension to XQuery that allows update (insert, modify and delete)
-				of the XML documents. It became a W3C Candidate Recommendation on
-				14th March, 2008.</docbook:para>
-			<docbook:para />
+			<docbook:para>
+				XQuery is a query and functional programming language designed to query XML documents. It became a W3C Candidate
+				Recommendation on 23rd January, 2007. XQuery Update facility is an extension to XQuery that allows update (insert, 
+				modify and delete) of the XML documents. It became a W3C Candidate Recommendation on 14th March, 2008.
+			</docbook:para>
 		</docbook:section>
 		<docbook:section>
-			<docbook:title>Generating the content.xml for the shopping
-				prices
-			</docbook:title>
-			<docbook:para>To start with, we will create a dummy content.xml
-				that
-				is complete and ODF compliant in all respects except it would
-				resemble an empty spreadsheet. Next, we will generate XML sequences
-				that is correct for a row and it's columns of a spreadsheet. Then,
-				we will collect all of these XML sequences and insert into the dummy
-				content.xml document.</docbook:para>
-			<docbook:para />
-			<docbook:para>To create the dummy document, we simply open the
-				spreadsheet for shopping list, delete all rows and columns and save
-				it with another name. Then, we unzip this document and refer the
-				content.xml document. Here is a screenshot of how this document
-				would look like.</docbook:para>
-
-		<docbook:para>
-			<docbook:inlinemediaobject>
+			<docbook:title>Generating the content.xml for the shopping prices</docbook:title>
+			<docbook:para>
+				To start with, we will create a dummy content.xml that is complete and ODF compliant in all respects except it would
+				resemble an empty spreadsheet. Next, we will generate XML sequences that is correct for a row and its columns of a 
+				spreadsheet. Then, we will collect all of these XML sequences and insert into the dummy content.xml document.
+			</docbook:para>
+			<docbook:para>
+				To create the dummy document, we simply open the spreadsheet for shopping list, delete all rows and columns and save
+				it with another name. Then, we unzip this document and refer the content.xml document. Here is a screenshot of how 
+				this document would look.
+			</docbook:para>
+			<docbook:mediaobject>
 				<docbook:imageobject>
 					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics8.png"
 						width="11.17cm" depth="7.536cm" />
 				</docbook:imageobject>
-			</docbook:inlinemediaobject>
-		</docbook:para>
-
-			<docbook:para />
-			<docbook:para>Insert this dummy document into the
-				ODF.DOCCONTENTXML
-				table with DOCID as zero using the IMPORT method
-				described before.
-				Our aim now is to update this document such that,
-				&lt;table:table-row&gt; elements are added as children of
-				&lt;table:table&gt; and as siblings of &lt;table:table-column&gt;.
+				<docbook:caption>content.xml for an empty spreadsheet</docbook:caption>
+			</docbook:mediaobject>
+			<docbook:para>
+				Insert this dummy document into the ODF.DOCCONTENTXML table with DOCID as zero using the IMPORT method described before.
+				Our aim now is to update this document such that, <docbook:code>&lt;table:table-row&gt;</docbook:code> elements are 
+				added as children of <docbook:code>&lt;table:table&gt;</docbook:code> and as siblings of <docbook:code>
+				&lt;table:table-column&gt;</docbook:code>.
 			</docbook:para>
-			<docbook:para />
 		</docbook:section>
 		<docbook:section>
-			<docbook:title>Building the &lt;table:table-row&gt; elements
-			</docbook:title>
-			<docbook:para>In our example, each row of spreadsheet would be
-				having
-				four columns. Therefore, each row element – as required in
-				content.xml – would have four children for the number of columns. A
-				sample of &lt;table:table-row&gt; is shown below. The XML namespace
-				declarations have been omitted for the sake of brevity.
+			<docbook:title>Building the <docbook:code>>&lt;table:table-row&gt;</docbook:code> elements</docbook:title>
+			<docbook:para>
+				In our example, each row of spreadsheet would have four columns. Therefore, each row element, as required in content.xml, 
+				would have four children for the number of columns. A sample of <docbook:code>&lt;table:table-row&gt;</docbook:code> is 
+				shown below. The XML namespace declarations have been omitted for the sake of brevity.
 			</docbook:para>
-			<docbook:para />
 			<docbook:example>
-				<docbook:title>A sample &lt;table:table-row&gt; element
-				</docbook:title>
+				<docbook:title>A sample <docbook:code>&lt;table:table-row&gt;</docbook:code> element</docbook:title>
 				<docbook:programlisting>
 					&lt;table:table-row
 					table:style-name="ro1"&gt;
@@ -852,249 +641,221 @@
 					office:value-type="string"&gt;&lt;text:p&gt;6.00&lt;/text:p&gt;&lt;/table:table-cell&gt;
 					&lt;table:table-cell
 					office:value-type="string"&gt;&lt;text:p&gt;1.5000&lt;/text:p&gt;&lt;/table:table-cell&gt;
-					&lt;/table:table-row&gt; </docbook:programlisting>
+					&lt;/table:table-row&gt; 
+				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>To build the &lt;table:table-row&gt; elements, then,
-				we
-				need to generate &lt;table:table-cell&gt; for each column of the
-				row
-				in the relational table and then aggregate them to a single
-				&lt;table:table-row&gt; element. We will use the XMLAGG function to
-				build the elements and store in a table the generated elements so
-				that it is easier to use while doing the update of XML document. The
-				table to hold the generated elements is defined as shown below.
+			<docbook:para>
+				To build the <docbook:code>&lt;table:table-row&gt;</docbook:code> elements we need to generate 
+				<docbook:code>&lt;table:table-cell&gt;</docbook:code> for each column of the row in the relational table and then 
+				aggregate them to a single <docbook:code>&lt;table:table-row&gt;</docbook:code> element. We will use the XMLAGG 
+				function to build the elements and store in a table the generated elements so that it is easier to use while doing 
+				the update of XML document. The	table to hold the generated elements is defined as shown below.
 			</docbook:para>
 			<docbook:example>
-				<docbook:title>Table to hold generated &lt;table:table-row&gt;
-					elements</docbook:title>
+				<docbook:title>Table to hold generated <docbook:code>&lt;table:table-row&gt;</docbook:code> elements</docbook:title>
 				<docbook:programlisting>
-					CREATE TABLE ODF.SHOP_COST_XML (SHOP_COST
-					XML);
+					CREATE TABLE ODF.SHOP_COST_XML 
+					(SHOP_COST XML);
 				</docbook:programlisting>
 			</docbook:example>
 			<docbook:example>
-				<docbook:title>Insert generated &lt;table:table-row&gt; elements
-					with &lt;dummy&gt; parent</docbook:title>
+				<docbook:title>
+					Insert generated <docbook:code>&lt;table:table-row&gt;</docbook:code> elements with <docbook:code>&lt;dummy&gt;</docbook:code> parent
+				</docbook:title>
 				<docbook:programlisting>
-					INSERT INTO ODF.SHOP_COST_XML (SHOP_COST)
+					INSERT INTO ODF.SHOP_COST_XML 
+					(SHOP_COST)
 					(SELECT
-					XMLDOCUMENT(
-					XMLELEMENT(NAME "dummy",
-					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
-					"office",
-					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS
-					"table",
-					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"
-					),
-					XMLAGG(
-					XMLELEMENT(NAME "table:table-row",
-					XMLATTRIBUTES('ro1' AS
-					"table:style-name"),
-					XMLELEMENT(NAME "table:table-cell",
-					XMLATTRIBUTES('string' AS "office:value-type"),            
-					XMLELEMENT(NAME "text:p", STRIP(O.ITEMNAME)
-					)
-					),
-					XMLELEMENT(NAME
-					"table:table-cell",
-					XMLATTRIBUTES('string' AS "office:value-type"),
-					XMLELEMENT(NAME "text:p", O.QTY )
-					),
-					XMLELEMENT(NAME
-					"table:table-cell",
-					XMLATTRIBUTES('string' AS "office:value-type"),
-					XMLELEMENT(NAME "text:p", O.UNIT_PRICE )
-					),
-					XMLELEMENT(NAME
-					"table:table-cell",
-					XMLATTRIBUTES('string' AS "office:value-type"),
-					XMLELEMENT(NAME "text:p", O.COST)
-					)
-					)
-					ORDER BY O.ITEMNAME DESC
-					)
-					)
-					)
-					FROM
-					ODF.V_SHOP_COST O
-					);
+					 XMLDOCUMENT(
+					 	XMLELEMENT(NAME "dummy",
+							XMLNAMESPACES(
+								'urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS "office",
+								'urn:oasis:names:tc:opendocument:xmlns:table:1.0'  AS "table",
+								'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"
+							),
+							XMLAGG(
+								XMLELEMENT(NAME "table:table-row",
+									XMLATTRIBUTES('ro1' AS "table:style-name"),
+									XMLELEMENT(NAME "table:table-cell",
+										XMLATTRIBUTES('string' AS "office:value-type"),            
+										XMLELEMENT(NAME "text:p", STRIP(O.ITEMNAME))
+									),
+									XMLELEMENT(NAME "table:table-cell",
+										XMLATTRIBUTES('string' AS "office:value-type"),
+										XMLELEMENT(NAME "text:p", O.QTY )
+									),
+									XMLELEMENT(NAME "table:table-cell",
+										XMLATTRIBUTES('string' AS "office:value-type"),
+										XMLELEMENT(NAME "text:p", O.UNIT_PRICE )
+									),
+									XMLELEMENT(NAME "table:table-cell",
+										XMLATTRIBUTES('string' AS "office:value-type"),
+										XMLELEMENT(NAME "text:p", O.COST)
+									)
+								)
+								ORDER BY O.ITEMNAME DESC
+							)
+						)
+				   )
+				   FROM ODF.V_SHOP_COST O
+				  );
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>Finally, we are now ready to update our dummy
-				XML
-				document. The query to do the update is shown below. Note that,
-				this
-				query is not inserting the resulting into any table. It is left
-				to
-				the reader to route the output to a table column, file, message
-				queue, etc.</docbook:para>
+			<docbook:para>
+				Finally, we are now ready to update our dummy XML document. The query to do the update is shown below. Note that,
+				this query is not inserting the resulting into any table. It is left to the reader to route the output to a table 
+				column, file, message queue, etc.
+			</docbook:para>
 			<docbook:example>
 				<docbook:title>Updated content.xml document</docbook:title>
 				<docbook:programlisting>
 					VALUES XMLQUERY(
-					'declare namespace
-					office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" ;
-					declare
-					namespace table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
-					;
-					transform
-					copy $dummy := db2-fn:sqlquery("SELECT DOCCONTENT FROM
-					ODF.DOCCONTENTXML WHERE DOCID = 0") ,
-					$rows :=
-					db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
-					modify do
-					insert
-					$rows/dummy/* as last into
-					$dummy/office:document-content/office:body/office:spreadsheet/table:table
-					return $dummy '
+					'declare namespace office="urn:oasis:names:tc:opendocument:xmlns:office:1.0";
+					 declare namespace table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"  ;
+					 transform
+					 copy $dummy := db2-fn:sqlquery("SELECT DOCCONTENT FROM ODF.DOCCONTENTXML WHERE DOCID = 0") ,
+					 $rows := db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
+					 modify do
+					 insert $rows/dummy/* as last 
+					 into $dummy/office:document-content/office:body/office:spreadsheet/table:table
+					return $dummy'
 					); 
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>To test that our update has worked successfully run,
-				we
-				route the output of query above to a file called content.xml.
-				Replace the content.xml file in the unzipped archive of our original
-				shopping list spreadsheet with the one created now. Zip the files
-				back and save it with name as ShopPrices.ods and open with
-				OpenOffice. Here is the screenshot.</docbook:para>
+			<docbook:para>
+				To test that our update has worked successfully run, we	route the output of query above to a file called content.xml.
+				Replace the content.xml file in the unzipped archive of our original shopping list spreadsheet with the one created 
+				now. Zip the files back and save it with name as ShopPrices.ods and open with OpenOffice. Here is the screenshot.
+			</docbook:para>
 
-		<docbook:para>
-			<docbook:inlinemediaobject>
+			<docbook:mediaobject>
 				<docbook:imageobject>
 					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics9.png"
 						width="11.17cm" depth="7.536cm" />
 				</docbook:imageobject>
-			</docbook:inlinemediaobject>
-		</docbook:para>
+				<docbook:caption>ShopPrices.ods</docbook:caption>
+			</docbook:mediaobject>
 
 			<docbook:para>And, we are done !</docbook:para>
-			<docbook:para />
 		</docbook:section>
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>Next steps</docbook:title>
-		<docbook:para>Further enhancements may involve manipulating
-			other XML
-			documents in a ODF compliant archive. For example, the
-			meta.xml
-			document holds information about the document itself.  This
-			information can be accessed and set by going to File -&gt;
-			Properties... dialog box. For example, for the document in this
-			article (Shop.ods), this is how the dialog box looks like.
+		<docbook:para>
+			Further enhancements may involve manipulating other XML documents in a ODF compliant archive. For example, the
+			meta.xml document holds information about the document itself.  This information can be accessed and set by going to 
+			<docbook:code>File -&gt; Properties...</docbook:code> dialog box. For example, for the document in this	article (Shop.ods), 
+			this is how the dialog box looks like.
 		</docbook:para>
+
+		<docbook:mediaobject>
+			<docbook:imageobject>
+				<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics10.png"
+					width="11.17cm" depth="7.536cm" />
+			</docbook:imageobject>
+			<docbook:caption>Document properties</docbook:caption>
+		</docbook:mediaobject>
 
 		<docbook:para>
-			<docbook:inlinemediaobject>
-				<docbook:imageobject>
-					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics10.png"
-						width="11.17cm" depth="7.536cm" />
-				</docbook:imageobject>
-			</docbook:inlinemediaobject>
+			The corresponding meta.xml document (partial snapshot) is shown below.
 		</docbook:para>
 
-		<docbook:para>The corresponding meta.xml document (partial
-			snapshot) is
-			shown below.</docbook:para>
+		<docbook:mediaobject>
+			<docbook:imageobject>
+				<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics11.png"
+					width="11.17cm" depth="7.536cm" />
+			</docbook:imageobject>
+			<docbook:caption>meta.xml (partial)</docbook:caption>
+		</docbook:mediaobject>
 
 		<docbook:para>
-			<docbook:inlinemediaobject>
-				<docbook:imageobject>
-					<docbook:imagedata fileref="../graphics/isj2010-08-purexml-OOo-graphics11.png"
-						width="11.17cm" depth="7.536cm" />
-				</docbook:imageobject>
-			</docbook:inlinemediaobject>
+			Thus, while generating the spreadsheet, one can	write queries to generate the meta.xml document with correct values
+			for 	creator, creation time-stamp, etc.
 		</docbook:para>
-
-		<docbook:para>Thus, while generating the spreadsheet, one can
-			write
-			queries to generate the meta.xml document with correct values
-			for
-			creator, creation time-stamp, etc.</docbook:para>
-		<docbook:para />
-		<docbook:para />
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>Resources</docbook:title>
 		<docbook:para>Important resources :</docbook:para>
-		<docbook:orderedlist>
-			<docbook:listitem>
-				<docbook:para>
-					<docbook:link
-						xlink:href="http://www-01.ibm.com/software/data/db2/express/download.html">DB2 Express-C</docbook:link>
-					– Free for download, develop, deploy and distribute.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+		<docbook:variablelist>
+			<docbook:varlistentry>
+				<docbook:term>
+					<docbook:link xlink:href="http://www-01.ibm.com/software/data/db2/express/download.html">DB2 Express-C</docbook:link>
+				</docbook:term>
+				<docbook:listitem>		
+					– Version of DB2 which is free to download, develop, deploy and distribute.
+				</docbook:listitem>	
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link xlink:href="http://www.ibm.com/db2/9">DB2 v9 pureXML</docbook:link>
-					– All information about DB2 V9 pureXML
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:term>	
+				<docbook:listitem>All information about DB2 V9 pureXML</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link
 						xlink:href="http://www.ibm.com/support/docview.wss?rs=71&amp;uid=swg27009552">DB2 v9 Product Manuals</docbook:link>
-					– Especially, refer the ones for XQuery and XML.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:term>
+				<docbook:listitem>
+					Especially, refer the ones for XQuery and XML.
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>	
+				<docbook:term>
 					<docbook:link xlink:href="http://www-01.ibm.com/software/data/studio/">IBM Data Studio
 					</docbook:link>
-					– Govern, design, develop and deploy databases and data driven
-					applications.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:term>	
+				<docbook:listitem>
+					Govern, design, develop and deploy databases and data driven applications.
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link xlink:href="http://www.oasis-open.org/committees/office/">ODF Specification
 					</docbook:link>
-					– Link to the complete specification
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
-					<docbook:link xlink:href="http://books.evc-cit.info/book.php">OpenOffice.org XML
-						essentials
-					</docbook:link>
+				</docbook:term>	
+				<docbook:listitem>Link to the complete specification</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
+					<docbook:link xlink:href="http://books.evc-cit.info/book.php">OpenOffice.org XML essentials</docbook:link>
+				</docbook:term>	
+				<docbook:listitem>
 					– Nice explanation of XML data formats.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link
 						xlink:href="http://www.ibm.com/developerworks/xml/library/x-think15/">Thinking XML : The open office file format
 					</docbook:link>
-					– An earlier developerWorks article discussing the file formats of
-					OpenOffice.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:term>	
+				<docbook:listitem>An earlier developerWorks article discussing the file formats of OpenOffice.</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link
 						xlink:href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0705gruber/">Manage ODF and Microsoft Office 2007 documents with DB2
 						9 pureXML</docbook:link>
-					– An earlier developerWorks article on using ODF and Microsoft
-					Office documents with DB2 9 pureXML.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:term>		
+				<docbook:listitem>
+					An earlier developerWorks article on using ODF and Microsoft Office documents with DB2 9 pureXML.
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link xlink:href="https://addons.mozilla.org/addon/1192">XPather add-on</docbook:link>
-					– Nifty tool for Firefox Mozilla users to quickly check an XPath
-					expression.
-				</docbook:para>
-			</docbook:listitem>
-			<docbook:listitem>
-				<docbook:para>
+				</docbook:term>	
+				<docbook:listitem>Nifty tool for Firefox Mozilla users to quickly check an XPath expression</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>
 					<docbook:link
 						xlink:href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C">Update XML in DB2 9.5</docbook:link>
-					– Nice article on developerWorks explaining update of XML
-					documents.
-				</docbook:para>
-			</docbook:listitem>
-		</docbook:orderedlist>
-		<docbook:para />
+				</docbook:term>		
+				<docbook:listitem>Nice article on developerWorks explaining update of XML documents</docbook:listitem>
+			</docbook:varlistentry>
+		</docbook:variablelist>
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>Biography</docbook:title>
