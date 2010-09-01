@@ -1,84 +1,47 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>IDUG Solutions Journal</title><meta content="DocBook XSL Stylesheets V1.75.2" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" title="IDUG Solutions Journal"><div class="titlepage"><div><div><h1 class="title"><a name="N2000C"></a>IDUG Solutions Journal</h1></div><div><p class="copyright">Copyright &copy; 2010 International DB2 Users Group</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="article"><a href="#N20023">From The Editor's Desk</a></span></dt><dt><span class="article"><a href="#N2003F">Using DB2 pureXML and ODF Spreadsheets</a></span></dt><dd><dl><dt><span class="section"><a href="#N20046">Abstract</a></span></dt><dt><span class="section"><a href="#N2004F">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#N20057">The ODF specification</a></span></dt><dt><span class="section"><a href="#N20068">DB2 pureXML</a></span></dt></dl></dd><dt><span class="section"><a href="#N2007A">The ODF document</a></span></dt><dt><span class="section"><a href="#N20158">A bit of hacking</a></span></dt><dt><span class="section"><a href="#N201AA">Scheme of this article</a></span></dt><dt><span class="section"><a href="#N201D4">Inserting XML document into DB2 table
-		</a></span></dt><dd><dl><dt><span class="section"><a href="#N201E7">IMPORT statements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20206">Converting the content.xml into row-column
-			format
-		</a></span></dt><dd><dl><dt><span class="section"><a href="#N2020B">Getting the cell values from the XML file
-			</a></span></dt><dt><span class="section"><a href="#N20214">The XPath expression</a></span></dt><dt><span class="section"><a href="#N20260">The required query </a></span></dt></dl></dd><dt><span class="section"><a href="#N202DC">Shopping prices</a></span></dt><dd><dl><dt><span class="section"><a href="#N202E4">Building the list of shopping prices
-			</a></span></dt><dt><span class="section"><a href="#N20312">View with list and cost of items</a></span></dt></dl></dd><dt><span class="section"><a href="#N20327">XQuery Update to build content.xml document
-		</a></span></dt><dd><dl><dt><span class="section"><a href="#N20336">A quick side note on XQuery Update</a></span></dt><dt><span class="section"><a href="#N20341">Generating the content.xml for the shopping
-				prices
-			</a></span></dt><dt><span class="section"><a href="#N20364">Building the &lt;table:table-row&gt; elements
-			</a></span></dt></dl></dd><dt><span class="section"><a href="#N203B0">Next steps</a></span></dt><dt><span class="section"><a href="#N203DF">Resources</a></span></dt><dt><span class="section"><a href="#N20451">Biography</a></span></dt></dl></dd><dt><span class="article"><a href="#N2045D">Giving You A Reason</a></span></dt><dd><dl><dt><span class="section"><a href="#N2047F">
-			Should you upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N2048B">
-			When and how should I upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N20497">
-		DB2 9: Robust, Scalable, Available and Easily Manageable
-		</a></span></dt><dt><span class="section"><a href="#N204A3">
-		DB2 10: Cut costs and improve performance
-		</a></span></dt><dt><span class="section"><a href="#N204AF">
-			Questions for you
-		</a></span></dt><dt><span class="section"><a href="#N204DC">
-			What version are you running?
-		</a></span></dt></dl></dd><dt><span class="article"><a href="#N2051B">DB2 and Storage Management</a></span></dt><dd><dl><dt><span class="section"><a href="#N2052E">DB2 Storage Basics</a></span></dt><dt><span class="section"><a href="#N205DF">
-			Important DB2 for z/OS Storage Issues
-		</a></span></dt><dt><span class="section"><a href="#N2060C">
-			A Little Bit About Modern Disk Arrays
-		</a></span></dt><dt><span class="section"><a href="#N20630">
-			Cache Versus Buffer
-		</a></span></dt><dt><span class="section"><a href="#N20657">
-			A Little Bit About DFSMS
-		</a></span></dt><dt><span class="section"><a href="#N206B4">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206EA">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206FF">Best Practices</a></span></dt><dt><span class="section"><a href="#N20729">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N20738">Don&rsquo;t Flip Out!</a></span></dt><dd><dl><dt><span class="section"><a href="#N20757">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20771">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2077A">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207CD">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207D6">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207F7">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N2082B">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2084A">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N2085C">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2086B">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N20886">Statistical Views</a></span></dt><dt><span class="section"><a href="#N208B1">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N208BA">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208E2">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N2090D">Conclusion</a></span></dt></dl></dd></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N201DE">DB2 table to hold content.xml file of the ODF
-				spreadsheet</a></dt><dt>2. <a href="#N201EF">Contents of flat file to be used for loading
-					DOCCONTENTXML table</a></dt><dt>3. <a href="#N201F8">IMPORT statement to load content.xml into
-					DOCCONTENTXML table</a></dt><dt>4. <a href="#N2021C">XPath expression to get first row, second column
-					value</a></dt><dt>5. <a href="#N202B7">Query to extract cell values from content.xml into
-					tabular format</a></dt><dt>6. <a href="#N202C5">View on the content.xml document</a></dt><dt>7. <a href="#N202D1">Result of SELECT on the view V_CONTENT.
-				</a></dt><dt>8. <a href="#N202EC">DDL for table to hold the shopping prices
-				</a></dt><dt>9. <a href="#N202FA">Query to obtain list and cost of items with grand
-					total</a></dt><dt>10. <a href="#N20308">Result of query for obtaining list and cost of items
-				</a></dt><dt>11. <a href="#N2031C">View with list and cost of items in shopping list
-				</a></dt><dt>12. <a href="#N2036E">A sample &lt;table:table-row&gt; element
-				</a></dt><dt>13. <a href="#N2037A">Table to hold generated &lt;table:table-row&gt;
-					elements</a></dt><dt>14. <a href="#N20383">Insert generated &lt;table:table-row&gt; elements
-					with &lt;dummy&gt; parent</a></dt><dt>15. <a href="#N2038F">Updated content.xml document</a></dt><dt>1. <a href="#N208F0">An example of an optimization profile</a></dt></dl></div>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 
+   - Standard template for ISJ magazines
+  --><docbook:book xmlns:docbook='http://docbook.org/ns/docbook' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:xml='http://www.w3.org/XML/1998/namespace' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xi='http://www.w3.org/2001/XInclude' xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd '>
 
-	
+	<docbook:info>
+		<docbook:title>IDUG Solutions Journal</docbook:title>
+		<docbook:copyright>
+			<docbook:year>2010</docbook:year>
+			<docbook:holder>International DB2 Users Group</docbook:holder>
+		</docbook:copyright>
+	</docbook:info>
 
-	
+	<!-- Here we put the first article : always the Editor's Letter -->
 
-	<div class="article" title="From The Editor's Desk"><div class="titlepage"><div><div><h2 class="title"><a name="N20023"></a>From The Editor's Desk</h2></div><div><div class="author"><h3 class="author">Philip Nelson</h3></div></div></div><hr></div>
-	
-	<p>
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-editors-letter.xml'>
+	<docbook:info>
+		<docbook:title>From The Editor's Desk</docbook:title>
+		<docbook:author>
+			<docbook:personname>Philip Nelson</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
 		Welcome to the new look IDUG Solutions Journal, developed in response to your feedback received
 		over the last few months.      
-	</p>
-	<p>
+	</docbook:para>
+	<docbook:para>
 		Our main feature article this month is a case study in producing and consuming documents in ODF 
 		(Open Document Format) using DB2 pureXML.   
-	</p>
-	<p>
+	</docbook:para>
+	<docbook:para>
 		We are also pleased to have a full complement of columns from our regular contributors.
-	</p>
-</div>
+	</docbook:para>
+</docbook:article>
 
-	
+	<!-- Feature article goes here -->
 
-	<div class="article" title="Using DB2 pureXML and ODF Spreadsheets"><div class="titlepage"><div><div><h2 class="title"><a name="N2003F"></a>Using DB2 pureXML and ODF Spreadsheets</h2></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N20046">Abstract</a></span></dt><dt><span class="section"><a href="#N2004F">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#N20057">The ODF specification</a></span></dt><dt><span class="section"><a href="#N20068">DB2 pureXML</a></span></dt></dl></dd><dt><span class="section"><a href="#N2007A">The ODF document</a></span></dt><dt><span class="section"><a href="#N20158">A bit of hacking</a></span></dt><dt><span class="section"><a href="#N201AA">Scheme of this article</a></span></dt><dt><span class="section"><a href="#N201D4">Inserting XML document into DB2 table
-		</a></span></dt><dd><dl><dt><span class="section"><a href="#N201E7">IMPORT statements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20206">Converting the content.xml into row-column
-			format
-		</a></span></dt><dd><dl><dt><span class="section"><a href="#N2020B">Getting the cell values from the XML file
-			</a></span></dt><dt><span class="section"><a href="#N20214">The XPath expression</a></span></dt><dt><span class="section"><a href="#N20260">The required query </a></span></dt></dl></dd><dt><span class="section"><a href="#N202DC">Shopping prices</a></span></dt><dd><dl><dt><span class="section"><a href="#N202E4">Building the list of shopping prices
-			</a></span></dt><dt><span class="section"><a href="#N20312">View with list and cost of items</a></span></dt></dl></dd><dt><span class="section"><a href="#N20327">XQuery Update to build content.xml document
-		</a></span></dt><dd><dl><dt><span class="section"><a href="#N20336">A quick side note on XQuery Update</a></span></dt><dt><span class="section"><a href="#N20341">Generating the content.xml for the shopping
-				prices
-			</a></span></dt><dt><span class="section"><a href="#N20364">Building the &lt;table:table-row&gt; elements
-			</a></span></dt></dl></dd><dt><span class="section"><a href="#N203B0">Next steps</a></span></dt><dt><span class="section"><a href="#N203DF">Resources</a></span></dt><dt><span class="section"><a href="#N20451">Biography</a></span></dt></dl></div>
-	
-	<div class="section" title="Abstract"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20046"></a>Abstract</h2></div></div></div>
-		
-		<p>
-			ODF (Open Document Format) is a file format for office documents. &nbsp;At a high level, 
-			the ODF specification requires five mandatory XML documents and other optional items. &nbsp;
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-purexml-OOo.xml'>
+	<docbook:title>Using DB2 pureXML and ODF Spreadsheets</docbook:title>
+	<docbook:section>
+		<docbook:title>Abstract</docbook:title>
+		<docbook:para>
+			ODF (Open Document Format) is a file format for office documents.  At a high level, 
+			the ODF specification requires five mandatory XML documents and other optional items.  
 			This article will describe how DB2 pureXML could be used to handle ODF spreadsheet
 			documents. Other ODF documents such as word documents, presentations, formulas, etc. 
 			could also be handled by DB2 because the ODF specification refers mainly to an archive of 
@@ -86,242 +49,316 @@
 			because it is easier to co-relate the rows and columns of the spreadsheet document and that 
 			of a DB2 table. This article can even be further extended into an on-line document editing 
 			software with .ods as file format and DB2 pureXML as the database.
-		</p>
-	</div>
-	<div class="section" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2004F"></a>Introduction</h2></div></div></div>
-		
-		<p>The ODF specification and DB2 pureXML are introduced below.</p>
-		<div class="section" title="The ODF specification"><div class="titlepage"><div><div><h3 class="title"><a name="N20057"></a>The ODF specification</h3></div></div></div>
-			
-			<p>
+		</docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Introduction</docbook:title>
+		<docbook:para>The ODF specification and DB2 pureXML are introduced below.</docbook:para>
+		<docbook:section>
+			<docbook:title>The ODF specification</docbook:title>
+			<docbook:para>
 				The Open Document Format specification was originally developed by
-				<a class="ulink" href="http://www.sun.com/" target="_top">Sun</a>
+				<docbook:link xlink:href='http://www.sun.com/'>Sun</docbook:link>
 				and the standard was developed by OASIS Open Document Format for
-				Office Applications (Open Document) TC &ndash; OASIS ODF TC. This standard
+				Office Applications (Open Document) TC – OASIS ODF TC. This standard
 				is based on XML format originally created and implemented by the
 				OpenOffice.org office suite. In addition to being a free and open
 				OASIS standard, it is published (in one of its version 1.0
 				manifestations) as an ISO/IEC international standard,
-				<a class="ulink" href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485" target="_top">ISO/IEC 26300:2006 Open Document Format for Office
-					Applications (OpenDocument) v1.0</a>
+				<docbook:link xlink:href='http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485'>ISO/IEC 26300:2006 Open Document Format for Office
+					Applications (OpenDocument) v1.0</docbook:link>
 				.
-			</p>
-		</div>
-		<div class="section" title="DB2 pureXML"><div class="titlepage"><div><div><h3 class="title"><a name="N20068"></a>DB2 pureXML</h3></div></div></div>
-			
-			<p>
-				<a class="ulink" href="http://www-01.ibm.com/software/data/db2/xml/" target="_top">DB2 pureXML</a>
+			</docbook:para>
+		</docbook:section>
+		<docbook:section>
+			<docbook:title>DB2 pureXML</docbook:title>
+			<docbook:para>
+				<docbook:link xlink:href='http://www-01.ibm.com/software/data/db2/xml/'>DB2 pureXML</docbook:link>
 				is IBM software for management of XML data. It eliminates much of
 				the work typically involved in the management of XML data. From
 				validation of XML documents, to generation of documents and support
 				for querying XML data in the form of
-				<a class="ulink" href="http://www.w3.org/TR/xquery/" target="_top">XQuery</a>
+				<docbook:link xlink:href='http://www.w3.org/TR/xquery/'>XQuery</docbook:link>
 				and traditional SQL, DB2 pureXML is a complete solution to manage
 				XML data in enterprise-scale databases.
-			</p>
-		</div>
-	</div>
-	<div class="section" title="The ODF document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2007A"></a>The ODF document</h2></div></div></div>
-		
-		<p>An ODF document is a zipped file of five mandatory XML
+			</docbook:para>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>The ODF document</docbook:title>
+		<docbook:para>An ODF document is a zipped file of five mandatory XML
 			files and other optional components. This can be seen by running your
 			favorite un-zip utility to list the components. Here is the result
-			after &nbsp;running the unzip command on an .ods file from command line to
-			list the files. The XML files are highlighted below.</p>
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics1.png" width="396"></span>
-		</p>
-		<p>Here is a short description of XML files as seen above.
-		</p>
-		<div class="informaltable">
-			<table border="1"><colgroup><col><col><col></colgroup><tbody><tr><td>
-							<p>File name</p>
-						</td><td>
-							<p>Usage</p>
-						</td><td>
-							<p>Location in zipped file</p>
-						</td></tr><tr><td>
-							<p>manifest.xml</p>
-						</td><td>
-							<p>Information about the files contained in
+			after  running the unzip command on an .ods file from command line to
+			list the files. The XML files are highlighted below.</docbook:para>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics1.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
+		<docbook:para>Here is a short description of XML files as seen above.
+		</docbook:para>
+		<docbook:informaltable frame='all'>
+			<docbook:tgroup cols='3'>
+				<docbook:tbody>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>File name</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Usage</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Location in zipped file</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>manifest.xml</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Information about the files contained in
 								the
-								package.</p>
-						</td><td>
-							<p>/META-INF</p>
-						</td></tr><tr><td>
-							<p>styles.xml</p>
-						</td><td>
-							<p>Styles used in the document content and
+								package.</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>/META-INF</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>styles.xml</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Styles used in the document content and
 								automatic
-								styles used in the styles themselves.</p>
-						</td><td>
-							<p>/ &nbsp;(root)</p>
-						</td></tr><tr><td>
-							<p>settings.xml</p>
-						</td><td>
-							<p>Application-specific settings,
+								styles used in the styles themselves.</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>/  (root)</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>settings.xml</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Application-specific settings,
 								such as the window
-								size or printer information.</p>
-						</td><td>
-							<p>/ &nbsp;(root)</p>
-						</td></tr><tr><td>
-							<p>content.xml</p>
-						</td><td>
-							<p>Document content and automatic styles used
+								size or printer information.</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>/  (root)</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>content.xml</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Document content and automatic styles used
 								in the
-								content.</p>
-						</td><td>
-							<p>/ &nbsp;(root)</p>
-						</td></tr><tr><td>
-							<p>meta.xml</p>
-						</td><td>
-							<p>Document meta information, such as the
+								content.</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>/  (root)</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>meta.xml</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>Document meta information, such as the
 								author or the
-								time of the last save action.</p>
-						</td><td>
-							<p>/ &nbsp;(root)</p>
-						</td></tr></tbody></table>
-		</div>
-		<p>Table 1: XML files of an ODF document</p>
-		<p></p>
-		<p>
+								time of the last save action.</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>/  (root)</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+				</docbook:tbody>
+			</docbook:tgroup>
+		</docbook:informaltable>
+		<docbook:para>Table 1: XML files of an ODF document</docbook:para>
+		<docbook:para></docbook:para>
+		<docbook:para>
 			For this article, we are interested in content.xml file which will hold the contents of 
 			the document. The document used for this article is a simple shopping list named Shop.ods. 
 			The below table shows the way the first row was entered in the spreadsheet document using 
 			OpenOffice and as seen by viewing the corresponding content.xml file in Firefox browser.
-		</p>
-		<div class="informaltable">
-			<table border="1"><colgroup><col><col></colgroup><tbody><tr><td>
-							<p>
-								<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics2.png" width="190"></span>
-							</p>
-						</td><td>
-							<p>
-								<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics3.png" width="396"></span>
-							</p>
-						</td></tr></tbody></table>
-		</div>
-		<p>Table 2: Row in a ODF spreadsheet and as saved in content.xml file</p>
-	</div>
-	<div class="section" title="A bit of hacking"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20158"></a>A bit of hacking</h2></div></div></div>
-		
-		<p>
+		</docbook:para>
+		<docbook:informaltable frame='all'>
+			<docbook:tgroup cols='2'>
+				<docbook:tbody>
+					<docbook:row>
+						<docbook:entry>
+							<docbook:para>
+								<docbook:inlinemediaobject>
+									<docbook:imageobject>
+										<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics2.png' width='5.372cm' depth='5.478cm'></docbook:imagedata>
+									</docbook:imageobject>
+								</docbook:inlinemediaobject>
+							</docbook:para>
+						</docbook:entry>
+						<docbook:entry>
+							<docbook:para>
+								<docbook:inlinemediaobject>
+									<docbook:imageobject>
+										<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics3.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+									</docbook:imageobject>
+								</docbook:inlinemediaobject>
+							</docbook:para>
+						</docbook:entry>
+					</docbook:row>
+				</docbook:tbody>
+			</docbook:tgroup>
+		</docbook:informaltable>
+		<docbook:para>Table 2: Row in a ODF spreadsheet and as saved in content.xml file</docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>A bit of hacking</docbook:title>
+		<docbook:para>
 			Now that we know a bit about an ODF document, let us try to create one without actually 
 			running a standard software	dealing with ODF documents. As noted above, the content.xml 
 			file holds the data entered while creating the spreadsheet. So, if this file is changed 
 			and zipped along with the rest of the files in the original archive (that is, the .ods 
-			file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, follow the steps below.
-		</p>
-		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-				<p>Open the content.xml file in a regular text
+			file), we will be having a “legal” ODF spreadsheet. To test this, follow the steps below.
+		</docbook:para>
+		<docbook:orderedlist>
+			<docbook:listitem>
+				<docbook:para>Open the content.xml file in a regular text
 					editor.
-				</p>
-			</li><li class="listitem">
-				<p>In Table 2, the element &lt;table:table-row&gt; has
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>In Table 2, the element &lt;table:table-row&gt; has
 					been highlighted. Type in the contents of the highlighted section
 					immediately as a sibling of another &lt;table:table-row&gt;
-					element.</p>
-			</li><li class="listitem">
-				<p>In the pasted element, make a change in any of the
+					element.</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>In the pasted element, make a change in any of the
 					table:table-cell/text:p element say, something like this.
-				</p>
-			</li></ol></div>
+				</docbook:para>
+			</docbook:listitem>
+		</docbook:orderedlist>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics4.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics4.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-				<p>Save the edited content.xml file in the same
+		<docbook:orderedlist>
+			<docbook:listitem>
+				<docbook:para>Save the edited content.xml file in the same
 					folder
 					where the Shop.ods file was unzipped into replacing the
 					older one.
-				</p>
-			</li><li class="listitem">
-				<p>Select all the contents (that is, the ones
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>Select all the contents (that is, the ones
 					mentioned in
 					the manifest.xml file) of the unzipped folder and zip
 					them. Name the
-					zipped file as NewShop.ods. </p>
-			</li><li class="listitem">
-				<p>Now, open NewShop.ods in OpenOffice or IBM Lotus
+					zipped file as NewShop.ods. </docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>Now, open NewShop.ods in OpenOffice or IBM Lotus
 					Symphony and confirm that the hacking is successful. Note that,
 					OpenOffice successfully opens a file with a .zip extension, so long
 					it is a valid ODF document whereas, Symphony requires the extension
-					to be .ods.</p>
-			</li></ol></div>
+					to be .ods.</docbook:para>
+			</docbook:listitem>
+		</docbook:orderedlist>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics5.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics5.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-		<p>It is now clear that, to &ldquo;read&rdquo; an existing ODF
+		<docbook:para>It is now clear that, to “read” an existing ODF
 			spreadsheet in its simplest form, we have to navigate the path of the
-			content.xml XML document. Similarly, to &ldquo;modify&rdquo; an existing ODF
+			content.xml XML document. Similarly, to “modify” an existing ODF
 			spreadsheet, we should generate the content.xml XML document
 			correctly. One can, of course, extend this to create and/or modify
 			other XML documents in the .ods archive. But, for the sake of this
 			article, we will concentrate only on the creation of content.xml XML
-			document.</p>
-	</div>
-	<div class="section" title="Scheme of this article"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201AA"></a>Scheme of this article</h2></div></div></div>
-		
-		<p>With this knowledge of XML documents in an ODF
+			document.</docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Scheme of this article</docbook:title>
+		<docbook:para>With this knowledge of XML documents in an ODF
 			document
 			archive, we will now proceed to demonstrate the usage of DB2
 			pureXML
 			with ODF documents. We consider the scheme below.
-		</p>
-		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-				<p>We consider an ODF spreadsheet of a simple shopping
+		</docbook:para>
+		<docbook:orderedlist>
+			<docbook:listitem>
+				<docbook:para>We consider an ODF spreadsheet of a simple shopping
 					list where the item name, unit of measure (UOM) and the units
-					required are provided.</p>
-			</li><li class="listitem">
-				<p>The content.xml document of this ODF spreadsheet is
-					imported into a DB2 table with an XML column. </p>
-			</li><li class="listitem">
-				<p>For the sake of this article we will use the LOAD
+					required are provided.</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>The content.xml document of this ODF spreadsheet is
+					imported into a DB2 table with an XML column. </docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>For the sake of this article we will use the LOAD
 					statement in DB2 to load the content.xml document and ignore any
 					other methods of inserting XML documents into the DB2 table.
-				</p>
-			</li><li class="listitem">
-				<p>We will refer to another traditional table which
-					stores the price list.</p>
-			</li><li class="listitem">
-				<p>Using the table for price list and the table with
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>We will refer to another traditional table which
+					stores the price list.</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>Using the table for price list and the table with
 					XML
 					column for content.xml, we will generate another content.xml
 					XML
 					document that will hold the items with their corresponding
 					prices.
-				</p>
-			</li></ol></div>
-	</div>
-	<div class="section" title="Inserting XML document into DB2 table"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N201D4"></a>Inserting XML document into DB2 table
-		</h2></div></div></div>
-		
-		<p>We will consider a &nbsp;table to demonstrate DB2 pureXML
+				</docbook:para>
+			</docbook:listitem>
+		</docbook:orderedlist>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Inserting XML document into DB2 table
+		</docbook:title>
+		<docbook:para>We will consider a  table to demonstrate DB2 pureXML
 			capabilities. The first table will be keyed via an ID column to
 			differentiate multiple documents. The second column of the table will
-			hold the content.xml file of the ODF spreadsheet document in a &nbsp;XML
-			column. The DDL for this table is reproduced here :</p>
-		<p></p>
-		<div class="example"><a name="N201DE"></a><p class="title"><b>Example&nbsp;1.&nbsp;DB2 table to hold content.xml file of the ODF
-				spreadsheet</b></p><div class="example-contents">
-			
-			<pre class="programlisting">
+			hold the content.xml file of the ODF spreadsheet document in a  XML
+			column. The DDL for this table is reproduced here :</docbook:para>
+		<docbook:para></docbook:para>
+		<docbook:example>
+			<docbook:title>DB2 table to hold content.xml file of the ODF
+				spreadsheet</docbook:title>
+			<docbook:programlisting>
 				-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
 				-- The table is keyed on DOCID a running sequence number.
 				CREATE TABLE ODF.DOCCONTENTXML 
 				(
-				&nbsp; &nbsp; &nbsp; DOCID      INTEGER NOT NULL,
-				&nbsp; &nbsp; &nbsp; DOCCONTENT XML     NOT NULL
+				      DOCID      INTEGER NOT NULL,
+				      DOCCONTENT XML     NOT NULL
 				) ;
-			</pre>
-		</div></div><br class="example-break">
-		<div class="section" title="IMPORT statements"><div class="titlepage"><div><div><h3 class="title"><a name="N201E7"></a>IMPORT statements</h3></div></div></div>
-			
-			<p>Inserting the XML document into the table can
+			</docbook:programlisting>
+		</docbook:example>
+		<docbook:section>
+			<docbook:title>IMPORT statements</docbook:title>
+			<docbook:para>Inserting the XML document into the table can
 				be done
 				using a simple INSERT SQL statement or using IMPORT
 				statement.
@@ -335,40 +372,40 @@
 				load.txt.
 				This record will have two values separated by a comma as
 				shown below.
-			</p>
-			<div class="example"><a name="N201EF"></a><p class="title"><b>Example&nbsp;2.&nbsp;Contents of flat file to be used for loading
-					DOCCONTENTXML table</b></p><div class="example-contents">
-				
-				<pre class="programlisting">1,&lt;XDS FIL='content.xml'/&gt;
-				</pre>
-			</div></div><br class="example-break">
-			<div class="example"><a name="N201F8"></a><p class="title"><b>Example&nbsp;3.&nbsp;IMPORT statement to load content.xml into
-					DOCCONTENTXML table</b></p><div class="example-contents">
-				
-				<pre class="programlisting">IMPORT FROM load.txt OF DEL XML FROM
-					ODSFolder INSERT INTO ODF.DOCCONTENTXML;</pre>
-			</div></div><br class="example-break">
-			<p>Alternatively, IBM Data Studio Developer
+			</docbook:para>
+			<docbook:example>
+				<docbook:title>Contents of flat file to be used for loading
+					DOCCONTENTXML table</docbook:title>
+				<docbook:programlisting>1,&lt;XDS FIL='content.xml'/&gt;
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:example>
+				<docbook:title>IMPORT statement to load content.xml into
+					DOCCONTENTXML table</docbook:title>
+				<docbook:programlisting>IMPORT FROM load.txt OF DEL XML FROM
+					ODSFolder INSERT INTO ODF.DOCCONTENTXML;</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>Alternatively, IBM Data Studio Developer
 				can be used to
 				load into XML column as it offers a convenient GUI.
-			</p>
-		</div>
-	</div>
-	<div class="section" title="Converting the content.xml into row-column format"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20206"></a>Converting the content.xml into row-column
+			</docbook:para>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Converting the content.xml into row-column
 			format
-		</h2></div></div></div>
-		
-		<div class="section" title="Getting the cell values from the XML file"><div class="titlepage"><div><div><h3 class="title"><a name="N2020B"></a>Getting the cell values from the XML file
-			</h3></div></div></div>
-			
-			<p>To get to the cell values of the spreadsheet, we will
+		</docbook:title>
+		<docbook:section>
+			<docbook:title>Getting the cell values from the XML file
+			</docbook:title>
+			<docbook:para>To get to the cell values of the spreadsheet, we will
 				start with the required XPath expression. Then, we will develop a
 				working query around the XPath expression to get the results.
-			</p>
-		</div>
-		<div class="section" title="The XPath expression"><div class="titlepage"><div><div><h3 class="title"><a name="N20214"></a>The XPath expression</h3></div></div></div>
-			
-			<p>Going back to Table 2, the left column shows the
+			</docbook:para>
+		</docbook:section>
+		<docbook:section>
+			<docbook:title>The XPath expression</docbook:title>
+			<docbook:para>Going back to Table 2, the left column shows the
 				first
 				row of the spreadsheet highlighted. The right column is a part
 				of the
@@ -378,7 +415,7 @@
 				shows the
 				table:table element with an attribute table:name whose
 				value is
-				&ldquo;Sheet1&rdquo;. It is the name of the sheet in the complete
+				“Sheet1”. It is the name of the sheet in the complete
 				spreadsheet.
 				This element is repeated as many times as there are
 				sheets in the
@@ -391,96 +428,127 @@
 				the path to be navigated (or, the XPath
 				expression) from the root of
 				XML document would be as below.
-			</p>
-			<div class="example"><a name="N2021C"></a><p class="title"><b>Example&nbsp;4.&nbsp;XPath expression to get first row, second column
-					value</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+			</docbook:para>
+			<docbook:example>
+				<docbook:title>XPath expression to get first row, second column
+					value</docbook:title>
+				<docbook:programlisting>
 					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
-				</pre>
-			</div></div><br class="example-break">
-			<p></p>
-			<p>In other words, we start from the office:document
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para></docbook:para>
+			<docbook:para>In other words, we start from the office:document
 				element to office:body and then to office:spreadsheet to look for
 				the first table:table element. The first element represents the
 				first sheet of the spreadsheet document. Then, to get to the second
 				column of first row we navigate to table:row[1]/table:cell[2] and
-				finally to text:p to get the actual text of the cell.</p>
-			<p></p>
-			<p>With Firefox Mozilla browser, the above XPath
+				finally to text:p to get the actual text of the cell.</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:para>With Firefox Mozilla browser, the above XPath
 				expression can be easily tested using the add-on Xpather (see
-				Resources below). &nbsp;We follow the steps below :</p>
-			<p></p>
-			<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-					<p>Open the content.xml in Firefox Mozilla browser.
+				Resources below).  We follow the steps below :</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:orderedlist>
+				<docbook:listitem>
+					<docbook:para>Open the content.xml in Firefox Mozilla browser.
 						Right-click on the page and select 'Show in XPather'.
-					</p>
-				</li></ol></div>
+					</docbook:para>
+				</docbook:listitem>
+			</docbook:orderedlist>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics6.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics6.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-			<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-					<p>The XPather dialog box opens up. Enter the XPath
-						expression in the dialog box and click 'Eval'.</p>
-				</li></ol></div>
+			<docbook:orderedlist>
+				<docbook:listitem>
+					<docbook:para>The XPather dialog box opens up. Enter the XPath
+						expression in the dialog box and click 'Eval'.</docbook:para>
+				</docbook:listitem>
+			</docbook:orderedlist>
 			
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics7.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics7.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-		</div>
-		<div class="section" title="The required query"><div class="titlepage"><div><div><h3 class="title"><a name="N20260"></a>The required query </h3></div></div></div>
-			
-			<p>To wrap the XPath expression into a query, we first
+		</docbook:section>
+		<docbook:section>
+			<docbook:title>The required query </docbook:title>
+			<docbook:para>To wrap the XPath expression into a query, we first
 				note the XML namespaces used. The content.xml file has the
-				namespaces defined as shown below :</p>
-			<div class="informaltable">
-				<table border="1"><colgroup><col><col></colgroup><tbody><tr><td>
-								<p>Prefix</p>
-							</td><td>
-								<p>Namespace</p>
-							</td></tr><tr><td>
-								<code class="code">office</code>
-							</td><td>
-								<code class="code">
-									&ldquo;urn:oasis:names:tc:opendocument:xmlns:office:1.0&rdquo;
-								</code>
-							</td></tr><tr><td>
-								<code class="code">table</code>
-							</td><td>
-								<code class="code">&ldquo;urn:oasis:names:tc:opendocument:xmlns:table:1.0&rdquo;
-								</code>
-							</td></tr><tr><td>
-								<code class="code">text</code>
-							</td><td>
-								<code class="code">&ldquo;urn:oasis:names:tc:opendocument:xmlns:text:1.0&rdquo;
-								</code>
-							</td></tr></tbody></table>
-			</div>
-			<p>Table 7: Prefix and namespace URI used in
+				namespaces defined as shown below :</docbook:para>
+			<docbook:informaltable frame='all'>
+				<docbook:tgroup cols='2'>
+					<docbook:tbody>
+						<docbook:row>
+							<docbook:entry>
+								<docbook:para>Prefix</docbook:para>
+							</docbook:entry>
+							<docbook:entry>
+								<docbook:para>Namespace</docbook:para>
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>
+								<docbook:code>office</docbook:code>
+							</docbook:entry>
+							<docbook:entry>
+								<docbook:code>
+									“urn:oasis:names:tc:opendocument:xmlns:office:1.0”
+								</docbook:code>
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>
+								<docbook:code>table</docbook:code>
+							</docbook:entry>
+							<docbook:entry>
+								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:table:1.0”
+								</docbook:code>
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>
+								<docbook:code>text</docbook:code>
+							</docbook:entry>
+							<docbook:entry>
+								<docbook:code>“urn:oasis:names:tc:opendocument:xmlns:text:1.0”
+								</docbook:code>
+							</docbook:entry>
+						</docbook:row>
+					</docbook:tbody>
+				</docbook:tgroup>
+			</docbook:informaltable>
+			<docbook:para>Table 7: Prefix and namespace URI used in
 				content.xml
-				document</p>
-			<p></p>
-			<p>The query shown below will use the XML namespaces
+				document</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:para>The query shown below will use the XML namespaces
 				and
-				XPath expression (that we obtained in Section 6.2) &nbsp;to extract
-				&nbsp;the
+				XPath expression (that we obtained in Section 6.2)  to extract
+				 the
 				cell values from the loaded content.xml file. The text in
 				bold-blue
 				shows the XPath expression used to extract cell values.
-			</p>
-			<div class="example"><a name="N202B7"></a><p class="title"><b>Example&nbsp;5.&nbsp;Query to extract cell values from content.xml into
-					tabular format</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+			</docbook:para>
+			<docbook:example>
+				<docbook:title>Query to extract cell values from content.xml into
+					tabular format</docbook:title>
+				<docbook:programlisting>
 					SELECT
 					X.*
 					FROM
 					XMLTABLE(
 					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
-					"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					"office",                      
 					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
 					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
 					'db2-fn:sqlquery("SELECT
@@ -490,24 +558,24 @@
 					WHERE DOCID
 					= 1")
 					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
-					COLUMNS&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					"ITEMNAME" CHARACTER (20) &nbsp;PATH
-					'table:table-cell[1]/text:p', &nbsp;
-					"QUANTITY" DECIMAL &nbsp; (4,2) PATH
+					COLUMNS             
+					"ITEMNAME" CHARACTER (20)  PATH
+					'table:table-cell[1]/text:p',  
+					"QUANTITY" DECIMAL   (4,2) PATH
 					'table:table-cell[2]/text:p',
-					"UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH
-					'table:table-cell[3]/text:p' &nbsp;
+					"UOM"      CHARACTER (5)   PATH
+					'table:table-cell[3]/text:p'  
 					) AS X; 
-				</pre>
-			</div></div><br class="example-break">
-			<p>To see the content.xml document in traditional rows
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>To see the content.xml document in traditional rows
 				and
 				columns format, we create a view using the query above.
-			</p>
-			<p></p>
-			<div class="example"><a name="N202C5"></a><p class="title"><b>Example&nbsp;6.&nbsp;View on the content.xml document</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+			</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:example>
+				<docbook:title>View on the content.xml document</docbook:title>
+				<docbook:programlisting>
 					CREATE VIEW ODF.V_CONTENT AS
 					(
 					SELECT
@@ -515,7 +583,7 @@
 					FROM
 					XMLTABLE(
 					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
-					"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					"office",                      
 					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
 					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
 					'db2-fn:sqlquery("SELECT
@@ -527,73 +595,73 @@
 					1"
 					)/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
 					COLUMNS
-					"ITEMNAME" CHARACTER (20) &nbsp;PATH
+					"ITEMNAME" CHARACTER (20)  PATH
 					'table:table-cell[1]/text:p',
-					"QUANTITY" DECIMAL &nbsp; (4,2) PATH
+					"QUANTITY" DECIMAL   (4,2) PATH
 					'table:table-cell[2]/text:p',
-					"UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH
+					"UOM"      CHARACTER (5)   PATH
 					'table:table-cell[3]/text:p'
 					) AS X
 					);
-				</pre>
-			</div></div><br class="example-break">
-			<p>A simple SELECT query on this view shows that we have
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>A simple SELECT query on this view shows that we have
 				successfully 'converted' the content.xml document in the ODF archive
-				for spreadsheet into a row-column format.</p>
-			<div class="example"><a name="N202D1"></a><p class="title"><b>Example&nbsp;7.&nbsp;Result of SELECT on the view V_CONTENT.
-				</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+				for spreadsheet into a row-column format.</docbook:para>
+			<docbook:example>
+				<docbook:title>Result of SELECT on the view V_CONTENT.
+				</docbook:title>
+				<docbook:programlisting>
 					SELECT * FROM ODF.V_CONTENT ;
 
-					ITEMNAME             QUANTITY UOM &nbsp;
+					ITEMNAME             QUANTITY UOM  
 					-------------------- -------- ----
-					Potato &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 kg &nbsp;
-					Onion &nbsp; &nbsp; &nbsp;  &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp;1.00 kg &nbsp;
-					Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
-					Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
-					Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
-					Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
-					Tomato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
-					Curd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 L &nbsp; &nbsp;
-					Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 doz &nbsp;
-					Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 L &nbsp; &nbsp;
-					Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00 L &nbsp; &nbsp;
+					Potato                   2.00 kg  
+					Onion                    1.00 kg  
+					Cucumber                 0.50 kg  
+					Capsicum                 0.50 kg  
+					Carrot                   0.50 kg  
+					Green chilli             0.25 kg  
+					Tomato                   0.25 kg  
+					Curd                     0.50 L    
+					Banana                   2.00 doz  
+					Milk                     2.00 L    
+					Groundnut Oil            5.00 L    
 
 					11 record(s) selected.
-				</pre>
-			</div></div><br class="example-break">
-		</div>
-	</div>
-	<div class="section" title="Shopping prices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N202DC"></a>Shopping prices</h2></div></div></div>
-		
-		<p>We will now build the content.xml for an ODF
+				</docbook:programlisting>
+			</docbook:example>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Shopping prices</docbook:title>
+		<docbook:para>We will now build the content.xml for an ODF
 			spreadsheet
-			that will hold the shopping list &ndash; discussed above &ndash; with
+			that will hold the shopping list – discussed above – with
 			an
 			additional column for cost of items in the shopping list. We will
 			also provide an additional row for the grand total of the items in
-			shopping list.</p>
-		<div class="section" title="Building the list of shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N202E4"></a>Building the list of shopping prices
-			</h3></div></div></div>
-			
-			<p>We create a simple table that holds the unit price of
-				shopping items with the DDL shown below.</p>
-			<div class="example"><a name="N202EC"></a><p class="title"><b>Example&nbsp;8.&nbsp;DDL for table to hold the shopping prices
-				</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+			shopping list.</docbook:para>
+		<docbook:section>
+			<docbook:title>Building the list of shopping prices
+			</docbook:title>
+			<docbook:para>We create a simple table that holds the unit price of
+				shopping items with the DDL shown below.</docbook:para>
+			<docbook:example>
+				<docbook:title>DDL for table to hold the shopping prices
+				</docbook:title>
+				<docbook:programlisting>
 					--Table to hold the unit price of shopping
 					items
 					CREATE TABLE ODF.SHOPPER
 					(ITEMNAME CHARACTER(50),
 					UNIT_PRICE
 					DECIMAL (4,2));
- 				</pre>
-			</div></div><br class="example-break">
-			<p>This table is inserted with values such that all
+ 				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>This table is inserted with values such that all
 				the
-				item names are available in the SHOPPER table. &nbsp;To obtain the
+				item names are available in the SHOPPER table.  To obtain the
 				list of
 				item names and the cost of items, we use the following
 				query. Note
@@ -601,12 +669,12 @@
 				used the base
 				table directly. Usage of the view makes the query
 				'compact' and
-				easier to follow.</p>
-			<p></p>
-			<div class="example"><a name="N202FA"></a><p class="title"><b>Example&nbsp;9.&nbsp;Query to obtain list and cost of items with grand
-					total</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+				easier to follow.</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:example>
+				<docbook:title>Query to obtain list and cost of items with grand
+					total</docbook:title>
+				<docbook:programlisting>
 					SELECT
 					COALESCE(P.ITEMNAME,' TOTAL')
 					ITEMNAME,
@@ -632,49 +700,49 @@
 					(P.ITEMNAME IS NOT NULL AND
 					P.QUANTITY IS NOT NULL AND
 					P.UNIT_PRICE IS NOT NULL AND
-					SUM(P.COST) IS NOT NULL&nbsp;AND
+					SUM(P.COST) IS NOT NULL AND
 					SUM(P.QUANTITY) IS NOT NULL
 					)
 					)
 					ORDER BY COALESCE(P.ITEMNAME,' ') DESC
-				</pre>
-			</div></div><br class="example-break">
-			<p>The result of the above query is shown below.
-			</p>
-			<p></p>
-			<div class="example"><a name="N20308"></a><p class="title"><b>Example&nbsp;10.&nbsp;Result of query for obtaining list and cost of items
-				</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
-					ITEMNAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; QTY &nbsp; &nbsp;UNIT_PRICE COST
-					&nbsp; &nbsp;
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>The result of the above query is shown below.
+			</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:example>
+				<docbook:title>Result of query for obtaining list and cost of items
+				</docbook:title>
+				<docbook:programlisting>
+					ITEMNAME             QTY    UNIT_PRICE COST
+					   
 					-------------------- ------ ---------- --------
-					Tomato                 0.25 &nbsp; &nbsp; &nbsp; 6.00     1.50
-					Potato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 &nbsp; &nbsp; &nbsp; 5.50 &nbsp;  11.00
-					Onion &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.00 &nbsp; &nbsp; &nbsp; 4.00 &nbsp; &nbsp; 4.00
-					Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         2.00 &nbsp; &nbsp; &nbsp;40.00 &nbsp; &nbsp;80.00
-					Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00		&nbsp;30.00 &nbsp; 150.00
-					Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 &nbsp; &nbsp; &nbsp; 8.00     2.00
-					Curd &nbsp;     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
-					Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50	&nbsp; &nbsp; &nbsp;10.00   &nbsp; 5.00
-					Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;15.00 &nbsp; &nbsp; 7.50
-					Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
-					Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   2.00 &nbsp; &nbsp; &nbsp; 6.00 &nbsp; &nbsp;12.00
-					TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 14.50 &nbsp; &nbsp; &nbsp; 0.00   293.00 
-				</pre>
-			</div></div><br class="example-break">
-		</div>
-		<div class="section" title="View with list and cost of items"><div class="titlepage"><div><div><h3 class="title"><a name="N20312"></a>View with list and cost of items</h3></div></div></div>
-			
-			<p>Now that we have the result of computation of cost
+					Tomato                 0.25       6.00     1.50
+					Potato                 2.00       5.50    11.00
+					Onion                  1.00       4.00     4.00
+					Milk                   2.00      40.00    80.00
+					Groundnut Oil          5.00		 30.00   150.00
+					Green chilli           0.25       8.00     2.00
+					Curd                   0.50      20.00    10.00
+					Cucumber               0.50	     10.00     5.00
+					Carrot                 0.50      15.00     7.50
+					Capsicum               0.50      20.00    10.00
+					Banana                 2.00       6.00    12.00
+					TOTAL                 14.50       0.00   293.00 
+				</docbook:programlisting>
+			</docbook:example>
+		</docbook:section>
+		<docbook:section>
+			<docbook:title>View with list and cost of items</docbook:title>
+			<docbook:para>Now that we have the result of computation of cost
 				of
 				items, we will take this into a view. This is purely for
-				convenience. We can proceed without using this view.</p>
-			<p></p>
-			<div class="example"><a name="N2031C"></a><p class="title"><b>Example&nbsp;11.&nbsp;View with list and cost of items in shopping list
-				</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+				convenience. We can proceed without using this view.</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:example>
+				<docbook:title>View with list and cost of items in shopping list
+				</docbook:title>
+				<docbook:programlisting>
 					CREATE VIEW ODF.V_SHOP_COST AS
 					(SELECT
 					COALESCE(P.ITEMNAME,' TOTAL') ITEMNAME,
@@ -689,8 +757,8 @@
 					A.QUANTITY*B.UNIT_PRICE COST
 					FROM
 					ODF.V_CONTENT A,
-					&nbsp;ODF.SHOPPER B
-					&nbsp;WHERE
+					 ODF.SHOPPER B
+					 WHERE
 					UPPER(A.ITEMNAME) =
 					B.ITEMNAME
 					) P
@@ -707,22 +775,22 @@
 					)
 					)
 					);
-				</pre>
-			</div></div><br class="example-break">
-		</div>
-	</div>
-	<div class="section" title="XQuery Update to build content.xml document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20327"></a>XQuery Update to build content.xml document
-		</h2></div></div></div>
-		
-		<p>At this point, we have 'shredded' the shopping list
+				</docbook:programlisting>
+			</docbook:example>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>XQuery Update to build content.xml document
+		</docbook:title>
+		<docbook:para>At this point, we have 'shredded' the shopping list
 			(from the content.xml of ODF spreadsheet), joined with the relational
 			table having the unit prices of items and generated a relational
 			output of the cost of items in shopping list with the grand total.
 			Our aim is now to convert this relational output into the format of
 			content.xml so that the result is a complete ODF spreadsheet.
-		</p>
-		<p></p>
-		<p>One way of building the content.xml is to start from
+		</docbook:para>
+		<docbook:para></docbook:para>
+		<docbook:para>One way of building the content.xml is to start from
 			the
 			scratch and we build the whole of the document. This approach
 			would be
@@ -733,67 +801,71 @@
 			content.xml document. This approach will also allow
 			us to make use of
 			XQuery Update facility in DB2 pureXML.
-		</p>
-		<p></p>
-		<div class="section" title="A quick side note on XQuery Update"><div class="titlepage"><div><div><h3 class="title"><a name="N20336"></a>A quick side note on XQuery Update</h3></div></div></div>
-			
-			<p>XQuery is a query and functional programming
+		</docbook:para>
+		<docbook:para></docbook:para>
+		<docbook:section>
+			<docbook:title>A quick side note on XQuery Update</docbook:title>
+			<docbook:para>XQuery is a query and functional programming
 				language
 				designed to query XML documents. It became a W3C Candidate
 				Recommendation on 23rd January, 2007. XQuery Update facility is an
 				extension to XQuery that allows update (insert, modify and delete)
 				of the XML documents. It became a W3C Candidate Recommendation on
-				14th March, 2008.</p>
-			<p></p>
-		</div>
-		<div class="section" title="Generating the content.xml for the shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N20341"></a>Generating the content.xml for the shopping
+				14th March, 2008.</docbook:para>
+			<docbook:para></docbook:para>
+		</docbook:section>
+		<docbook:section>
+			<docbook:title>Generating the content.xml for the shopping
 				prices
-			</h3></div></div></div>
-			
-			<p>To start with, we will create a dummy content.xml
+			</docbook:title>
+			<docbook:para>To start with, we will create a dummy content.xml
 				that
 				is complete and ODF compliant in all respects except it would
 				resemble an empty spreadsheet. Next, we will generate XML sequences
 				that is correct for a row and it's columns of a spreadsheet. Then,
 				we will collect all of these XML sequences and insert into the dummy
-				content.xml document.</p>
-			<p></p>
-			<p>To create the dummy document, we simply open the
+				content.xml document.</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:para>To create the dummy document, we simply open the
 				spreadsheet for shopping list, delete all rows and columns and save
 				it with another name. Then, we unzip this document and refer the
 				content.xml document. Here is a screenshot of how this document
-				would look like.</p>
+				would look like.</docbook:para>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics8.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics8.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-			<p></p>
-			<p>Insert this dummy document into the
+			<docbook:para></docbook:para>
+			<docbook:para>Insert this dummy document into the
 				ODF.DOCCONTENTXML
 				table with DOCID as zero using the IMPORT method
 				described before.
 				Our aim now is to update this document such that,
 				&lt;table:table-row&gt; elements are added as children of
 				&lt;table:table&gt; and as siblings of &lt;table:table-column&gt;.
-			</p>
-			<p></p>
-		</div>
-		<div class="section" title="Building the <table:table-row> elements"><div class="titlepage"><div><div><h3 class="title"><a name="N20364"></a>Building the &lt;table:table-row&gt; elements
-			</h3></div></div></div>
-			
-			<p>In our example, each row of spreadsheet would be
+			</docbook:para>
+			<docbook:para></docbook:para>
+		</docbook:section>
+		<docbook:section>
+			<docbook:title>Building the &lt;table:table-row&gt; elements
+			</docbook:title>
+			<docbook:para>In our example, each row of spreadsheet would be
 				having
-				four columns. Therefore, each row element &ndash; as required in
-				content.xml &ndash; would have four children for the number of columns. A
+				four columns. Therefore, each row element – as required in
+				content.xml – would have four children for the number of columns. A
 				sample of &lt;table:table-row&gt; is shown below. The XML namespace
 				declarations have been omitted for the sake of brevity.
-			</p>
-			<p></p>
-			<div class="example"><a name="N2036E"></a><p class="title"><b>Example&nbsp;12.&nbsp;A sample &lt;table:table-row&gt; element
-				</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+			</docbook:para>
+			<docbook:para></docbook:para>
+			<docbook:example>
+				<docbook:title>A sample &lt;table:table-row&gt; element
+				</docbook:title>
+				<docbook:programlisting>
 					&lt;table:table-row
 					table:style-name="ro1"&gt;
 					&lt;table:table-cell
@@ -804,9 +876,9 @@
 					office:value-type="string"&gt;&lt;text:p&gt;6.00&lt;/text:p&gt;&lt;/table:table-cell&gt;
 					&lt;table:table-cell
 					office:value-type="string"&gt;&lt;text:p&gt;1.5000&lt;/text:p&gt;&lt;/table:table-cell&gt;
-					&lt;/table:table-row&gt; </pre>
-			</div></div><br class="example-break">
-			<p>To build the &lt;table:table-row&gt; elements, then,
+					&lt;/table:table-row&gt; </docbook:programlisting>
+			</docbook:example>
+			<docbook:para>To build the &lt;table:table-row&gt; elements, then,
 				we
 				need to generate &lt;table:table-cell&gt; for each column of the
 				row
@@ -815,19 +887,19 @@
 				build the elements and store in a table the generated elements so
 				that it is easier to use while doing the update of XML document. The
 				table to hold the generated elements is defined as shown below.
-			</p>
-			<div class="example"><a name="N2037A"></a><p class="title"><b>Example&nbsp;13.&nbsp;Table to hold generated &lt;table:table-row&gt;
-					elements</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+			</docbook:para>
+			<docbook:example>
+				<docbook:title>Table to hold generated &lt;table:table-row&gt;
+					elements</docbook:title>
+				<docbook:programlisting>
 					CREATE TABLE ODF.SHOP_COST_XML (SHOP_COST
 					XML);
-				</pre>
-			</div></div><br class="example-break">
-			<div class="example"><a name="N20383"></a><p class="title"><b>Example&nbsp;14.&nbsp;Insert generated &lt;table:table-row&gt; elements
-					with &lt;dummy&gt; parent</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:example>
+				<docbook:title>Insert generated &lt;table:table-row&gt; elements
+					with &lt;dummy&gt; parent</docbook:title>
+				<docbook:programlisting>
 					INSERT INTO ODF.SHOP_COST_XML (SHOP_COST)
 					(SELECT
 					XMLDOCUMENT(
@@ -843,7 +915,7 @@
 					XMLATTRIBUTES('ro1' AS
 					"table:style-name"),
 					XMLELEMENT(NAME "table:table-cell",
-					XMLATTRIBUTES('string' AS "office:value-type"), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					XMLATTRIBUTES('string' AS "office:value-type"),            
 					XMLELEMENT(NAME "text:p", STRIP(O.ITEMNAME)
 					)
 					),
@@ -870,19 +942,19 @@
 					FROM
 					ODF.V_SHOP_COST O
 					);
-				</pre>
-			</div></div><br class="example-break">
-			<p>Finally, we are now ready to update our dummy
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>Finally, we are now ready to update our dummy
 				XML
 				document. The query to do the update is shown below. Note that,
 				this
 				query is not inserting the resulting into any table. It is left
 				to
 				the reader to route the output to a table column, file, message
-				queue, etc.</p>
-			<div class="example"><a name="N2038F"></a><p class="title"><b>Example&nbsp;15.&nbsp;Updated content.xml document</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
+				queue, etc.</docbook:para>
+			<docbook:example>
+				<docbook:title>Updated content.xml document</docbook:title>
+				<docbook:programlisting>
 					VALUES XMLQUERY(
 					'declare namespace
 					office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" ;
@@ -900,191 +972,213 @@
 					$dummy/office:document-content/office:body/office:spreadsheet/table:table
 					return $dummy '
 					); 
-				</pre>
-			</div></div><br class="example-break">
-			<p>To test that our update has worked successfully run,
+				</docbook:programlisting>
+			</docbook:example>
+			<docbook:para>To test that our update has worked successfully run,
 				we
 				route the output of query above to a file called content.xml.
 				Replace the content.xml file in the unzipped archive of our original
 				shopping list spreadsheet with the one created now. Zip the files
 				back and save it with name as ShopPrices.ods and open with
-				OpenOffice. Here is the screenshot.</p>
+				OpenOffice. Here is the screenshot.</docbook:para>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics9.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics9.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-			<p>And, we are done !</p>
-			<p></p>
-		</div>
-	</div>
-	<div class="section" title="Next steps"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N203B0"></a>Next steps</h2></div></div></div>
-		
-		<p>Further enhancements may involve manipulating
+			<docbook:para>And, we are done !</docbook:para>
+			<docbook:para></docbook:para>
+		</docbook:section>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Next steps</docbook:title>
+		<docbook:para>Further enhancements may involve manipulating
 			other XML
 			documents in a ODF compliant archive. For example, the
 			meta.xml
-			document holds information about the document itself. &nbsp;This
+			document holds information about the document itself.  This
 			information can be accessed and set by going to File -&gt;
 			Properties... dialog box. For example, for the document in this
 			article (Shop.ods), this is how the dialog box looks like.
-		</p>
+		</docbook:para>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics10.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics10.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-		<p>The corresponding meta.xml document (partial
+		<docbook:para>The corresponding meta.xml document (partial
 			snapshot) is
-			shown below.</p>
+			shown below.</docbook:para>
 
-		<p>
-			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics11.png" width="396"></span>
-		</p>
+		<docbook:para>
+			<docbook:inlinemediaobject>
+				<docbook:imageobject>
+					<docbook:imagedata fileref='../graphics/isj2010-08-purexml-OOo-graphics11.png' width='11.17cm' depth='7.536cm'></docbook:imagedata>
+				</docbook:imageobject>
+			</docbook:inlinemediaobject>
+		</docbook:para>
 
-		<p>Thus, while generating the spreadsheet, one can
+		<docbook:para>Thus, while generating the spreadsheet, one can
 			write
 			queries to generate the meta.xml document with correct values
 			for
-			creator, creation time-stamp, etc.</p>
-		<p></p>
-		<p></p>
-	</div>
-	<div class="section" title="Resources"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N203DF"></a>Resources</h2></div></div></div>
-		
-		<p>Important resources :</p>
-		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www-01.ibm.com/software/data/db2/express/download.html" target="_top">DB2 Express-C</a>
-					&ndash; Free for download, develop, deploy and distribute.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www.ibm.com/db2/9" target="_top">DB2 v9 pureXML</a>
-					&ndash; All information about DB2 V9 pureXML
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www.ibm.com/support/docview.wss?rs=71&amp;uid=swg27009552" target="_top">DB2 v9 Product Manuals</a>
-					&ndash; Especially, refer the ones for XQuery and XML.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www-01.ibm.com/software/data/studio/" target="_top">IBM Data Studio
-					</a>
-					&ndash; Govern, design, develop and deploy databases and data driven
+			creator, creation time-stamp, etc.</docbook:para>
+		<docbook:para></docbook:para>
+		<docbook:para></docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Resources</docbook:title>
+		<docbook:para>Important resources :</docbook:para>
+		<docbook:orderedlist>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www-01.ibm.com/software/data/db2/express/download.html'>DB2 Express-C</docbook:link>
+					– Free for download, develop, deploy and distribute.
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www.ibm.com/db2/9'>DB2 v9 pureXML</docbook:link>
+					– All information about DB2 V9 pureXML
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www.ibm.com/support/docview.wss?rs=71&amp;uid=swg27009552'>DB2 v9 Product Manuals</docbook:link>
+					– Especially, refer the ones for XQuery and XML.
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www-01.ibm.com/software/data/studio/'>IBM Data Studio
+					</docbook:link>
+					– Govern, design, develop and deploy databases and data driven
 					applications.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www.oasis-open.org/committees/office/" target="_top">ODF Specification
-					</a>
-					&ndash; Link to the complete specification
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://books.evc-cit.info/book.php" target="_top">OpenOffice.org XML
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www.oasis-open.org/committees/office/'>ODF Specification
+					</docbook:link>
+					– Link to the complete specification
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://books.evc-cit.info/book.php'>OpenOffice.org XML
 						essentials
-					</a>
-					&ndash; Nice explanation of XML data formats.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www.ibm.com/developerworks/xml/library/x-think15/" target="_top">Thinking XML : The open office file format
-					</a>
-					&ndash; An earlier developerWorks article discussing the file formats of
+					</docbook:link>
+					– Nice explanation of XML data formats.
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www.ibm.com/developerworks/xml/library/x-think15/'>Thinking XML : The open office file format
+					</docbook:link>
+					– An earlier developerWorks article discussing the file formats of
 					OpenOffice.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0705gruber/" target="_top">Manage ODF and Microsoft Office 2007 documents with DB2
-						9 pureXML</a>
-					&ndash; An earlier developerWorks article on using ODF and Microsoft
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www.ibm.com/developerworks/db2/library/techarticle/dm-0705gruber/'>Manage ODF and Microsoft Office 2007 documents with DB2
+						9 pureXML</docbook:link>
+					– An earlier developerWorks article on using ODF and Microsoft
 					Office documents with DB2 9 pureXML.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="https://addons.mozilla.org/addon/1192" target="_top">XPather add-on</a>
-					&ndash; Nifty tool for Firefox Mozilla users to quickly check an XPath
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='https://addons.mozilla.org/addon/1192'>XPather add-on</docbook:link>
+					– Nifty tool for Firefox Mozilla users to quickly check an XPath
 					expression.
-				</p>
-			</li><li class="listitem">
-				<p>
-					<a class="ulink" href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C" target="_top">Update XML in DB2 9.5</a>
-					&ndash; Nice article on developerWorks explaining update of XML
+				</docbook:para>
+			</docbook:listitem>
+			<docbook:listitem>
+				<docbook:para>
+					<docbook:link xlink:href='http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C'>Update XML in DB2 9.5</docbook:link>
+					– Nice article on developerWorks explaining update of XML
 					documents.
-				</p>
-			</li></ol></div>
-		<p></p>
-	</div>
-	<div class="section" title="Biography"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20451"></a>Biography</h2></div></div></div>
-		
-		<p>Nagesh Subrahmanyam is a Software Developer in IBM
-			Global Services, India......</p>
-	</div>
-</div>
+				</docbook:para>
+			</docbook:listitem>
+		</docbook:orderedlist>
+		<docbook:para></docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Biography</docbook:title>
+		<docbook:para>Nagesh Subrahmanyam is a Software Developer in IBM
+			Global Services, India......</docbook:para>
+	</docbook:section>
+</docbook:article>
 
-	
+	<!-- Column 1 -->
 
-	<div class="article" title="Giving You A Reason"><div class="titlepage"><div><div><h2 class="title"><a name="N2045D"></a>Giving You A Reason</h2></div><div><h3 class="subtitle"><i>Compelling Reasons to Upgrade DB2</i></h3></div><div><div class="author"><h3 class="author">Roger Miller</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2047F">
-			Should you upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N2048B">
-			When and how should I upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N20497">
-		DB2 9: Robust, Scalable, Available and Easily Manageable
-		</a></span></dt><dt><span class="section"><a href="#N204A3">
-		DB2 10: Cut costs and improve performance
-		</a></span></dt><dt><span class="section"><a href="#N204AF">
-			Questions for you
-		</a></span></dt><dt><span class="section"><a href="#N204DC">
-			What version are you running?
-		</a></span></dt></dl></div>
-	
-	<p>
-		</p><div class="mediaobject"><img src="../graphics/isj2010-08-rmiller-graphics1.png"></div><p>
-	</p>
-	<p>
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-rmiller.xml'>
+	<docbook:info>
+		<docbook:title>Giving You A Reason</docbook:title>
+		<docbook:subtitle>Compelling Reasons to Upgrade DB2</docbook:subtitle>
+		<docbook:author>
+			<docbook:personname>Roger Miller</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
+		<docbook:mediaobject>
+			<docbook:imageobject>
+				<docbook:imagedata fileref='../graphics/isj2010-08-rmiller-graphics1.png'></docbook:imagedata>
+
+			</docbook:imageobject>
+		</docbook:mediaobject>
+	</docbook:para>
+	<docbook:para>
 		Is your current bowl getting tight?  What is limiting you?  Is it CPU? Virtual storage?  Latching?  
 		Catalog and directory?  Utilities?  Are you currently running DB2 9? V8? V7?  Upgrading to a bigger 
 		bowl may be just what you need.
-	</p>
-	<div class="section" title="Should you upgrade to DB2 10?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2047F"></a>
+	</docbook:para>
+	<docbook:section>
+		<docbook:title>
 			Should you upgrade to DB2 10?
-		</h2></div></div></div>
-		
-		<p>
+		</docbook:title>
+		<docbook:para>
 			To 10, or not to 10, when and how are the questions. 
 			Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous limits, 
 			Or to take arms against a sea of troubles, And by upgrading, end them?  
 			To die: to sleep; No more; and by a sleep to say we end the heart-aches and the thousand 
-			natural shocks that old versions are heir to. &lsquo;tis a consummation devoutly to be wished. 
-			To die, to sleep. To sleep: perchance to dream: ay, there&rsquo;s the rub; 
+			natural shocks that old versions are heir to. ‘tis a consummation devoutly to be wished. 
+			To die, to sleep. To sleep: perchance to dream: ay, there’s the rub; 
 			For in that sleep of death what dreams may come when versions have shuffled off this mortal coil, 
 			must give us pause: 
-			There&rsquo;s the respect that makes calamity of too long life for old versions.  
+			There’s the respect that makes calamity of too long life for old versions.  
 			[ With abject apologies to the Bard and to Hamlet act 3 scene 1]
-		</p>
+		</docbook:para>
 	
-		<p>
+		<docbook:para>
 			The answer to upgrading to 10 is a definite Yes.  The question is not so much whether to upgrade 
 			as when and how to upgrade.  If you are running DB2 9 today, then DB2 10 is in your near future, 
 			giving you more room to grow, with higher limits, lower costs, and more for less.  If you are 
 			running DB2 V8 today, then you have a choice of jumping to DB2 9 or directly to DB2 10.  
-			So the key question is &hellip;
-		</p>
-	</div>
+			So the key question is …
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="When and how should I upgrade to DB2 10?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2048B"></a>
+	<docbook:section>
+		<docbook:title>
 			When and how should I upgrade to DB2 10?
-		</h2></div></div></div>
-		
-		<p>		
+		</docbook:title>
+		<docbook:para>		
 		As of early August 2010, DB2 10 is in beta.  Some of the key information for making this 
 		decision is known, but some is not yet.  DB2 for z/OS V8 end of service is set for April 2012, 
 		21 months from now. The unknown information includes the date for DB2 10 general availability, 
 		V8 extended service, and pricing, which will come in later announcements.
-		</p>
-		<p>	  
+		</docbook:para>
+		<docbook:para>	  
 		While DB2 10 is expected to be better than prior versions, it will have maturity, stability, 
 		and service delivery similar to other software and versions, with more defects at first, 
 		then fewer as the software matures.  Determining when the software is ready for a specific 
@@ -1096,338 +1190,423 @@
 		http://www.ibm.com/support/docview.wss?uid=swg21006951 
 		Content of the two versions is available, although the details of DB2 10 are still not public.  
 		Here is a summary of the two versions -
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="DB2 9: Robust, Scalable, Available and Easily Manageable"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20497"></a>
+	<docbook:section>
+		<docbook:title>
 		DB2 9: Robust, Scalable, Available and Easily Manageable
-		</h2></div></div></div>
-		
-		<p>
+		</docbook:title>
+		<docbook:para>
 		DB2 9 delivers CPU reductions for utilities that are generally in the range of 20% to 30%.  
 		Customers report saving terabytes of disk space using index compression.  More CPU time 
 		is shifted to zIIP processors, reducing costs.  Security is improved with more flexible 
 		trusted contexts and roles. Resilience is improved as more changes can be made while 
 		applications keep running.  One table can be replaced quickly with a clone.  Indexes 
 		and columns can be renamed.  Many more utilities can be online.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 		DB2 9 delivers seamless integration of XML and relational data with pureXML and makes big 
 		strides in SQL for productivity and portability of applications.  A new storage structure 
-		is introduced for large tables.  Today&rsquo;s complex applications include both transactions 
+		is introduced for large tables.  Today’s complex applications include both transactions 
 		and reporting, so performing both well is required. The key improvements for reporting are 
 		optimization enhancements to improve query and reporting performance and ease of use. More 
 		queries can be expressed in SQL with new SQL enhancements.  Improved data is provided for the 
 		optimizer, with improved algorithms. Improved CPU and elapsed times can be achieved with the 
 		FETCH FIRST clause specified on a subquery. The INTERSECT and EXCEPT clauses make SQL easier 
 		to write.  
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="DB2 10: Cut costs and improve performance"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N204A3"></a>
+	<docbook:section>
+		<docbook:title>
 		DB2 10: Cut costs and improve performance
-		</h2></div></div></div>
-		
-		<p>
+		</docbook:title>
+		<docbook:para>
 		DB2 10 for z/OS provides the best reduction in CPU for transactions and batch in over 20 years. 
 		We expect most customers to reduce CPU times between 5% and 10% initially, with the opportunity 
 		for much more. Applications which can take advantage of additional benefits, such as hash access, 
 		can have larger CPU and memory reductions. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 		Scalability is the second major benefit, with the ability to run five to ten times as many 
 		threads in a single subsystem by moving 80% to 90% of the virtual storage above the bar. 
 		Schema evolution or data definition on demand enhancements improves availability. SQL and 
 		pureXML improvements extend usability and application portability for this platform. 
 		Productivity improvements for application developers and for database administrators are 
 		very important as data grows in scale and complexity. 
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="Questions for you"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N204AF"></a>
+	<docbook:section>
+		<docbook:title>
 			Questions for you
-		</h2></div></div></div>
-		
-		<p>
-		The right answer is not &ldquo;One size fits all.&rdquo;  If we know the key factors for you, we can help you 
+		</docbook:title>
+		<docbook:para>
+		The right answer is not “One size fits all.”  If we know the key factors for you, we can help you 
 		make a better choice.  Here are some of the key objectives.  Which ones are most important for you?
-		</p>	
-		<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">	  
+		</docbook:para>	
+		<docbook:itemizedlist>
+			<docbook:listitem>	  
 			Performance improves in both DB2 9 and 10, with larger CPU reductions in DB2 10.
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Scalability is improved a little in DB2 9 and a lot in DB2 10.
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Availability is enhanced in both, with more online changes in both.
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Security is made stronger and more flexible with roles in DB2 9 and with more options in DB2 10.
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Productivity is helped in both releases, with more improvements in DB2 10.  Upgrading to DB2 9 
 			is easier than to DB2 10 from DB2 V8.  
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Stability is better in more mature versions. 
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Skills: What skill set is available within your organization?  Do you have people with the 
 			right skills and time to plan and run a project?  DB2 planning workshops can help with 
 			education.  Transition classes provide more education for one or both versions.  Services 
 			could be used if the skills are not presently available.  
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Technology adoption model: Are you using the latest technology that is being shipped, or are the 
 			operating system and hardware back-level?  Is the technology one level back, two or more? This 
 			question tells both how much work will be required and the comfort level of your organization 
 			for running the latest version.
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Platform management practices: What are your platform management practices? What type of change 
 			management practices are in place?  How robust is your testing for new software? What is the 
 			inventory of software and tools?  How many vendors are involved?  Which ones?  Almost every 
 			vendor has software ready for DB2 9, but DB2 10 may take some time after general availability.
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Numbers of servers: How many LPARs and subsystems does the organization have? An organization that 
 			has 100 subsystems has a different set of challenges than does one that has 5 subsystems.  
-			</li><li class="listitem">	  
+			</docbook:listitem>
+			<docbook:listitem>	  
 			Organizational considerations: What additional organizational factors, such as politics and 
 			policies, must be considered?
-			</li></ul></div>
-	</div>
+			</docbook:listitem>
+		</docbook:itemizedlist>
+	</docbook:section>
 	
-	<div class="section" title="What version are you running?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N204DC"></a>
+	<docbook:section>
+		<docbook:title>
 			What version are you running?
-		</h2></div></div></div>
-		
-		<p>
+		</docbook:title>
+		<docbook:para>
 		Here are the primary recommendations for customers who are running various DB2 versions.
-		</p>
-		<div class="variablelist"><dl><dt><span class="term">DB2 9</span></dt><dd>
-					<p>	
+		</docbook:para>
+		<docbook:variablelist>
+			<docbook:varlistentry>
+				<docbook:term>DB2 9</docbook:term>
+				<docbook:listitem>
+					<docbook:para>	
 		If you are on DB2 9 today, then you are a good candidate for an early upgrade to DB2 10, 
 		especially if your custom is to move in the first year after general availability.  Listen to 
 		reports from early customers and upgrade for the value.
-					</p>
-				</dd><dt><span class="term">V8</span></dt><dd>
-					<p>	
+					</docbook:para>
+				</docbook:listitem>
+			</docbook:varlistentry>	
+			<docbook:varlistentry>
+				<docbook:term>V8</docbook:term>
+				<docbook:listitem>
+					<docbook:para>	
 		If you are on DB2 V8 today, then the next questions are on timing for you and readiness 
 		for the new version.  How soon after general availability do you normally upgrade?  Are you still 
 		in the process of moving to NFM or have you recently finished V8 upgrade?   If you just finished, 
 		then you probably will wait a few years and use the skip.  If you have resources for an upgrade, 
 		but DB2 10 is too new, then DB2 9 is probably your next move.  If you have the resources and can 
 		work with a new version, then skipping to DB2 10 may work for you.
-					</p>
-				</dd><dt><span class="term">V7</span></dt><dd>
-					<p>	
+					</docbook:para>
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>V7</docbook:term>
+				<docbook:listitem>
+					<docbook:para>	
 		If you are currently on DB2 V7, then upgrade to DB2 V8.  Then you can use the skip version 
 		upgrade to DB2 10 in a few years.
-					</p>	
-				</dd></dl></div>
-		<p>
+					</docbook:para>	
+				</docbook:listitem>
+			</docbook:varlistentry>
+		</docbook:variablelist>
+		<docbook:para>
 		DB2 has several new versions and upgrade paths for you to consider.  This story will be changing, 
 		but you can hear the latest at IDUG conferences and on the web.  DB2 9 is ready for you now.  
 		DB2 10 is still in beta, but is delivering higher limits, lower costs, and more for less.
-		</p>	  
+		</docbook:para>	  
 
-		<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+		<docbook:itemizedlist>
+			<docbook:listitem>
 			http://www.ibm.com/software/data/db2/zos/db2-10/
-			</li><li class="listitem">
+			</docbook:listitem> 
+			<docbook:listitem>
 			http://www.ibm.com/data/db2/zos
-			</li></ul></div>
-	</div>
+			</docbook:listitem> 
+		</docbook:itemizedlist>
+	</docbook:section>
 
-</div>
+</docbook:article>
 
-	
+	<!-- Column 2 -->
 
-	<div class="article" title="DB2 and Storage Management"><div class="titlepage"><div><div><h2 class="title"><a name="N2051B"></a>DB2 and Storage Management</h2></div><div><div class="author"><h3 class="author">Craig S. Mullins</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2052E">DB2 Storage Basics</a></span></dt><dt><span class="section"><a href="#N205DF">
-			Important DB2 for z/OS Storage Issues
-		</a></span></dt><dt><span class="section"><a href="#N2060C">
-			A Little Bit About Modern Disk Arrays
-		</a></span></dt><dt><span class="section"><a href="#N20630">
-			Cache Versus Buffer
-		</a></span></dt><dt><span class="section"><a href="#N20657">
-			A Little Bit About DFSMS
-		</a></span></dt><dt><span class="section"><a href="#N206B4">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206EA">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206FF">Best Practices</a></span></dt><dt><span class="section"><a href="#N20729">Summary</a></span></dt></dl></div>
-	
-	<p>
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-cmullins.xml'>
+	<docbook:info>
+		<docbook:title>DB2 and Storage Management</docbook:title>
+		<docbook:author>
+			<docbook:personname>Craig S. Mullins</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
 		As an IT professional who uses DB2, you know that all database management systems rely on some form persistent storage to 
 		maintain data. That means that the DBMS interoperates with operating system files, or data sets. As such, some form of 
 		storage management should be a key part of the database operations required of a DBA. Typically database storage means 
-		disk devices or subsystems, but it can also mean solid state disk, removable storage, or even trusty &ldquo;old&rdquo; tape devices.
-	</p>
-	<div class="section" title="DB2 Storage Basics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2052E"></a>DB2 Storage Basics</h2></div></div></div>
-		
-		<p>
+		disk devices or subsystems, but it can also mean solid state disk, removable storage, or even trusty “old” tape devices.
+	</docbook:para>
+	<docbook:section>
+		<docbook:title>DB2 Storage Basics</docbook:title>
+		<docbook:para>
 			At the most basic level it is important to know that DB2 stores its data in VSAM Linear Data Sets (LDS). Each table space 
 			and index space you create requires at least one, possibly more, underlying VSAM data sets. DB2 uses VSAM Media Manager 
 			for its I/O operations. For every I/O, VSAM Media Manager builds a channel program and sends a request to the I/O supervisor.
-		</p>	
-		<p>
-			But let&rsquo;s back up a moment. The following items are the core of the storage-related objects and items you will need to know 
+		</docbook:para>	
+		<docbook:para>
+			But let’s back up a moment. The following items are the core of the storage-related objects and items you will need to know 
 			about for DB2 for z/OS:-
-			</p><div class="variablelist"><dl><dt><span class="term">DB2 Storage Groups</span></dt><dd>
-						<p>
+			<docbook:variablelist>
+				<docbook:varlistentry>
+					<docbook:term>DB2 Storage Groups</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							List of disk volumes. DB2 can also work with SMS so you will need to differentiate between DB2 storage groups 
 							and SMS storage groups (see Figure 1).
-						</p>
-					</dd><dt><span class="term">Table Spaces</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Table Spaces</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk as at least one VSAM LDS data set
-						</p>
-					</dd><dt><span class="term">Indexes</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Indexes</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk (in an index space) as at least one VSAM LDS data set
-						</p>
-					</dd><dt><span class="term">System data sets</span></dt><dd>
-						<p>
-						</p>
-					</dd><dt><span class="term">Active Log</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>			
+				<docbook:varlistentry>
+					<docbook:term>System data sets</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Active Log</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk
-						</p>
-					</dd><dt><span class="term">Archive Logs</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Archive Logs</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk or tape
-						</p>
-					</dd><dt><span class="term">BSDS</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>BSDS</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk
-						</p>
-					</dd><dt><span class="term">Image Copy Backups</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Image Copy Backups</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk or tape
-						</p>
-					</dd><dt><span class="term">Image Copy Backups</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Image Copy Backups</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Stored on disk or tape
-						</p>
-					</dd><dt><span class="term">DB2 library data sets</span></dt><dd>
-						<p>
-						</p>
-					</dd><dt><span class="term">Temporary data sets</span></dt><dd>
-						<p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>DB2 library data sets</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>Temporary data sets</docbook:term>
+					<docbook:listitem>
+						<docbook:para>
 							Used by utilities
-						</p>
-					</dd></dl></div><p>	
-		</p>
+						</docbook:para>
+					</docbook:listitem>
+				</docbook:varlistentry>
+			</docbook:variablelist>	
+		</docbook:para>
 
 Figure 1. DB2 Storage Groups vs. SMS Storage Groups
 
-		<p>
+		<docbook:para>
 			So you can see that there are multiple areas within DB2 that require storage and need to be managed. This article will touch 
 			upon most of these areas. But back to data set basics for the time being. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			You may have noticed that I said that multiple data sets may be required so when does DB2 utilize multiple VSAM data sets 
 			for a table space or index? There are three situations where this will arise:-
-			</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+			<docbook:orderedlist>
+				<docbook:listitem>
 					When the object is partitioned, each partition will reside in a separate data set.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					When a data set in a segmented or simple table space reaches its maximum size of 2 GB, DB2 can automatically create 
 					a new data set. 
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					When the table space is cloned; each clone has its own underlying data set(s).
-				</li></ol></div><p>
-		</p>
-		<p>
+				</docbook:listitem>
+			</docbook:orderedlist>
+		</docbook:para>
+		<docbook:para>
 			To understand how DB2 accommodates these situations we will need to take a look at how DB2 data sets are named. Figure 2 
 			shows the naming convention for DB2 data sets. Although many of you reading this article may be familiar with this naming 
 			convention, a quick review is still a good idea. The database name and the page set name (table space or index space name) 
 			is part of the data set name. This is one of the reasons that you cannot have more than one table space or index space of 
-			the same name in the same database. The &ldquo;interesting&rdquo; part of the naming convention (if a naming convention can be 
+			the same name in the same database. The “interesting” part of the naming convention (if a naming convention can be 
 			interesting at all) comes at the end. We have an instance qualifier and a data set number. 
-		</p>		
+		</docbook:para>		
 
 
 Figure 2. DB2 Data Set Naming Convention
 
-		<p>
+		<docbook:para>
 			The instance qualifier is used when running online REORG and CHECK utilities. For an online utility DB2 uses a shadow data 
 			set and will switch from the current to the shadow after running the utility. So DB2 will switch the instance qualifier 
 			between I and J when you run online  REORG and CHECK utilities. The numbers after the instance qualifier can change if you 
-			use clones. Although this is not the place for a comprehensive discussion of cloning let&rsquo;s skim the surface to understand 
+			use clones. Although this is not the place for a comprehensive discussion of cloning let’s skim the surface to understand 
 			what happens to this portion of the data set name. Basically, cloning creates a table with the exact same attributes as a 
 			table that already exists, except that it has no data. The close is created using the ALTER TABLE SQL statement with the 
-			ADD CLONE parameter and the clone table is created in the same table space as the existing table&hellip; except in a different 
+			ADD CLONE parameter and the clone table is created in the same table space as the existing table… except in a different 
 			VSAM data set. The base table starts with I0001 in the data set name; the clone will be I0002. This can change because 
 			the SQL EXCHANGE statement flips the VSAM data sets. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Next we have the data set number, which appropriately enough, is used when a page set requires multiple data sets. The z 
-			is usually an &ldquo;A&rdquo;, but it can be A, B, C, D, or E. For partitioned table spaces, the number is the partition number and 
+			is usually an “A”, but it can be A, B, C, D, or E. For partitioned table spaces, the number is the partition number and 
 			A-E is used for partitions in excess of 999. So partition 1 would be A001 and partition 1,000 would be B001, and so on. 
 			For simple or segmented table spaces, the data set number starts at 001 and is incremented by one as the page set grows 
 			past the maximum size of 2GB.
-		</p>
-		<p>
-			These are the most basic storage &ldquo;things&rdquo; that you will need to know as you manage DB2 for z/OS storage.
-		</p>
-	</div>
-	<div class="section" title="Important DB2 for z/OS Storage Issues"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N205DF"></a>
+		</docbook:para>
+		<docbook:para>
+			These are the most basic storage “things” that you will need to know as you manage DB2 for z/OS storage.
+		</docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>
 			Important DB2 for z/OS Storage Issues
-		</h2></div></div></div>
-		
-		<p>
-			Although storage management can be an afterthought for the DBA it really shouldn&rsquo;t be. According to Gartner, Inc. the cost 
-			of managing storage is 4 to 10 times the initial cost of storage acquisition.&nbsp;And the growth rate for disk storage was 37% 
+		</docbook:title>
+		<docbook:para>
+			Although storage management can be an afterthought for the DBA it really shouldn’t be. According to Gartner, Inc. the cost 
+			of managing storage is 4 to 10 times the initial cost of storage acquisition. And the growth rate for disk storage was 37% 
 			for the years 1996 through 2007. So storage issues are vitally important and unless it is managed appropriately it can be 
 			very costly. And unmanaged DB2 storage can result in system outages, which is the last thing any DBA wants to have happen, 
-			isn&rsquo;t it?
-		</p>
-		<p>
-			Even so, it is common for storage-related issues to be relegated to the backburner by DBAs. Let&rsquo;s face it, most robust 
+			isn’t it?
+		</docbook:para>
+		<docbook:para>
+			Even so, it is common for storage-related issues to be relegated to the backburner by DBAs. Let’s face it, most robust 
 			mainframe organizations have an entire unit dedicated to storage management and administration. And the DBA has enough 
 			to contend with without adding storage tasks to the list. But DBAs and storage administrators are concerned about 
-			different things &ndash; and that is the way it should be. 
-		</p>
-		<p>
+			different things – and that is the way it should be. 
+		</docbook:para>
+		<docbook:para>
 			Refer to Figure 3. The DBA has a database-centric focus, whereas the storage administrator will focus on storage issues 
 			for the entire shop, focusing on devices and data sets. But the storage folsk are not DB2 experts, nor should they be. 
 			Likewise, most DBAs are not storage experts. Making matters worse is that these two groups rarely communicate well.
-		</p>
+		</docbook:para>
 
 Figure 3. DBA versus Storage Administration
 
-		<p>
+		<docbook:para>
 			So there is a gap between Database Administration, Storage Administration and Capacity Planning. Information is available 
 			to DBAs from various sources including RUNSTATS, STOSPACE, real-time statistics (RTS), DB2 Catalog, and so on, but the 
 			details are scattered all over the place and it can be difficult to gain a complete, accurate, and up-to-date picture. 
 			And any historical view into DB2 storage usage has to be managed manually.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Think about your environment for a moment and then reflect on whether or not you can easily answer the following questions:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+			<docbook:itemizedlist>
+				<docbook:listitem>
 					Do all of my databases have sufficient allocation to satisfy business requirements?
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Why is DB2 storage growing when our business is not?
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Am I wasting any storage?
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					When will more storage be required?
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					How much additional storage is needed?
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					What needs to be done to align the additional storage with the DBMS? 
-				</li></ul></div><p>
-		</p>
-		<p>
+				</docbook:listitem>
+			</docbook:itemizedlist>
+		</docbook:para>
+		<docbook:para>
 			Without a tool to capture, integrate, and manage information about your DB2 storage infrastructure answering these questions 
 			can be quite difficult.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="A Little Bit About Modern Disk Arrays"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2060C"></a>
+	<docbook:section>
+		<docbook:title>
 			A Little Bit About Modern Disk Arrays
-		</h2></div></div></div>
-		
-		<p>
+		</docbook:title>
+		<docbook:para>
 			Mainframe disk, or DASD, is usually equated to a 3380 or 3390. In other words, people think of physical hardware devices 
 			with a one-to-one relationship between a disk drive and a volume. The logical view is broken down as:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+			<docbook:itemizedlist>
+				<docbook:listitem>
 					Track size, or the number of bytes per track.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Capacity, or the size of the device, in terms of number of tracks or gigabytes.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Device address, which is a thread onto which I/O operations are serialized by the operating system
-				</li></ul></div><p>
-		</p>
-		<p>
-			But the physical world is not the same as the logical anymore. Today&rsquo;s modern storage architecture uses disk arrays, 
+				</docbook:listitem>
+			</docbook:itemizedlist>
+		</docbook:para>
+		<docbook:para>
+			But the physical world is not the same as the logical anymore. Today’s modern storage architecture uses disk arrays, 
 			or RAID. RAID stands for Redundant Array of Independent Disk; an array is the combination of two or more physical disk 
 			storage devices in a single logical device or multiple logical devices. The array is perceived by the system to be a 
 			single disk device. RAID can offer big benefits in terms of availability because the disks are typically hot-swappable, 
@@ -1435,341 +1614,411 @@ Figure 3. DBA versus Storage Administration
 			delivering different levels of fault-tolerance and performance. A nice educational overview of the various levels of 
 			RAID is offered by Advanced Computer &amp; Network Corporation at http://www.acnc.com/04_00.html. But what about mainframe 
 			disk arrays?
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			The RAMAC Virtual Array (RVA) came first for the mainframe and it was based on virtual disks that emulated 3380s and 
 			3390s. The RVA dynamically maps functional volumes to physical drives. This mapping structure is contained in a series 
 			of tables stored in the RVA control unit. RVA was OEM'ed from Storage Technology Corp. (STK) which is now part of Oracle. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			The ESS (Enterprise Storage System), also known as Shark, followed when the STK OEM agreement expired. The ESS is scalable 
 			from 420GB to 55.9 TB. It offers improved performance over RAMAC, especially for prefetch and analytical queries. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			And the latest and greatest IBM mainframe disk technology is the DS8000, which employs virtualized disk. It adds 
 			functionality for storage pool striping, thin provisioning, and quick initialization, among other innovations. Its 
 			capacity scales linearly from 1.1 TB up to 192 TB (up to 320 TB with turbo models).
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Of course, IBM is not the only game in town for mainframe storage. EMC, Hewlett Packard, Hitachi, and Sun also offer 
 			modern disk arrays for the mainframe. 
-		</p>
-	</div>
-	<div class="section" title="Cache Versus Buffer"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20630"></a>
+		</docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>
 			Cache Versus Buffer
-		</h2></div></div></div>
-		
-		<p>
+		</docbook:title>
+		<docbook:para>
 			Modern disk arrays cache data, but so does DB2. In the old days we used to disable disk cache for DB2, but no longer. 
 			There are two DSNZPARMs you should be aware of that can be setup to properly control disk caching for DB2 data sets.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			First up is the SEQCACH parameter. The original meaning of this parameter, for 3390 DASD, was whether DB2 I/O should 
 			bypass the disk cache, but the meaning is different now because you do not want to bypass the cache on modern storage 
 			arrays. There are two options:
-			</p><div class="variablelist"><dl><dt><span class="term">BYPASS</span></dt><dd>
+			<docbook:variablelist>
+				<docbook:varlistentry>
+					<docbook:term>BYPASS</docbook:term>
+					<docbook:listitem>
 						The disk will perform Sequential Detection
-					</dd><dt><span class="term">SEQ</span></dt><dd>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>SEQ</docbook:term>
+					<docbook:listitem>
 						Creates an explicit Prefetch request; the recommendation is to use this setting for improved performance.
-					</dd></dl></div><p>
-		</p>
-		<p>
+					</docbook:listitem>
+				</docbook:varlistentry>
+			</docbook:variablelist>
+		</docbook:para>
+		<docbook:para>
 			The second DSNZPARM is SEQPRES, which is similar to SEQCACH, but for DB2 LOAD and REORG utilities. If set to YES the 
 			Cache is more likely to retain pages for subsequent update, particularly when processing NPIs. The general recommendation 
 			is to set to SEQCACH to YES.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Keep in mind, too, that your storage administrators should be aware that DB2 buffering may cause DB2 data to use the disk 
-			cache differently than other non-database data sets. But that doesn&rsquo;t mean that DB2 is not benefiting from disk caching.
-		</p>
-	</div>
+			cache differently than other non-database data sets. But that doesn’t mean that DB2 is not benefiting from disk caching.
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="A Little Bit About DFSMS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20657"></a>
+	<docbook:section>
+		<docbook:title>
 			A Little Bit About DFSMS
-		</h2></div></div></div>
-		
-		<p>
-			DFSMS is IBM&rsquo;s Data Facility Storage Management System. It offers data management, backup and HSM software from IBM 
+		</docbook:title>
+		<docbook:para>
+			DFSMS is IBM’s Data Facility Storage Management System. It offers data management, backup and HSM software from IBM 
 			mainframes, combining backup, copy, HSM and device driver routines into a single package. So DFSMS is actually multiple 
 			products; it is a suite of data and storage management offerings:-
-			</p><div class="variablelist"><dl><dt><span class="term">DFSMSdfp</span></dt><dd>
+			<docbook:variablelist>
+				<docbook:varlistentry>
+					<docbook:term>DFSMSdfp</docbook:term>
+					<docbook:listitem>
 						Data Facility Product - provides the logical and physical input and output for z/OS storage, it keeps track of 
 						all data and programs managed within z/OS, and it provides data access both for native z/OS applications and 
 						other platforms. 
-					</dd><dt><span class="term">DFSMSdss</span></dt><dd>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>DFSMSdss</docbook:term>
+					<docbook:listitem>
 						This is a priced optional feature. It is a DASD data and space management tool for moving and copying data. 
-					</dd><dt><span class="term">DFSMShsm</span></dt><dd>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>DFSMShsm</docbook:term>
+					<docbook:listitem>
 						Hierarchical Storage Manager - a priced optional feature for managing low-activity and inactive data. It 
 						provides backup, recovery, migration, and space management functions. 
-					</dd><dt><span class="term">DFSMSrmm</span></dt><dd>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>DFSMSrmm</docbook:term>
+					<docbook:listitem>
 						Removable Media Manager  - a priced optional feature for managing removable media resources (e.g. IBM's 
 						Virtual Tape Server).
-					</dd><dt><span class="term">DFSMStvs</span></dt><dd>
-						Transactional VSAM Services &ndash; is another priced optional feature that enables batch jobs and CICS online 
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>DFSMStvs</docbook:term>
+					<docbook:listitem>
+						Transactional VSAM Services – is another priced optional feature that enables batch jobs and CICS online 
 						transactions to update shared VSAM data sets concurrently. 
-					</dd></dl></div><p>
-		</p>
-		<p>
+					</docbook:listitem>
+				</docbook:varlistentry>
+			</docbook:variablelist>
+		</docbook:para>
+		<docbook:para>
 			But we are not going to delve into all of these various components. What we are most interested in is how DB2 can benefit 
 			from DFSMS. Using DFSMS, a DB2 DBA can simplify the interaction of DB2 database creation and storage specification. It can 
 			deliver:-
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">Simplified data allocation</li><li class="listitem">Improved allocation control</li><li class="listitem">Improved performance management</li><li class="listitem">Automated disk space management</li><li class="listitem">Improved data availability management</li><li class="listitem">Simplified data movement</li></ul></div><p>
-		</p>
-		<p>
+			<docbook:itemizedlist>
+				<docbook:listitem>Simplified data allocation</docbook:listitem>
+				<docbook:listitem>Improved allocation control</docbook:listitem>
+				<docbook:listitem>Improved performance management</docbook:listitem>
+				<docbook:listitem>Automated disk space management</docbook:listitem>
+				<docbook:listitem>Improved data availability management</docbook:listitem>
+				<docbook:listitem>Simplified data movement</docbook:listitem>
+			</docbook:itemizedlist>
+		</docbook:para>
+		<docbook:para>
 			DFSMS has the necessary flexibility to support everything DB2 DBAs may want to accomplish in terms of data set placement 
 			and design. In this day and age there is no reason to not take advantage of DFSMS for DB2 data sets. However, to achieve 
 			a successful implementation, an agreement between the storage administrator and the DB2 administrator is required so that 
 			they can together establish an environment that satisfies both their objectives.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			SMS Data Classes, Storage Classes, Management Classes, and Storage Groups can be used along with SMS ACS (Automatic Class 
 			Selection) routines to set up and automate DB2 data set allocation and placement. SMS Storage Groups contains volumes that 
 			satisfy the service requirements of the data sets allocated to them. They can handle more than one type of data. Separate 
 			Storage Groups should be defined for production table spaces, active logs, other production data, and non-production data. 
 			ACS routines assign data sets to SMS storage classes. For example, indexes can be assigned to to one SMS storage class and 
-			table spaces to a different SMS storage class. For DB2 Storage Groups using SMS the volume list is set to &lsquo;*&rsquo;.
-		</p>
-		<p>
+			table spaces to a different SMS storage class. For DB2 Storage Groups using SMS the volume list is set to ‘*’.
+		</docbook:para>
+		<docbook:para>
 			As of DB2 9, DATACLAS, MGMTCLAS, and STORCLAS can be specified in DB2 Storage Groups, and if so, then the VOLUMES clause 
 			can be omitted. If the VOLUMES clause is omitted, the volume selection is controlled by SMS. Keep in mind, though, that 
 			when processing the VOLUMES, DATACLAS, MGMTCLAS, or STORCLAS clauses, DB2 does not check the existence of the volumes or 
 			classes or determine the types of devices that are identified or if SMS is active. Later, when the storage group allocates 
 			data sets, the list of volumes is passed in the specified order to Data Facilities (DFSMSdfp). 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Basically, using SMS with DB2 is the sane thing to do these days because the new disk architectures, with concepts like 
 			log structured files and with cache in the gigabyte sizes, render conventional database design rules based on data set 
 			placement less important. In most cases, placement is not an issue, and when it is, SMS classes and ACS routines can be 
 			setup to take care of things.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="What About Extents?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206B4"></a>What About Extents?</h2></div></div></div>
-		
-		<p>
-			Some folks think &ldquo;With RAID/modern storage devices and new DB2 and z/OS features, extents are no longer anything to worry 
-			about.&rdquo; But this is not exactly true. For one thing, the latest extent management features only work with SMS-managed 
+	<docbook:section>
+		<docbook:title>What About Extents?</docbook:title>
+		<docbook:para>
+			Some folks think “With RAID/modern storage devices and new DB2 and z/OS features, extents are no longer anything to worry 
+			about.” But this is not exactly true. For one thing, the latest extent management features only work with SMS-managed 
 			data sets, so if you are still using user-managed data sets then all of the old rules apply! 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			For SMS-managed data set you can have up to 123 extents on each of 59 volumes. So as of z/OS 1.7, the limit is 7,257 
-			extents for a data set instead of the 255 we&rsquo;ve been used to for some time. Again though, to enable this requires DFSMS 
+			extents for a data set instead of the 255 we’ve been used to for some time. Again though, to enable this requires DFSMS 
 			(modify the DFSMS Data Class to set the Extent Constraint Removal to YES).
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Extent consolidation also requires SMS-managed STOGROUPs. If a new extent is adjacent to old, they will be merged together 
 			automatically. This can result in some extents being larger than the PRIQTY or SECQTY specification(s). Note that this 
 			feature was introduced in z/OS 1.5.
-		</p>
-		<p>
-			OK, so what if everything is SMS-controlled? Then extents don&rsquo;t matter, right? Well, not really. Even then it is possible 
+		</docbook:para>
+		<docbook:para>
+			OK, so what if everything is SMS-controlled? Then extents don’t matter, right? Well, not really. Even then it is possible 
 			for extents to impact performance. Each extent on a disk file has different control blocks controlling access. This means 
 			that elapsed time can increase if there is heavy insert activity. For other types of processing (read and update) the 
 			number of extents really does not impact on performance. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			At any rate, things are not like the olden days where you had to regularly monitor extents and clean them up all the time 
 			by reorganizing your table spaces and index spaces. Oh, we want to clean those extents up periodically, but storage 
 			administrators have other methods of reducing extents that perhaps can be quicker and/or easier, for example.
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">DFSMShsm MIGRATE and RECALL functions	</li><li class="listitem">DFSMSdss COPY or DUMP and RESTORE functions</li><li class="listitem">DEFRAG with the CONSOLIDATE keyword</li><li class="listitem">Other products: e.g. Real Time Defrag</li></ul></div><p>
-		</p>
-		<p>
+			<docbook:itemizedlist>
+				<docbook:listitem>DFSMShsm MIGRATE and RECALL functions	</docbook:listitem>
+				<docbook:listitem>DFSMSdss COPY or DUMP and RESTORE functions</docbook:listitem>
+				<docbook:listitem>DEFRAG with the CONSOLIDATE keyword</docbook:listitem>
+				<docbook:listitem>Other products: e.g. Real Time Defrag</docbook:listitem>
+			</docbook:itemizedlist>
+		</docbook:para>
+		<docbook:para>
 			As of V8, DB2 can allocate sliding scale secondary extents. This is enabled by setting MGEXTSZ DSNZPARM to YES. Note that 
 			the default is NO for V8, but changed to YES automatically when you upgrade to DB2 9. With sliding scale extents the extent 
 			sizes allocated gradually increase. DB2 uses a sliding scale for secondary extent allocations of table spaces and indexes 
 			when:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+			<docbook:itemizedlist>
+				<docbook:listitem>
 					You do not specify a value for the SECQTY option of a CREATE TABLESPACE or CREATE INDEX statement
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					You specify a value of -1 for the SECQTY option of an ALTER TABLESPACE or ALTER INDEX statement.
-				</li></ul></div><p> 
-		</p>
-		<p>
+				</docbook:listitem>
+			</docbook:itemizedlist> 
+		</docbook:para>
+		<docbook:para>
 			Otherwise, DB2 uses the SECQTY value for secondary extent allocations, if one is explicitly specified (and the SECQTY value 
 			is larger than the value that is derived from the sliding scale algorithm). If the table space or index space has a SECQTY 
 			greater than 0, the primary space allocation of each subsequent data set is the larger of the SECQTY setting and the value 
 			that is derived from a sliding scale algorithm. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 			Without going into all of the gory details, sliding scale extent allocation can help to reduce the number of extents for 
 			your Db2 objects as they grow in size over time. And it can help when you do not have a firm understanding of how your 
 			data will grow over time.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="Another Thing to Think About"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206EA"></a>Another Thing to Think About</h2></div></div></div>
-		
-		<p>
-			Every now and then I hear from a DB2 DBA complaining about index growth. They&rsquo;ll say something like this: &ldquo;My index 
-			keeps growing and growing and taking additional extents, even after deleting data from the base table. What is going on?&rdquo; 
-		</p>
-		<p>
+	<docbook:section>
+		<docbook:title>Another Thing to Think About</docbook:title>
+		<docbook:para>
+			Every now and then I hear from a DB2 DBA complaining about index growth. They’ll say something like this: “My index 
+			keeps growing and growing and taking additional extents, even after deleting data from the base table. What is going on?” 
+		</docbook:para>
+		<docbook:para>
 			Well, deleted index keys are not physically deleted, but marked as pseudo-deleted. This can cause an index to grow even as 
 			the table data remains at relatively the same level. And it can result in a high CPU cost for index scans because DB2 scans 
 			all of the entries, even the pseudo-deleted ones. For this reason, you should keep an eye on tables with a lot of delete 
 			activity and periodically reorganize their indexes. You can track pseudo-deleted index keys in SYSINDEXPART if using 
 			RUNSTATS or SYSINDEXSPACESTATS if using real time statistics. Consider reorganizing these indexes when pct of pseudo-deleted 
 			entries is:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">Greater than 10% for non Data Sharing</li><li class="listitem">Greater than 5% for Data Sharing</li></ul></div><p> 
-		</p>
-	</div>
+			<docbook:itemizedlist>
+				<docbook:listitem>Greater than 10% for non Data Sharing</docbook:listitem>
+				<docbook:listitem>Greater than 5% for Data Sharing</docbook:listitem>
+			</docbook:itemizedlist> 
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="Best Practices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206FF"></a>Best Practices</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Best Practices</docbook:title>
+		<docbook:para>
 			In general, you should adopt best practices for managing your DB2-related storage. Keep up-to-date on DB2/storage 
 			functionality and adopt new practices in the latest releases of DB2.
-		</p>		
-		<p>
+		</docbook:para>		
+		<docbook:para>
 			It is a good idea to perform regular and proactive monitoring. Examples of things you should be tracking include:
-			</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+			<docbook:orderedlist>
+				<docbook:listitem>
 					Space display and monitoring for your entire DB2 system.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Space display and monitoring of individual DB2 databases.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Space display and monitoring of all of your table spaces and indexes.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Display and monitoring of the Storage Groups and the associated volumes of a DB2 system. (Data, Workfile, 
 					Image Copies, Logs, Archives, Sort/Work etc.)
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					The ability to display all VSAM data sets for all table spaces and indexes (Used, Allocated, Primary and 
 					Secondary Quantity, Volumes) and monitoring of the extents for each.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Display of the Page Sets of table spaces and indexes that reach their maximum size and maximum number of data sets.
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Tracking of image copy backup data sets, including the intelligent HSM migration of same. You should be able to 
 					reduce backups by track which are not used for local recovery (to CURRENT), as well as data sets older than the 
 					last full image copy (including dual and remote backups).
-				</li><li class="listitem">
+				</docbook:listitem>
+				<docbook:listitem>
 					Managing the deletion of Image copy backup datasets that are no longer needed because of DROP, DROP/CREATE or 
-					MODIFY TABLESPACE (&lsquo;orphaned&lsquo;, not listed in SYSIBM.SYSCOPY).
-				</li></ol></div><p>
-		</p>
-		<p>
+					MODIFY TABLESPACE (‘orphaned‘, not listed in SYSIBM.SYSCOPY).
+				</docbook:listitem>
+			</docbook:orderedlist>
+		</docbook:para>
+		<docbook:para>
 			If possible, build alerts to inform you of problems, shortages, and potential errors. When possible, automate remediation 
 			tactics so that the alert tells you what happened, as well as what was done to correct the issue. Tools may be able to 
 			assist in automating reaction to shortages, potential errors, superfluous data sets, etc. For example, refer to Figures 
 			4 and 5.
-		</p>
+		</docbook:para>
 
 Figure 4. Automated Storage Alerts
 
 
 Figure 5. Tracking the Growth of DB2 Storage Space 
 
-	</div>
+	</docbook:section>
 	
-	<div class="section" title="Summary"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20729"></a>Summary</h2></div></div></div>
-		
-			<p>
+	<docbook:section>
+		<docbook:title>Summary</docbook:title>
+			<docbook:para>
 				Finally, there is a people issue that needs to be addressed. The DBA and the storage administrator will need to 
 				cooperate in order to facilitate proper database storage. Remember, other types of data that are not stored in 
 				the DBMS will need to be saved on disk, too. Databases use storage differently than non-database data. Indexing, 
 				partitioning, clustering, and separation of data will cause the database to require more storage, across more drives, 
 				and using cache differently than most storage administrators may anticipate. 
-			</p>
-			<p>
+			</docbook:para>
+			<docbook:para>
 				DBAs need to work storage administrators to make sure that each understands the other domain. And to make sure that 
 				s/he has the storage information needed to properly administer DB2. The better the DBA communicates, and the better 
 				the relationship is between these two IT professionals, the better your database applications will perform. And that 
 				is what it is all really about, right?
-			</p>
-	</div>
-</div>
+			</docbook:para>
+	</docbook:section>
+</docbook:article>
 
+	<!-- Column 3 -->
 	
-	
-	<div class="article" title="Don&rsquo;t Flip Out!"><div class="titlepage"><div><div><h2 class="title"><a name="N20738"></a>Don&rsquo;t Flip Out!</h2></div><div><h3 class="subtitle"><i>How to Stop Your Query Access Plans from Flopping</i></h3></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N20757">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20771">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2077A">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207CD">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207D6">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207F7">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N2082B">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2084A">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N2085C">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2086B">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N20886">Statistical Views</a></span></dt><dt><span class="section"><a href="#N208B1">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N208BA">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208E2">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N2090D">Conclusion</a></span></dt><dt><span class="appendix"><a href="#N20916">A. </a></span></dt></dl></div>
-	
-	<p>
-Has this ever happened to you? You have an important report query that has been running on an IBM&reg; DB2&reg; for Linux&reg;, UNIX&reg;, and Windows&reg; data 
+	<docbook:article xsi:schemaLocation='http://docbook.org/ns/docbook docbook.xsd' xml:base='file:/home/philip/workspace-3.6/ISJ/src/isj2010-08/articles/isj2010-08-jhornibrook.xml'>
+	<docbook:info>
+		<docbook:title>Don’t Flip Out!</docbook:title>
+		<docbook:subtitle>How to Stop Your Query Access Plans from Flopping</docbook:subtitle>
+		<docbook:author>
+			<docbook:personname>John Hornibrook</docbook:personname>
+		</docbook:author>
+		<docbook:author>
+			<docbook:personname>Editors : Guy Lohman, Terry Purcell</docbook:personname>
+		</docbook:author>
+	</docbook:info>
+	<docbook:para>
+Has this ever happened to you? You have an important report query that has been running on an IBM® DB2® for Linux®, UNIX®, and Windows® data 
 server consistently in 25 seconds for the past year. Catalog statistics are regularly collected for tables referenced in the query using the 
 RUNSTATS utility. Suddenly, one day this report query takes 250 seconds to execute after statistics have been collected. Or another query in 
 the same reporting application consistently executes in 15 seconds. A small change is made to one of the search conditions in this query that 
-doesn&rsquo;t significantly increase the size of the result set, and execution now takes 500 seconds! After following standard performance problem 
+doesn’t significantly increase the size of the result set, and execution now takes 500 seconds! After following standard performance problem 
 determination procedures, you discover that the access plan has changed in both scenarios. Now what do you do?
-	</p>
-	<p>
+	</docbook:para>
+	<docbook:para>
 This edition of the Intelligent Optimizer will discuss some of the reasons why access plans occasionally change for the worse and what you can 
 do to prevent access plan flip-flop from happening.
-	</p>
-	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20757"></a>A Reactive Approach</h2></div></div></div>
-		
-		<p>
-Once you&rsquo;ve determined that a query&rsquo;s performance degradation is due to an access plan change, you can compare the differences to try to 
+	</docbook:para>
+	<docbook:section>
+		<docbook:title>A Reactive Approach</docbook:title>
+		<docbook:para>
+Once you’ve determined that a query’s performance degradation is due to an access plan change, you can compare the differences to try to 
 understand why the DB2 data server optimizer chose a new access plan. The explain facility is the recommended tool for capturing access plans. 
-The access plan&rsquo;s details are written to a set of explain tables. You can use the db2exfmt tool to format the contents of the explain tables 
+The access plan’s details are written to a set of explain tables. You can use the db2exfmt tool to format the contents of the explain tables 
 to produce a text file, or you can use the Data Studio Visual Explain tool to provide a graphical view of the access plan. You can read more 
 about the explain facility 
-			<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0005134.html" target="_top">here</a>
-		</p>
-		<p>
+			<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0005134.html'>here</docbook:link>
+		</docbook:para>
+		<docbook:para>
 The explain facility provides detailed information about the access plan, including each access plan operator, their sequence of execution, 
 the predicates they apply, the number of rows they process, and their estimated cost. The number of rows processed by an access plan operator 
-directly affects its cost. Sometimes the optimizer mis-estimates the number of rows &ndash; or cardinality &ndash; because of missing or outdated catalog 
+directly affects its cost. Sometimes the optimizer mis-estimates the number of rows – or cardinality – because of missing or outdated catalog 
 statistics. The inaccurate cardinality estimates may result in inappropriate access plan changes, so verifying them is often a good place for 
 you to start. The cardinality estimates are based on the number of rows in each referenced database object (table, nickname, table function or 
 materialized query table) and the predicates applied to those objects. It is possible that the cardinality catalog statistic for a base object 
 is inaccurate or it is possible that the selectivity estimate for one or more of the predicates applied to the base object is inaccurate. You 
-can verify the optimizer&rsquo;s cardinality estimates by running subsets of the original query to return a count of the actual number of rows 
+can verify the optimizer’s cardinality estimates by running subsets of the original query to return a count of the actual number of rows 
 processed by specific access plan operators. Alternatively, if DB2 9.7 is being used, you can enable the DB2 data server to automatically 
 capture the actual runtime cardinality of each operator and store them in the explain tables, where you can later format the contents using 
 db2exfmt1. You can read more about capturing actual runtime cardinalities 
-			<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0056362.html" target="_top">here</a>
-		</p>
-		<p>	
-Once you&rsquo;ve identified and corrected any inaccurate cardinality estimates - where that is possible - the access plan may still not have changed, 
+			<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0056362.html'>here</docbook:link>
+		</docbook:para>
+		<docbook:para>	
+Once you’ve identified and corrected any inaccurate cardinality estimates - where that is possible - the access plan may still not have changed, 
 or it may have changed but is still not performing as well as the original access plan. You will then need to perform deeper analysis to 
 understand why the optimizer is still not choosing the better access plan.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 As you can appreciate by this point, analyzing poorly performing access plans requires considerable time and skill. While access plan analysis 
 skills are very valuable for you to have, performing such a deep analysis for more than a relatively small number of query access plan changes 
-is probably impractical. Quite often, access plan problems need to be corrected quickly, and there isn&rsquo;t time to perform the steps described 
+is probably impractical. Quite often, access plan problems need to be corrected quickly, and there isn’t time to perform the steps described 
 above. So a more proactive approach is preferable.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20771"></a>A Proactive Approach</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>A Proactive Approach</docbook:title>
+		<docbook:para>
 Rather than scrambling to fix query access plan problems in panic situations, there are a number of modifications that you can make to your 
 SQL statements, data server configuration, and catalog statistics, to avoid unexpected access plan changes. These modifications allow the 
 optimizer to more accurately cost access plans so that queries run faster. Moreover, when access plan cost estimates are accurate, access 
-plans are less likely to change unexpectedly for the worse, when some aspect of the environment that is considered by the optimizer&rsquo;s cost 
+plans are less likely to change unexpectedly for the worse, when some aspect of the environment that is considered by the optimizer’s cost 
 model changes. For example, a small increase in the number of rows in a table should not result in a new access plan that runs significantly 
 slower. Access plans usually change incorrectly in this type of situation because of other costing inaccuracies. In other words, the 
-optimizer&rsquo;s view of the world is distorted, so it is making decisions based on bad data. The following sections in this article describe how 
-you can improve the optimizer&rsquo;s &ldquo;vision&rdquo; so it has a clear view of the best access path.
-		</p>
-	</div>
+optimizer’s view of the world is distorted, so it is making decisions based on bad data. The following sections in this article describe how 
+you can improve the optimizer’s “vision” so it has a clear view of the best access path.
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2077A"></a>Writing SQL Statements</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Writing SQL Statements</docbook:title>
+		<docbook:para>
 SQL is a powerful language that enables you to specify relational expressions in syntactically different but semantically equivalent ways. 
 However, some semantically equivalent variations are easier to optimize than others. Although the DB2 data server optimizer has a powerful 
 query rewrite capability, it might not always be able to rewrite an SQL statement into the most optimal form. There are also certain SQL 
 constructs that can limit the access plans considered by the query optimizer. For example, complex expressions in predicates can limit 
-the optimizer&rsquo;s ability to compute accurate selectivity estimates and can prevent certain access plan operators from being used. The following 
+the optimizer’s ability to compute accurate selectivity estimates and can prevent certain access plan operators from being used. The following 
 are some examples of such predicates:-
-			</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-					<pre class="programlisting">WHERE SALES.PRICE * SALES.DISCOUNT = TRANS.FINAL_PRICE</pre>
-					</li><li class="listitem">
-					<pre class="programlisting">WHERE UPPER(CUST.LASTNAME) = TRANS.NAME</pre>
-				</li><li class="listitem">
-					<pre class="programlisting">WHERE INTEGER(TRANS_DATE)/100 = 200802</pre>
-				</li></ol></div><p>
-		</p>
-		<p>	
+			<docbook:orderedlist>
+				<docbook:listitem>
+					<docbook:programlisting>WHERE SALES.PRICE * SALES.DISCOUNT = TRANS.FINAL_PRICE</docbook:programlisting>
+					</docbook:listitem>
+				<docbook:listitem>
+					<docbook:programlisting>WHERE UPPER(CUST.LASTNAME) = TRANS.NAME</docbook:programlisting>
+				</docbook:listitem>
+				<docbook:listitem>
+					<docbook:programlisting>WHERE INTEGER(TRANS_DATE)/100 = 200802</docbook:programlisting>
+				</docbook:listitem>
+			</docbook:orderedlist>
+		</docbook:para>
+		<docbook:para>	
 All of these predicates may prevent the optimizer from computing an accurate selectivity estimate. The first two predicates will limit the 
 join method to nested-loop join because hash join and merge join cannot be used if the join predicate contains an expression. The third 
 predicate cannot be applied by an index on the TRANS_DATE column using start/stop keys. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 One approach you can use to avoid expressions in predicates is to materialize the expression in the table as a generated column. An index can 
 then be created on the column. For example:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 CREATE TABLE CUSTOMER 
 (LASTNAME   VARCHAR(100), 
  U_LASTNAME VARCHAR(100) 
@@ -1777,248 +2026,278 @@ CREATE TABLE CUSTOMER
 );
 
 CREATE INDEX CUST_U_LASTNAME ON CUSTOMER(U_LASTNAME)
-			</pre><p>
-		</p>
-		<p>	
+			</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>	
 Another approach is to use the inverse of the expression, to avoid referencing a column in the expression. With this approach, the column is 
 referenced alone on one side of the predicate. For example, you can write the third predicate above as:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 WHERE TRANS_DATE BETWEEN 20080201 AND 20080229
-			</pre><p>
-		</p>
-		<p>	
+			</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>	
 This allows the BETWEEN predicate to be applied as a start and stop key on an index on TRANS_DATE.
-		</p>
-		<p>
-			<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0054707.html" target="_top">This section</a>
+		</docbook:para>
+		<docbook:para>
+			<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0054707.html'>This section</docbook:link>
 of the DB2 9.7 Information Center contains more information about best practices for writing good SQL statements.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Another potential problem for query optimization is the use of input variables, such as host variables and parameter markers, in predicates, 
 rather than literals. For example:
-			</p><pre class="programlisting">WHERE TRANS_DATE BETWEEN ? AND ?</pre><p>
-		</p>
-		<p>	
+			<docbook:programlisting>WHERE TRANS_DATE BETWEEN ? AND ?</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>	
 When literals are specified in the predicate, the optimizer can compare them to frequent value or histogram statistics to compute a more 
 accurate selectivity estimate. Using these distribution statistics will result in a more accurate selectivity estimate when the data is 
 skewed or when range predicates are used. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Input variables are essential for good statement preparation time in an online transaction processing (OLTP) environment, where statements 
 tend to be simpler and query access plan selection is more straightforward. Multiple executions of the same query with different input 
 variable values can reuse the compiled access section in the dynamic statement cache, avoiding expensive SQL statement compilations whenever 
 the input values change. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 However, for complex queries, input variables can cause problems because plan selection is more complex and the optimizer needs more information 
 to make the best decisions. Moreover, for complex queries, statement compilation time is usually a small component of total execution time, and 
 complex queries do not tend to be repeated with exactly the same predicates, so they do not benefit from the dynamic statement cache.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 If input variables need to be used in a complex query workload, consider using the REOPT bind option. The REOPT bind option defers statement 
 compilation from PREPARE to OPEN or EXECUTE time, when the input variable values are known. The values are passed to the optimizer so it can 
 use them to compute a more accurate selectivity estimate. The REOPT bind option can also be used for predicates that reference special 
 registers, such as:
-			</p><pre class="programlisting">WHERE TRANS_DATE &lt; CURRENT DATE</pre><p>
-		</p>
-		<p>
-			<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0055082.html" target="_top">This Information Center page</a>	
+			<docbook:programlisting>WHERE TRANS_DATE &lt; CURRENT DATE</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>
+			<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0055082.html'>This Information Center page</docbook:link>	
 contains more details on how to use the REOPT bind option, for different types of applications.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207CD"></a>Data Server Configuration</h2></div></div></div>
-		
-		<p>
-There are a number of configuration options that affect the DB2 data server&rsquo;s performance, such as database and database manager configuration 
+	<docbook:section>
+		<docbook:title>Data Server Configuration</docbook:title>
+		<docbook:para>
+There are a number of configuration options that affect the DB2 data server’s performance, such as database and database manager configuration 
 parameters, registry variables, bind options, special registers, and database object attributes. Some of these configuration options have a 
-direct effect on the DB2 data server optimizer because they provide information about the system&rsquo;s capabilities that is considered when 
-estimating the cost of access plans. Therefore, access plans will tend to be more stable if configuration options important to the optimizer&rsquo;s 
+direct effect on the DB2 data server optimizer because they provide information about the system’s capabilities that is considered when 
+estimating the cost of access plans. Therefore, access plans will tend to be more stable if configuration options important to the optimizer’s 
 cost model are set accurately. 
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207D6"></a>Configuration Parameters</h2></div></div></div>
-		
-		<p>
-The following two database manager configuration parameters are used by the optimizer&rsquo;s cost model. While both are set automatically by the DB2 
+	<docbook:section>
+		<docbook:title>Configuration Parameters</docbook:title>
+		<docbook:para>
+The following two database manager configuration parameters are used by the optimizer’s cost model. While both are set automatically by the DB2 
 data server, you should review them to ensure that they are set to appropriate values for your environment.
-			</p><div class="variablelist"><dl><dt><span class="term">CPUSPEED</span></dt><dd>
+			<docbook:variablelist>
+				<docbook:varlistentry>
+					<docbook:term>CPUSPEED</docbook:term>
+					<docbook:listitem>
 The average time to execute a machine instruction in milliseconds. This value is automatically computed by the DB2 data server. It can also be 
 set manually.
-					</dd><dt><span class="term">COMM_BANDWIDTH</span></dt><dd>
+					</docbook:listitem>
+				</docbook:varlistentry>
+				<docbook:varlistentry>
+					<docbook:term>COMM_BANDWIDTH</docbook:term>
+					<docbook:listitem>
 The communication bandwidth between database partition servers in megabytes per second. This value is automatically computed by the DB2 data 
 server based on the speed of the underlying communications adapter.  This value is used by the query optimizer to estimate the cost of 
 transferring data between the database partition servers of a partitioned database system.
-					</dd></dl></div><p>
-The optimizer&rsquo;s cost model also considers the size of the buffer pools and the amount of available sortheap memory. The cost model also 
+					</docbook:listitem>
+				</docbook:varlistentry>
+			</docbook:variablelist>
+The optimizer’s cost model also considers the size of the buffer pools and the amount of available sortheap memory. The cost model also 
 considers the amount of memory available for acquiring locks, so that it can chose the best lock granularity appropriate for the specified 
 isolation level. The size of these memory resources should be determined based on available system memory and the type of workload running 
 on your data server. You can specify the size of these memory resources yourself, or you can let the DB2 data server do it for you, using the 
 self-tuning memory feature. Whatever approach you choose, you should be aware that the size of these memory resources is considered by the 
 optimizer too.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 The AVG_APPLS database configuration parameter is used by the query optimizer to help estimate how much buffer pool will be available at 
-runtime for the chosen access plan. This parameter is only used by the optimizer&rsquo;s cost model and doesn&rsquo;t directly affect the allocation of 
+runtime for the chosen access plan. This parameter is only used by the optimizer’s cost model and doesn’t directly affect the allocation of 
 system resources at query execution time. When running the DB2 data server in a multi-user environment, particularly with complex queries and 
 a large buffer pool, this parameter informs the query optimizer that multiple query users will be using your system, so that the optimizer 
 should be more conservative in its assumptions of buffer pool availability. However, setting this parameter too high may result in access 
 plans that favor using more CPU or sortheap, due to incorrectly estimating that extra I/O will occur because of insufficient buffer pool 
 memory. It is recommended that this parameter not be set higher than 3 or 5, if it is even necessary to set it at all. 
-		</p>
-	</div>
-	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207F7"></a>Table Space Attributes</h2></div></div></div>
-		
-		<p>
+		</docbook:para>
+	</docbook:section>
+	<docbook:section>
+		<docbook:title>Table Space Attributes</docbook:title>
+		<docbook:para>
 The optimizer also considers storage subsystem characteristics in the cost model. The storage subsystem characteristics are represented as 
 table space attributes. You can specify table space attributes using the CREATE or ALTER TABLESPACE statements. The optimizer considers the 
 following table space attributes. 
-		</p><div class="variablelist"><dl><dt><span class="term">PREFETCHSIZE</span></dt><dd>The number of pages to be read when prefetching is performed.</dd><dt><span class="term">EXTENTSIZE</span></dt><dd>The size of each extent in pages. This many pages are written to one container in the table space before 
+		<docbook:variablelist>
+			<docbook:varlistentry>
+				<docbook:term>PREFETCHSIZE</docbook:term>
+				<docbook:listitem>The number of pages to be read when prefetching is performed.</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>EXTENTSIZE</docbook:term>
+				<docbook:listitem>The size of each extent in pages. This many pages are written to one container in the table space before 
 				switching to the next container. This parameter can only be specified when a table space is created.
-				</dd><dt><span class="term">OVERHEAD</span></dt><dd>Provides an estimate of the time in milliseconds that is required by a table space container before any data 
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>OVERHEAD</docbook:term>
+				<docbook:listitem>Provides an estimate of the time in milliseconds that is required by a table space container before any data 
 				is read into memory. This overhead activity includes the container's I/O controller overhead as well as the disk latency time, 
 				which includes the disk seek time. 
-				</dd><dt><span class="term">TRANSFERRATE</span></dt><dd>Provides an estimate of the time in milliseconds that is required to read one page of data into memory.</dd></dl></div><p>		
-The DB2 data server doesn&rsquo;t automatically determine the table space overhead and transfer rate. If you don&rsquo;t specify values when the table space
+				</docbook:listitem>
+			</docbook:varlistentry>
+			<docbook:varlistentry>
+				<docbook:term>TRANSFERRATE</docbook:term>
+				<docbook:listitem>Provides an estimate of the time in milliseconds that is required to read one page of data into memory.</docbook:listitem>
+			</docbook:varlistentry>
+		</docbook:variablelist>		
+The DB2 data server doesn’t automatically determine the table space overhead and transfer rate. If you don’t specify values when the table space
 is created, default values are used by the optimizer. However they may not be representative of your storage subsystem. I/O can be the most 
 significant cost of an access plan, so it is important for you to set these parameters accurately. 			
-		<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0005051.html" target="_top">This Information Center page</a>	
+		<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0005051.html'>This Information Center page</docbook:link>	
 contains information on how to set these parameters accurately.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2082B"></a>Optimization Class</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Optimization Class</docbook:title>
+		<docbook:para>
 The DB2 data server allows you to control the level of optimization performed by the query optimizer. Different levels of optimization are 
 grouped into classes. You can specify the query optimization class using the CURRENT QUERY OPTIMIZATION special register or the QUERYOPT bind 
 option. Setting the optimization class can provide some of the advantages of explicitly specifying optimization techniques, particularly for 
 the following reasons:
-		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">To manage very small databases or very simple dynamic queries</li><li class="listitem">To accommodate memory limitations at compile time on your database server</li><li class="listitem">To reduce the query compilation time, such as PREPARE.</li></ul></div><p>	 
+		<docbook:itemizedlist>
+			<docbook:listitem>To manage very small databases or very simple dynamic queries</docbook:listitem> 
+			<docbook:listitem>To accommodate memory limitations at compile time on your database server</docbook:listitem>
+			<docbook:listitem>To reduce the query compilation time, such as PREPARE.</docbook:listitem>
+		</docbook:itemizedlist>	 
 Most statements can be adequately optimized with a reasonable amount of resources by using optimization class 5, which is the default query 
 optimization class. At a given optimization class, the query compilation time and resource consumption is primarily influenced by the 
 complexity of the query, particularly the number of joins and subqueries. However, compilation time and resource usage are also affected by 
 the amount of optimization performed.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Query optimization classes 1, 2, 3, 5, and 7 are all suitable for general-purpose use. Consider class 0 only if you require further reductions 
 in query compilation time and you know that the SQL statements are extremely simple. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Be aware that if you choose an optimization class that is too low for your workload, the estimated cost of the access plans may be inaccurate 
-because certain types of statistics aren&rsquo;t used. In particular, frequent value and histogram statistics aren&rsquo;t used at optimization class 0 
-and 1 and histogram statistics aren&rsquo;t used at optimization class 3. 
-<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0005277.html" target="_top">
-This DB2 Information Center page</a> provides more details on the different optimization classes and how to choose the best 
+because certain types of statistics aren’t used. In particular, frequent value and histogram statistics aren’t used at optimization class 0 
+and 1 and histogram statistics aren’t used at optimization class 3. 
+<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0005277.html'>
+This DB2 Information Center page</docbook:link> provides more details on the different optimization classes and how to choose the best 
 optimization class for your workload.
-		</p>
-	</div>	
+		</docbook:para>
+	</docbook:section>	
 
-	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2084A"></a>Catalog Statistics</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Catalog Statistics</docbook:title>
+		<docbook:para>
 The single most important action that you can take to stabilize your access plans is to ensure that accurate catalog statistics are available. 
 You can collect statistics by issuing the RUNSTATS command or you can configure the DB2 data server to automatically collect statistics for 
 you. You can also request for statistics to be collected when using the LOAD, CREATE INDEX, or REDISTRIBUTE utilities. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 If collecting statistics manually using the RUNSTATS command, you should use the following options at a minimum:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 RUNSTATS ON TABLE DB2USER.DAILY_SALES WITH DISTRIBUTION AND SAMPLED DETAILED INDEXES ALL
-			</pre><p>
+			</docbook:programlisting>
 Distribution statistics make the optimizer aware of data skew. Detailed index statistics provide more details about the I/O required to fetch 
 data pages when the table is accessed using a particular index. Collecting detailed index statistics consumes considerable CPU and memory 
 for large tables. The SAMPLED option provides detailed index statistics with nearly the same accuracy but requires a fraction of the CPU and 
 memory. These options are also used by automatic statistics collection when a statistical profile has not been provided for a table.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 To further improve query performance and access plan stability, you should consider collecting more advanced statistics such as column group 
 cardinalities, LIKE statistics or creating statistical views.
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2085C"></a>Column Group Statistics</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Column Group Statistics</docbook:title>
+		<docbook:para>
 Column group cardinality statistics represent the number of distinct values in a group of columns. This statistic helps the optimizer 
 recognize when the data in columns is correlated. Without it, the optimizer assumes that the data in columns is independent. For example, 
 consider an automobile table containing a MAKE and MODEL column with 20 and 200 distinct values, respectively. Assuming each value of MAKE 
 and MODEL occurs uniformly, the optimizer will compute the combined selectivity estimate of these predicates:
-			</p><pre class="programlisting">
-WHERE MAKE=&rsquo;HONDA&rsquo; AND MODEL=&rsquo;ODYSSEY&rsquo;
-			</pre><p>
+			<docbook:programlisting>
+WHERE MAKE=’HONDA’ AND MODEL=’ODYSSEY’
+			</docbook:programlisting>
 as (1/200) * (1/20) = 1/4000. However, it is unlikely that a particular model of automobile occurs for more than one make, so the number of 
 distinct make and model combinations is likely to be 200 and the combined selectivity of these predicates is 1/200. You can collect the 
 column group cardinality for these columns using this RUNSTATS command:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 RUNSTATS ON TABLE DB2USER.AUTOS ON ALL COLUMNS AND COLUMNS((MAKE,MODEL)) 
 WITH DISTRIBUTION AND SAMPLED DETAILED INDEXES ALL;
-			</pre><p>
-		</p>
-	</div>
+			</docbook:programlisting>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2086B"></a>LIKE Predicate Statistics</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>LIKE Predicate Statistics</docbook:title>
+		<docbook:para>
 If you specify LIKE predicates using the % wildcard character in any position other than at the end of the pattern, you should collect basic 
 information about the sub-element structure of the strings in your data. For example:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 WHERE KEYWORDS LIKE '%simulation%'
-			</pre><p>
-		</p>
-		<p>	
+			</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>	
 Table columns should contain sub-fields or sub-elements separated by blanks. For example, a four-row table DOCUMENTS contains a KEYWORDS 
 column with lists of relevant keywords for text retrieval purposes. The values in KEYWORDS are:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 'database simulation analytical business intelligence'
 'simulation model fruit fly reproduction temperature'
 'forestry spruce soil erosion rainfall'
 'forest temperature soil precipitation fire'
-			</pre><p>
-		</p>	
-		<p>
+			</docbook:programlisting>
+		</docbook:para>	
+		<docbook:para>
 In this example, each column value consists of 5 sub-elements, each of which is a word (the keyword), separated from the others by one blank.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 When the % wildcard character appears in some position other than at the end of the pattern, the optimizer assumes that the column being 
 matched contains a series of elements concatenated together, and it estimates the length of each element based on the length of the string, 
 excluding leading and trailing % characters. If you collect sub-element statistics, the optimizer will have information about the length or 
 each sub-element and the delimiter. It can use this additional information to more accurately estimate how many rows will match the predicate.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 To collect sub-element statistics, execute RUNSTATS with the LIKE STATISTICS clause. 
-		</p>
-	</div>	
+		</docbook:para>
+	</docbook:section>	
 
-	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20886"></a>Statistical Views</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Statistical Views</docbook:title>
+		<docbook:para>
 The statistics described above are all important for computing an accurate cardinality estimate; however there are some situations where more 
 sophisticated statistics are required. In particular, more sophisticated statistics are required to represent more complex relationships, such 
 as predicates involving expressions:
-			</p><pre class="programlisting">WHERE PRICE &gt; MSRP + MARKUP</pre><p>
+			<docbook:programlisting>WHERE PRICE &gt; MSRP + MARKUP</docbook:programlisting>
 relationships spanning multiple tables:
-			</p><pre class="programlisting">WHERE PRODUCT.NAME=&rsquo;BBQ&rsquo; AND PRODUCT.PRODKEY = DAILY_SALES.PRODKEY</pre><p>
+			<docbook:programlisting>WHERE PRODUCT.NAME=’BBQ’ AND PRODUCT.PRODKEY = DAILY_SALES.PRODKEY</docbook:programlisting>
 or anything other than predicates involving independent attributes and simple comparison operations. Statistical views are able to represent 
 these types of complex relationships because statistics are collected on the result set returned by the view, rather than the base tables 
 referenced by the view. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 When a query is compiled, the optimizer automatically tries to match the query to the available statistical views. When the optimizer computes 
 cardinality estimates for intermediate result sets, it uses the statistics from matching views to compute a better estimate. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Queries do not need to reference the statistical view directly in order for the optimizer to use it. The optimizer uses the same matching 
 mechanism that is used for materialized query tables (MQTs) to match queries automatically to statistical views. In this respect, statistical 
 views are very similar to MQTs, except they are not stored permanently, so they do not consume disk space, and do not have to be maintained.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 However, you do have to decide what statistical views to create, and create them.  You create a statistical view by first creating a view and 
 then enabling it for optimization using the ALTER VIEW statement. You then issue RUNSTATS on the statistical view. For example, in order to 
 create a statistical view to represent the join between the time dimension table and the fact table in a star schema, you would do the 
 following:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 CREATE VIEW SV_TIME_FACT AS 
 (SELECT T.* FROM TIME T, DAILY_SALES S
  WHERE T.TIMEKEY = S.TIMEKEY
@@ -2027,128 +2306,128 @@ CREATE VIEW SV_TIME_FACT AS
 ALTER VIEW SV_TIME_FACT ENABLE QUERY OPTIMIZATION;
 
 RUNSTATS ON TABLE DB2DBA.SV_TIME_FACT WITH DISTRIBUTION;
-			</pre><p>
-		</p>
-		<p>
+			</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>
 This statistical view can be used to improve the cardinality estimate - and consequently the access plan and query performance - for queries 
 such as:
-			</p><pre class="programlisting">
+			<docbook:programlisting>
 SELECT SUM(S.PRICE)  
 FROM DAILY_SALES S, TIME T, PRODUCT P
 WHERE 
 T.TIMEKEY = S.TIMEKEY AND T.YEAR_MON = 200712 AND 
-P.PRODKEY = S.PRODKEY AND P.PROD_DESC = &lsquo;Power drill&rsquo;;
-			</pre><p>
-		</p>
-		<p>
+P.PRODKEY = S.PRODKEY AND P.PROD_DESC = ‘Power drill’;
+			</docbook:programlisting>
+		</docbook:para>
+		<docbook:para>
 Without the statistical view, the optimizer assumes that all fact table TIMEKEY values corresponding to a particular time dimension YEAR_MON 
 value occur uniformly within the fact table. However, sales might have been particularly strong in December, resulting in many more sales 
 transactions than other months.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 There are many situations where statistical views can improve query performance and improve access plan stability. There are some 
 straightforward best practices available to help you determine what statistical views to create. You can find more information about 
 how statistical views work and when to create them in 
-<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0021713.html" target="_top">
+<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0021713.html'>
 this DB2 Information Center page.
-</a> .
-		</p>
-	</div>
+</docbook:link> .
+		</docbook:para>
+	</docbook:section>
 
-	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B1"></a>Handling Exceptions</h2></div></div></div>
-		
-		<p>
-Unfortunately, occasionally access plans continue to unexpectedly change for the worse, even though you&rsquo;ve taken the tuning actions described 
-above. Sometimes it is necessary for you to override the optimizer&rsquo;s decisions, in order to quickly correct a poorly performing access plan or 
-to reduce the risk of an existing access plan changing. If you&rsquo;ve properly tuned your SQL statements and your DB2 data server, you should only 
+	<docbook:section>
+		<docbook:title>Handling Exceptions</docbook:title>
+		<docbook:para>
+Unfortunately, occasionally access plans continue to unexpectedly change for the worse, even though you’ve taken the tuning actions described 
+above. Sometimes it is necessary for you to override the optimizer’s decisions, in order to quickly correct a poorly performing access plan or 
+to reduce the risk of an existing access plan changing. If you’ve properly tuned your SQL statements and your DB2 data server, you should only 
 need to override the optimizer in exceptional situations. Nonetheless, it is important for you to be aware of the different ways to override 
 the optimizer, so that you can react quickly in emergency situations, or so that you can prevent emergency situations from occurring at all. 
-		</p>
-	</div>
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208BA"></a>Access Plan Reuse</h2></div></div></div>	
-		
-		<p>
+	<docbook:section>	
+		<docbook:title>Access Plan Reuse</docbook:title>
+		<docbook:para>
 Access plan reuse is a new feature available in DB2 9.7 that allows you to request that the access plans for static SQL statements be preserved 
 across binds or rebinds. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 In some situations, you might choose to rebind your packages in order to update the access plans to reflect changes in catalog statistics or 
 changes in the DB2 data server configuration. However, sometimes existing packages need to be rebound because of functional changes, such as a 
-release upgrade or the installation of a new service level, but you don&rsquo;t want the existing access plans to change. When a new DB2 data server 
+release upgrade or the installation of a new service level, but you don’t want the existing access plans to change. When a new DB2 data server 
 release is installed, existing packages must be rebound in order for access sections to be rebuilt, so that they are compatible with the 
-runtime component of the new data server release. When a new service level is installed, existing packages don&rsquo;t need to be rebound because 
+runtime component of the new data server release. When a new service level is installed, existing packages don’t need to be rebound because 
 access sections are compatible across service levels for the same release. However, you may want to rebuild existing access sections, to take 
 advantage of runtime improvements in the new service level. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Sometimes existing packages need to be rebound because of changes in database objects referenced by SQL statements in the packages. Changes to 
 the database objects may have implicitly invalidated existing packages, so they must be rebound before they can be used. You can rebind 
 invalidated packages yourself using the BIND or REBIND commands or you can let the DB2 data server automatically rebind the packages the next 
 time the application attempts to use the package.
-		</p>
-		<p>
-Ideally, access plans should change for the better when a package is rebound, but sometimes you cannot take that risk, because you aren&rsquo;t able 
+		</docbook:para>
+		<docbook:para>
+Ideally, access plans should change for the better when a package is rebound, but sometimes you cannot take that risk, because you aren’t able 
 to react fast enough to unexpected access plan changes.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 You can enable access plan reuse through the ALTER PACKAGE statement, or by using the APREUSE option on the BIND, REBIND, or PRECOMPILE command. 
-Packages that are subject to access plan reuse have the value &lsquo;Y&rsquo; in the APREUSE column of the SYSCAT.PACKAGES catalog view.
-		</p>
-		<p>
+Packages that are subject to access plan reuse have the value ‘Y’ in the APREUSE column of the SYSCAT.PACKAGES catalog view.
+		</docbook:para>
+		<docbook:para>
 The ALTER_ROUTINE_PACKAGE procedure is a convenient way for you to enable access plan reuse for compiled SQL objects, such as routines, 
 functions, and triggers. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Access plan reuse is most effective when changes to the schema and compilation environment are kept to a minimum. 
 If significant changes are made, it might not be possible to recreate the previous access plan. Examples of such significant changes include 
 dropping an index that is being used in an access plan, or recompiling an SQL statement at a different optimization level. Significant changes 
 to the query compiler's analysis of the statement can also result in the previous access plan no longer being reusable.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Access plans from packages that were produced by releases prior to DB2 9.7 cannot be reused.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 If an access plan cannot be reused, compilation continues, but a warning (SQL20516W) is returned with a reason code that indicates why the 
 attempt to reuse the access plan was not successful. Additional information is sometimes provided in the diagnostic messages that are available 
 through the explain facility.
-		</p>
-		<p>
-You can read more about access plan reuse in this <a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0055383.html" target="_top">DB2 Information Center page</a>.
-		</p>
-	</div>
+		</docbook:para>
+		<docbook:para>
+You can read more about access plan reuse in this <docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0055383.html'>DB2 Information Center page</docbook:link>.
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208E2"></a>Optimization Profiles</h2></div></div></div>
-		
-		<p>
+	<docbook:section>
+		<docbook:title>Optimization Profiles</docbook:title>
+		<docbook:para>
 The DB2 data server supports an even more direct way to influence access plans using optimization profiles. Optimization profiles allow you to 
 specify access plan details such as base access and join methods and join order. For example, you can specify that access to a particular 
 table should use a particular index or you can specify that two tables should be joined using the hash join method. Optimization profiles also 
 allow you to control query rewrite optimizations such transforming certain types of subqueries to joins. You can specify the base table access 
 methods, join methods, and join order for the entire access plan, or just a subset of the access plan.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 An optimization profile is specified as an XML document that you create and store in the SYSTOOLS.OPT_PROFILE table. You put an optimization 
 profile into effect for your application by specifying the optimization profile name using the CURRENT OPTIMIZATION PROFILE special register 
 for dynamic SQL statements, or by specifying the OPTPROFILE bind option for static SQL statements.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 An optimization profile contains optimization guidelines that specify the access plan details. An optimization profile can contain optimization 
 guidelines for one or more SQL statements. The SQL statement text is stored in the optimization profile along with the optimization guidelines. 
 When an optimization profile is in effect for your application, each SQL statement compiled by your application will be matched to the SQL 
 statements specified in the optimization profile. When a matching SQL statement is found in the optimization profile, the SQL compiler will use 
 the optimization guidelines for that SQL statement while optimizing it.
-		</p>
-		<div class="example"><a name="N208F0"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
-			
-			<pre class="programlisting">
+		</docbook:para>
+		<docbook:example>
+			<docbook:title>An example of an optimization profile</docbook:title>
+			<docbook:programlisting>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;OPTPROFILE VERSION=&ldquo;9.7.0"&gt;
+&lt;OPTPROFILE VERSION=“9.7.0"&gt;
 &lt;!--
 	Global optimization guidelines section. Optional but at most one.
 --&gt;
 &lt;OPTGUIDELINES&gt;
-	&lt;RTS TIME=&ldquo;1000"/&gt;
+	&lt;RTS TIME=“1000"/&gt;
 &lt;/OPTGUIDELINES&gt;
 &lt;!--
 	Statement profile section. Zero or more.
@@ -2159,68 +2438,86 @@ the optimization guidelines for that SQL statement while optimizing it.
   FROM DAILY_SALES S, TIME T, PRODUCT P
   WHERE 
   T.TIMEKEY = S.TIMEKEY AND T.YEAR_MON = 200712 AND 
-  P.PRODKEY = S.PRODKEY AND P.PROD_DESC = &lsquo;Power drill&rsquo;]]&gt;
+  P.PRODKEY = S.PRODKEY AND P.PROD_DESC = ‘Power drill’]]&gt;
 	&lt;/STMTKEY&gt;
 	&lt;OPTGUIDELINES&gt;
 &lt;HSJOIN&gt;
 		&lt;NLJOIN&gt;
 			&lt;IXSCAN TABLE="T" INDEX="TD_IX1"/&gt;
-			&lt;IXSCAN TABLE=&rdquo;S&rdquo; INDEX=&rdquo;DS_TIMEKEY&rdquo;/&gt;
+			&lt;IXSCAN TABLE=”S” INDEX=”DS_TIMEKEY”/&gt;
 		&lt;/NLJOIN&gt;
-		&lt;ACCESS TABLE=&rdquo;P&rdquo; /&gt;
+		&lt;ACCESS TABLE=”P” /&gt;
 	&lt;/HSJOIN&gt;
 	&lt;/OPTGUIDELINES&gt;
 &lt;/STMTPROFILE&gt;
 &lt;/OPTPROFILE&gt;
-			</pre>
-		</div></div><br class="example-break">	
-		<p>
+			</docbook:programlisting>
+		</docbook:example>	
+		<docbook:para>
 This optimization profile specifies an optimization guideline for one SQL statement. The optimization guideline is represented by the 
 OPTGUIDELINES element. This particular optimization guideline specifies that the TIME table should be accessed with the TD_IXI index and 
 then joined using a nested-loop join to the DAILY_SALES table which will be accessed on the inner of the join using index DS_TIMEKEY. 
 The result of this join will be joined to the PRODUCT table using a hash join. The PRODUCT table will be on the inner of the hash join. 
 The access to the PRODUCT table is specified using the ACCESS element, which means that the optimizer is free to choose the access method.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Tables are referenced in the optimization guideline by using the TABLE element to specify the correlation name used to reference the tables in 
 the original SQL statement. For example, the DAILY_SALES table is given the correlation name S in the original SQL statement, so you must 
 reference it as S when using the TABLE element. 
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 You may also specify global optimization guidelines in the optimization profile. Global optimization guidelines specify some aspect of the SQL 
 statement compilation environment, such as the optimization class, degree of parallelism, or eligible MQTs. Global optimization guidelines are 
 applied to all SQL statements that are compiled while the containing optimization profile is in effect. The global optimization guideline in 
 this example specifies a time limit of 1000 ms for collecting statistics at SQL statement compilation time, by the real-time statistics 
 collection feature.
-		</p>
-		<p>
+		</docbook:para>
+		<docbook:para>
 Optimization profiles are a powerful tool for controlling access plans; however, they should be used with caution. Optimization profiles 
 prevent access plans from adjusting to changes in your data and your environment. While this does accomplish access plan stabilization, 
 it may be a bad approach when used for extended periods of time, because the performance improvements resulting from better access plans 
 will never be realized. Optimization profiles are best used for exceptional situations when the tuning actions described above are 
 unsuccessful in improving or stabilizing access plans.
-		</p>
-		<p>
-<a class="ulink" href="http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0024522.html" target="_top">This 
-DB2 Information Center page</a> provides more details on how to use optimization profiles.  .
-		</p>
-	</div>
+		</docbook:para>
+		<docbook:para>
+<docbook:link xlink:href='http://publib.boulder.ibm.com/infocenter/db2luw/v9r7/topic/com.ibm.db2.luw.admin.perf.doc/doc/c0024522.html'>This 
+DB2 Information Center page</docbook:link> provides more details on how to use optimization profiles.  .
+		</docbook:para>
+	</docbook:section>
 	
-	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2090D"></a>Conclusion</h2></div></div></div>
-			
-		<p>
+	<docbook:section>
+		<docbook:title>Conclusion</docbook:title>	
+		<docbook:para>
 The DB2 data server query optimizer is more likely to choose optimal access plans consistently if you provide it accurate information about 
 your data and system configuration. Access plans will also tend to be more stable because they will be less sensitive to small changes in 
-your data and system configuration. How you write your SQL statements also affects the optimizer&rsquo;s ability to choose optimal access plans. 
+your data and system configuration. How you write your SQL statements also affects the optimizer’s ability to choose optimal access plans. 
 Following the tuning actions described in this article should help you achieve consistently good query performance. However, for the 
-exceptional situations in which the described tuning actions don&rsquo;t have the desired effect, you can override the optimizer using access plan 
+exceptional situations in which the described tuning actions don’t have the desired effect, you can override the optimizer using access plan 
 reuse or optimization profiles. The overall combination of system tuning actions and selective optimizer overrides should help you achieve 
 your DB2 data server query performance objectives.
-		</p>
-	</div>	
-	<div class="appendix" title="A.&nbsp;"><h2 class="title" style="clear: both"><a name="N20916"></a>A.&nbsp;</h2>
-		
-	</div>
-</div>
+		</docbook:para>
+	</docbook:section>	
+	<docbook:appendix>
+		<docbook:appendixinfo>
+			<docbook:legalnotice>
+				<docbook:para>
+IBM and DB2 are registered trademarks of International Business Machines Corporation in the United States, other countries, or both.
+				</docbook:para>
+				<docbook:para>
+Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both.
+				</docbook:para>
+				<docbook:para>
+UNIX is a registered trademark of The Open Group in the United States and other countries.
+				</docbook:para>
+				<docbook:para>
+Windows is a trademark of Microsoft Corporation in the United States, other countries, or both.
+				</docbook:para>
+				<docbook:para>
+Other company, product, or service names may be trademarks or service marks of others.
+				</docbook:para>
+			</docbook:legalnotice>
+		</docbook:appendixinfo>
+	</docbook:appendix>
+</docbook:article>
 
-</div></body></html>
+</docbook:book>
