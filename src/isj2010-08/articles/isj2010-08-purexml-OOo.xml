@@ -7,31 +7,23 @@
 	<docbook:section>
 		<docbook:title>Abstract</docbook:title>
 		<docbook:para>
-			ODF (Open Document Format) is a file format for office documents.  At a high level, 
-			the ODF specification requires five mandatory XML documents and other optional items.  
-			This article will describe how DB2 pureXML could be used to handle ODF spreadsheet
-			documents. Other ODF documents such as word documents, presentations, formulas, etc. 
-			could also be handled by DB2 because the ODF specification refers mainly to an archive of 
-			XML documents. However, for the sake of this article, we are considering only spreadsheets
-			because it is easier to co-relate the rows and columns of the spreadsheet document and that 
-			of a DB2 table. This article can even be further extended into an on-line document editing 
-			software with .ods as file format and DB2 pureXML as the database.
+ODF (Open Document Format) is a file format for office documents.  At a high level, the ODF specification requires five mandatory XML documents and other optional items.  
+This article will describe how DB2 pureXML could be used to handle ODF spreadsheet documents. Other ODF documents such as word documents, presentations, formulas, etc. 
+could also be handled by DB2 because the ODF specification refers mainly to an archive of XML documents. However, for the sake of this article, we are considering only spreadsheets
+because it is easier to co-relate the rows and columns of the spreadsheet document and that of a DB2 table. This article can even be further extended into an on-line document editing 
+software with .ods as file format and DB2 pureXML as the database.
 		</docbook:para>
 	</docbook:section>
+	
 	<docbook:section>
 		<docbook:title>Introduction</docbook:title>
 		<docbook:para>The ODF specification and DB2 pureXML are introduced below.</docbook:para>
 		<docbook:section>
 			<docbook:title>The ODF specification</docbook:title>
 			<docbook:para>
-				The Open Document Format specification was originally developed by
-				<docbook:link xlink:href="http://www.sun.com/">Sun</docbook:link>
-				and the standard was developed by OASIS Open Document Format for
-				Office Applications (Open Document) TC – OASIS ODF TC. This standard
-				is based on XML format originally created and implemented by the
-				OpenOffice.org office suite. In addition to being a free and open
-				OASIS standard, it is published (in one of its version 1.0
-				manifestations) as an ISO/IEC international standard,
+The Open Document Format specification was originally developed by 	<docbook:link xlink:href="http://www.sun.com/">Sun</docbook:link> and the standard was developed by OASIS Open 
+Document Format for Office Applications (Open Document) TC – OASIS ODF TC. This standard is based on XML format originally created and implemented by the OpenOffice.org office suite. 
+In addition to being a free and open OASIS standard, it is published (in one of its version 1.0 manifestations) as an ISO/IEC international standard,
 				<docbook:link
 					xlink:href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485">
 					ISO/IEC 26300:2006 Open Document Format for Office Applications (OpenDocument) v1.0</docbook:link>.
@@ -40,21 +32,18 @@
 		<docbook:section>
 			<docbook:title>DB2 pureXML</docbook:title>
 			<docbook:para>
-				<docbook:link xlink:href="http://www-01.ibm.com/software/data/db2/xml/">DB2 pureXML</docbook:link>
-				is IBM software for management of XML data. It eliminates much of the work typically involved in the management of XML 
-				data. From validation of XML documents, to generation of documents and support for querying XML data in the form of
-				<docbook:link xlink:href="http://www.w3.org/TR/xquery/">XQuery</docbook:link> and traditional SQL, DB2 pureXML is a 
-				complete solution to manage XML data in enterprise-scale databases.
+<docbook:link xlink:href="http://www-01.ibm.com/software/data/db2/xml/">DB2 pureXML</docbook:link> is IBM software for management of XML data. It eliminates much of the work typically 
+involved in the management of XML data. From validation of XML documents, to generation of documents and support for querying XML data in the form of
+<docbook:link xlink:href="http://www.w3.org/TR/xquery/">XQuery</docbook:link> and traditional SQL, DB2 pureXML is a complete solution to manage XML data in enterprise-scale databases.
 			</docbook:para>
 		</docbook:section>
 	</docbook:section>
 	<docbook:section>
 		<docbook:title>The ODF document</docbook:title>
-		<docbook:para>An ODF document is a zipped file of five mandatory XML
-			files and other optional components. This can be seen by running your
-			favorite un-zip utility to list the components. Here is the result
-			after  running the unzip command on an .ods file from command line to
-			list the files. The XML files are highlighted below.</docbook:para>
+		<docbook:para>
+An ODF document is a zipped file of five mandatory XML files and other optional components. This can be seen by running your favorite unzip utility to list the components. Here is the 
+result after running the unzip command on an .ods file from command line to	list the files. The XML files are highlighted below.
+		</docbook:para>
 		<docbook:para>
 			<docbook:inlinemediaobject>
 				<docbook:imageobject>
@@ -63,7 +52,8 @@
 				</docbook:imageobject>
 			</docbook:inlinemediaobject>
 		</docbook:para>
-		<docbook:para>Here is a short description of XML files as seen above.
+		<docbook:para>
+Here is a short description of XML files as seen above.
 		</docbook:para>
 		<docbook:table frame="all">
 			<docbook:title>XML files of an ODF document</docbook:title>
@@ -105,9 +95,8 @@
 			</docbook:tgroup>
 		</docbook:table>
 		<docbook:para>
-			For this article, we are interested in the content.xml file which will hold the contents of the document. The document 
-			used for this article is a simple shopping list named Shop.ods.  Below is the spreadsheet as it appears in OpenOffice,
-			with the first row highlighted. 
+For this article, we are interested in the content.xml file which will hold the contents of the document. The document used for this article is a simple shopping list named Shop.ods.  
+Below is the spreadsheet as it appears in OpenOffice, with the first row highlighted. 
 		</docbook:para>
 		<docbook:mediaobject>
 			<docbook:imageobject>
@@ -117,7 +106,7 @@
 			<docbook:caption>Example ODF spreadsheet (row highlighted)</docbook:caption>
 		</docbook:mediaobject>
 		<docbook:para>
-			And below we have part of the equivalent content.xml file, with the XML markup for the row highlighted.
+And below we have part of the equivalent content.xml file, with the XML markup for the row highlighted.
 		</docbook:para>
 		<docbook:mediaobject>
 			<docbook:imageobject>
@@ -130,11 +119,9 @@
 	<docbook:section>
 		<docbook:title>A bit of hacking</docbook:title>
 		<docbook:para>
-			Now that we know a bit about an ODF document, let us try to create one without actually 
-			running a standard software	dealing with ODF documents. As noted above, the content.xml 
-			file holds the data entered while creating the spreadsheet. So, if this file is changed 
-			and zipped along with the rest of the files in the original archive (that is, the .ods 
-			file), we will be having a “legal” ODF spreadsheet. To test this, follow the steps below.
+Now that we know a bit about an ODF document, let us try to create one without actually running a standard software	dealing with ODF documents. As noted above, the content.xml 
+file holds the data entered while creating the spreadsheet. So, if this file is changed and zipped along with the rest of the files in the original archive (that is, the .ods 
+file), we will be having a “legal” ODF spreadsheet. To test this, follow the steps below.
 		</docbook:para>
 		<docbook:orderedlist>
 			<docbook:listitem>Open the content.xml file in a regular text editor</docbook:listitem>
@@ -709,17 +696,22 @@
 			<docbook:example>
 				<docbook:title>Updated content.xml document</docbook:title>
 				<docbook:programlisting>
-					VALUES XMLQUERY(
-					'declare namespace office="urn:oasis:names:tc:opendocument:xmlns:office:1.0";
-					 declare namespace table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"  ;
-					 transform
-					 copy $dummy := db2-fn:sqlquery("SELECT DOCCONTENT FROM ODF.DOCCONTENTXML WHERE DOCID = 0") ,
-					 $rows := db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
-					 modify do
-					 insert $rows/dummy/* as last 
-					 into $dummy/office:document-content/office:body/office:spreadsheet/table:table
-					return $dummy'
-					); 
+VALUES XMLQUERY(
+'declare namespace 
+office="urn:oasis:names:tc:opendocument:xmlns:office:1.0";
+declare namespace 
+table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"  ;
+transform
+copy $dummy := db2-fn:sqlquery("
+	SELECT DOCCONTENT FROM ODF.DOCCONTENTXML WHERE DOCID = 0
+") ,
+$rows := db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
+modify do
+insert $rows/dummy/* as last 
+into 
+$dummy/office:document-content/office:body/office:spreadsheet/table:table
+return $dummy'
+); 
 				</docbook:programlisting>
 			</docbook:example>
 			<docbook:para>
