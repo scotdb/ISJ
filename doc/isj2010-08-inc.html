@@ -18,9 +18,9 @@
 			Cache Versus Buffer
 		</a></span></dt><dt><span class="section"><a href="#N2062E">
 			A Little Bit About DFSMS
-		</a></span></dt><dt><span class="section"><a href="#N2068B">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206C1">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206D6">Best Practices</a></span></dt><dt><span class="section"><a href="#N20700">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N2070F">Don&rsquo;t Flip Out!</a></span></dt><dd><dl><dt><span class="section"><a href="#N2072E">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20748">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N20751">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A4">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AD">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CE">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N20802">Optimization Class</a></span></dt><dt><span class="section"><a href="#N20821">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20833">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N20842">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085D">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20888">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N20891">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B9">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E4">Conclusion</a></span></dt><dt><span class="section"><a href="#N208ED"></a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1. <a href="#N20093">XML files of an ODF document</a></dt><dt>2. <a href="#N2020B">Prefix and namespace URI used in	content.xml	document</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N2016F">DB2 table to hold content.xml file of the ODF spreadsheet</a></dt><dt>2. <a href="#N20180">Contents of flat file to be used for loading DOCCONTENTXML table</a></dt><dt>3. <a href="#N20189">IMPORT statement to load content.xml into DOCCONTENTXML table</a></dt><dt>4. <a href="#N201AD">XPath expression to get first row, second column value</a></dt><dt>5. <a href="#N2024F">Query to extract cell values from content.xml into tabular format</a></dt><dt>6. <a href="#N20267">View on the content.xml document</a></dt><dt>7. <a href="#N20273">Result of SELECT on the view V_CONTENT</a></dt><dt>8. <a href="#N2028E">DDL for table to hold the shopping prices</a></dt><dt>9. <a href="#N2029A">Query to obtain list and cost of items with grand total</a></dt><dt>10. <a href="#N202A6">Result of query for obtaining list and cost of items</a></dt><dt>11. <a href="#N202B8">View with list and cost of items in shopping list</a></dt><dt>12. <a href="#N2030B">A sample <code class="code">&lt;table:table-row&gt;</code> element</a></dt><dt>13. <a href="#N20323">Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</a></dt><dt>14. <a href="#N2032F">
+		</a></span></dt><dt><span class="section"><a href="#N2068B">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206C1">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206D6">Best Practices</a></span></dt><dt><span class="section"><a href="#N20700">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N2070F">Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping</a></span></dt><dd><dl><dt><span class="section"><a href="#N2072B">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20745">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2074E">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A1">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AA">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CB">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N207FF">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2081E">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20830">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2083F">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085A">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20885">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N2088E">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B6">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E1">Conclusion</a></span></dt><dt><span class="section"><a href="#N208EA"></a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1. <a href="#N20093">XML files of an ODF document</a></dt><dt>2. <a href="#N2020B">Prefix and namespace URI used in	content.xml	document</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N2016F">DB2 table to hold content.xml file of the ODF spreadsheet</a></dt><dt>2. <a href="#N20180">Contents of flat file to be used for loading DOCCONTENTXML table</a></dt><dt>3. <a href="#N20189">IMPORT statement to load content.xml into DOCCONTENTXML table</a></dt><dt>4. <a href="#N201AD">XPath expression to get first row, second column value</a></dt><dt>5. <a href="#N2024F">Query to extract cell values from content.xml into tabular format</a></dt><dt>6. <a href="#N20267">View on the content.xml document</a></dt><dt>7. <a href="#N20273">Result of SELECT on the view V_CONTENT</a></dt><dt>8. <a href="#N2028E">DDL for table to hold the shopping prices</a></dt><dt>9. <a href="#N2029A">Query to obtain list and cost of items with grand total</a></dt><dt>10. <a href="#N202A6">Result of query for obtaining list and cost of items</a></dt><dt>11. <a href="#N202B8">View with list and cost of items in shopping list</a></dt><dt>12. <a href="#N2030B">A sample <code class="code">&lt;table:table-row&gt;</code> element</a></dt><dt>13. <a href="#N20323">Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</a></dt><dt>14. <a href="#N2032F">
 					Insert generated <code class="code">&lt;table:table-row&gt;</code> elements with <code class="code">&lt;dummy&gt;</code> parent
-				</a></dt><dt>15. <a href="#N20341">Updated content.xml document</a></dt><dt>1. <a href="#N208C7">An example of an optimization profile</a></dt></dl></div>
+				</a></dt><dt>15. <a href="#N20341">Updated content.xml document</a></dt><dt>1. <a href="#N208C4">An example of an optimization profile</a></dt></dl></div>
 
 	
 
@@ -48,31 +48,23 @@
 	<div class="section" title="Abstract"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20046"></a>Abstract</h2></div></div></div>
 		
 		<p>
-			ODF (Open Document Format) is a file format for office documents. &nbsp;At a high level, 
-			the ODF specification requires five mandatory XML documents and other optional items. &nbsp;
-			This article will describe how DB2 pureXML could be used to handle ODF spreadsheet
-			documents. Other ODF documents such as word documents, presentations, formulas, etc. 
-			could also be handled by DB2 because the ODF specification refers mainly to an archive of 
-			XML documents. However, for the sake of this article, we are considering only spreadsheets
-			because it is easier to co-relate the rows and columns of the spreadsheet document and that 
-			of a DB2 table. This article can even be further extended into an on-line document editing 
-			software with .ods as file format and DB2 pureXML as the database.
+ODF (Open Document Format) is a file format for office documents. &nbsp;At a high level, the ODF specification requires five mandatory XML documents and other optional items. &nbsp;
+This article will describe how DB2 pureXML could be used to handle ODF spreadsheet documents. Other ODF documents such as word documents, presentations, formulas, etc. 
+could also be handled by DB2 because the ODF specification refers mainly to an archive of XML documents. However, for the sake of this article, we are considering only spreadsheets
+because it is easier to co-relate the rows and columns of the spreadsheet document and that of a DB2 table. This article can even be further extended into an on-line document editing 
+software with .ods as file format and DB2 pureXML as the database.
 		</p>
 	</div>
+	
 	<div class="section" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2004F"></a>Introduction</h2></div></div></div>
 		
 		<p>The ODF specification and DB2 pureXML are introduced below.</p>
 		<div class="section" title="The ODF specification"><div class="titlepage"><div><div><h3 class="title"><a name="N20057"></a>The ODF specification</h3></div></div></div>
 			
 			<p>
-				The Open Document Format specification was originally developed by
-				<a class="ulink" href="http://www.sun.com/" target="_top">Sun</a>
-				and the standard was developed by OASIS Open Document Format for
-				Office Applications (Open Document) TC &ndash; OASIS ODF TC. This standard
-				is based on XML format originally created and implemented by the
-				OpenOffice.org office suite. In addition to being a free and open
-				OASIS standard, it is published (in one of its version 1.0
-				manifestations) as an ISO/IEC international standard,
+The Open Document Format specification was originally developed by 	<a class="ulink" href="http://www.sun.com/" target="_top">Sun</a> and the standard was developed by OASIS Open 
+Document Format for Office Applications (Open Document) TC &ndash; OASIS ODF TC. This standard is based on XML format originally created and implemented by the OpenOffice.org office suite. 
+In addition to being a free and open OASIS standard, it is published (in one of its version 1.0 manifestations) as an ISO/IEC international standard,
 				<a class="ulink" href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=43485" target="_top">
 					ISO/IEC 26300:2006 Open Document Format for Office Applications (OpenDocument) v1.0</a>.
 			</p>
@@ -80,49 +72,44 @@
 		<div class="section" title="DB2 pureXML"><div class="titlepage"><div><div><h3 class="title"><a name="N20068"></a>DB2 pureXML</h3></div></div></div>
 			
 			<p>
-				<a class="ulink" href="http://www-01.ibm.com/software/data/db2/xml/" target="_top">DB2 pureXML</a>
-				is IBM software for management of XML data. It eliminates much of the work typically involved in the management of XML 
-				data. From validation of XML documents, to generation of documents and support for querying XML data in the form of
-				<a class="ulink" href="http://www.w3.org/TR/xquery/" target="_top">XQuery</a> and traditional SQL, DB2 pureXML is a 
-				complete solution to manage XML data in enterprise-scale databases.
+<a class="ulink" href="http://www-01.ibm.com/software/data/db2/xml/" target="_top">DB2 pureXML</a> is IBM software for management of XML data. It eliminates much of the work typically 
+involved in the management of XML data. From validation of XML documents, to generation of documents and support for querying XML data in the form of
+<a class="ulink" href="http://www.w3.org/TR/xquery/" target="_top">XQuery</a> and traditional SQL, DB2 pureXML is a complete solution to manage XML data in enterprise-scale databases.
 			</p>
 		</div>
 	</div>
 	<div class="section" title="The ODF document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2007A"></a>The ODF document</h2></div></div></div>
 		
-		<p>An ODF document is a zipped file of five mandatory XML
-			files and other optional components. This can be seen by running your
-			favorite un-zip utility to list the components. Here is the result
-			after &nbsp;running the unzip command on an .ods file from command line to
-			list the files. The XML files are highlighted below.</p>
+		<p>
+An ODF document is a zipped file of five mandatory XML files and other optional components. This can be seen by running your favorite unzip utility to list the components. Here is the 
+result after running the unzip command on an .ods file from command line to	list the files. The XML files are highlighted below.
+		</p>
 		<p>
 			<span class="inlinemediaobject"><img src="../graphics/isj2010-08-purexml-OOo-graphics1.png" width="396"></span>
 		</p>
-		<p>Here is a short description of XML files as seen above.
+		<p>
+Here is a short description of XML files as seen above.
 		</p>
 		<div class="table"><a name="N20093"></a><p class="title"><b>Table&nbsp;1.&nbsp;XML files of an ODF document</b></p><div class="table-contents">
 			
 			<table summary="XML files of an ODF document" border="1"><colgroup><col><col><col></colgroup><thead><tr><th>File name</th><th>Usage</th><th>Location in zipped file</th></tr></thead><tbody><tr><td>manifest.xml</td><td>Information about the files contained in	the	package</td><td>/META-INF</td></tr><tr><td>styles.xml</td><td>Styles used in the document content and automatic styles used in the styles themselves</td><td>/ (root)</td></tr><tr><td>settings.xml</td><td>Application-specific settings, such as the window size or printer information</td><td>/&nbsp;(root)</td></tr><tr><td>content.xml</td><td>Document content and automatic styles used in the content</td><td>/&nbsp;(root)</td></tr><tr><td>meta.xml</td><td>Document meta information, such as the author or the time of the last save action</td><td>/&nbsp;(root)</td></tr></tbody></table>
 		</div></div><br class="table-break">
 		<p>
-			For this article, we are interested in the content.xml file which will hold the contents of the document. The document 
-			used for this article is a simple shopping list named Shop.ods.  Below is the spreadsheet as it appears in OpenOffice,
-			with the first row highlighted. 
+For this article, we are interested in the content.xml file which will hold the contents of the document. The document used for this article is a simple shopping list named Shop.ods.  
+Below is the spreadsheet as it appears in OpenOffice, with the first row highlighted. 
 		</p>
 		<div class="mediaobject"><table cellpadding="0" cellspacing="0" summary="manufactured viewport for HTML img" border="0" width="190"><tr style="height: 194px"><td><img src="../graphics/isj2010-08-purexml-OOo-graphics2.png" width="190"></td></tr></table><div class="caption">Example ODF spreadsheet (row highlighted)</div></div>
 		<p>
-			And below we have part of the equivalent content.xml file, with the XML markup for the row highlighted.
+And below we have part of the equivalent content.xml file, with the XML markup for the row highlighted.
 		</p>
 		<div class="mediaobject"><table cellpadding="0" cellspacing="0" summary="manufactured viewport for HTML img" border="0" width="396"><tr style="height: 267px"><td><img src="../graphics/isj2010-08-purexml-OOo-graphics3.png" width="396"></td></tr></table><div class="caption">XML representation of ODF spreadsheet (row highlighted)</div></div>
 	</div>
 	<div class="section" title="A bit of hacking"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2010F"></a>A bit of hacking</h2></div></div></div>
 		
 		<p>
-			Now that we know a bit about an ODF document, let us try to create one without actually 
-			running a standard software	dealing with ODF documents. As noted above, the content.xml 
-			file holds the data entered while creating the spreadsheet. So, if this file is changed 
-			and zipped along with the rest of the files in the original archive (that is, the .ods 
-			file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, follow the steps below.
+Now that we know a bit about an ODF document, let us try to create one without actually running a standard software	dealing with ODF documents. As noted above, the content.xml 
+file holds the data entered while creating the spreadsheet. So, if this file is changed and zipped along with the rest of the files in the original archive (that is, the .ods 
+file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, follow the steps below.
 		</p>
 		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">Open the content.xml file in a regular text editor</li><li class="listitem">
 				In ???some figure???, the element &lt;table:table-row&gt; has been highlighted. Type in the contents of the highlighted section
@@ -631,17 +618,22 @@
 			<div class="example"><a name="N20341"></a><p class="title"><b>Example&nbsp;15.&nbsp;Updated content.xml document</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					VALUES XMLQUERY(
-					'declare namespace office="urn:oasis:names:tc:opendocument:xmlns:office:1.0";
-					 declare namespace table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"  ;
-					 transform
-					 copy $dummy := db2-fn:sqlquery("SELECT DOCCONTENT FROM ODF.DOCCONTENTXML WHERE DOCID = 0") ,
-					 $rows := db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
-					 modify do
-					 insert $rows/dummy/* as last 
-					 into $dummy/office:document-content/office:body/office:spreadsheet/table:table
-					return $dummy'
-					); 
+VALUES XMLQUERY(
+'declare namespace 
+office="urn:oasis:names:tc:opendocument:xmlns:office:1.0";
+declare namespace 
+table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"  ;
+transform
+copy $dummy := db2-fn:sqlquery("
+	SELECT DOCCONTENT FROM ODF.DOCCONTENTXML WHERE DOCID = 0
+") ,
+$rows := db2-fn:sqlquery("SELECT * FROM ODF.SHOP_COST_XML")
+modify do
+insert $rows/dummy/* as last 
+into 
+$dummy/office:document-content/office:body/office:spreadsheet/table:table
+return $dummy'
+); 
 				</pre>
 			</div></div><br class="example-break">
 			<p>
@@ -1379,7 +1371,7 @@ Figure 5. Tracking the Growth of DB2 Storage Space
 
 	
 	
-	<div class="article" title="Don&rsquo;t Flip Out!"><div class="titlepage"><div><div><h2 class="title"><a name="N2070F"></a>Don&rsquo;t Flip Out!</h2></div><div><h3 class="subtitle"><i>How to Stop Your Query Access Plans from Flopping</i></h3></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2072E">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20748">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N20751">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A4">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AD">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CE">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N20802">Optimization Class</a></span></dt><dt><span class="section"><a href="#N20821">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20833">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N20842">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085D">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20888">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N20891">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B9">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E4">Conclusion</a></span></dt><dt><span class="section"><a href="#N208ED"></a></span></dt></dl></div>
+	<div class="article" title="Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping"><div class="titlepage"><div><div><h2 class="title"><a name="N2070F"></a>Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping</h2></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2072B">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20745">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2074E">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A1">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AA">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CB">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N207FF">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2081E">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20830">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2083F">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085A">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20885">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N2088E">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B6">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E1">Conclusion</a></span></dt><dt><span class="section"><a href="#N208EA"></a></span></dt></dl></div>
 	
 	<p>
 Has this ever happened to you? You have an important report query that has been running on an IBM&reg; DB2&reg; for Linux&reg;, UNIX&reg;, and Windows&reg; data 
@@ -1393,7 +1385,7 @@ determination procedures, you discover that the access plan has changed in both 
 This edition of the Intelligent Optimizer will discuss some of the reasons why access plans occasionally change for the worse and what you can 
 do to prevent access plan flip-flop from happening.
 	</p>
-	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2072E"></a>A Reactive Approach</h2></div></div></div>
+	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2072B"></a>A Reactive Approach</h2></div></div></div>
 		
 		<p>
 Once you&rsquo;ve determined that a query&rsquo;s performance degradation is due to an access plan change, you can compare the differences to try to 
@@ -1430,7 +1422,7 @@ above. So a more proactive approach is preferable.
 		</p>
 	</div>
 
-	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20748"></a>A Proactive Approach</h2></div></div></div>
+	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20745"></a>A Proactive Approach</h2></div></div></div>
 		
 		<p>
 Rather than scrambling to fix query access plan problems in panic situations, there are a number of modifications that you can make to your 
@@ -1444,7 +1436,7 @@ you can improve the optimizer&rsquo;s &ldquo;vision&rdquo; so it has a clear vie
 		</p>
 	</div>
 
-	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20751"></a>Writing SQL Statements</h2></div></div></div>
+	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2074E"></a>Writing SQL Statements</h2></div></div></div>
 		
 		<p>
 SQL is a powerful language that enables you to specify relational expressions in syntactically different but semantically equivalent ways. 
@@ -1527,7 +1519,7 @@ contains more details on how to use the REOPT bind option, for different types o
 		</p>
 	</div>
 
-	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207A4"></a>Data Server Configuration</h2></div></div></div>
+	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207A1"></a>Data Server Configuration</h2></div></div></div>
 		
 		<p>
 There are a number of configuration options that affect the DB2 data server&rsquo;s performance, such as database and database manager configuration 
@@ -1538,7 +1530,7 @@ cost model are set accurately.
 		</p>
 	</div>
 	
-	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207AD"></a>Configuration Parameters</h2></div></div></div>
+	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207AA"></a>Configuration Parameters</h2></div></div></div>
 		
 		<p>
 The following two database manager configuration parameters are used by the optimizer&rsquo;s cost model. While both are set automatically by the DB2 
@@ -1568,7 +1560,7 @@ plans that favor using more CPU or sortheap, due to incorrectly estimating that 
 memory. It is recommended that this parameter not be set higher than 3 or 5, if it is even necessary to set it at all. 
 		</p>
 	</div>
-	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207CE"></a>Table Space Attributes</h2></div></div></div>
+	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207CB"></a>Table Space Attributes</h2></div></div></div>
 		
 		<p>
 The optimizer also considers storage subsystem characteristics in the cost model. The storage subsystem characteristics are represented as 
@@ -1588,7 +1580,7 @@ contains information on how to set these parameters accurately.
 		</p>
 	</div>
 
-	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20802"></a>Optimization Class</h2></div></div></div>
+	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207FF"></a>Optimization Class</h2></div></div></div>
 		
 		<p>
 The DB2 data server allows you to control the level of optimization performed by the query optimizer. Different levels of optimization are 
@@ -1615,7 +1607,7 @@ optimization class for your workload.
 		</p>
 	</div>	
 
-	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20821"></a>Catalog Statistics</h2></div></div></div>
+	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2081E"></a>Catalog Statistics</h2></div></div></div>
 		
 		<p>
 The single most important action that you can take to stabilize your access plans is to ensure that accurate catalog statistics are available. 
@@ -1639,7 +1631,7 @@ cardinalities, LIKE statistics or creating statistical views.
 		</p>
 	</div>
 	
-	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20833"></a>Column Group Statistics</h2></div></div></div>
+	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20830"></a>Column Group Statistics</h2></div></div></div>
 		
 		<p>
 Column group cardinality statistics represent the number of distinct values in a group of columns. This statistic helps the optimizer 
@@ -1659,7 +1651,7 @@ WITH DISTRIBUTION AND SAMPLED DETAILED INDEXES ALL;
 		</p>
 	</div>
 	
-	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20842"></a>LIKE Predicate Statistics</h2></div></div></div>
+	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2083F"></a>LIKE Predicate Statistics</h2></div></div></div>
 		
 		<p>
 If you specify LIKE predicates using the % wildcard character in any position other than at the end of the pattern, you should collect basic 
@@ -1692,7 +1684,7 @@ To collect sub-element statistics, execute RUNSTATS with the LIKE STATISTICS cla
 		</p>
 	</div>	
 
-	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2085D"></a>Statistical Views</h2></div></div></div>
+	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2085A"></a>Statistical Views</h2></div></div></div>
 		
 		<p>
 The statistics described above are all important for computing an accurate cardinality estimate; however there are some situations where more 
@@ -1756,7 +1748,7 @@ this DB2 Information Center page.
 		</p>
 	</div>
 
-	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20888"></a>Handling Exceptions</h2></div></div></div>
+	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20885"></a>Handling Exceptions</h2></div></div></div>
 		
 		<p>
 Unfortunately, occasionally access plans continue to unexpectedly change for the worse, even though you&rsquo;ve taken the tuning actions described 
@@ -1767,7 +1759,7 @@ the optimizer, so that you can react quickly in emergency situations, or so that
 		</p>
 	</div>
 	
-	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20891"></a>Access Plan Reuse</h2></div></div></div>	
+	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2088E"></a>Access Plan Reuse</h2></div></div></div>	
 		
 		<p>
 Access plan reuse is a new feature available in DB2 9.7 that allows you to request that the access plans for static SQL statements be preserved 
@@ -1819,7 +1811,7 @@ You can read more about access plan reuse in this <a class="ulink" href="http://
 		</p>
 	</div>
 	
-	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B9"></a>Optimization Profiles</h2></div></div></div>
+	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B6"></a>Optimization Profiles</h2></div></div></div>
 		
 		<p>
 The DB2 data server supports an even more direct way to influence access plans using optimization profiles. Optimization profiles allow you to 
@@ -1840,7 +1832,7 @@ When an optimization profile is in effect for your application, each SQL stateme
 statements specified in the optimization profile. When a matching SQL statement is found in the optimization profile, the SQL compiler will use 
 the optimization guidelines for that SQL statement while optimizing it.
 		</p>
-		<div class="example"><a name="N208C7"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
+		<div class="example"><a name="N208C4"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
 			
 			<pre class="programlisting">
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -1907,7 +1899,7 @@ DB2 Information Center page</a> provides more details on how to use optimization
 		</p>
 	</div>
 	
-	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208E4"></a>Conclusion</h2></div></div></div>
+	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208E1"></a>Conclusion</h2></div></div></div>
 			
 		<p>
 The DB2 data server query optimizer is more likely to choose optimal access plans consistently if you provide it accurate information about 

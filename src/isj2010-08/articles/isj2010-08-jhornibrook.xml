@@ -4,8 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://docbook.org/ns/docbook docbook.xsd">
 	<docbook:info>
-		<docbook:title>Don’t Flip Out!</docbook:title>
-		<docbook:subtitle>How to Stop Your Query Access Plans from Flopping</docbook:subtitle>
+		<docbook:title>Don’t Flip Out! How to Stop Your Query Access Plans from Flopping</docbook:title>
 		<docbook:author>
 			<docbook:personname>John Hornibrook</docbook:personname>
 		</docbook:author>
