@@ -190,83 +190,68 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 		</docbook:mediaobject>
 
 		<docbook:para>
-			It is now clear that, to “read” an existing ODF spreadsheet in its simplest form, we have to navigate the path of the
+			It is now clear that, to “read” an existing ODF spreadsheet in its simplest form, we have to navigate the paths of the
 			content.xml XML document. Similarly, to “modify” an existing ODF spreadsheet, we should generate the content.xml XML 
 			document correctly. One can, of course, extend this to create and/or modify other XML documents in the .ods archive. 
 			But, for the sake of this article, we will concentrate only on the creation of content.xml XML document.
 		</docbook:para>
-	</docbook:section>
-	<docbook:section>
-		<docbook:title>Scheme of this article</docbook:title>
 		<docbook:para>
-			With this knowledge of XML documents in an ODF document archive, we will now proceed to demonstrate the usage of DB2
-			pureXML with ODF documents. We consider the scheme below.
+			With this knowledge of XML documents in an ODF document archive, we will now proceed to demonstrate how to use DB2
+			pureXML with ODF documents.  In the remainder of this article we will consider an ODF spreadsheet of a simple shopping list 
+			containing item names, units of measurement (UOM) and the number of units required.   We will demonstrate how to -
 		</docbook:para>
 		<docbook:orderedlist>
 			<docbook:listitem>
-				We consider an ODF spreadsheet of a simple shopping list where the item name, unit of measure (UOM) and the units
-				required are provided.
+				Import the content.xml document of this ODF spreadsheet into an XML column within a DB2 table
 			</docbook:listitem>
 			<docbook:listitem>
-				The content.xml document of this ODF spreadsheet is imported into a DB2 table with an XML column.</docbook:listitem>
-			<docbook:listitem>
-				For the sake of this article we will use the LOAD statement in DB2 to load the content.xml document and ignore any
-					other methods of inserting XML documents into the DB2 table.
+				Extract information from the content.xml document into relational format.
 			</docbook:listitem>
 			<docbook:listitem>
-				We will refer to another traditional table which stores the price list.
-			</docbook:listitem>
-			<docbook:listitem>
-				Using the table for price list and the table with the XML column for content.xml, we will generate another content.xml
-				XML document that will hold the items with their corresponding prices.
+				Merge data from a relational table with the content.xml document in the XML column to produce a new spreadsheet.
 			</docbook:listitem>
 		</docbook:orderedlist>
 	</docbook:section>
 	<docbook:section>
-		<docbook:title>Inserting XML document into DB2 table</docbook:title>
+		<docbook:title>Importing and XML document into a DB2 table</docbook:title>
 		<docbook:para>
-			We will consider a  table to demonstrate DB2 pureXML capabilities. The first table will be keyed via an ID column to
-			differentiate multiple documents. The second column of the table will hold the content.xml file of the ODF spreadsheet 
-			document in a  XML column. The DDL for this table is reproduced here:
-		</docbook:para>
-		<docbook:example>
-			<docbook:title>DB2 table to hold content.xml file of the ODF spreadsheet</docbook:title>
-			<docbook:programlisting>
-				-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
-				-- The table is keyed on DOCID a running sequence number.
-				CREATE TABLE ODF.DOCCONTENTXML 
-				(
-				      DOCID      INTEGER NOT NULL,
-				      DOCCONTENT XML     NOT NULL
-				) ;
-			</docbook:programlisting>
-		</docbook:example>
-		<docbook:section>
-			<docbook:title>IMPORT statements</docbook:title>
-			<docbook:para>
-				Inserting the XML document into the table can be done using a simple INSERT SQL statement or using IMPORT
-				statement. However, since we have a considerably sized XML document, we will use the IMPORT statement from 
-				the command line. To use the IMPORT statement, first, save the content.xml in a folder as say, ODSFolder
-				and create a flat file with a single record. Save the flat file as load.txt. This record will have two values 
-				separated by a comma as shown below.
-			</docbook:para>
+			We create a table to hold the XML document.  As well as an XML column to hold the document it will also have an INTEGER
+			column as a primary key which we will use to differentiate between multiple documents. The DDL for this table is as follows -
+			<docbook:example>
+				<docbook:title>DB2 table to hold content.xml file of the ODF spreadsheet</docbook:title>
+				<docbook:programlisting>
+-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
+-- The table is keyed on DOCID a running sequence number.
+CREATE TABLE ODF.DOCCONTENTXML 
+(
+ DOCID      INTEGER NOT NULL,
+ DOCCONTENT XML     NOT NULL
+);
+				</docbook:programlisting>
+			</docbook:example>
+		</docbook:para>		
+		<docbook:para>
+				Inserting the XML document into the table could be done using a simple INSERT SQL statement.  However since
+				we have a considerably sized XML document, we will use the IMPORT statement from the command line. To use the 
+				IMPORT statement, first, save the content.xml in a folder as say, ODSFolder and create a flat file with a single record. 
+				Save the flat file as load.txt. This record will have two values separated by a comma as shown below -
 			<docbook:example>
 				<docbook:title>Contents of flat file to be used for loading DOCCONTENTXML table</docbook:title>
-				<docbook:programlisting>1,&lt;XDS FIL='content.xml'/&gt;</docbook:programlisting>
+				<docbook:programlisting>
+1,&lt;XDS FIL='content.xml'/&gt;
+				</docbook:programlisting>
 			</docbook:example>
 			<docbook:example>
 				<docbook:title>IMPORT statement to load content.xml into DOCCONTENTXML table</docbook:title>
 				<docbook:programlisting>
-					IMPORT FROM load.txt OF DEL 
-					XML FROM ODSFolder 
-					INSERT INTO ODF.DOCCONTENTXML;
+IMPORT FROM load.txt OF DEL 
+XML FROM ODSFolder 
+INSERT INTO ODF.DOCCONTENTXML;
 				</docbook:programlisting>
 			</docbook:example>
-			<docbook:para>
 				Alternatively, IBM Data Studio Developer can be used to load into XML column as it offers a convenient GUI.
 			</docbook:para>
 		</docbook:section>
-	</docbook:section>
 	<docbook:section>
 		<docbook:title>Converting the content.xml into row-column format</docbook:title>
 		<docbook:section>
@@ -290,7 +275,7 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 			<docbook:example>
 				<docbook:title>XPath expression to get first row, second column value</docbook:title>
 				<docbook:programlisting>
-					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
+/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
 				</docbook:programlisting>
 			</docbook:example>
 			<docbook:para>
@@ -300,7 +285,7 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 				<code>table:row[1]/table:cell[2]</code> and	finally to <code>text:p</code> to get the actual text of the cell.
 			</docbook:para>
 			<docbook:para>
-				With Firefox Mozilla browser, the above XPath expression can be easily tested using the add-on Xpather (see
+				With Firefox Mozilla browser, the above XPath expression can be easily tested using the add-on XPather (see
 				Resources below).  We follow the steps below :-
 			</docbook:para>
 			<docbook:orderedlist>
@@ -365,68 +350,37 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 			<docbook:para>
 				The query shown below will use the XML namespaces and XPath expression that we produced in the previous sections to 
 				extract the	cell values from the loaded content.xml file. The highlighted text shows the XPath expression used to 
-				extract cell values.
+				extract cell values.   The query has been wrapped into a view for ease of use -
 			</docbook:para>
 			<docbook:example>
 				<docbook:title>Query to extract cell values from content.xml into tabular format</docbook:title>
 				<docbook:programlisting>
-					SELECT
-					X.*
-					FROM
-					XMLTABLE(
-					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
-					"office",                      
-					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
-					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
-					'db2-fn:sqlquery("SELECT
-					DOCCONTENT
-					FROM
-					ODF.DOCCONTENTXML
-					WHERE DOCID
-					= 1")
-					<docbook:emphasis>
-						/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
-					</docbook:emphasis>
-					COLUMNS             
-					"ITEMNAME" CHARACTER (20)  PATH
-					<docbook:emphasis>'table:table-cell[1]/text:p'</docbook:emphasis>,  
-					"QUANTITY" DECIMAL   (4,2) PATH
-					<docbook:emphasis>'table:table-cell[2]/text:p'</docbook:emphasis>,
-					"UOM"      CHARACTER (5)   PATH
-					<docbook:emphasis>'table:table-cell[3]/text:p'</docbook:emphasis>  
-					) AS X; 
-				</docbook:programlisting>
-			</docbook:example>
-			<docbook:para>
-				To see the content.xml document in traditional rows	and columns format, we create a view using the query above.
-			</docbook:para>
-			<docbook:example>
-				<docbook:title>View on the content.xml document</docbook:title>
-				<docbook:programlisting>
-					CREATE VIEW ODF.V_CONTENT AS
-					(
-					SELECT
-					X.*
-					FROM
-					XMLTABLE(
-					XMLNAMESPACES(
-						'urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS	"office",                      
-						'urn:oasis:names:tc:opendocument:xmlns:table:1.0'  AS "table",
-						'urn:oasis:names:tc:opendocument:xmlns:text:1.0'  AS "text"
-					),
-					'db2-fn:sqlquery("SELECT
-					 DOCCONTENT
-					 FROM
-					 ODF.DOCCONTENTXML
-					 WHERE
-					 DOCID = 1"
-					)/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
-					COLUMNS
-					"ITEMNAME" CHARACTER (20)  PATH 'table:table-cell[1]/text:p',
-					"QUANTITY" DECIMAL   (4,2) PATH	'table:table-cell[2]/text:p',
-					"UOM"      CHARACTER (5)   PATH	'table:table-cell[3]/text:p'
-					) AS X
-					);
+CREATE VIEW ODF.V_CONTENT AS
+(
+ SELECT
+ X.*
+ FROM
+ XMLTABLE(
+  XMLNAMESPACES(
+   'urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS	"office",                      
+   'urn:oasis:names:tc:opendocument:xmlns:table:1.0'  AS "table",
+   'urn:oasis:names:tc:opendocument:xmlns:text:1.0'   AS "text"
+  ),
+  'db2-fn:sqlquery(
+     "SELECT
+	  DOCCONTENT
+	  FROM
+	  ODF.DOCCONTENTXML
+	  WHERE 
+	  DOCID = 1"
+  )
+  /office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
+  COLUMNS             
+  "ITEMNAME" CHARACTER (20)  PATH 'table:table-cell[1]/text:p',  
+  "QUANTITY" DECIMAL   (4,2) PATH 'table:table-cell[2]/text:p',
+  "UOM"      CHARACTER (5)   PATH 'table:table-cell[3]/text:p'  
+ ) AS X 
+);
 				</docbook:programlisting>
 			</docbook:example>
 			<docbook:para>
@@ -436,23 +390,23 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 			<docbook:example>
 				<docbook:title>Result of SELECT on the view V_CONTENT</docbook:title>
 				<docbook:programlisting>
-					SELECT * FROM ODF.V_CONTENT ;
+SELECT * FROM ODF.V_CONTENT ;
 
-					ITEMNAME             QUANTITY UOM  
-					-------------------- -------- ----
-					Potato                   2.00 kg  
-					Onion                    1.00 kg  
-					Cucumber                 0.50 kg  
-					Capsicum                 0.50 kg  
-					Carrot                   0.50 kg  
-					Green chilli             0.25 kg  
-					Tomato                   0.25 kg  
-					Curd                     0.50 L    
-					Banana                   2.00 doz  
-					Milk                     2.00 L    
-					Groundnut Oil            5.00 L    
+ITEMNAME             QUANTITY UOM  
+-------------------- -------- ----
+Potato                   2.00 kg  
+Onion                    1.00 kg  
+Cucumber                 0.50 kg  
+Capsicum                 0.50 kg  
+Carrot                   0.50 kg  
+Green chilli             0.25 kg  
+Tomato                   0.25 kg  
+Curd                     0.50 L    
+Banana                   2.00 doz  
+Milk                     2.00 L    
+Groundnut Oil            5.00 L    
 
-					11 record(s) selected.
+11 record(s) selected.
 				</docbook:programlisting>
 			</docbook:example>
 		</docbook:section>
@@ -486,36 +440,36 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 			<docbook:example>
 				<docbook:title>Query to obtain list and cost of items with grand total</docbook:title>
 				<docbook:programlisting>
-					SELECT
-					COALESCE(P.ITEMNAME,' TOTAL')
-					ITEMNAME,
-					SUM(P.QUANTITY) QTY,
-					COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
-					SUM(P.COST) COST
-					FROM
-					(SELECT
-					 A.ITEMNAME,
-					 A.QUANTITY,
-					 B.UNIT_PRICE,
-					 A.QUANTITY*B.UNIT_PRICE COST
-					 FROM
-					 ODF.V_CONTENT A,
-					 ODF.SHOPPER B
-					 WHERE
-					 UPPER(A.ITEMNAME) = B.ITEMNAME
-					) P
-					GROUP BY
-					ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
-					HAVING 
-					(P.ITEMNAME IS NULL OR
-					 (P.ITEMNAME      IS NOT NULL AND
-					  P.QUANTITY      IS NOT NULL AND
-					  P.UNIT_PRICE    IS NOT NULL AND
-					  SUM(P.COST)     IS NOT NULL AND
-					  SUM(P.QUANTITY) IS NOT NULL
-					 )
-					)
-					ORDER BY COALESCE(P.ITEMNAME,' ') DESC;
+SELECT
+COALESCE(P.ITEMNAME,' TOTAL')
+ITEMNAME,
+SUM(P.QUANTITY) QTY,
+COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
+SUM(P.COST) COST
+FROM
+(SELECT
+ A.ITEMNAME,
+ A.QUANTITY,
+ B.UNIT_PRICE,
+ A.QUANTITY*B.UNIT_PRICE COST
+ FROM
+ ODF.V_CONTENT A,
+ ODF.SHOPPER B
+ WHERE
+ UPPER(A.ITEMNAME) = B.ITEMNAME
+) P
+GROUP BY
+ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
+HAVING 
+(P.ITEMNAME IS NULL OR
+ (P.ITEMNAME      IS NOT NULL AND
+  P.QUANTITY      IS NOT NULL AND
+  P.UNIT_PRICE    IS NOT NULL AND
+  SUM(P.COST)     IS NOT NULL AND
+  SUM(P.QUANTITY) IS NOT NULL
+ )
+)
+ORDER BY COALESCE(P.ITEMNAME,' ') DESC;
 				</docbook:programlisting>
 			</docbook:example>
 			<docbook:para>
@@ -524,21 +478,20 @@ file), we will be having a “legal” ODF spreadsheet. To test this, follow the
 			<docbook:example>
 				<docbook:title>Result of query for obtaining list and cost of items</docbook:title>
 				<docbook:programlisting>
-					ITEMNAME             QTY    UNIT_PRICE COST
-					   
-					-------------------- ------ ---------- --------
-					Tomato                 0.25       6.00     1.50
-					Potato                 2.00       5.50    11.00
-					Onion                  1.00       4.00     4.00
-					Milk                   2.00      40.00    80.00
-					Groundnut Oil          5.00		 30.00   150.00
-					Green chilli           0.25       8.00     2.00
-					Curd                   0.50      20.00    10.00
-					Cucumber               0.50	     10.00     5.00
-					Carrot                 0.50      15.00     7.50
-					Capsicum               0.50      20.00    10.00
-					Banana                 2.00       6.00    12.00
-					TOTAL                 14.50       0.00   293.00 
+ITEMNAME             QTY    UNIT_PRICE COST
+-------------------- ------ ---------- --------
+Tomato                 0.25       6.00     1.50
+Potato                 2.00       5.50    11.00
+Onion                  1.00       4.00     4.00
+Milk                   2.00      40.00    80.00
+Groundnut Oil          5.00		 30.00   150.00
+Green chilli           0.25       8.00     2.00
+Curd                   0.50      20.00    10.00
+Cucumber               0.50	     10.00     5.00
+Carrot                 0.50      15.00     7.50
+Capsicum               0.50      20.00    10.00
+Banana                 2.00       6.00    12.00
+TOTAL                 14.50       0.00   293.00 
 				</docbook:programlisting>
 			</docbook:example>
 		</docbook:section>

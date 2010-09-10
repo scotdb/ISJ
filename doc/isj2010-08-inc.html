@@ -1,26 +1,26 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>IDUG Solutions Journal</title><meta content="DocBook XSL Stylesheets V1.75.2" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" title="IDUG Solutions Journal"><div class="titlepage"><div><div><h1 class="title"><a name="N2000C"></a>IDUG Solutions Journal</h1></div><div><p class="copyright">Copyright &copy; 2010 International DB2 Users Group</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="article"><a href="#N20023">From The Editor's Desk</a></span></dt><dt><span class="article"><a href="#N2003F">Using DB2 pureXML and ODF Spreadsheets</a></span></dt><dd><dl><dt><span class="section"><a href="#N20046">Abstract</a></span></dt><dt><span class="section"><a href="#N2004F">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#N20057">The ODF specification</a></span></dt><dt><span class="section"><a href="#N20068">DB2 pureXML</a></span></dt></dl></dd><dt><span class="section"><a href="#N2007A">The ODF document</a></span></dt><dt><span class="section"><a href="#N2010F">A bit of hacking</a></span></dt><dt><span class="section"><a href="#N2014C">Scheme of this article</a></span></dt><dt><span class="section"><a href="#N20167">Inserting XML document into DB2 table</a></span></dt><dd><dl><dt><span class="section"><a href="#N20178">IMPORT statements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20197">Converting the content.xml into row-column format</a></span></dt><dd><dl><dt><span class="section"><a href="#N2019C">Getting the cell values from the XML file</a></span></dt><dt><span class="section"><a href="#N201A5">The XPath expression</a></span></dt><dt><span class="section"><a href="#N20203">The required query </a></span></dt></dl></dd><dt><span class="section"><a href="#N2027E">Shopping prices</a></span></dt><dd><dl><dt><span class="section"><a href="#N20286">Building the list of shopping prices</a></span></dt><dt><span class="section"><a href="#N202B0">View with list and cost of items</a></span></dt></dl></dd><dt><span class="section"><a href="#N202C3">XQuery Update to build content.xml document</a></span></dt><dd><dl><dt><span class="section"><a href="#N202CE">A quick side note on XQuery Update</a></span></dt><dt><span class="section"><a href="#N202D7">Generating the content.xml for the shopping prices</a></span></dt><dt><span class="section"><a href="#N202FD">Building the <code class="code">&gt;&lt;table:table-row&gt;</code> elements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20360">Next steps</a></span></dt><dt><span class="section"><a href="#N2038E">Resources</a></span></dt><dt><span class="section"><a href="#N2041C">Biography</a></span></dt></dl></dd><dt><span class="article"><a href="#N20428">Giving You A Reason</a></span></dt><dd><dl><dt><span class="section"><a href="#N2044A">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>IDUG Solutions Journal</title><meta content="DocBook XSL Stylesheets V1.75.2" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" title="IDUG Solutions Journal"><div class="titlepage"><div><div><h1 class="title"><a name="N2000C"></a>IDUG Solutions Journal</h1></div><div><p class="copyright">Copyright &copy; 2010 International DB2 Users Group</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="article"><a href="#N20023">From The Editor's Desk</a></span></dt><dt><span class="article"><a href="#N2003F">Using DB2 pureXML and ODF Spreadsheets</a></span></dt><dd><dl><dt><span class="section"><a href="#N20046">Abstract</a></span></dt><dt><span class="section"><a href="#N2004F">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#N20057">The ODF specification</a></span></dt><dt><span class="section"><a href="#N20068">DB2 pureXML</a></span></dt></dl></dd><dt><span class="section"><a href="#N2007A">The ODF document</a></span></dt><dt><span class="section"><a href="#N2010F">A bit of hacking</a></span></dt><dt><span class="section"><a href="#N2015B">Importing and XML document into a DB2 table</a></span></dt><dt><span class="section"><a href="#N20182">Converting the content.xml into row-column format</a></span></dt><dd><dl><dt><span class="section"><a href="#N20187">Getting the cell values from the XML file</a></span></dt><dt><span class="section"><a href="#N20190">The XPath expression</a></span></dt><dt><span class="section"><a href="#N201EE">The required query </a></span></dt></dl></dd><dt><span class="section"><a href="#N20251">Shopping prices</a></span></dt><dd><dl><dt><span class="section"><a href="#N20259">Building the list of shopping prices</a></span></dt><dt><span class="section"><a href="#N20283">View with list and cost of items</a></span></dt></dl></dd><dt><span class="section"><a href="#N20296">XQuery Update to build content.xml document</a></span></dt><dd><dl><dt><span class="section"><a href="#N202A1">A quick side note on XQuery Update</a></span></dt><dt><span class="section"><a href="#N202AA">Generating the content.xml for the shopping prices</a></span></dt><dt><span class="section"><a href="#N202D0">Building the <code class="code">&gt;&lt;table:table-row&gt;</code> elements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20333">Next steps</a></span></dt><dt><span class="section"><a href="#N20361">Resources</a></span></dt><dt><span class="section"><a href="#N203EF">Biography</a></span></dt></dl></dd><dt><span class="article"><a href="#N203FB">Giving You A Reason</a></span></dt><dd><dl><dt><span class="section"><a href="#N2041D">
 			Should you upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N20456">
+		</a></span></dt><dt><span class="section"><a href="#N20429">
 			When and how should I upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N20465">
+		</a></span></dt><dt><span class="section"><a href="#N20438">
 		DB2 9: Robust, Scalable, Available and Easily Manageable
-		</a></span></dt><dt><span class="section"><a href="#N20471">
+		</a></span></dt><dt><span class="section"><a href="#N20444">
 		DB2 10: Cut costs and improve performance
-		</a></span></dt><dt><span class="section"><a href="#N2047D">
+		</a></span></dt><dt><span class="section"><a href="#N20450">
 			Questions for you
-		</a></span></dt><dt><span class="section"><a href="#N204AA">
+		</a></span></dt><dt><span class="section"><a href="#N2047D">
 			What version are you running?
-		</a></span></dt></dl></dd><dt><span class="article"><a href="#N204EF">DB2 and Storage Management</a></span></dt><dd><dl><dt><span class="section"><a href="#N20502">DB2 Storage Basics</a></span></dt><dt><span class="section"><a href="#N205B3">
+		</a></span></dt></dl></dd><dt><span class="article"><a href="#N204C2">DB2 and Storage Management</a></span></dt><dd><dl><dt><span class="section"><a href="#N204D5">DB2 Storage Basics</a></span></dt><dt><span class="section"><a href="#N20586">
 			Important DB2 for z/OS Storage Issues
-		</a></span></dt><dt><span class="section"><a href="#N205E0">
+		</a></span></dt><dt><span class="section"><a href="#N205B3">
 			A Little Bit About Modern Disk Arrays
-		</a></span></dt><dt><span class="section"><a href="#N20607">
+		</a></span></dt><dt><span class="section"><a href="#N205DA">
 			Cache Versus Buffer
-		</a></span></dt><dt><span class="section"><a href="#N2062E">
+		</a></span></dt><dt><span class="section"><a href="#N20601">
 			A Little Bit About DFSMS
-		</a></span></dt><dt><span class="section"><a href="#N2068B">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206C1">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206D6">Best Practices</a></span></dt><dt><span class="section"><a href="#N20700">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N2070F">Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping</a></span></dt><dd><dl><dt><span class="section"><a href="#N2072B">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20745">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2074E">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A1">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AA">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CB">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N207FF">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2081E">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20830">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2083F">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085A">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20885">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N2088E">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B6">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E1">Conclusion</a></span></dt><dt><span class="section"><a href="#N208EA"></a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1. <a href="#N20093">XML files of an ODF document</a></dt><dt>2. <a href="#N2020B">Prefix and namespace URI used in	content.xml	document</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N2016F">DB2 table to hold content.xml file of the ODF spreadsheet</a></dt><dt>2. <a href="#N20180">Contents of flat file to be used for loading DOCCONTENTXML table</a></dt><dt>3. <a href="#N20189">IMPORT statement to load content.xml into DOCCONTENTXML table</a></dt><dt>4. <a href="#N201AD">XPath expression to get first row, second column value</a></dt><dt>5. <a href="#N2024F">Query to extract cell values from content.xml into tabular format</a></dt><dt>6. <a href="#N20267">View on the content.xml document</a></dt><dt>7. <a href="#N20273">Result of SELECT on the view V_CONTENT</a></dt><dt>8. <a href="#N2028E">DDL for table to hold the shopping prices</a></dt><dt>9. <a href="#N2029A">Query to obtain list and cost of items with grand total</a></dt><dt>10. <a href="#N202A6">Result of query for obtaining list and cost of items</a></dt><dt>11. <a href="#N202B8">View with list and cost of items in shopping list</a></dt><dt>12. <a href="#N2030B">A sample <code class="code">&lt;table:table-row&gt;</code> element</a></dt><dt>13. <a href="#N20323">Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</a></dt><dt>14. <a href="#N2032F">
+		</a></span></dt><dt><span class="section"><a href="#N2065E">What About Extents?</a></span></dt><dt><span class="section"><a href="#N20694">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206A9">Best Practices</a></span></dt><dt><span class="section"><a href="#N206D3">Summary</a></span></dt></dl></dd><dt><span class="article"><a href="#N206E2">Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping</a></span></dt><dd><dl><dt><span class="section"><a href="#N206FE">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20718">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N20721">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N20774">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N2077D">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N2079E">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N207D2">Optimization Class</a></span></dt><dt><span class="section"><a href="#N207F1">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20803">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N20812">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2082D">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20858">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N20861">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N20889">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208B4">Conclusion</a></span></dt><dt><span class="section"><a href="#N208BD"></a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1. <a href="#N20093">XML files of an ODF document</a></dt><dt>2. <a href="#N201F6">Prefix and namespace URI used in	content.xml	document</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1. <a href="#N20162">DB2 table to hold content.xml file of the ODF spreadsheet</a></dt><dt>2. <a href="#N2016E">Contents of flat file to be used for loading DOCCONTENTXML table</a></dt><dt>3. <a href="#N20177">IMPORT statement to load content.xml into DOCCONTENTXML table</a></dt><dt>4. <a href="#N20198">XPath expression to get first row, second column value</a></dt><dt>5. <a href="#N2023A">Query to extract cell values from content.xml into tabular format</a></dt><dt>6. <a href="#N20246">Result of SELECT on the view V_CONTENT</a></dt><dt>7. <a href="#N20261">DDL for table to hold the shopping prices</a></dt><dt>8. <a href="#N2026D">Query to obtain list and cost of items with grand total</a></dt><dt>9. <a href="#N20279">Result of query for obtaining list and cost of items</a></dt><dt>10. <a href="#N2028B">View with list and cost of items in shopping list</a></dt><dt>11. <a href="#N202DE">A sample <code class="code">&lt;table:table-row&gt;</code> element</a></dt><dt>12. <a href="#N202F6">Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</a></dt><dt>13. <a href="#N20302">
 					Insert generated <code class="code">&lt;table:table-row&gt;</code> elements with <code class="code">&lt;dummy&gt;</code> parent
-				</a></dt><dt>15. <a href="#N20341">Updated content.xml document</a></dt><dt>1. <a href="#N208C4">An example of an optimization profile</a></dt></dl></div>
+				</a></dt><dt>14. <a href="#N20314">Updated content.xml document</a></dt><dt>1. <a href="#N20897">An example of an optimization profile</a></dt></dl></div>
 
 	
 
@@ -43,7 +43,7 @@
 
 	
 
-	<div class="article" title="Using DB2 pureXML and ODF Spreadsheets"><div class="titlepage"><div><div><h2 class="title"><a name="N2003F"></a>Using DB2 pureXML and ODF Spreadsheets</h2></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N20046">Abstract</a></span></dt><dt><span class="section"><a href="#N2004F">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#N20057">The ODF specification</a></span></dt><dt><span class="section"><a href="#N20068">DB2 pureXML</a></span></dt></dl></dd><dt><span class="section"><a href="#N2007A">The ODF document</a></span></dt><dt><span class="section"><a href="#N2010F">A bit of hacking</a></span></dt><dt><span class="section"><a href="#N2014C">Scheme of this article</a></span></dt><dt><span class="section"><a href="#N20167">Inserting XML document into DB2 table</a></span></dt><dd><dl><dt><span class="section"><a href="#N20178">IMPORT statements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20197">Converting the content.xml into row-column format</a></span></dt><dd><dl><dt><span class="section"><a href="#N2019C">Getting the cell values from the XML file</a></span></dt><dt><span class="section"><a href="#N201A5">The XPath expression</a></span></dt><dt><span class="section"><a href="#N20203">The required query </a></span></dt></dl></dd><dt><span class="section"><a href="#N2027E">Shopping prices</a></span></dt><dd><dl><dt><span class="section"><a href="#N20286">Building the list of shopping prices</a></span></dt><dt><span class="section"><a href="#N202B0">View with list and cost of items</a></span></dt></dl></dd><dt><span class="section"><a href="#N202C3">XQuery Update to build content.xml document</a></span></dt><dd><dl><dt><span class="section"><a href="#N202CE">A quick side note on XQuery Update</a></span></dt><dt><span class="section"><a href="#N202D7">Generating the content.xml for the shopping prices</a></span></dt><dt><span class="section"><a href="#N202FD">Building the <code class="code">&gt;&lt;table:table-row&gt;</code> elements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20360">Next steps</a></span></dt><dt><span class="section"><a href="#N2038E">Resources</a></span></dt><dt><span class="section"><a href="#N2041C">Biography</a></span></dt></dl></div>
+	<div class="article" title="Using DB2 pureXML and ODF Spreadsheets"><div class="titlepage"><div><div><h2 class="title"><a name="N2003F"></a>Using DB2 pureXML and ODF Spreadsheets</h2></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N20046">Abstract</a></span></dt><dt><span class="section"><a href="#N2004F">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#N20057">The ODF specification</a></span></dt><dt><span class="section"><a href="#N20068">DB2 pureXML</a></span></dt></dl></dd><dt><span class="section"><a href="#N2007A">The ODF document</a></span></dt><dt><span class="section"><a href="#N2010F">A bit of hacking</a></span></dt><dt><span class="section"><a href="#N2015B">Importing and XML document into a DB2 table</a></span></dt><dt><span class="section"><a href="#N20182">Converting the content.xml into row-column format</a></span></dt><dd><dl><dt><span class="section"><a href="#N20187">Getting the cell values from the XML file</a></span></dt><dt><span class="section"><a href="#N20190">The XPath expression</a></span></dt><dt><span class="section"><a href="#N201EE">The required query </a></span></dt></dl></dd><dt><span class="section"><a href="#N20251">Shopping prices</a></span></dt><dd><dl><dt><span class="section"><a href="#N20259">Building the list of shopping prices</a></span></dt><dt><span class="section"><a href="#N20283">View with list and cost of items</a></span></dt></dl></dd><dt><span class="section"><a href="#N20296">XQuery Update to build content.xml document</a></span></dt><dd><dl><dt><span class="section"><a href="#N202A1">A quick side note on XQuery Update</a></span></dt><dt><span class="section"><a href="#N202AA">Generating the content.xml for the shopping prices</a></span></dt><dt><span class="section"><a href="#N202D0">Building the <code class="code">&gt;&lt;table:table-row&gt;</code> elements</a></span></dt></dl></dd><dt><span class="section"><a href="#N20333">Next steps</a></span></dt><dt><span class="section"><a href="#N20361">Resources</a></span></dt><dt><span class="section"><a href="#N203EF">Biography</a></span></dt></dl></div>
 	
 	<div class="section" title="Abstract"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20046"></a>Abstract</h2></div></div></div>
 		
@@ -132,87 +132,74 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 		<div class="mediaobject"><table cellpadding="0" cellspacing="0" summary="manufactured viewport for HTML img" border="0" width="396"><tr style="height: 267px"><td><img src="../graphics/isj2010-08-purexml-OOo-graphics5.png" width="396"></td></tr></table><div class="caption">??? insert suitable caption here ???</div></div>
 
 		<p>
-			It is now clear that, to &ldquo;read&rdquo; an existing ODF spreadsheet in its simplest form, we have to navigate the path of the
+			It is now clear that, to &ldquo;read&rdquo; an existing ODF spreadsheet in its simplest form, we have to navigate the paths of the
 			content.xml XML document. Similarly, to &ldquo;modify&rdquo; an existing ODF spreadsheet, we should generate the content.xml XML 
 			document correctly. One can, of course, extend this to create and/or modify other XML documents in the .ods archive. 
 			But, for the sake of this article, we will concentrate only on the creation of content.xml XML document.
 		</p>
-	</div>
-	<div class="section" title="Scheme of this article"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2014C"></a>Scheme of this article</h2></div></div></div>
-		
 		<p>
-			With this knowledge of XML documents in an ODF document archive, we will now proceed to demonstrate the usage of DB2
-			pureXML with ODF documents. We consider the scheme below.
+			With this knowledge of XML documents in an ODF document archive, we will now proceed to demonstrate how to use DB2
+			pureXML with ODF documents.  In the remainder of this article we will consider an ODF spreadsheet of a simple shopping list 
+			containing item names, units of measurement (UOM) and the number of units required.   We will demonstrate how to -
 		</p>
 		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-				We consider an ODF spreadsheet of a simple shopping list where the item name, unit of measure (UOM) and the units
-				required are provided.
+				Import the content.xml document of this ODF spreadsheet into an XML column within a DB2 table
 			</li><li class="listitem">
-				The content.xml document of this ODF spreadsheet is imported into a DB2 table with an XML column.</li><li class="listitem">
-				For the sake of this article we will use the LOAD statement in DB2 to load the content.xml document and ignore any
-					other methods of inserting XML documents into the DB2 table.
+				Extract information from the content.xml document into relational format.
 			</li><li class="listitem">
-				We will refer to another traditional table which stores the price list.
-			</li><li class="listitem">
-				Using the table for price list and the table with the XML column for content.xml, we will generate another content.xml
-				XML document that will hold the items with their corresponding prices.
+				Merge data from a relational table with the content.xml document in the XML column to produce a new spreadsheet.
 			</li></ol></div>
 	</div>
-	<div class="section" title="Inserting XML document into DB2 table"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20167"></a>Inserting XML document into DB2 table</h2></div></div></div>
+	<div class="section" title="Importing and XML document into a DB2 table"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2015B"></a>Importing and XML document into a DB2 table</h2></div></div></div>
 		
 		<p>
-			We will consider a &nbsp;table to demonstrate DB2 pureXML capabilities. The first table will be keyed via an ID column to
-			differentiate multiple documents. The second column of the table will hold the content.xml file of the ODF spreadsheet 
-			document in a &nbsp;XML column. The DDL for this table is reproduced here:
-		</p>
-		<div class="example"><a name="N2016F"></a><p class="title"><b>Example&nbsp;1.&nbsp;DB2 table to hold content.xml file of the ODF spreadsheet</b></p><div class="example-contents">
-			
-			<pre class="programlisting">
-				-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
-				-- The table is keyed on DOCID a running sequence number.
-				CREATE TABLE ODF.DOCCONTENTXML 
-				(
-				&nbsp; &nbsp; &nbsp; DOCID      INTEGER NOT NULL,
-				&nbsp; &nbsp; &nbsp; DOCCONTENT XML     NOT NULL
-				) ;
-			</pre>
-		</div></div><br class="example-break">
-		<div class="section" title="IMPORT statements"><div class="titlepage"><div><div><h3 class="title"><a name="N20178"></a>IMPORT statements</h3></div></div></div>
-			
-			<p>
-				Inserting the XML document into the table can be done using a simple INSERT SQL statement or using IMPORT
-				statement. However, since we have a considerably sized XML document, we will use the IMPORT statement from 
-				the command line. To use the IMPORT statement, first, save the content.xml in a folder as say, ODSFolder
-				and create a flat file with a single record. Save the flat file as load.txt. This record will have two values 
-				separated by a comma as shown below.
-			</p>
-			<div class="example"><a name="N20180"></a><p class="title"><b>Example&nbsp;2.&nbsp;Contents of flat file to be used for loading DOCCONTENTXML table</b></p><div class="example-contents">
-				
-				<pre class="programlisting">1,&lt;XDS FIL='content.xml'/&gt;</pre>
-			</div></div><br class="example-break">
-			<div class="example"><a name="N20189"></a><p class="title"><b>Example&nbsp;3.&nbsp;IMPORT statement to load content.xml into DOCCONTENTXML table</b></p><div class="example-contents">
+			We create a table to hold the XML document.  As well as an XML column to hold the document it will also have an INTEGER
+			column as a primary key which we will use to differentiate between multiple documents. The DDL for this table is as follows -
+			</p><div class="example"><a name="N20162"></a><p class="title"><b>Example&nbsp;1.&nbsp;DB2 table to hold content.xml file of the ODF spreadsheet</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					IMPORT FROM load.txt OF DEL 
-					XML FROM ODSFolder 
-					INSERT INTO ODF.DOCCONTENTXML;
+-- DOCCONTENTXML table to hold the content.xml file of a ODF document.
+-- The table is keyed on DOCID a running sequence number.
+CREATE TABLE ODF.DOCCONTENTXML 
+(
+ DOCID      INTEGER NOT NULL,
+ DOCCONTENT XML     NOT NULL
+);
 				</pre>
-			</div></div><br class="example-break">
-			<p>
+			</div></div><p><br class="example-break">
+		</p>		
+		<p>
+				Inserting the XML document into the table could be done using a simple INSERT SQL statement.  However since
+				we have a considerably sized XML document, we will use the IMPORT statement from the command line. To use the 
+				IMPORT statement, first, save the content.xml in a folder as say, ODSFolder and create a flat file with a single record. 
+				Save the flat file as load.txt. This record will have two values separated by a comma as shown below -
+			</p><div class="example"><a name="N2016E"></a><p class="title"><b>Example&nbsp;2.&nbsp;Contents of flat file to be used for loading DOCCONTENTXML table</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+1,&lt;XDS FIL='content.xml'/&gt;
+				</pre>
+			</div></div><p><br class="example-break">
+			</p><div class="example"><a name="N20177"></a><p class="title"><b>Example&nbsp;3.&nbsp;IMPORT statement to load content.xml into DOCCONTENTXML table</b></p><div class="example-contents">
+				
+				<pre class="programlisting">
+IMPORT FROM load.txt OF DEL 
+XML FROM ODSFolder 
+INSERT INTO ODF.DOCCONTENTXML;
+				</pre>
+			</div></div><p><br class="example-break">
 				Alternatively, IBM Data Studio Developer can be used to load into XML column as it offers a convenient GUI.
 			</p>
 		</div>
-	</div>
-	<div class="section" title="Converting the content.xml into row-column format"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20197"></a>Converting the content.xml into row-column format</h2></div></div></div>
+	<div class="section" title="Converting the content.xml into row-column format"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20182"></a>Converting the content.xml into row-column format</h2></div></div></div>
 		
-		<div class="section" title="Getting the cell values from the XML file"><div class="titlepage"><div><div><h3 class="title"><a name="N2019C"></a>Getting the cell values from the XML file</h3></div></div></div>
+		<div class="section" title="Getting the cell values from the XML file"><div class="titlepage"><div><div><h3 class="title"><a name="N20187"></a>Getting the cell values from the XML file</h3></div></div></div>
 			
 			<p>
 				To get to the cell values of the spreadsheet, we will start with the required XPath expression. Then, we will develop a
 				working query around the XPath expression to get the results.
 			</p>
 		</div>
-		<div class="section" title="The XPath expression"><div class="titlepage"><div><div><h3 class="title"><a name="N201A5"></a>The XPath expression</h3></div></div></div>
+		<div class="section" title="The XPath expression"><div class="titlepage"><div><div><h3 class="title"><a name="N20190"></a>The XPath expression</h3></div></div></div>
 			
 			<p>
 				Going back to Table 2, the left column shows the first row of the spreadsheet highlighted. The right column is a part
@@ -223,10 +210,10 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				in the left column. Thus, to get to, say, column B of the first row, the path to be navigated (or, the XPath expression) 
 				from the root of XML document would be as below.
 			</p>
-			<div class="example"><a name="N201AD"></a><p class="title"><b>Example&nbsp;4.&nbsp;XPath expression to get first row, second column value</b></p><div class="example-contents">
+			<div class="example"><a name="N20198"></a><p class="title"><b>Example&nbsp;4.&nbsp;XPath expression to get first row, second column value</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
+/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row[1]/table:table-cell[2]/text:p
 				</pre>
 			</div></div><br class="example-break">
 			<p>
@@ -236,7 +223,7 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				<code class="code">table:row[1]/table:cell[2]</code> and	finally to <code class="code">text:p</code> to get the actual text of the cell.
 			</p>
 			<p>
-				With Firefox Mozilla browser, the above XPath expression can be easily tested using the add-on Xpather (see
+				With Firefox Mozilla browser, the above XPath expression can be easily tested using the add-on XPather (see
 				Resources below). &nbsp;We follow the steps below :-
 			</p>
 			<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">Open the content.xml in Firefox Mozilla browser</li><li class="listitem">Right-click on the page and select 'Show in XPather'
@@ -248,13 +235,13 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 			<div class="mediaobject"><table cellpadding="0" cellspacing="0" summary="manufactured viewport for HTML img" border="0" width="396"><tr style="height: 267px"><td><img src="../graphics/isj2010-08-purexml-OOo-graphics7.png" width="396"></td></tr></table></div>
 		</div>
 
-		<div class="section" title="The required query"><div class="titlepage"><div><div><h3 class="title"><a name="N20203"></a>The required query </h3></div></div></div>
+		<div class="section" title="The required query"><div class="titlepage"><div><div><h3 class="title"><a name="N201EE"></a>The required query </h3></div></div></div>
 			
 			<p>
 				To wrap the XPath expression into a query, we first note the XML namespaces used. The content.xml file has the
 				namespaces defined as shown below :
 			</p>
-			<div class="table"><a name="N2020B"></a><p class="title"><b>Table&nbsp;2.&nbsp;Prefix and namespace URI used in	content.xml	document</b></p><div class="table-contents">
+			<div class="table"><a name="N201F6"></a><p class="title"><b>Table&nbsp;2.&nbsp;Prefix and namespace URI used in	content.xml	document</b></p><div class="table-contents">
 			
 				<table summary="Prefix and namespace URI used in	content.xml	document" border="1"><colgroup><col><col></colgroup><thead><tr><th>Prefix</th><th>Namespace</th></tr></thead><tbody><tr><td><code class="code">office</code></td><td>
 								<code class="code">&ldquo;urn:oasis:names:tc:opendocument:xmlns:office:1.0&rdquo;</code>
@@ -268,111 +255,80 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 			<p>
 				The query shown below will use the XML namespaces and XPath expression that we produced in the previous sections&nbsp;to 
 				extract&nbsp;the	cell values from the loaded content.xml file. The highlighted text shows the XPath expression used to 
-				extract cell values.
+				extract cell values.   The query has been wrapped into a view for ease of use -
 			</p>
-			<div class="example"><a name="N2024F"></a><p class="title"><b>Example&nbsp;5.&nbsp;Query to extract cell values from content.xml into tabular format</b></p><div class="example-contents">
+			<div class="example"><a name="N2023A"></a><p class="title"><b>Example&nbsp;5.&nbsp;Query to extract cell values from content.xml into tabular format</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					SELECT
-					X.*
-					FROM
-					XMLTABLE(
-					XMLNAMESPACES('urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS
-					"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					'urn:oasis:names:tc:opendocument:xmlns:table:1.0' AS "table",
-					'urn:oasis:names:tc:opendocument:xmlns:text:1.0' AS "text"),
-					'db2-fn:sqlquery("SELECT
-					DOCCONTENT
-					FROM
-					ODF.DOCCONTENTXML
-					WHERE DOCID
-					= 1")
-					<span class="emphasis"><em>
-						/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
-					</em></span>
-					COLUMNS&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					"ITEMNAME" CHARACTER (20) &nbsp;PATH
-					<span class="emphasis"><em>'table:table-cell[1]/text:p'</em></span>, &nbsp;
-					"QUANTITY" DECIMAL &nbsp; (4,2) PATH
-					<span class="emphasis"><em>'table:table-cell[2]/text:p'</em></span>,
-					"UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH
-					<span class="emphasis"><em>'table:table-cell[3]/text:p'</em></span> &nbsp;
-					) AS X; 
-				</pre>
-			</div></div><br class="example-break">
-			<p>
-				To see the content.xml document in traditional rows	and columns format, we create a view using the query above.
-			</p>
-			<div class="example"><a name="N20267"></a><p class="title"><b>Example&nbsp;6.&nbsp;View on the content.xml document</b></p><div class="example-contents">
-				
-				<pre class="programlisting">
-					CREATE VIEW ODF.V_CONTENT AS
-					(
-					SELECT
-					X.*
-					FROM
-					XMLTABLE(
-					XMLNAMESPACES(
-						'urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS	"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-						'urn:oasis:names:tc:opendocument:xmlns:table:1.0'  AS "table",
-						'urn:oasis:names:tc:opendocument:xmlns:text:1.0'  AS "text"
-					),
-					'db2-fn:sqlquery("SELECT
-					 DOCCONTENT
-					 FROM
-					 ODF.DOCCONTENTXML
-					 WHERE
-					 DOCID = 1"
-					)/office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
-					COLUMNS
-					"ITEMNAME" CHARACTER (20) &nbsp;PATH 'table:table-cell[1]/text:p',
-					"QUANTITY" DECIMAL &nbsp; (4,2) PATH	'table:table-cell[2]/text:p',
-					"UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH	'table:table-cell[3]/text:p'
-					) AS X
-					);
+CREATE VIEW ODF.V_CONTENT AS
+(
+ SELECT
+ X.*
+ FROM
+ XMLTABLE(
+  XMLNAMESPACES(
+   'urn:oasis:names:tc:opendocument:xmlns:office:1.0' AS	"office", &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   'urn:oasis:names:tc:opendocument:xmlns:table:1.0'  AS "table",
+   'urn:oasis:names:tc:opendocument:xmlns:text:1.0'   AS "text"
+  ),
+  'db2-fn:sqlquery(
+     "SELECT
+	  DOCCONTENT
+	  FROM
+	  ODF.DOCCONTENTXML
+	  WHERE 
+	  DOCID = 1"
+  )
+  /office:document-content/office:body/office:spreadsheet/table:table[1]/table:table-row'
+  COLUMNS&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  "ITEMNAME" CHARACTER (20) &nbsp;PATH 'table:table-cell[1]/text:p', &nbsp;
+  "QUANTITY" DECIMAL &nbsp; (4,2) PATH 'table:table-cell[2]/text:p',
+  "UOM" &nbsp; &nbsp; &nbsp;CHARACTER (5) &nbsp; PATH 'table:table-cell[3]/text:p' &nbsp;
+ ) AS X 
+);
 				</pre>
 			</div></div><br class="example-break">
 			<p>
 				A simple SELECT query on this view shows that we have successfully 'converted' the content.xml document in the ODF 
 				archive for spreadsheet into a row-column format.
 			</p>
-			<div class="example"><a name="N20273"></a><p class="title"><b>Example&nbsp;7.&nbsp;Result of SELECT on the view V_CONTENT</b></p><div class="example-contents">
+			<div class="example"><a name="N20246"></a><p class="title"><b>Example&nbsp;6.&nbsp;Result of SELECT on the view V_CONTENT</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					SELECT * FROM ODF.V_CONTENT ;
+SELECT * FROM ODF.V_CONTENT ;
 
-					ITEMNAME             QUANTITY UOM &nbsp;
-					-------------------- -------- ----
-					Potato &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 kg &nbsp;
-					Onion &nbsp; &nbsp; &nbsp;  &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp;1.00 kg &nbsp;
-					Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
-					Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
-					Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
-					Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
-					Tomato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
-					Curd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 L &nbsp; &nbsp;
-					Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 doz &nbsp;
-					Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 L &nbsp; &nbsp;
-					Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00 L &nbsp; &nbsp;
+ITEMNAME             QUANTITY UOM &nbsp;
+-------------------- -------- ----
+Potato &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 kg &nbsp;
+Onion &nbsp; &nbsp; &nbsp;  &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp;1.00 kg &nbsp;
+Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
+Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
+Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 kg &nbsp;
+Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
+Tomato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 kg &nbsp;
+Curd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 L &nbsp; &nbsp;
+Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 doz &nbsp;
+Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 L &nbsp; &nbsp;
+Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00 L &nbsp; &nbsp;
 
-					11 record(s) selected.
+11 record(s) selected.
 				</pre>
 			</div></div><br class="example-break">
 		</div>
 	</div>
-	<div class="section" title="Shopping prices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2027E"></a>Shopping prices</h2></div></div></div>
+	<div class="section" title="Shopping prices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20251"></a>Shopping prices</h2></div></div></div>
 		
 		<p>
 			We will now build the content.xml for an ODF spreadsheet that will hold the shopping list &ndash; discussed above &ndash; with
 			an additional column for cost of items in the shopping list. We will also provide an additional row for the grand 
 			total of the items in shopping list.
 		</p>
-		<div class="section" title="Building the list of shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N20286"></a>Building the list of shopping prices</h3></div></div></div>
+		<div class="section" title="Building the list of shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N20259"></a>Building the list of shopping prices</h3></div></div></div>
 			
 			<p>
 				We create a simple table that holds the unit price of shopping items with the DDL shown below.
 			</p>
-			<div class="example"><a name="N2028E"></a><p class="title"><b>Example&nbsp;8.&nbsp;DDL for table to hold the shopping prices</b></p><div class="example-contents">
+			<div class="example"><a name="N20261"></a><p class="title"><b>Example&nbsp;7.&nbsp;DDL for table to hold the shopping prices</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 					--Table to hold the unit price of shopping items
@@ -386,72 +342,71 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				list of item names and the cost of items, we use the following query. Note that, this query uses the view V_CONTENT. 
 				We could have used the base table directly. Usage of the view makes the query 'compact' and easier to follow.
 			</p>
-			<div class="example"><a name="N2029A"></a><p class="title"><b>Example&nbsp;9.&nbsp;Query to obtain list and cost of items with grand total</b></p><div class="example-contents">
+			<div class="example"><a name="N2026D"></a><p class="title"><b>Example&nbsp;8.&nbsp;Query to obtain list and cost of items with grand total</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					SELECT
-					COALESCE(P.ITEMNAME,' TOTAL')
-					ITEMNAME,
-					SUM(P.QUANTITY) QTY,
-					COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
-					SUM(P.COST) COST
-					FROM
-					(SELECT
-					 A.ITEMNAME,
-					 A.QUANTITY,
-					 B.UNIT_PRICE,
-					 A.QUANTITY*B.UNIT_PRICE COST
-					 FROM
-					 ODF.V_CONTENT A,
-					 ODF.SHOPPER B
-					 WHERE
-					 UPPER(A.ITEMNAME) = B.ITEMNAME
-					) P
-					GROUP BY
-					ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
-					HAVING 
-					(P.ITEMNAME IS NULL OR
-					 (P.ITEMNAME      IS NOT NULL AND
-					  P.QUANTITY      IS NOT NULL AND
-					  P.UNIT_PRICE    IS NOT NULL AND
-					  SUM(P.COST)     IS NOT NULL&nbsp;AND
-					  SUM(P.QUANTITY) IS NOT NULL
-					 )
-					)
-					ORDER BY COALESCE(P.ITEMNAME,' ') DESC;
+SELECT
+COALESCE(P.ITEMNAME,' TOTAL')
+ITEMNAME,
+SUM(P.QUANTITY) QTY,
+COALESCE(P.UNIT_PRICE, 0) UNIT_PRICE,
+SUM(P.COST) COST
+FROM
+(SELECT
+ A.ITEMNAME,
+ A.QUANTITY,
+ B.UNIT_PRICE,
+ A.QUANTITY*B.UNIT_PRICE COST
+ FROM
+ ODF.V_CONTENT A,
+ ODF.SHOPPER B
+ WHERE
+ UPPER(A.ITEMNAME) = B.ITEMNAME
+) P
+GROUP BY
+ROLLUP(P.ITEMNAME,P.QUANTITY,P.UNIT_PRICE)
+HAVING 
+(P.ITEMNAME IS NULL OR
+ (P.ITEMNAME      IS NOT NULL AND
+  P.QUANTITY      IS NOT NULL AND
+  P.UNIT_PRICE    IS NOT NULL AND
+  SUM(P.COST)     IS NOT NULL&nbsp;AND
+  SUM(P.QUANTITY) IS NOT NULL
+ )
+)
+ORDER BY COALESCE(P.ITEMNAME,' ') DESC;
 				</pre>
 			</div></div><br class="example-break">
 			<p>
 				The result of the above query is shown below.
 			</p>
-			<div class="example"><a name="N202A6"></a><p class="title"><b>Example&nbsp;10.&nbsp;Result of query for obtaining list and cost of items</b></p><div class="example-contents">
+			<div class="example"><a name="N20279"></a><p class="title"><b>Example&nbsp;9.&nbsp;Result of query for obtaining list and cost of items</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
-					ITEMNAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; QTY &nbsp; &nbsp;UNIT_PRICE COST
-					&nbsp; &nbsp;
-					-------------------- ------ ---------- --------
-					Tomato                 0.25 &nbsp; &nbsp; &nbsp; 6.00     1.50
-					Potato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 &nbsp; &nbsp; &nbsp; 5.50 &nbsp;  11.00
-					Onion &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.00 &nbsp; &nbsp; &nbsp; 4.00 &nbsp; &nbsp; 4.00
-					Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         2.00 &nbsp; &nbsp; &nbsp;40.00 &nbsp; &nbsp;80.00
-					Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00		&nbsp;30.00 &nbsp; 150.00
-					Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 &nbsp; &nbsp; &nbsp; 8.00     2.00
-					Curd &nbsp;     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
-					Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50	&nbsp; &nbsp; &nbsp;10.00   &nbsp; 5.00
-					Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;15.00 &nbsp; &nbsp; 7.50
-					Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
-					Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   2.00 &nbsp; &nbsp; &nbsp; 6.00 &nbsp; &nbsp;12.00
-					TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 14.50 &nbsp; &nbsp; &nbsp; 0.00   293.00 
+ITEMNAME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; QTY &nbsp; &nbsp;UNIT_PRICE COST
+-------------------- ------ ---------- --------
+Tomato                 0.25 &nbsp; &nbsp; &nbsp; 6.00     1.50
+Potato &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.00 &nbsp; &nbsp; &nbsp; 5.50 &nbsp;  11.00
+Onion &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.00 &nbsp; &nbsp; &nbsp; 4.00 &nbsp; &nbsp; 4.00
+Milk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         2.00 &nbsp; &nbsp; &nbsp;40.00 &nbsp; &nbsp;80.00
+Groundnut Oil &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5.00		&nbsp;30.00 &nbsp; 150.00
+Green chilli &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.25 &nbsp; &nbsp; &nbsp; 8.00     2.00
+Curd &nbsp;     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
+Cucumber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50	&nbsp; &nbsp; &nbsp;10.00   &nbsp; 5.00
+Carrot &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;15.00 &nbsp; &nbsp; 7.50
+Capsicum &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.50 &nbsp; &nbsp; &nbsp;20.00 &nbsp; &nbsp;10.00
+Banana &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   2.00 &nbsp; &nbsp; &nbsp; 6.00 &nbsp; &nbsp;12.00
+TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 14.50 &nbsp; &nbsp; &nbsp; 0.00   293.00 
 				</pre>
 			</div></div><br class="example-break">
 		</div>
-		<div class="section" title="View with list and cost of items"><div class="titlepage"><div><div><h3 class="title"><a name="N202B0"></a>View with list and cost of items</h3></div></div></div>
+		<div class="section" title="View with list and cost of items"><div class="titlepage"><div><div><h3 class="title"><a name="N20283"></a>View with list and cost of items</h3></div></div></div>
 			
 			<p>
 				Now that we have the result of computation of cost of items, we will take this into a view. This is purely for
 				convenience. We can proceed without using this view.
 			</p>
-			<div class="example"><a name="N202B8"></a><p class="title"><b>Example&nbsp;11.&nbsp;View with list and cost of items in shopping list</b></p><div class="example-contents">
+			<div class="example"><a name="N2028B"></a><p class="title"><b>Example&nbsp;10.&nbsp;View with list and cost of items in shopping list</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 					CREATE VIEW ODF.V_SHOP_COST AS
@@ -488,7 +443,7 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 			</div></div><br class="example-break">
 		</div>
 	</div>
-	<div class="section" title="XQuery Update to build content.xml document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N202C3"></a>XQuery Update to build content.xml document</h2></div></div></div>
+	<div class="section" title="XQuery Update to build content.xml document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20296"></a>XQuery Update to build content.xml document</h2></div></div></div>
 		
 		<p>
 			At this point, we have 'shredded' the shopping list (from the content.xml of ODF spreadsheet), joined with the relational
@@ -502,7 +457,7 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 			otherwise empty content.xml document. This approach will also allow	us to make use of the XQuery Update facility in DB2 
 			pureXML.
 		</p>
-		<div class="section" title="A quick side note on XQuery Update"><div class="titlepage"><div><div><h3 class="title"><a name="N202CE"></a>A quick side note on XQuery Update</h3></div></div></div>
+		<div class="section" title="A quick side note on XQuery Update"><div class="titlepage"><div><div><h3 class="title"><a name="N202A1"></a>A quick side note on XQuery Update</h3></div></div></div>
 			
 			<p>
 				XQuery is a query and functional programming language designed to query XML documents. It became a W3C Candidate
@@ -510,7 +465,7 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				modify and delete) of the XML documents. It became a W3C Candidate Recommendation on 14th March, 2008.
 			</p>
 		</div>
-		<div class="section" title="Generating the content.xml for the shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N202D7"></a>Generating the content.xml for the shopping prices</h3></div></div></div>
+		<div class="section" title="Generating the content.xml for the shopping prices"><div class="titlepage"><div><div><h3 class="title"><a name="N202AA"></a>Generating the content.xml for the shopping prices</h3></div></div></div>
 			
 			<p>
 				To start with, we will create a dummy content.xml that is complete and ODF compliant in all respects except it would
@@ -530,14 +485,14 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				&lt;table:table-column&gt;</code>.
 			</p>
 		</div>
-		<div class="section" title="Building the ><table:table-row> elements"><div class="titlepage"><div><div><h3 class="title"><a name="N202FD"></a>Building the <code class="code">&gt;&lt;table:table-row&gt;</code> elements</h3></div></div></div>
+		<div class="section" title="Building the ><table:table-row> elements"><div class="titlepage"><div><div><h3 class="title"><a name="N202D0"></a>Building the <code class="code">&gt;&lt;table:table-row&gt;</code> elements</h3></div></div></div>
 			
 			<p>
 				In our example, each row of spreadsheet would have four columns. Therefore, each row element, as required in content.xml, 
 				would have four children for the number of columns. A sample of <code class="code">&lt;table:table-row&gt;</code> is 
 				shown below. The XML namespace declarations have been omitted for the sake of brevity.
 			</p>
-			<div class="example"><a name="N2030B"></a><p class="title"><b>Example&nbsp;12.&nbsp;A sample <code class="code">&lt;table:table-row&gt;</code> element</b></p><div class="example-contents">
+			<div class="example"><a name="N202DE"></a><p class="title"><b>Example&nbsp;11.&nbsp;A sample <code class="code">&lt;table:table-row&gt;</code> element</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 					&lt;table:table-row
@@ -560,14 +515,14 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				function to build the elements and store in a table the generated elements so that it is easier to use while doing 
 				the update of XML document. The	table to hold the generated elements is defined as shown below.
 			</p>
-			<div class="example"><a name="N20323"></a><p class="title"><b>Example&nbsp;13.&nbsp;Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</b></p><div class="example-contents">
+			<div class="example"><a name="N202F6"></a><p class="title"><b>Example&nbsp;12.&nbsp;Table to hold generated <code class="code">&lt;table:table-row&gt;</code> elements</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 					CREATE TABLE ODF.SHOP_COST_XML 
 					(SHOP_COST XML);
 				</pre>
 			</div></div><br class="example-break">
-			<div class="example"><a name="N2032F"></a><p class="title"><b>Example&nbsp;14.&nbsp;
+			<div class="example"><a name="N20302"></a><p class="title"><b>Example&nbsp;13.&nbsp;
 					Insert generated <code class="code">&lt;table:table-row&gt;</code> elements with <code class="code">&lt;dummy&gt;</code> parent
 				</b></p><div class="example-contents">
 				
@@ -615,7 +570,7 @@ file), we will be having a &ldquo;legal&rdquo; ODF spreadsheet. To test this, fo
 				this query is not inserting the resulting into any table. It is left to the reader to route the output to a table 
 				column, file, message queue, etc.
 			</p>
-			<div class="example"><a name="N20341"></a><p class="title"><b>Example&nbsp;15.&nbsp;Updated content.xml document</b></p><div class="example-contents">
+			<div class="example"><a name="N20314"></a><p class="title"><b>Example&nbsp;14.&nbsp;Updated content.xml document</b></p><div class="example-contents">
 				
 				<pre class="programlisting">
 VALUES XMLQUERY(
@@ -647,7 +602,7 @@ return $dummy'
 			<p>And, we are done !</p>
 		</div>
 	</div>
-	<div class="section" title="Next steps"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20360"></a>Next steps</h2></div></div></div>
+	<div class="section" title="Next steps"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20333"></a>Next steps</h2></div></div></div>
 		
 		<p>
 			Further enhancements may involve manipulating other XML documents in a ODF compliant archive. For example, the
@@ -669,7 +624,7 @@ return $dummy'
 			for 	creator, creation time-stamp, etc.
 		</p>
 	</div>
-	<div class="section" title="Resources"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2038E"></a>Resources</h2></div></div></div>
+	<div class="section" title="Resources"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20361"></a>Resources</h2></div></div></div>
 		
 		<p>Important resources :</p>
 		<div class="variablelist"><dl><dt><span class="term">
@@ -708,7 +663,7 @@ return $dummy'
 					<a class="ulink" href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0710nicola/%5C" target="_top">Update XML in DB2 9.5</a>
 				</span></dt><dd>Nice article on developerWorks explaining update of XML documents</dd></dl></div>
 	</div>
-	<div class="section" title="Biography"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2041C"></a>Biography</h2></div></div></div>
+	<div class="section" title="Biography"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N203EF"></a>Biography</h2></div></div></div>
 		
 		<p>Nagesh Subrahmanyam is a Software Developer in IBM
 			Global Services, India......</p>
@@ -717,17 +672,17 @@ return $dummy'
 
 	
 
-	<div class="article" title="Giving You A Reason"><div class="titlepage"><div><div><h2 class="title"><a name="N20428"></a>Giving You A Reason</h2></div><div><h3 class="subtitle"><i>Compelling Reasons to Upgrade DB2</i></h3></div><div><div class="author"><h3 class="author">Roger Miller</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2044A">
+	<div class="article" title="Giving You A Reason"><div class="titlepage"><div><div><h2 class="title"><a name="N203FB"></a>Giving You A Reason</h2></div><div><h3 class="subtitle"><i>Compelling Reasons to Upgrade DB2</i></h3></div><div><div class="author"><h3 class="author">Roger Miller</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2041D">
 			Should you upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N20456">
+		</a></span></dt><dt><span class="section"><a href="#N20429">
 			When and how should I upgrade to DB2 10?
-		</a></span></dt><dt><span class="section"><a href="#N20465">
+		</a></span></dt><dt><span class="section"><a href="#N20438">
 		DB2 9: Robust, Scalable, Available and Easily Manageable
-		</a></span></dt><dt><span class="section"><a href="#N20471">
+		</a></span></dt><dt><span class="section"><a href="#N20444">
 		DB2 10: Cut costs and improve performance
-		</a></span></dt><dt><span class="section"><a href="#N2047D">
+		</a></span></dt><dt><span class="section"><a href="#N20450">
 			Questions for you
-		</a></span></dt><dt><span class="section"><a href="#N204AA">
+		</a></span></dt><dt><span class="section"><a href="#N2047D">
 			What version are you running?
 		</a></span></dt></dl></div>
 	
@@ -739,7 +694,7 @@ return $dummy'
 		Catalog and directory?  Utilities?  Are you currently running DB2 9? V8? V7?  Upgrading to a bigger 
 		bowl may be just what you need.
 	</p>
-	<div class="section" title="Should you upgrade to DB2 10?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2044A"></a>
+	<div class="section" title="Should you upgrade to DB2 10?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2041D"></a>
 			Should you upgrade to DB2 10?
 		</h2></div></div></div>
 		
@@ -765,7 +720,7 @@ return $dummy'
 		</p>
 	</div>
 	
-	<div class="section" title="When and how should I upgrade to DB2 10?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20456"></a>
+	<div class="section" title="When and how should I upgrade to DB2 10?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20429"></a>
 			When and how should I upgrade to DB2 10?
 		</h2></div></div></div>
 		
@@ -790,7 +745,7 @@ return $dummy'
 		</p>
 	</div>
 	
-	<div class="section" title="DB2 9: Robust, Scalable, Available and Easily Manageable"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20465"></a>
+	<div class="section" title="DB2 9: Robust, Scalable, Available and Easily Manageable"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20438"></a>
 		DB2 9: Robust, Scalable, Available and Easily Manageable
 		</h2></div></div></div>
 		
@@ -815,7 +770,7 @@ return $dummy'
 		</p>
 	</div>
 	
-	<div class="section" title="DB2 10: Cut costs and improve performance"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20471"></a>
+	<div class="section" title="DB2 10: Cut costs and improve performance"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20444"></a>
 		DB2 10: Cut costs and improve performance
 		</h2></div></div></div>
 		
@@ -835,7 +790,7 @@ return $dummy'
 		</p>
 	</div>
 	
-	<div class="section" title="Questions for you"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2047D"></a>
+	<div class="section" title="Questions for you"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20450"></a>
 			Questions for you
 		</h2></div></div></div>
 		
@@ -880,7 +835,7 @@ return $dummy'
 			</li></ul></div>
 	</div>
 	
-	<div class="section" title="What version are you running?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N204AA"></a>
+	<div class="section" title="What version are you running?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2047D"></a>
 			What version are you running?
 		</h2></div></div></div>
 		
@@ -925,15 +880,15 @@ return $dummy'
 
 	
 
-	<div class="article" title="DB2 and Storage Management"><div class="titlepage"><div><div><h2 class="title"><a name="N204EF"></a>DB2 and Storage Management</h2></div><div><div class="author"><h3 class="author">Craig S. Mullins</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N20502">DB2 Storage Basics</a></span></dt><dt><span class="section"><a href="#N205B3">
+	<div class="article" title="DB2 and Storage Management"><div class="titlepage"><div><div><h2 class="title"><a name="N204C2"></a>DB2 and Storage Management</h2></div><div><div class="author"><h3 class="author">Craig S. Mullins</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N204D5">DB2 Storage Basics</a></span></dt><dt><span class="section"><a href="#N20586">
 			Important DB2 for z/OS Storage Issues
-		</a></span></dt><dt><span class="section"><a href="#N205E0">
+		</a></span></dt><dt><span class="section"><a href="#N205B3">
 			A Little Bit About Modern Disk Arrays
-		</a></span></dt><dt><span class="section"><a href="#N20607">
+		</a></span></dt><dt><span class="section"><a href="#N205DA">
 			Cache Versus Buffer
-		</a></span></dt><dt><span class="section"><a href="#N2062E">
+		</a></span></dt><dt><span class="section"><a href="#N20601">
 			A Little Bit About DFSMS
-		</a></span></dt><dt><span class="section"><a href="#N2068B">What About Extents?</a></span></dt><dt><span class="section"><a href="#N206C1">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206D6">Best Practices</a></span></dt><dt><span class="section"><a href="#N20700">Summary</a></span></dt></dl></div>
+		</a></span></dt><dt><span class="section"><a href="#N2065E">What About Extents?</a></span></dt><dt><span class="section"><a href="#N20694">Another Thing to Think About</a></span></dt><dt><span class="section"><a href="#N206A9">Best Practices</a></span></dt><dt><span class="section"><a href="#N206D3">Summary</a></span></dt></dl></div>
 	
 	<p>
 		As an IT professional who uses DB2, you know that all database management systems rely on some form persistent storage to 
@@ -941,7 +896,7 @@ return $dummy'
 		storage management should be a key part of the database operations required of a DBA. Typically database storage means 
 		disk devices or subsystems, but it can also mean solid state disk, removable storage, or even trusty &ldquo;old&rdquo; tape devices.
 	</p>
-	<div class="section" title="DB2 Storage Basics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20502"></a>DB2 Storage Basics</h2></div></div></div>
+	<div class="section" title="DB2 Storage Basics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N204D5"></a>DB2 Storage Basics</h2></div></div></div>
 		
 		<p>
 			At the most basic level it is important to know that DB2 stores its data in VSAM Linear Data Sets (LDS). Each table space 
@@ -1049,7 +1004,7 @@ Figure 2. DB2 Data Set Naming Convention
 			These are the most basic storage &ldquo;things&rdquo; that you will need to know as you manage DB2 for z/OS storage.
 		</p>
 	</div>
-	<div class="section" title="Important DB2 for z/OS Storage Issues"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N205B3"></a>
+	<div class="section" title="Important DB2 for z/OS Storage Issues"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20586"></a>
 			Important DB2 for z/OS Storage Issues
 		</h2></div></div></div>
 		
@@ -1102,7 +1057,7 @@ Figure 3. DBA versus Storage Administration
 		</p>
 	</div>
 
-	<div class="section" title="A Little Bit About Modern Disk Arrays"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N205E0"></a>
+	<div class="section" title="A Little Bit About Modern Disk Arrays"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N205B3"></a>
 			A Little Bit About Modern Disk Arrays
 		</h2></div></div></div>
 		
@@ -1147,7 +1102,7 @@ Figure 3. DBA versus Storage Administration
 			modern disk arrays for the mainframe. 
 		</p>
 	</div>
-	<div class="section" title="Cache Versus Buffer"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20607"></a>
+	<div class="section" title="Cache Versus Buffer"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N205DA"></a>
 			Cache Versus Buffer
 		</h2></div></div></div>
 		
@@ -1176,7 +1131,7 @@ Figure 3. DBA versus Storage Administration
 		</p>
 	</div>
 
-	<div class="section" title="A Little Bit About DFSMS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2062E"></a>
+	<div class="section" title="A Little Bit About DFSMS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20601"></a>
 			A Little Bit About DFSMS
 		</h2></div></div></div>
 		
@@ -1236,7 +1191,7 @@ Figure 3. DBA versus Storage Administration
 		</p>
 	</div>
 
-	<div class="section" title="What About Extents?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2068B"></a>What About Extents?</h2></div></div></div>
+	<div class="section" title="What About Extents?"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2065E"></a>What About Extents?</h2></div></div></div>
 		
 		<p>
 			Some folks think &ldquo;With RAID/modern storage devices and new DB2 and z/OS features, extents are no longer anything to worry 
@@ -1289,7 +1244,7 @@ Figure 3. DBA versus Storage Administration
 		</p>
 	</div>
 
-	<div class="section" title="Another Thing to Think About"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206C1"></a>Another Thing to Think About</h2></div></div></div>
+	<div class="section" title="Another Thing to Think About"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20694"></a>Another Thing to Think About</h2></div></div></div>
 		
 		<p>
 			Every now and then I hear from a DB2 DBA complaining about index growth. They&rsquo;ll say something like this: &ldquo;My index 
@@ -1306,7 +1261,7 @@ Figure 3. DBA versus Storage Administration
 		</p>
 	</div>
 
-	<div class="section" title="Best Practices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206D6"></a>Best Practices</h2></div></div></div>
+	<div class="section" title="Best Practices"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206A9"></a>Best Practices</h2></div></div></div>
 		
 		<p>
 			In general, you should adopt best practices for managing your DB2-related storage. Keep up-to-date on DB2/storage 
@@ -1351,7 +1306,7 @@ Figure 5. Tracking the Growth of DB2 Storage Space
 
 	</div>
 	
-	<div class="section" title="Summary"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20700"></a>Summary</h2></div></div></div>
+	<div class="section" title="Summary"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206D3"></a>Summary</h2></div></div></div>
 		
 			<p>
 				Finally, there is a people issue that needs to be addressed. The DBA and the storage administrator will need to 
@@ -1371,7 +1326,7 @@ Figure 5. Tracking the Growth of DB2 Storage Space
 
 	
 	
-	<div class="article" title="Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping"><div class="titlepage"><div><div><h2 class="title"><a name="N2070F"></a>Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping</h2></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N2072B">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20745">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N2074E">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N207A1">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N207AA">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N207CB">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N207FF">Optimization Class</a></span></dt><dt><span class="section"><a href="#N2081E">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20830">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N2083F">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2085A">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20885">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N2088E">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N208B6">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208E1">Conclusion</a></span></dt><dt><span class="section"><a href="#N208EA"></a></span></dt></dl></div>
+	<div class="article" title="Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping"><div class="titlepage"><div><div><h2 class="title"><a name="N206E2"></a>Don&rsquo;t Flip Out! How to Stop Your Query Access Plans from Flopping</h2></div><div><div class="author"><h3 class="author">John Hornibrook</h3></div></div><div><div class="author"><h3 class="author">Editors : Guy Lohman, Terry Purcell</h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#N206FE">A Reactive Approach</a></span></dt><dt><span class="section"><a href="#N20718">A Proactive Approach</a></span></dt><dt><span class="section"><a href="#N20721">Writing SQL Statements</a></span></dt><dt><span class="section"><a href="#N20774">Data Server Configuration</a></span></dt><dt><span class="section"><a href="#N2077D">Configuration Parameters</a></span></dt><dt><span class="section"><a href="#N2079E">Table Space Attributes</a></span></dt><dt><span class="section"><a href="#N207D2">Optimization Class</a></span></dt><dt><span class="section"><a href="#N207F1">Catalog Statistics</a></span></dt><dt><span class="section"><a href="#N20803">Column Group Statistics</a></span></dt><dt><span class="section"><a href="#N20812">LIKE Predicate Statistics</a></span></dt><dt><span class="section"><a href="#N2082D">Statistical Views</a></span></dt><dt><span class="section"><a href="#N20858">Handling Exceptions</a></span></dt><dt><span class="section"><a href="#N20861">Access Plan Reuse</a></span></dt><dt><span class="section"><a href="#N20889">Optimization Profiles</a></span></dt><dt><span class="section"><a href="#N208B4">Conclusion</a></span></dt><dt><span class="section"><a href="#N208BD"></a></span></dt></dl></div>
 	
 	<p>
 Has this ever happened to you? You have an important report query that has been running on an IBM&reg; DB2&reg; for Linux&reg;, UNIX&reg;, and Windows&reg; data 
@@ -1385,7 +1340,7 @@ determination procedures, you discover that the access plan has changed in both 
 This edition of the Intelligent Optimizer will discuss some of the reasons why access plans occasionally change for the worse and what you can 
 do to prevent access plan flip-flop from happening.
 	</p>
-	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2072B"></a>A Reactive Approach</h2></div></div></div>
+	<div class="section" title="A Reactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N206FE"></a>A Reactive Approach</h2></div></div></div>
 		
 		<p>
 Once you&rsquo;ve determined that a query&rsquo;s performance degradation is due to an access plan change, you can compare the differences to try to 
@@ -1422,7 +1377,7 @@ above. So a more proactive approach is preferable.
 		</p>
 	</div>
 
-	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20745"></a>A Proactive Approach</h2></div></div></div>
+	<div class="section" title="A Proactive Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20718"></a>A Proactive Approach</h2></div></div></div>
 		
 		<p>
 Rather than scrambling to fix query access plan problems in panic situations, there are a number of modifications that you can make to your 
@@ -1436,7 +1391,7 @@ you can improve the optimizer&rsquo;s &ldquo;vision&rdquo; so it has a clear vie
 		</p>
 	</div>
 
-	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2074E"></a>Writing SQL Statements</h2></div></div></div>
+	<div class="section" title="Writing SQL Statements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20721"></a>Writing SQL Statements</h2></div></div></div>
 		
 		<p>
 SQL is a powerful language that enables you to specify relational expressions in syntactically different but semantically equivalent ways. 
@@ -1519,7 +1474,7 @@ contains more details on how to use the REOPT bind option, for different types o
 		</p>
 	</div>
 
-	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207A1"></a>Data Server Configuration</h2></div></div></div>
+	<div class="section" title="Data Server Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20774"></a>Data Server Configuration</h2></div></div></div>
 		
 		<p>
 There are a number of configuration options that affect the DB2 data server&rsquo;s performance, such as database and database manager configuration 
@@ -1530,7 +1485,7 @@ cost model are set accurately.
 		</p>
 	</div>
 	
-	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207AA"></a>Configuration Parameters</h2></div></div></div>
+	<div class="section" title="Configuration Parameters"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2077D"></a>Configuration Parameters</h2></div></div></div>
 		
 		<p>
 The following two database manager configuration parameters are used by the optimizer&rsquo;s cost model. While both are set automatically by the DB2 
@@ -1560,7 +1515,7 @@ plans that favor using more CPU or sortheap, due to incorrectly estimating that 
 memory. It is recommended that this parameter not be set higher than 3 or 5, if it is even necessary to set it at all. 
 		</p>
 	</div>
-	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207CB"></a>Table Space Attributes</h2></div></div></div>
+	<div class="section" title="Table Space Attributes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2079E"></a>Table Space Attributes</h2></div></div></div>
 		
 		<p>
 The optimizer also considers storage subsystem characteristics in the cost model. The storage subsystem characteristics are represented as 
@@ -1580,7 +1535,7 @@ contains information on how to set these parameters accurately.
 		</p>
 	</div>
 
-	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207FF"></a>Optimization Class</h2></div></div></div>
+	<div class="section" title="Optimization Class"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207D2"></a>Optimization Class</h2></div></div></div>
 		
 		<p>
 The DB2 data server allows you to control the level of optimization performed by the query optimizer. Different levels of optimization are 
@@ -1607,7 +1562,7 @@ optimization class for your workload.
 		</p>
 	</div>	
 
-	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2081E"></a>Catalog Statistics</h2></div></div></div>
+	<div class="section" title="Catalog Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N207F1"></a>Catalog Statistics</h2></div></div></div>
 		
 		<p>
 The single most important action that you can take to stabilize your access plans is to ensure that accurate catalog statistics are available. 
@@ -1631,7 +1586,7 @@ cardinalities, LIKE statistics or creating statistical views.
 		</p>
 	</div>
 	
-	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20830"></a>Column Group Statistics</h2></div></div></div>
+	<div class="section" title="Column Group Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20803"></a>Column Group Statistics</h2></div></div></div>
 		
 		<p>
 Column group cardinality statistics represent the number of distinct values in a group of columns. This statistic helps the optimizer 
@@ -1651,7 +1606,7 @@ WITH DISTRIBUTION AND SAMPLED DETAILED INDEXES ALL;
 		</p>
 	</div>
 	
-	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2083F"></a>LIKE Predicate Statistics</h2></div></div></div>
+	<div class="section" title="LIKE Predicate Statistics"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20812"></a>LIKE Predicate Statistics</h2></div></div></div>
 		
 		<p>
 If you specify LIKE predicates using the % wildcard character in any position other than at the end of the pattern, you should collect basic 
@@ -1684,7 +1639,7 @@ To collect sub-element statistics, execute RUNSTATS with the LIKE STATISTICS cla
 		</p>
 	</div>	
 
-	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2085A"></a>Statistical Views</h2></div></div></div>
+	<div class="section" title="Statistical Views"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2082D"></a>Statistical Views</h2></div></div></div>
 		
 		<p>
 The statistics described above are all important for computing an accurate cardinality estimate; however there are some situations where more 
@@ -1748,7 +1703,7 @@ this DB2 Information Center page.
 		</p>
 	</div>
 
-	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20885"></a>Handling Exceptions</h2></div></div></div>
+	<div class="section" title="Handling Exceptions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20858"></a>Handling Exceptions</h2></div></div></div>
 		
 		<p>
 Unfortunately, occasionally access plans continue to unexpectedly change for the worse, even though you&rsquo;ve taken the tuning actions described 
@@ -1759,7 +1714,7 @@ the optimizer, so that you can react quickly in emergency situations, or so that
 		</p>
 	</div>
 	
-	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N2088E"></a>Access Plan Reuse</h2></div></div></div>	
+	<div class="section" title="Access Plan Reuse"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20861"></a>Access Plan Reuse</h2></div></div></div>	
 		
 		<p>
 Access plan reuse is a new feature available in DB2 9.7 that allows you to request that the access plans for static SQL statements be preserved 
@@ -1811,7 +1766,7 @@ You can read more about access plan reuse in this <a class="ulink" href="http://
 		</p>
 	</div>
 	
-	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B6"></a>Optimization Profiles</h2></div></div></div>
+	<div class="section" title="Optimization Profiles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N20889"></a>Optimization Profiles</h2></div></div></div>
 		
 		<p>
 The DB2 data server supports an even more direct way to influence access plans using optimization profiles. Optimization profiles allow you to 
@@ -1832,7 +1787,7 @@ When an optimization profile is in effect for your application, each SQL stateme
 statements specified in the optimization profile. When a matching SQL statement is found in the optimization profile, the SQL compiler will use 
 the optimization guidelines for that SQL statement while optimizing it.
 		</p>
-		<div class="example"><a name="N208C4"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
+		<div class="example"><a name="N20897"></a><p class="title"><b>Example&nbsp;1.&nbsp;An example of an optimization profile</b></p><div class="example-contents">
 			
 			<pre class="programlisting">
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -1899,7 +1854,7 @@ DB2 Information Center page</a> provides more details on how to use optimization
 		</p>
 	</div>
 	
-	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208E1"></a>Conclusion</h2></div></div></div>
+	<div class="section" title="Conclusion"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N208B4"></a>Conclusion</h2></div></div></div>
 			
 		<p>
 The DB2 data server query optimizer is more likely to choose optimal access plans consistently if you provide it accurate information about 
