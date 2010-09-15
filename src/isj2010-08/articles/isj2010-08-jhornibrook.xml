@@ -178,23 +178,30 @@ cost model are set accurately.
 		<docbook:para>
 The following two database manager configuration parameters are used by the optimizer’s cost model. While both are set automatically by the DB2 
 data server, you should review them to ensure that they are set to appropriate values for your environment.
-			<docbook:variablelist>
-				<docbook:varlistentry>
-					<docbook:term>CPUSPEED</docbook:term>
-					<docbook:listitem>
+		
+		<docbook:table frame="all">
+			<docbook:tgroup cols='2'>
+				<docbook:colspec colname='c1' colwidth='1*'/>
+				<docbook:colspec colname='c2' colwidth='3*'/>
+				<docbook:tbody>
+					<docbook:row>
+						<docbook:entry>CPUSPEED</docbook:entry>
+						<docbook:entry>
 The average time to execute a machine instruction in milliseconds. This value is automatically computed by the DB2 data server. It can also be 
 set manually.
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>COMM_BANDWIDTH</docbook:term>
-					<docbook:listitem>
+						</docbook:entry>
+					</docbook:row>	
+					<docbook:row>
+						<docbook:entry>COMM_BANDWIDTH</docbook:entry>
+						<docbook:entry>
 The communication bandwidth between database partition servers in megabytes per second. This value is automatically computed by the DB2 data 
 server based on the speed of the underlying communications adapter.  This value is used by the query optimizer to estimate the cost of 
 transferring data between the database partition servers of a partitioned database system.
-					</docbook:listitem>
-				</docbook:varlistentry>
-			</docbook:variablelist>
+						</docbook:entry>
+					</docbook:row>
+				</docbook:tbody>
+			</docbook:tgroup>
+		</docbook:table>
 The optimizer’s cost model also considers the size of the buffer pools and the amount of available sortheap memory. The cost model also 
 considers the amount of memory available for acquiring locks, so that it can chose the best lock granularity appropriate for the specified 
 isolation level. The size of these memory resources should be determined based on available system memory and the type of workload running 
@@ -218,29 +225,43 @@ memory. It is recommended that this parameter not be set higher than 3 or 5, if 
 The optimizer also considers storage subsystem characteristics in the cost model. The storage subsystem characteristics are represented as 
 table space attributes. You can specify table space attributes using the CREATE or ALTER TABLESPACE statements. The optimizer considers the 
 following table space attributes. 
-		<docbook:variablelist>
-			<docbook:varlistentry>
-				<docbook:term>PREFETCHSIZE</docbook:term>
-				<docbook:listitem>The number of pages to be read when prefetching is performed.</docbook:listitem>
-			</docbook:varlistentry>
-			<docbook:varlistentry>
-				<docbook:term>EXTENTSIZE</docbook:term>
-				<docbook:listitem>The size of each extent in pages. This many pages are written to one container in the table space before 
-				switching to the next container. This parameter can only be specified when a table space is created.
-				</docbook:listitem>
-			</docbook:varlistentry>
-			<docbook:varlistentry>
-				<docbook:term>OVERHEAD</docbook:term>
-				<docbook:listitem>Provides an estimate of the time in milliseconds that is required by a table space container before any data 
-				is read into memory. This overhead activity includes the container's I/O controller overhead as well as the disk latency time, 
-				which includes the disk seek time. 
-				</docbook:listitem>
-			</docbook:varlistentry>
-			<docbook:varlistentry>
-				<docbook:term>TRANSFERRATE</docbook:term>
-				<docbook:listitem>Provides an estimate of the time in milliseconds that is required to read one page of data into memory.</docbook:listitem>
-			</docbook:varlistentry>
-		</docbook:variablelist>		
+
+		<docbook:table frame="all">
+			<docbook:tgroup cols='2'>
+				<docbook:colspec colname='c1' colwidth='1*'/>
+				<docbook:colspec colname='c2' colwidth='4*'/>
+				<docbook:tbody>
+					<docbook:row>
+						<docbook:entry>PREFETCHSIZE</docbook:entry>
+						<docbook:entry>
+						The number of pages to be read when prefetching is performed.
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>EXTENTSIZE</docbook:entry>
+						<docbook:entry>
+						The size of each extent in pages. This many pages are written to one container in the table space before 
+						switching to the next container. This parameter can only be specified when a table space is created.
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>OVERHEAD</docbook:entry>
+						<docbook:entry>
+						Provides an estimate of the time in milliseconds that is required by a table space container before any data 
+						is read into memory. This overhead activity includes the container's I/O controller overhead as well as the disk latency time, 
+						which includes the disk seek time. 
+						</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>TRANSFERRATE</docbook:entry>
+						<docbook:entry>
+						Provides an estimate of the time in milliseconds that is required to read one page of data into memory
+						</docbook:entry>
+					</docbook:row>
+				</docbook:tbody>
+			</docbook:tgroup>
+		</docbook:table>
+
 The DB2 data server doesn’t automatically determine the table space overhead and transfer rate. If you don’t specify values when the table space
 is created, default values are used by the optimizer. However they may not be representative of your storage subsystem. I/O can be the most 
 significant cost of an access plan, so it is important for you to set these parameters accurately. 			

@@ -25,99 +25,79 @@
 		<docbook:para>
 			But let’s back up a moment. The following items are the core of the storage-related objects and items you will need to know 
 			about for DB2 for z/OS:-
-			<docbook:variablelist>
-				<docbook:varlistentry>
-					<docbook:term>DB2 Storage Groups</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							List of disk volumes. DB2 can also work with SMS so you will need to differentiate between DB2 storage groups 
+
+		<docbook:table frame="all">
+			<docbook:tgroup cols='3'>
+				<docbook:colspec colname='c1' colwidth='2*' />
+				<docbook:colspec colname='c2' colwidth='2*' />
+				<docbook:colspec colname='c3' colwidth='3*' />
+				<docbook:tbody>	
+					<docbook:row>
+						<docbook:entry>DB2 Storage Groups</docbook:entry>
+						<docbook:entry namest="c2" nameend="c3">List of disk volumes</docbook:entry>
+					</docbook:row>
+					<docbook:row>	
+						<docbook:entry/>
+						<docbook:entry namest="c2" nameend="c3">
+						DB2 can also work with SMS so you will need to differentiate between DB2 storage groups 
 							and SMS storage groups (see Figure 1).
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Table Spaces</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk as at least one VSAM LDS data set
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Indexes</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk (in an index space) as at least one VSAM LDS data set
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>			
-				<docbook:varlistentry>
-					<docbook:term>System data sets</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Active Log</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Archive Logs</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk or tape
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>BSDS</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Image Copy Backups</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk or tape
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Image Copy Backups</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Stored on disk or tape
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>DB2 library data sets</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>Temporary data sets</docbook:term>
-					<docbook:listitem>
-						<docbook:para>
-							Used by utilities
-						</docbook:para>
-					</docbook:listitem>
-				</docbook:varlistentry>
-			</docbook:variablelist>	
+						</docbook:entry>
+					</docbook:row>			
+					<docbook:row>
+						<docbook:entry>Table Spaces</docbook:entry>
+						<docbook:entry namest="c2" nameend="c3">Stored on disk as at least one VSAM LDS data set</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry>Indexes</docbook:entry>
+						<docbook:entry namest="c2" nameend="c3">Stored on disk (in an index space) as at least one VSAM LDS data set</docbook:entry>
+					</docbook:row>	
+					<docbook:row>
+						<entry namest="c1" nameend="c3">System Data Sets</entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry/>
+						<docbook:entry>Active Log</docbook:entry>
+						<docbook:entry>Stored on disk</docbook:entry>
+					</docbook:row>	
+					<docbook:row>
+						<docbook:entry/>
+						<docbook:entry>Archive Logs</docbook:entry>
+						<docbook:entry>Stored on disk or tape</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry/>
+						<docbook:entry>BSDS</docbook:entry>
+						<docbook:entry>Stored on disk</docbook:entry>
+					</docbook:row>	
+					<docbook:row>
+						<docbook:entry>Image Copy Backups</docbook:entry>
+						<docbook:entry namest="c2" nameend="c3">Stored on disk or tape</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry namest="c1" nameend="c3">Other "stuff"</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry/>
+						<docbook:entry namest="c2" nameend="c3">DB2 library data sets</docbook:entry>
+					</docbook:row>
+					<docbook:row>
+						<docbook:entry/>
+						<docbook:entry namest="c2" nameend="c3">Temporary data sets (used by utilities)</docbook:entry>
+					</docbook:row>	
+				</docbook:tbody>
+			</docbook:tgroup>
+		</docbook:table>
+			
+
 		</docbook:para>
-
-Figure 1. DB2 Storage Groups vs. SMS Storage Groups
-
+			<docbook:figure>
+				<docbook:title>DB2 Storage Groups vs SMS Storage Groups</docbook:title>
+				<docbook:mediaobject>
+					<docbook:imageobject>
+						<docbook:imagedata fileref="../graphics/isj2010-08-cmullins-graphics1.png" />
+					</docbook:imageobject>
+				</docbook:mediaobject>
+			</docbook:figure>
 		<docbook:para>
 			So you can see that there are multiple areas within DB2 that require storage and need to be managed. This article will touch 
 			upon most of these areas. But back to data set basics for the time being. 
@@ -148,7 +128,15 @@ Figure 1. DB2 Storage Groups vs. SMS Storage Groups
 		</docbook:para>		
 
 
-Figure 2. DB2 Data Set Naming Convention
+
+			<docbook:figure>
+				<docbook:title>DB2 Data Set Naming Convention</docbook:title>
+				<docbook:mediaobject>
+					<docbook:imageobject>
+						<docbook:imagedata fileref="../graphics/isj2010-08-cmullins-graphics2.png" />
+					</docbook:imageobject>
+				</docbook:mediaobject>
+			</docbook:figure>
 
 		<docbook:para>
 			The instance qualifier is used when running online REORG and CHECK utilities. For an online utility DB2 uses a shadow data 
@@ -195,7 +183,14 @@ Figure 2. DB2 Data Set Naming Convention
 			Likewise, most DBAs are not storage experts. Making matters worse is that these two groups rarely communicate well.
 		</docbook:para>
 
-Figure 3. DBA versus Storage Administration
+			<docbook:figure>
+				<docbook:title>DBA vs Storage Administration</docbook:title>
+				<docbook:mediaobject>
+					<docbook:imageobject>
+						<docbook:imagedata fileref="../graphics/isj2010-08-cmullins-graphics3.png" />
+					</docbook:imageobject>
+				</docbook:mediaobject>
+			</docbook:figure>
 
 		<docbook:para>
 			So there is a gap between Database Administration, Storage Administration and Capacity Planning. Information is available 
@@ -293,20 +288,26 @@ Figure 3. DBA versus Storage Administration
 			First up is the SEQCACH parameter. The original meaning of this parameter, for 3390 DASD, was whether DB2 I/O should 
 			bypass the disk cache, but the meaning is different now because you do not want to bypass the cache on modern storage 
 			arrays. There are two options:
-			<docbook:variablelist>
-				<docbook:varlistentry>
-					<docbook:term>BYPASS</docbook:term>
-					<docbook:listitem>
-						The disk will perform Sequential Detection
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>SEQ</docbook:term>
-					<docbook:listitem>
-						Creates an explicit Prefetch request; the recommendation is to use this setting for improved performance.
-					</docbook:listitem>
-				</docbook:varlistentry>
-			</docbook:variablelist>
+
+			<docbook:table frame="all">
+				<docbook:tgroup cols="2">
+					<docbook:colspec colname='c1' colwidth='1*'/>
+					<docbook:colspec colname='c2' colwidth='4*'/>
+					<docbook:tbody>
+						<docbook:row>
+							<docbook:entry>BYPASS</docbook:entry>
+							<docbook:entry>The disk will perform Sequential Detection</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>SEQ</docbook:entry>
+							<docbook:entry>
+							Creates an explicit Prefetch request; the recommendation is to use this setting for improved performance.
+							</docbook:entry>
+						</docbook:row>
+					</docbook:tbody>	
+				</docbook:tgroup>
+			</docbook:table>
+			
 		</docbook:para>
 		<docbook:para>
 			The second DSNZPARM is SEQPRES, which is similar to SEQCACH, but for DB2 LOAD and REORG utilities. If set to YES the 
@@ -327,43 +328,51 @@ Figure 3. DBA versus Storage Administration
 			DFSMS is IBM’s Data Facility Storage Management System. It offers data management, backup and HSM software from IBM 
 			mainframes, combining backup, copy, HSM and device driver routines into a single package. So DFSMS is actually multiple 
 			products; it is a suite of data and storage management offerings:-
-			<docbook:variablelist>
-				<docbook:varlistentry>
-					<docbook:term>DFSMSdfp</docbook:term>
-					<docbook:listitem>
-						Data Facility Product - provides the logical and physical input and output for z/OS storage, it keeps track of 
-						all data and programs managed within z/OS, and it provides data access both for native z/OS applications and 
-						other platforms. 
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>DFSMSdss</docbook:term>
-					<docbook:listitem>
-						This is a priced optional feature. It is a DASD data and space management tool for moving and copying data. 
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>DFSMShsm</docbook:term>
-					<docbook:listitem>
-						Hierarchical Storage Manager - a priced optional feature for managing low-activity and inactive data. It 
-						provides backup, recovery, migration, and space management functions. 
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>DFSMSrmm</docbook:term>
-					<docbook:listitem>
-						Removable Media Manager  - a priced optional feature for managing removable media resources (e.g. IBM's 
-						Virtual Tape Server).
-					</docbook:listitem>
-				</docbook:varlistentry>
-				<docbook:varlistentry>
-					<docbook:term>DFSMStvs</docbook:term>
-					<docbook:listitem>
-						Transactional VSAM Services – is another priced optional feature that enables batch jobs and CICS online 
-						transactions to update shared VSAM data sets concurrently. 
-					</docbook:listitem>
-				</docbook:varlistentry>
-			</docbook:variablelist>
+
+			<docbook:table frame="all">
+				<docbook:tgroup cols="2">
+					<docbook:colspec colname='c1' colwidth='1*'/>
+					<docbook:colspec colname='c2' colwidth='4*'/>
+					<docbook:tbody>
+						<docbook:row>
+							<docbook:entry>DFSMSdfp</docbook:entry>
+							<docbook:entry>
+							Data Facility Product - provides the logical and physical input and output for z/OS storage, it keeps track of 
+							all data and programs managed within z/OS, and it provides data access both for native z/OS applications and 
+							other platforms. 
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>DFSMSdss</docbook:entry>
+							<docbook:entry>
+							This is a priced optional feature. It is a DASD data and space management tool for moving and copying data. 
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>DFSMShsm</docbook:entry>
+							<docbook:entry>
+							Hierarchical Storage Manager - a priced optional feature for managing low-activity and inactive data. It 
+							provides backup, recovery, migration, and space management functions. 
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>DFSMSrmm</docbook:entry>
+							<docbook:entry>
+							Removable Media Manager  - a priced optional feature for managing removable media resources (e.g. IBM's 
+							Virtual Tape Server).
+							</docbook:entry>
+						</docbook:row>
+						<docbook:row>
+							<docbook:entry>DFSMStvs</docbook:entry>
+							<docbook:entry>
+							Transactional VSAM Services – is another priced optional feature that enables batch jobs and CICS online 
+							transactions to update shared VSAM data sets concurrently. 
+							</docbook:entry>
+						</docbook:row>
+					</docbook:tbody>	
+				</docbook:tgroup>
+			</docbook:table>
+			
 		</docbook:para>
 		<docbook:para>
 			But we are not going to delve into all of these various components. What we are most interested in is how DB2 can benefit 
