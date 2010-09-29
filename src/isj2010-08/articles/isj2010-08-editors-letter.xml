@@ -15,9 +15,51 @@
 	</docbook:para>
 	<docbook:para>
 		Our main feature article this month is a case study in producing and consuming documents in ODF 
-		(Open Document Format) using DB2 pureXML.   
+		(Open Document Format), as used by the free OpenOffice.org suite, using DB2 pureXML.   The techniques
+		described in this article could be readily applied to a wide variety of other use cases.   
 	</docbook:para>
 	<docbook:para>
-		We are also pleased to have a full complement of columns from our regular contributors.
+		We are also pleased to have a full complement of columns from our regular contributors.   Roger Miller
+		talks about the choices to be made when considering a DB2 for z/OS upgrade.   John Hornibrook discusses
+		how to guard against queries going bad.   And Craig Mullins looks at the relationship which needs to be
+		built between DBAs and Storage Managers.   Next time we hope to add to our stable of regular columnists
+		so watch this space.    
+	</docbook:para>
+	<docbook:para>
+		As I said before this is the first issue of a new look ISJ.   It is still very much a work in progress
+		as we learn a bunch of new tools.   This first issue is not exactly a "thing of beauty" but we hope
+		this will get better as our skills build.   At least I believe there is plenty of good technical
+		content in it.
+	</docbook:para>
+	<docbook:para>
+		We are urgently in need of volunteers to help with the ISJ.   These fall into three categories -
+		<docbook:orderedlist>
+			<docbook:listitem>
+				First and foremost we need authors.   We'd be delighted to hear from anyone who would be 
+				willing to spend time working on a technical article for the magazine.
+			</docbook:listitem>
+			<docbook:listitem>
+				We also need reviewers to join the ERB (Editorial Review Board).  Reviewers can be of two
+				types : technical and grammatical.   If you think you could contribute in either of these
+				areas then please drop me a line.   You don't need to be a cross-platform DB2 expert to
+				be a good technical reviewer : indeed when I started with ISJ I learnt a lot as I checked
+				the technical correctness of articles against the publicly available documentation.
+			</docbook:listitem>
+			<docbook:listitem>
+				Finally we need folks to help with the preparation of the content.   If anyone out there has
+				experience using the DocBook standard (or would be willing to learn) then we would be delighted
+				to hear from you.   Our aim is to turn the ISJ back into a publication not only with the best
+				quality of content, but which also looks professional.   
+			</docbook:listitem>
+		</docbook:orderedlist>
+	</docbook:para>
+	<docbook:para>
+		We hope to have the next issue of the ISJ available before the end of the year.   Until then ...
+	</docbook:para>
+	<docbook:para>
+		... don't just do it, DB2 it !!!
+	</docbook:para>
+	<docbook:para>
+		Phil Nelson (ISJ Executive Editor)
 	</docbook:para>
 </docbook:article>
