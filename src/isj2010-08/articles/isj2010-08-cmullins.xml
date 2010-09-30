@@ -10,7 +10,7 @@
 		</docbook:author>
 	</docbook:info>
 	<docbook:para>
-		As an IT professional who uses DB2, you know that all database management systems rely on some form persistent storage to 
+		As an IT professional who uses DB2, you know that all database management systems rely on some form of persistent storage to 
 		maintain data. That means that the DBMS interoperates with operating system files, or data sets. As such, some form of 
 		storage management should be a key part of the database operations required of a DBA. Typically database storage means 
 		disk devices or subsystems, but it can also mean solid state disk, removable storage, or even trusty “old” tape devices.
@@ -26,68 +26,36 @@
 			But let’s back up a moment. The following items are the core of the storage-related objects and items you will need to know 
 			about for DB2 for z/OS:-
 
-		<docbook:table frame="all">
-			<docbook:tgroup cols='3'>
-				<docbook:colspec colname='c1' colwidth='2*' />
-				<docbook:colspec colname='c2' colwidth='2*' />
-				<docbook:colspec colname='c3' colwidth='3*' />
-				<docbook:tbody>	
-					<docbook:row>
-						<docbook:entry>DB2 Storage Groups</docbook:entry>
-						<docbook:entry namest="c2" nameend="c3">List of disk volumes</docbook:entry>
-					</docbook:row>
-					<docbook:row>	
-						<docbook:entry/>
-						<docbook:entry namest="c2" nameend="c3">
+		<docbook:itemizedlist>
+			<docbook:listitem>DB2 Storage Groups : list of disk volumes
+				<docbook:itemizedlist>
+					<docbook:listitem>
 						DB2 can also work with SMS so you will need to differentiate between DB2 storage groups 
 							and SMS storage groups (see Figure 1).
-						</docbook:entry>
-					</docbook:row>			
-					<docbook:row>
-						<docbook:entry>Table Spaces</docbook:entry>
-						<docbook:entry namest="c2" nameend="c3">Stored on disk as at least one VSAM LDS data set</docbook:entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry>Indexes</docbook:entry>
-						<docbook:entry namest="c2" nameend="c3">Stored on disk (in an index space) as at least one VSAM LDS data set</docbook:entry>
-					</docbook:row>	
-					<docbook:row>
-						<entry namest="c1" nameend="c3">System Data Sets</entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry/>
-						<docbook:entry>Active Log</docbook:entry>
-						<docbook:entry>Stored on disk</docbook:entry>
-					</docbook:row>	
-					<docbook:row>
-						<docbook:entry/>
-						<docbook:entry>Archive Logs</docbook:entry>
-						<docbook:entry>Stored on disk or tape</docbook:entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry/>
-						<docbook:entry>BSDS</docbook:entry>
-						<docbook:entry>Stored on disk</docbook:entry>
-					</docbook:row>	
-					<docbook:row>
-						<docbook:entry>Image Copy Backups</docbook:entry>
-						<docbook:entry namest="c2" nameend="c3">Stored on disk or tape</docbook:entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry namest="c1" nameend="c3">Other "stuff"</docbook:entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry/>
-						<docbook:entry namest="c2" nameend="c3">DB2 library data sets</docbook:entry>
-					</docbook:row>
-					<docbook:row>
-						<docbook:entry/>
-						<docbook:entry namest="c2" nameend="c3">Temporary data sets (used by utilities)</docbook:entry>
-					</docbook:row>	
-				</docbook:tbody>
-			</docbook:tgroup>
-		</docbook:table>
-			
+					</docbook:listitem>				
+				</docbook:itemizedlist>	
+			</docbook:listitem>	
+			<docbook:listitem>
+				Table Spaces : stored on disk as at least one VSAM LDS data set
+			</docbook:listitem>
+			<docbook:listitem>
+				Indexes : stored on disk (in an index space) as at least one VSAM LDS data set
+			</docbook:listitem>
+			<docbook:listitem>System Data Sets
+				<docbook:itemizedlist>
+					<docbook:listitem>Active Log : stored on disk</docbook:listitem>
+					<docbook:listitem>Archive Logs : stored on disk or tape</docbook:listitem>
+					<docbook:listitem>BSDS : stored on disk</docbook:listitem>
+				</docbook:itemizedlist>
+			</docbook:listitem>
+			<docbook:listitem>Image Copy Backups : stored on disk or tape</docbook:listitem>
+			<docbook:listitem>Other "stuff"
+				<docbook:itemizedlist>
+					<docbook:listitem>DB2 library data sets</docbook:listitem>
+					<docbook:listitem>Temporary data sets (used by utilities)</docbook:listitem>
+				</docbook:itemizedlist>
+			</docbook:listitem>
+		</docbook:itemizedlist>			
 
 		</docbook:para>
 			<docbook:figure>
@@ -289,24 +257,11 @@
 			bypass the disk cache, but the meaning is different now because you do not want to bypass the cache on modern storage 
 			arrays. There are two options:
 
-			<docbook:table frame="all">
-				<docbook:tgroup cols="2">
-					<docbook:colspec colname='c1' colwidth='1*'/>
-					<docbook:colspec colname='c2' colwidth='4*'/>
-					<docbook:tbody>
-						<docbook:row>
-							<docbook:entry>BYPASS</docbook:entry>
-							<docbook:entry>The disk will perform Sequential Detection</docbook:entry>
-						</docbook:row>
-						<docbook:row>
-							<docbook:entry>SEQ</docbook:entry>
-							<docbook:entry>
-							Creates an explicit Prefetch request; the recommendation is to use this setting for improved performance.
-							</docbook:entry>
-						</docbook:row>
-					</docbook:tbody>	
-				</docbook:tgroup>
-			</docbook:table>
+			<docbook:itemizedlist>
+				<docbook:listitem>BYPASS : the disk will perform Sequential Detection</docbook:listitem>
+				<docbook:listitem>SEQ : creates an explicit Prefetch request; the recommendation is to use this setting for 
+				improved performance.</docbook:listitem>
+			</docbook:itemizedlist>	
 			
 		</docbook:para>
 		<docbook:para>
@@ -329,49 +284,28 @@
 			mainframes, combining backup, copy, HSM and device driver routines into a single package. So DFSMS is actually multiple 
 			products; it is a suite of data and storage management offerings:-
 
-			<docbook:table frame="all">
-				<docbook:tgroup cols="2">
-					<docbook:colspec colname='c1' colwidth='1*'/>
-					<docbook:colspec colname='c2' colwidth='4*'/>
-					<docbook:tbody>
-						<docbook:row>
-							<docbook:entry>DFSMSdfp</docbook:entry>
-							<docbook:entry>
-							Data Facility Product - provides the logical and physical input and output for z/OS storage, it keeps track of 
-							all data and programs managed within z/OS, and it provides data access both for native z/OS applications and 
-							other platforms. 
-							</docbook:entry>
-						</docbook:row>
-						<docbook:row>
-							<docbook:entry>DFSMSdss</docbook:entry>
-							<docbook:entry>
-							This is a priced optional feature. It is a DASD data and space management tool for moving and copying data. 
-							</docbook:entry>
-						</docbook:row>
-						<docbook:row>
-							<docbook:entry>DFSMShsm</docbook:entry>
-							<docbook:entry>
-							Hierarchical Storage Manager - a priced optional feature for managing low-activity and inactive data. It 
-							provides backup, recovery, migration, and space management functions. 
-							</docbook:entry>
-						</docbook:row>
-						<docbook:row>
-							<docbook:entry>DFSMSrmm</docbook:entry>
-							<docbook:entry>
-							Removable Media Manager  - a priced optional feature for managing removable media resources (e.g. IBM's 
-							Virtual Tape Server).
-							</docbook:entry>
-						</docbook:row>
-						<docbook:row>
-							<docbook:entry>DFSMStvs</docbook:entry>
-							<docbook:entry>
-							Transactional VSAM Services – is another priced optional feature that enables batch jobs and CICS online 
-							transactions to update shared VSAM data sets concurrently. 
-							</docbook:entry>
-						</docbook:row>
-					</docbook:tbody>	
-				</docbook:tgroup>
-			</docbook:table>
+			<docbook:itemizedlist>
+				<docbook:listitem>
+					DFSMSdfp : Data Facility Product - provides the logical and physical input and output for z/OS storage, it keeps 
+					track of all data and programs managed within z/OS, and it provides data access both for native z/OS applications 
+					and other platforms.
+				</docbook:listitem>	
+				<docbook:listitem>
+					DFSMSdss : this is a priced optional feature. It is a DASD data and space management tool for moving and copying data.
+				</docbook:listitem>
+				<docbook:listitem>
+					DFSMShsm : Hierarchical Storage Manager - a priced optional feature for managing low-activity and inactive data. It 
+					provides backup, recovery, migration, and space management functions.
+				</docbook:listitem>
+				<docbook:listitem>
+					DFSMSrmm : Removable Media Manager  - a priced optional feature for managing removable media resources (e.g. IBM's 
+					Virtual Tape Server).
+				</docbook:listitem>
+				<docbook:listitem>
+					DFSMStvs : Transactional VSAM Services – is another priced optional feature that enables batch jobs and CICS online 
+					transactions to update shared VSAM data sets concurrently.
+				</docbook:listitem>
+			</docbook:itemizedlist>		 
 			
 		</docbook:para>
 		<docbook:para>
@@ -540,15 +474,8 @@
 		<docbook:para>
 			If possible, build alerts to inform you of problems, shortages, and potential errors. When possible, automate remediation 
 			tactics so that the alert tells you what happened, as well as what was done to correct the issue. Tools may be able to 
-			assist in automating reaction to shortages, potential errors, superfluous data sets, etc. For example, refer to Figures 
-			4 and 5.
-		</docbook:para>
-
-Figure 4. Automated Storage Alerts
-
-
-Figure 5. Tracking the Growth of DB2 Storage Space 
-
+			assist in automating reaction to shortages, potential errors, superfluous data sets, etc. 
+		</docbook:para>	
 	</docbook:section>
 	
 	<docbook:section>
@@ -566,5 +493,20 @@ Figure 5. Tracking the Growth of DB2 Storage Space
 				the relationship is between these two IT professionals, the better your database applications will perform. And that 
 				is what it is all really about, right?
 			</docbook:para>
+	</docbook:section>
+	
+	<docbook:section>
+		<docbook:title>Author Bio</docbook:title>
+		<docbook:para>
+			Craig S. Mullins is a data management strategist, researcher, and consultant. He is president and principal consultant of Mullins 
+			Consulting, Inc., a principal with SoftwareOnZ (a mainframe software distributor), and the publisher/editor for TheDatabaseSite.com. 
+			Craig has nearly three decades of experience in all facets of database systems development and has worked with mainframe DB2 since 
+			V1. 
+		</docbook:para>
+		<docbook:para>
+			You may know Craig from his popular books: "DB2 Developer's Guide" (with over 1500 pages of in-depth technical information on DB2 
+			for z/OS) and "Database Administration: The Complete Guide to Practices and Procedures" (the industry's only comprehensive guide 
+			to heterogeneous database administration). More information available at www.craigsmullins.com.
+		</docbook:para>
 	</docbook:section>
 </docbook:article>
