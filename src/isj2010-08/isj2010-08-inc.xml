@@ -608,7 +608,7 @@ TOTAL                 14.50       0.00   293.00
 			</docbook:para>
 		</docbook:section>
 		<docbook:section>
-			<docbook:title>Building the <docbook:code>&gt;&lt;table:table-row&gt;</docbook:code> elements</docbook:title>
+			<docbook:title>Building the <docbook:code>&lt;table:table-row&gt;</docbook:code> elements</docbook:title>
 			<docbook:para>
 				In our example, each row of the spreadsheet would have four columns. Therefore, each row element, as required in content.xml, 
 				would have four children (one per column). A sample of <docbook:code>&lt;table:table-row&gt;</docbook:code> is 
@@ -851,9 +851,13 @@ VALUES XMLQUERY(
 		</docbook:variablelist>
 	</docbook:section>
 	<docbook:section>
-		<docbook:title>Biography</docbook:title>
-		<docbook:para>Nagesh Subrahmanyam is a Software Developer in IBM
-			Global Services, India......</docbook:para>
+		<docbook:title>Author Bio</docbook:title>
+		<docbook:para>
+			Nagesh Subrahmanyam is an Advisory System Analyst with IBM India Pvt Ltd. He has over 9 years of experience with IBM System z 
+			technologies and is a keen fan of OSS technologies (Java, XML, etc.) especially on IBM System z. His other publications include 
+			the WebSphere MQ SupportPac  MA1M, IBM Redbook 'XML Processing Options on z/OS' and a developerWorks article 'Submit batch jobs 
+			from Java on z/OS'. He can be reached at nsubrahm@in.ibm.com
+		</docbook:para>	
 	</docbook:section>
 </docbook:article>
 
